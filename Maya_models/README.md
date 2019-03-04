@@ -1,16 +1,8 @@
-Here you have to put your models
+# Maya Models
 
-Maya_models/
-+-- GROUP_1/
-¦   +-- OBJECT_1.md
-¦   +-- OBJECT_2.md
-¦   +-- OBJECT_3.md
-¦   +-- OBJECT_4.md
-+-- GROUP_2/
-¦   +-- OBJECT_1.md
-¦   +-- OBJECT_2.md
-+-- GROUP_3/
-    +-- OBJECT_1.md
-    +-- OBJECT_2.md
-    +-- OBJECT_3.md
-    +-- OBJECT_4.md
+## Rules:
+
+ 
+1. Put Model file in its **own directory**
+ 
+2. Give it a name **without spaces**, can use - or _
