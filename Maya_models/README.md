@@ -1,6 +1,6 @@
 Here you have to put your models
 
-`Maya_models/
+Maya_models/
 +-- GROUP_1/
 ¦   +-- OBJECT_1.md
 ¦   +-- OBJECT_2.md
@@ -13,4 +13,4 @@ Here you have to put your models
     +-- OBJECT_1.md
     +-- OBJECT_2.md
     +-- OBJECT_3.md
-    +-- OBJECT_4.md`
+    +-- OBJECT_4.md
