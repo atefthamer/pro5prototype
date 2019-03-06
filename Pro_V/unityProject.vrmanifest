@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.pro_v.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\User\\Documents\\Pro_V\\pro5prototype\\Pro_V\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Pro_V [Testing]"
+        }
+      }
+    }
+  ]
+}
