@@ -1243,6 +1243,7 @@ GameObject:
   - component: {fileID: 569964667403647729}
   - component: {fileID: 5209811637000688187}
   - component: {fileID: 5209811637000688189}
+  - component: {fileID: 5209811637000688188}
   m_Layer: 0
   m_Name: Tutorial_Ball
   m_TagString: Interactable
@@ -1320,6 +1321,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &5209811637000688188
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209811637000688186}
+  m_Material: {fileID: 13400000, guid: b91403eac1360c143a5d75e34b2859ad, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5830278622432430617
 GameObject:
   m_ObjectHideFlags: 0
