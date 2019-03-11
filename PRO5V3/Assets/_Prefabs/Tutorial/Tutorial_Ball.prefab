@@ -1241,6 +1241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 569964667403647729}
+  - component: {fileID: 5209811637000688187}
   m_Layer: 0
   m_Name: Tutorial_Ball
   m_TagString: Untagged
@@ -1255,7 +1256,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5209811637000688186}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.705, y: 0.512, z: 0}
   m_LocalScale: {x: 0.2462, y: 0.23009233, z: 0.2462}
   m_Children:
@@ -1290,6 +1291,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5209811637000688187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5209811637000688186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89ef337745b09964992b749caf024a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5830278622432430617
 GameObject:
   m_ObjectHideFlags: 0
