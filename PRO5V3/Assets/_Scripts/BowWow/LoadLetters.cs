@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using System.Linq;
 
@@ -21,7 +22,7 @@ public class LoadLetters : MonoBehaviour
 
     void Start()
     {
-        string targetdirectory = "./Assets/_Models/Letters";
+        string targetdirectory = "./Assets/_Prefabs/Letters";
 
         //foreach (GameObject obj in letters)
         //{
@@ -56,13 +57,20 @@ public class LoadLetters : MonoBehaviour
 
         //var gmObjCenterPoint = GameObject.Find("GameObject");
 
+        Vector3 center = transform.position;
+
         for (int i = 0; i < 7; i++)
         {
-            var obi = Instantiate(dict[alphabet[i]]);
+            float randomRadius = UnityEngine.Random.Range(5.0f, 30.0f);
+            Vector3 pos = RandomCircle(center, randomRadius);
+            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+
+            var obi = Instantiate(dict[alphabet[i]], pos, rot);
             obi.AddComponent<Orbit>();
+            //obi.AddComponent<SpawnArea>();
             obi.AddComponent<Rigidbody>();
             obi.GetComponent<Rigidbody>().useGravity = false;
-            obi.AddComponent<RotatePill>();
+            //obi.AddComponent<RotatePill>();
             obi.AddComponent<SphereCollider>();
             obi.GetComponent<SphereCollider>().isTrigger = true;
             //obi.GetComponent<Orbit>().centerPoint.gameObject.name = "GameObject";
@@ -111,5 +119,18 @@ public class LoadLetters : MonoBehaviour
             path = "/" + obj.name + path;
         }
         return path;
+    }
+
+    Vector3 RandomCircle(Vector3 center, float radius)
+    {
+        float ang = UnityEngine.Random.Range(-90.0f, 90.0f);
+        //float ang = Random.value * 360;
+        //prefab.GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+        Debug.Log("The Angle: " + ang);
+        Vector3 pos;
+        pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
+        pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+        pos.z = center.z + UnityEngine.Random.Range(-5.0f, 60.0f);
+        return pos;
     }
 }

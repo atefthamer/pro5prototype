@@ -6,21 +6,23 @@ using UnityEngine;
 public class SpawnArea : MonoBehaviour
 {
     public int numObjects = 3;
-    public GameObject prefab;
+    //public GameObject prefab;
     private List<GameObject> clones;
 
     void Start()
     {
         Vector3 center = transform.position;
         clones = new List<GameObject>();
-        for (int i = 0; i < numObjects; i++)
-        {
-            Vector3 pos = RandomCircle(center, 5.0f);
+        //for (int i = 0; i < numObjects; i++)
+        //{
+            float randomRadius = Random.Range(5.0f, 30.0f);
+            Vector3 pos = RandomCircle(center, randomRadius);
             Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
             //Instantiate(prefab, pos, rot);
-            clones.Add((GameObject)Instantiate(prefab, pos, rot));
+            //clones.Add((GameObject)Instantiate(prefab, pos, rot));
+            clones.Add((GameObject)Instantiate(this.gameObject, pos, rot));
             Debug.Log(clones.Count);
-        }
+        //}
         
         for(int i = 0; i < clones.Count; i++)
         {
@@ -38,7 +40,7 @@ public class SpawnArea : MonoBehaviour
         Vector3 pos;
         pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
         pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
-        pos.z = center.z + Random.Range(-10.0f, 10.0f);
+        pos.z = center.z + Random.Range(-5.0f, 60.0f);
         return pos;
     }
 
