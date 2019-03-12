@@ -1,35 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Trigger_Minigame : MonoBehaviour
 {
     public Material[] mats;
-    private float timer = 10.0f;
+    private float countdown = 10.0f;
+    private float gameTimer = 60.0f;
     private bool startCountdown = false;
+
+    public TextMeshPro countdownText;
 
     void Start()
     {
         gameObject.GetComponent<Renderer>().material = mats[0];
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartMinigame();
+            StartCountdown();
         }
 
         if (startCountdown == true)
         {
-            timer -= Time.deltaTime;
+            countdown -= Time.deltaTime;
+
+            if (countdown <= 0.0f)
+            {
+                countdown = 0.0f;
+                gameTimer -= Time.deltaTime;
+            }
         }
+    }
+
+    void StartCountdown()
+    {
+        gameObject.GetComponent<Renderer>().material = mats[1];
+        countdownText.text = " " + countdown.ToString("f0");
+        startCountdown = true;
     }
 
     void StartMinigame()
     {
-        gameObject.GetComponent<Renderer>().material = mats[1];
-        startCountdown = true;
+
     }
 }
