@@ -7,8 +7,11 @@ using UnityEngine;
 using UnityEditor;
 using System.Linq;
 
+
+
 public class LoadLetters : MonoBehaviour
-{
+{ 
+
     Orbit orbit;
     //public GameObject placeholder;
     // Start is called before the first frame update
@@ -16,92 +19,93 @@ public class LoadLetters : MonoBehaviour
     List<GameObject> letters = new List<GameObject>();
 
     Dictionary<string, GameObject> dict = new Dictionary<string, GameObject>();
+    //Dictionary<char, GameObject> dict = new Dictionary<string, GameObject>();
+
 
     [SerializeField]
     GameObject objectCenterPoint = null;
+
+    Dictionary<int, string> wordsDict = new Dictionary<int, string>();
+    public int wordsCount = 0;
+
+    string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+
+ 
 
     void Start()
     {
         string targetdirectory = "./Assets/_Prefabs/Letters";
 
-        //foreach (GameObject obj in letters)
-        //{
-        //    dict.Add(obj.name, obj);
-        //}
-
-        //GameObject ob = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Models/Letters/A.fbx", typeof(GameObject));
-        //Debug.Log("OB >> " + ob.name);
-        //Instantiate(ob);
-        //ob.transform.localScale += new Vector3(500.0f, 500.0f, 500.0f);
-
-        /*
-        Object prefabLetter = Resources.Load("Resources/Prefabs/Letters/A.fbx"); // Assets/Resources/Prefabs/prefab1.FBX
-        GameObject t = (GameObject)Instantiate(prefabLetter, new Vector3(0, 0, 0), Quaternion.identity);
-        */
-
-        //GameObject t = Instantiate(dict["A"]);
-        //t.transform.localScale += new Vector3(50.0f, 50.0f, 50.0f);
 
         string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();
-        //string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFullPath(file)).ToArray();
+   
         string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").ToArray();
 
         for(int i = 0; i < files.Length; i++)
         {
             Debug.Log("FILE NAME FOR NOW ++++---->>>> " + files[i].Replace(".fbx", ""));
-            //Debug.Log("SUBSTRING DEMO --> " + filesPath[i].Substring(1));
             dict.Add(files[i].Replace(".fbx", ""), (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), typeof(GameObject)));
+        } 
+
+        if (FillDictionaryWithWords())
+        {
+            Debug.Log("Done with file reader");
         }
 
-        string[] alphabet = { "A", "B", "C", "D", "E", "F", "G" };
+        var randomIndex = (int)UnityEngine.Random.Range(0.0f, wordsCount);
 
-        //var gmObjCenterPoint = GameObject.Find("GameObject");
+        Debug.Log("This is the word with index 2 " + wordsDict[randomIndex].ToUpper());
+        Debug.Log("This is the word with index 2 with length " + wordsDict[randomIndex].Length);
+
+        for(int i = 0; i < wordsDict[randomIndex].Length; i++)
+        {
+            instantiateLetters(GetWordLetterAtIndex(randomIndex, i++));
+        }
+
+        for(int j = 0; j < 10; j++)
+        {
+            var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
+            instantiateLetters(GetRandomLetter(randomLetterIndex));
+        }
+
+    }
+
+    private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
+    {
+        return dict[wordsDict[wordIndex].ToUpper()[letterIndex].ToString()];
+    }
+
+    private GameObject GetRandomLetter(int index)
+    {
+        return dict[alphabet[index]];
+    }
+
+
+    private void instantiateLetters(GameObject prefab)
+    {
+        float randomRadius = UnityEngine.Random.Range(5.0f, 30.0f);
 
         Vector3 center = transform.position;
 
-        for (int i = 0; i < 7; i++)
-        {
-            float randomRadius = UnityEngine.Random.Range(5.0f, 30.0f);
-            Vector3 pos = RandomCircle(center, randomRadius);
-            Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+        Vector3 pos = RandomCircle(center, randomRadius);
+        //Vector3 pos = randomPos(center, randomRadius);
+        //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
 
-            var obi = Instantiate(dict[alphabet[i]], pos, rot);
-            obi.AddComponent<Orbit>();
-            //obi.AddComponent<SpawnArea>();
-            obi.AddComponent<Rigidbody>();
-            obi.GetComponent<Rigidbody>().useGravity = false;
-            //obi.AddComponent<RotatePill>();
-            obi.AddComponent<SphereCollider>();
-            obi.GetComponent<SphereCollider>().isTrigger = true;
-            //obi.GetComponent<Orbit>().centerPoint.gameObject.name = "GameObject";
-            obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
-            obi.transform.localScale += new Vector3(50.0f, 50.0f, 50.0f);
-
-            //dict[alphabet[i]].AddComponent<Orbit>();
-            //dict[alphabet[i]].AddComponent<Rigidbody>();
-            //dict[alphabet[i]].GetComponent<Rigidbody>().useGravity = false;
-
-
-            //AddComponent<Orbit>();
-            //Debug.Log("GAME OBJECT --> " + dict[alphabet[i]]);
-        }
-
-        //for (int i = 0; i < filesPath.Length; i++)
-        //{
-        //    Debug.Log("FILE PATH FOR NOW ++++---->>>> " + filesPath[i]);
-        //}
-
-        //DirectoryInfo dir = new DirectoryInfo(targetdirectory);
-        //FileInfo[] info = dir.GetFiles("*.fbx");
-        //List<string> FileNames = new List<string>();
-
-        //foreach (FileInfo f in info)
-        //{
-        //    Debug.Log("PATHS --> " + f);
-        //    FileNames.Add(f.Name.Replace(".fbx", ""));
-        //}
-
-        //FileNames.ForEach(x => Debug.Log(x));
+        //var obi = Instantiate(dict[alphabet[i]], pos, rot);
+       
+        var obi = Instantiate(prefab, pos, Quaternion.identity);
+       
+        
+        obi.AddComponent<Orbit>();
+        //obi.AddComponent<SpawnArea>();
+        obi.AddComponent<Rigidbody>();
+        obi.GetComponent<Rigidbody>().useGravity = false;
+        //obi.AddComponent<RotatePill>();
+        obi.AddComponent<SphereCollider>();
+        obi.GetComponent<SphereCollider>().isTrigger = true;
+        //obi.GetComponent<Orbit>().centerPoint.gameObject.name = "GameObject";
+        obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
+        obi.transform.localScale += new Vector3(50.0f, 50.0f, 50.0f);
     }
 
     // Update is called once per frame
@@ -123,14 +127,55 @@ public class LoadLetters : MonoBehaviour
 
     Vector3 RandomCircle(Vector3 center, float radius)
     {
-        float ang = UnityEngine.Random.Range(-90.0f, 90.0f);
+        float ang = UnityEngine.Random.Range(-90.0f, 90.0f) * 360;
         //float ang = Random.value * 360;
         //prefab.GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-        Debug.Log("The Angle: " + ang);
+        //Debug.Log("The Angle: " + ang);
         Vector3 pos;
         pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
         pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
-        pos.z = center.z + UnityEngine.Random.Range(-5.0f, 60.0f);
+        //pos.z = center.z + UnityEngine.Random.Range(-5.0f, 60.0f);
+        pos.z = center.z * UnityEngine.Random.Range(5.0f, 50.0f);
         return pos;
     }
+
+    Vector3 randomPos(Vector3 center, float radius)
+    {
+        
+        // get the angle for this step (in radians, not degrees)
+        var angle = 0.9f * Mathf.PI * 2;
+        // the X &amp; Y position for this angle are calculated using Sin &amp; Cos
+        var x = Mathf.Sin(angle) * radius;
+        var y = Mathf.Cos(angle) * radius;
+        var pos = new Vector3(x, y, 0) + center.normalized;
+
+        return pos;
+    }
+
+    public bool FillDictionaryWithWords()
+    {
+        string line;
+        
+        // Read the file and display it line by line.  
+        System.IO.StreamReader file = new System.IO.StreamReader("Assets/_Scripts/BowWow/words.txt");
+
+        while ((line = file.ReadLine()) != null)
+        {
+
+            Debug.Log("Words read: " + line);
+
+            wordsDict.Add(wordsCount, line);
+            wordsCount++;
+        }
+        
+        if(wordsCount == 0)
+        {
+            file.Close();
+            return false;
+        }
+
+        file.Close();
+        return true;
+    }
+
 }
