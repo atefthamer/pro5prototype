@@ -23,7 +23,7 @@ public class Orbit : MonoBehaviour
         zSpread = Random.Range(14.0f, 40.0f);
         yOffset = Random.Range(1.0f, 15.0f);
         //rotSpeed = Random.Range(0.05f, 0.1f);
-        rotSpeed = Random.Range(0.05f, 3.1f);
+        rotSpeed = Random.Range(0.05f, 0.1f);
     }
 
 

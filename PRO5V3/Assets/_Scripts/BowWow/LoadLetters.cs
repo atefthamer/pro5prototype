@@ -30,6 +30,7 @@ public class LoadLetters : MonoBehaviour
 
     string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
+    Dictionary<string, bool> toShoot = new Dictionary<string, bool>();
  
 
     void Start()
@@ -59,7 +60,8 @@ public class LoadLetters : MonoBehaviour
 
         for(int i = 0; i < wordsDict[randomIndex].Length; i++)
         {
-            instantiateLetters(GetWordLetterAtIndex(randomIndex, i++));
+            instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
+            toShoot.Add(wordsDict[randomIndex].ToUpper()[i].ToString(), false);
         }
 
         for(int j = 0; j < 10; j++)
@@ -72,6 +74,7 @@ public class LoadLetters : MonoBehaviour
 
     private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
     {
+        Debug.Log("INSTA LETTER >> " + wordsDict[wordIndex].ToUpper()[letterIndex].ToString());
         return dict[wordsDict[wordIndex].ToUpper()[letterIndex].ToString()];
     }
 
@@ -80,14 +83,18 @@ public class LoadLetters : MonoBehaviour
         return dict[alphabet[index]];
     }
 
-
     private void instantiateLetters(GameObject prefab)
     {
-        float randomRadius = UnityEngine.Random.Range(5.0f, 30.0f);
+        float randomRadius = UnityEngine.Random.Range(50.0f, 1000.0f);
 
         Vector3 center = transform.position;
 
+        Debug.Log("THIS IS CENTER --> " + center);
+
+        
         Vector3 pos = RandomCircle(center, randomRadius);
+
+        Debug.Log("POS --> " + pos);
         //Vector3 pos = randomPos(center, randomRadius);
         //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
 
@@ -127,8 +134,8 @@ public class LoadLetters : MonoBehaviour
 
     Vector3 RandomCircle(Vector3 center, float radius)
     {
-        float ang = UnityEngine.Random.Range(-90.0f, 90.0f) * 360;
-        //float ang = Random.value * 360;
+        //float ang = UnityEngine.Random.Range(-90.0f, 90.0f) * 360;
+        float ang = UnityEngine.Random.value * 360;
         //prefab.GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         //Debug.Log("The Angle: " + ang);
         Vector3 pos;
@@ -177,5 +184,4 @@ public class LoadLetters : MonoBehaviour
         file.Close();
         return true;
     }
-
 }
