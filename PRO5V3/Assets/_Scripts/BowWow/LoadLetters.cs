@@ -94,27 +94,6 @@ public class LoadLetters : MonoBehaviour
             indexKey++;
         }
 
-        GameObject blabla = new GameObject();
-
-        foreach (var item in toShoot)
-        {
-            Debug.Log("THIS IS KEY " + item.Key);
-            Debug.Log("THIS IS LETTER " + item.Value.letter);
-            Debug.Log("THIS IS TO SHOOT OR NOT TO SHOOT " + item.Value.shooting);
-            Debug.Log("THIS IS OBJECT ID " + item.Value.prefab.GetInstanceID().ToString());
-            Debug.Log("BLABLA ID IS " + blabla.GetInstanceID().ToString());
-            if (hit.destroyed.Count != 0)
-            {
-                if (hit.destroyed.Contains(item.Value.prefab.GetInstanceID()) && item.Value.shooting == true)
-                {
-                    //int id = 
-                    toShoot.Remove(item.Key);
-                    hit.destroyed.Remove(item.Value.prefab.GetInstanceID());
-                }
-            }
-        }
-
-        
     }
 
     private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
@@ -150,6 +129,7 @@ public class LoadLetters : MonoBehaviour
         obi.AddComponent<Orbit>();
         //obi.AddComponent<SpawnArea>();
         obi.AddComponent<Rigidbody>();
+        obi.AddComponent<HITandSave>();
         obi.GetComponent<Rigidbody>().useGravity = false;
         //obi.AddComponent<RotatePill>();
         obi.AddComponent<SphereCollider>();
@@ -162,7 +142,23 @@ public class LoadLetters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        foreach (var item in toShoot)
+        {
+            Debug.Log("THIS IS KEY " + item.Key);
+            Debug.Log("THIS IS LETTER " + item.Value.letter);
+            Debug.Log("THIS IS TO SHOOT OR NOT TO SHOOT " + item.Value.shooting);
+            Debug.Log("THIS IS OBJECT ID " + item.Value.prefab.GetInstanceID().ToString());
+       
+            if (hit.destroyed.Count != 0)
+            {
+                if (hit.destroyed.Contains(item.Value.prefab.GetInstanceID()) && item.Value.shooting == true)
+                {
+                    //int id = 
+                    toShoot.Remove(item.Key);
+                    hit.destroyed.Remove(item.Value.prefab.GetInstanceID());
+                }
+            }
+        }
     }
 
     private static string GetGameObjectPath(GameObject obj)
