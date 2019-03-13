@@ -1,19 +1,87 @@
 fileFormatVersion: 2
-guid: 905508a018f0cba4c9c566fbcdf4590d
+guid: 432fe4dbcb2b0b244b16b810c274a49f
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: light_pCube2
-    100004: pCube4
-    400000: //RootNode
-    400002: light_pCube2
-    400004: pCube4
+    100000: pCylinder1
+    100002: polySurface1
+    100004: polySurface10
+    100006: polySurface11
+    100008: polySurface12
+    100010: polySurface13
+    100012: polySurface14
+    100014: polySurface2
+    100016: polySurface3
+    100018: polySurface4
+    100020: polySurface5
+    100022: polySurface6
+    100024: polySurface7
+    100026: polySurface8
+    100028: polySurface9
+    100030: pSphere1
+    100032: //RootNode
+    100034: transform1
+    100036: transform2
+    100038: transform3
+    100040: transform4
+    400000: pCylinder1
+    400002: polySurface1
+    400004: polySurface10
+    400006: polySurface11
+    400008: polySurface12
+    400010: polySurface13
+    400012: polySurface14
+    400014: polySurface2
+    400016: polySurface3
+    400018: polySurface4
+    400020: polySurface5
+    400022: polySurface6
+    400024: polySurface7
+    400026: polySurface8
+    400028: polySurface9
+    400030: pSphere1
+    400032: //RootNode
+    400034: transform1
+    400036: transform2
+    400038: transform3
+    400040: transform4
     2100000: lambert1
-    2300000: pCube4
-    3300000: pCube4
-    4300000: pCube4
-    2186277476908879412: ImportLogs
+    2300000: polySurface1
+    2300002: polySurface10
+    2300004: polySurface11
+    2300006: polySurface13
+    2300008: polySurface14
+    2300010: polySurface4
+    2300012: polySurface5
+    2300014: polySurface6
+    2300016: polySurface7
+    2300018: polySurface8
+    2300020: polySurface9
+    2300022: pSphere1
+    3300000: polySurface1
+    3300002: polySurface10
+    3300004: polySurface11
+    3300006: polySurface13
+    3300008: polySurface14
+    3300010: polySurface4
+    3300012: polySurface5
+    3300014: polySurface6
+    3300016: polySurface7
+    3300018: polySurface8
+    3300020: polySurface9
+    3300022: pSphere1
+    4300000: pSphere1
+    4300002: polySurface1
+    4300004: polySurface11
+    4300006: polySurface13
+    4300008: polySurface14
+    4300010: polySurface4
+    4300012: polySurface5
+    4300014: polySurface6
+    4300016: polySurface7
+    4300018: polySurface8
+    4300020: polySurface9
+    4300022: polySurface10
   externalObjects: {}
   materials:
     importMaterials: 1

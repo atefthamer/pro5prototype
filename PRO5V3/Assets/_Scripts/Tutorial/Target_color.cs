@@ -11,6 +11,7 @@ public class Target_color : MonoBehaviour
     public Transform[] childs;
     public GameObject[] childObjects;
     private float timer = 0.05f;
+    public float nextColorTime = 0.05f;
 
     void Start()
     {
@@ -37,7 +38,7 @@ public class Target_color : MonoBehaviour
         if (timer <= 0.0f)
         {
             NextColor();
-            timer = 0.05f;
+            timer = nextColorTime;
         }
 
         //childObjects[childNumber].GetComponent<Renderer>().material = mats[1];
