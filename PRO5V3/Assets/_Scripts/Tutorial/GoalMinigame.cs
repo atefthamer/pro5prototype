@@ -8,16 +8,8 @@ public class GoalMinigame : MonoBehaviour
     GameObject currentGoal;
     int index;
 
-    [HideInInspector]
-    public int score;
-    [HideInInspector]
-    public float time;
-
     void Start()
     {
-        score = 0;
-        time = 60;
-
         index = Random.Range(0, goals.Length);
         currentGoal = goals[index];
         goals[index].SetActive(true);
