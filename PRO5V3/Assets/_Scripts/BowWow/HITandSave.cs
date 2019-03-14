@@ -8,11 +8,13 @@ public class HITandSave : MonoBehaviour
 
     public List<int> destroyed = new List<int>();
 
+    LoadLetters load;
+
     //public GameObject obj;
 
     void Start()
     {
-        
+        load = new LoadLetters();
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class HITandSave : MonoBehaviour
             destroyed.Add(this.gameObject.GetInstanceID());
             Destroy(this.gameObject);
             Destroy(other.gameObject);
+            load.CheckForDestroyedLetter();
         }
     }
 }

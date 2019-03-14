@@ -31,6 +31,8 @@ public class LoadLetters : MonoBehaviour
 
     private int indexKey = 0;
 
+    public List<int> destroyed = new List<int>();
+
     class Node 
     {
         public GameObject prefab;
@@ -129,7 +131,7 @@ public class LoadLetters : MonoBehaviour
         obi.AddComponent<Orbit>();
         //obi.AddComponent<SpawnArea>();
         obi.AddComponent<Rigidbody>();
-        obi.AddComponent<HITandSave>();
+        //obi.AddComponent<HITandSave>();
         obi.GetComponent<Rigidbody>().useGravity = false;
         //obi.AddComponent<RotatePill>();
         obi.AddComponent<SphereCollider>();
@@ -142,13 +144,18 @@ public class LoadLetters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void CheckForDestroyedLetter()
+    {
         foreach (var item in toShoot)
         {
             Debug.Log("THIS IS KEY " + item.Key);
             Debug.Log("THIS IS LETTER " + item.Value.letter);
             Debug.Log("THIS IS TO SHOOT OR NOT TO SHOOT " + item.Value.shooting);
             Debug.Log("THIS IS OBJECT ID " + item.Value.prefab.GetInstanceID().ToString());
-       
+
             if (hit.destroyed.Count != 0)
             {
                 if (hit.destroyed.Contains(item.Value.prefab.GetInstanceID()) && item.Value.shooting == true)
@@ -160,6 +167,17 @@ public class LoadLetters : MonoBehaviour
             }
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("projectile"))
+    //    {
+    //        Debug.Log("Letter Hit");
+    //        destroyed.Add(this.gameObject.GetInstanceID());
+    //        Destroy(this.gameObject);
+    //        Destroy(other.gameObject);
+    //    }
+    //}
 
     private static string GetGameObjectPath(GameObject obj)
     {
