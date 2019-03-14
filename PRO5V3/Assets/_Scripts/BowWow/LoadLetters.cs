@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
@@ -10,8 +7,8 @@ using System.Linq;
 
 
 public class LoadLetters : MonoBehaviour
-{ 
-
+{
+    HITandSave hit;
     Orbit orbit;
     //public GameObject placeholder;
     // Start is called before the first frame update
@@ -21,30 +18,69 @@ public class LoadLetters : MonoBehaviour
     Dictionary<string, GameObject> dict = new Dictionary<string, GameObject>();
     //Dictionary<char, GameObject> dict = new Dictionary<string, GameObject>();
 
-
     [SerializeField]
     GameObject objectCenterPoint = null;
 
     Dictionary<int, string> wordsDict = new Dictionary<int, string>();
     public int wordsCount = 0;
 
+
+    public List<int> destroyed = new List<int>();
+
+
     string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
-    Dictionary<string, bool> toShoot = new Dictionary<string, bool>();
- 
+    //Dictionary<string, bool> toShoot = new Dictionary<string, bool>();
+    Dictionary<int ,Node> toShoot = new Dictionary<int, Node>();
+
+    private int indexKey = 0;
+
+    //public List<int> destroyed = new List<int>();
+    public LoadLetters()
+    {
+        this.destroyed = new List<int>();
+    }
+
+
+    public List<int> GetList()
+    {
+        return destroyed;
+    }
+
+    class Node 
+    {
+        public GameObject prefab;
+        public string letter;
+        public bool shooting;
+        public bool isShot;
+        public Node(GameObject prefab, string letter, bool shooting, bool isShot)
+        {
+            this.prefab = prefab;
+            this.letter = letter;
+            this.shooting = shooting;
+            this.isShot = isShot;
+        }
+    }
+
 
     void Start()
     {
+        hit = new HITandSave();
+        
         string targetdirectory = "./Assets/_Prefabs/Letters";
-
-
-        string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();
-   
+        string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();  
         string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").ToArray();
+
+       
+        string text = "ATEF";
+        if (text.Contains("A")) 
+        {
+            Debug.Log("YES CONTAINS A");
+        }
 
         for(int i = 0; i < files.Length; i++)
         {
-            Debug.Log("FILE NAME FOR NOW ++++---->>>> " + files[i].Replace(".fbx", ""));
+            //Debug.Log("FILE NAME FOR NOW ++++---->>>> " + files[i].Replace(".fbx", ""));
             dict.Add(files[i].Replace(".fbx", ""), (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), typeof(GameObject)));
         } 
 
@@ -57,24 +93,29 @@ public class LoadLetters : MonoBehaviour
 
         Debug.Log("This is the word with index 2 " + wordsDict[randomIndex].ToUpper());
         Debug.Log("This is the word with index 2 with length " + wordsDict[randomIndex].Length);
-
+        
         for(int i = 0; i < wordsDict[randomIndex].Length; i++)
         {
+            Node n = new Node(GetWordLetterAtIndex(randomIndex, i), wordsDict[randomIndex].ToUpper()[i].ToString(), true, false);
             instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
-            toShoot.Add(wordsDict[randomIndex].ToUpper()[i].ToString(), false);
+            toShoot.Add(indexKey, n);
+            indexKey++;
+            //toShoot.Add(wordsDict[randomIndex].ToUpper()[i].ToString(), false);
         }
 
         for(int j = 0; j < 10; j++)
         {
             var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
             instantiateLetters(GetRandomLetter(randomLetterIndex));
+            Node n = new Node(GetRandomLetter(randomLetterIndex), alphabet[randomLetterIndex], false, false);
+            toShoot.Add(indexKey, n);
+            indexKey++;
         }
 
     }
 
     private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
     {
-        Debug.Log("INSTA LETTER >> " + wordsDict[wordIndex].ToUpper()[letterIndex].ToString());
         return dict[wordsDict[wordIndex].ToUpper()[letterIndex].ToString()];
     }
 
@@ -89,12 +130,12 @@ public class LoadLetters : MonoBehaviour
 
         Vector3 center = transform.position;
 
-        Debug.Log("THIS IS CENTER --> " + center);
+        //Debug.Log("THIS IS CENTER --> " + center);
 
         
         Vector3 pos = RandomCircle(center, randomRadius);
 
-        Debug.Log("POS --> " + pos);
+        //Debug.Log("POS --> " + pos);
         //Vector3 pos = randomPos(center, randomRadius);
         //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
 
@@ -106,6 +147,7 @@ public class LoadLetters : MonoBehaviour
         obi.AddComponent<Orbit>();
         //obi.AddComponent<SpawnArea>();
         obi.AddComponent<Rigidbody>();
+        obi.AddComponent<HITandSave>();
         obi.GetComponent<Rigidbody>().useGravity = false;
         //obi.AddComponent<RotatePill>();
         obi.AddComponent<SphereCollider>();
@@ -118,10 +160,48 @@ public class LoadLetters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log("LIST SIZE IS " + destroyed.Count);
     }
 
-    public static string GetGameObjectPath(GameObject obj)
+    public void CheckForDestroyedLetter()
+    {
+        Debug.Log("THIS IS THE COUNT OF TO SHOOT " + toShoot.Count);
+        foreach (var item in toShoot)
+        {
+            Debug.Log("THIS IS KEY " + item.Key);
+            Debug.Log("THIS IS LETTER " + item.Value.letter);
+            Debug.Log("THIS IS TO SHOOT OR NOT TO SHOOT " + item.Value.shooting);
+            Debug.Log("THIS IS OBJECT ID " + item.Value.prefab.GetInstanceID().ToString());
+
+            if (destroyed.Count != 0)
+            {
+                if (destroyed.Contains(item.Value.prefab.GetInstanceID()) && item.Value.shooting == true)
+                {
+                    //int id = 
+                    toShoot.Remove(item.Key);
+                    destroyed.Remove(item.Value.prefab.GetInstanceID());
+                }
+            }
+        }
+    }
+
+    public void AddDestroyedObject()
+    {
+        destroyed.Add(this.gameObject.GetInstanceID());
+    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("projectile"))
+    //    {
+    //        Debug.Log("Letter Hit");
+    //        destroyed.Add(this.gameObject.GetInstanceID());
+    //        Destroy(this.gameObject);
+    //        Destroy(other.gameObject);
+    //    }
+    //}
+
+    private static string GetGameObjectPath(GameObject obj)
     {
         string path = "/" + obj.name;
         while (obj.transform.parent != null)
@@ -132,7 +212,7 @@ public class LoadLetters : MonoBehaviour
         return path;
     }
 
-    Vector3 RandomCircle(Vector3 center, float radius)
+    private Vector3 RandomCircle(Vector3 center, float radius)
     {
         //float ang = UnityEngine.Random.Range(-90.0f, 90.0f) * 360;
         float ang = UnityEngine.Random.value * 360;
@@ -146,9 +226,8 @@ public class LoadLetters : MonoBehaviour
         return pos;
     }
 
-    Vector3 randomPos(Vector3 center, float radius)
-    {
-        
+    private Vector3 randomPos(Vector3 center, float radius)
+    {        
         // get the angle for this step (in radians, not degrees)
         var angle = 0.9f * Mathf.PI * 2;
         // the X &amp; Y position for this angle are calculated using Sin &amp; Cos
@@ -168,7 +247,6 @@ public class LoadLetters : MonoBehaviour
 
         while ((line = file.ReadLine()) != null)
         {
-
             Debug.Log("Words read: " + line);
 
             wordsDict.Add(wordsCount, line);

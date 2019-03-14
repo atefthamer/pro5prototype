@@ -5,46 +5,13 @@ using TMPro;
 
 public class Trigger_Minigame : MonoBehaviour
 {
-    public Material[] mats;
-    private float countdown = 10.0f;
-    private float gameTimer = 60.0f;
-    private bool startCountdown = false;
-
-    public TextMeshPro countdownText;
-
-    void Start()
-    {
-        gameObject.GetComponent<Renderer>().material = mats[0];
-    }
-
-    void Update()
+    // Temporary
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            StartCountdown();
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            gameObject.transform.GetChild(2).gameObject.SetActive(true);
         }
-
-        if (startCountdown == true)
-        {
-            countdown -= Time.deltaTime;
-
-            if (countdown <= 0.0f)
-            {
-                countdown = 0.0f;
-                gameTimer -= Time.deltaTime;
-            }
-        }
-    }
-
-    void StartCountdown()
-    {
-        gameObject.GetComponent<Renderer>().material = mats[1];
-        countdownText.text = " " + countdown.ToString("f0");
-        startCountdown = true;
-    }
-
-    void StartMinigame()
-    {
-
     }
 }
