@@ -24,6 +24,10 @@ public class LoadLetters : MonoBehaviour
     Dictionary<int, string> wordsDict = new Dictionary<int, string>();
     public int wordsCount = 0;
 
+
+    public List<int> destroyed = new List<int>();
+
+
     string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
     //Dictionary<string, bool> toShoot = new Dictionary<string, bool>();
@@ -31,18 +35,30 @@ public class LoadLetters : MonoBehaviour
 
     private int indexKey = 0;
 
-    public List<int> destroyed = new List<int>();
+    //public List<int> destroyed = new List<int>();
+    public LoadLetters()
+    {
+        this.destroyed = new List<int>();
+    }
+
+
+    public List<int> GetList()
+    {
+        return destroyed;
+    }
 
     class Node 
     {
         public GameObject prefab;
         public string letter;
         public bool shooting;
-        public Node(GameObject prefab, string letter, bool shooting)
+        public bool isShot;
+        public Node(GameObject prefab, string letter, bool shooting, bool isShot)
         {
             this.prefab = prefab;
             this.letter = letter;
             this.shooting = shooting;
+            this.isShot = isShot;
         }
     }
 
@@ -80,7 +96,7 @@ public class LoadLetters : MonoBehaviour
         
         for(int i = 0; i < wordsDict[randomIndex].Length; i++)
         {
-            Node n = new Node(GetWordLetterAtIndex(randomIndex, i), wordsDict[randomIndex].ToUpper()[i].ToString(), true);
+            Node n = new Node(GetWordLetterAtIndex(randomIndex, i), wordsDict[randomIndex].ToUpper()[i].ToString(), true, false);
             instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
             toShoot.Add(indexKey, n);
             indexKey++;
@@ -91,7 +107,7 @@ public class LoadLetters : MonoBehaviour
         {
             var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
             instantiateLetters(GetRandomLetter(randomLetterIndex));
-            Node n = new Node(GetRandomLetter(randomLetterIndex), alphabet[randomLetterIndex], false);
+            Node n = new Node(GetRandomLetter(randomLetterIndex), alphabet[randomLetterIndex], false, false);
             toShoot.Add(indexKey, n);
             indexKey++;
         }
@@ -131,7 +147,7 @@ public class LoadLetters : MonoBehaviour
         obi.AddComponent<Orbit>();
         //obi.AddComponent<SpawnArea>();
         obi.AddComponent<Rigidbody>();
-        //obi.AddComponent<HITandSave>();
+        obi.AddComponent<HITandSave>();
         obi.GetComponent<Rigidbody>().useGravity = false;
         //obi.AddComponent<RotatePill>();
         obi.AddComponent<SphereCollider>();
@@ -144,11 +160,12 @@ public class LoadLetters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log("LIST SIZE IS " + destroyed.Count);
     }
 
     public void CheckForDestroyedLetter()
     {
+        Debug.Log("THIS IS THE COUNT OF TO SHOOT " + toShoot.Count);
         foreach (var item in toShoot)
         {
             Debug.Log("THIS IS KEY " + item.Key);
@@ -156,16 +173,21 @@ public class LoadLetters : MonoBehaviour
             Debug.Log("THIS IS TO SHOOT OR NOT TO SHOOT " + item.Value.shooting);
             Debug.Log("THIS IS OBJECT ID " + item.Value.prefab.GetInstanceID().ToString());
 
-            if (hit.destroyed.Count != 0)
+            if (destroyed.Count != 0)
             {
-                if (hit.destroyed.Contains(item.Value.prefab.GetInstanceID()) && item.Value.shooting == true)
+                if (destroyed.Contains(item.Value.prefab.GetInstanceID()) && item.Value.shooting == true)
                 {
                     //int id = 
                     toShoot.Remove(item.Key);
-                    hit.destroyed.Remove(item.Value.prefab.GetInstanceID());
+                    destroyed.Remove(item.Value.prefab.GetInstanceID());
                 }
             }
         }
+    }
+
+    public void AddDestroyedObject()
+    {
+        destroyed.Add(this.gameObject.GetInstanceID());
     }
 
     //private void OnTriggerEnter(Collider other)
