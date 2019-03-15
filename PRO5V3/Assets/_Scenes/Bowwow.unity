@@ -1348,6 +1348,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79f3726e667d7254296b8aef52d0f074, type: 3}
+--- !u!1 &1149617718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7273126563382874636, guid: 2bd70396385b6574b93c802f628e11f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1235962006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1149617723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149617718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d28cb150ad86f4a8100312a4aea7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uvAnimationRate: {x: 0.06, y: 0}
+  textureName: _MainTex
 --- !u!1 &1218734716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,6 +1463,21 @@ PrefabInstance:
     - target: {fileID: 7273126564607661909, guid: 2bd70396385b6574b93c802f628e11f0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273126563382874636, guid: 2bd70396385b6574b93c802f628e11f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273126563382874638, guid: 2bd70396385b6574b93c802f628e11f0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 787cb25de3401c44b939f2599cda764c, type: 2}
+    - target: {fileID: 7273126563382874638, guid: 2bd70396385b6574b93c802f628e11f0,
+        type: 3}
+      propertyPath: m_ImportantGI
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1741,6 +1776,26 @@ Transform:
   m_Father: {fileID: 860302729}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1768074302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7273126564607661914, guid: 2bd70396385b6574b93c802f628e11f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1235962006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1768074304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768074302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d28cb150ad86f4a8100312a4aea7a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uvAnimationRate: {x: 1, y: 0}
+  textureName: _MainTex
 --- !u!1001 &1875100675
 PrefabInstance:
   m_ObjectHideFlags: 0
