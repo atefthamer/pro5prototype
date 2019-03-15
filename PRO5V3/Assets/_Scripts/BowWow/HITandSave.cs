@@ -8,9 +8,12 @@ public class HITandSave : MonoBehaviour
 
     // public List<int> destroyed = new List<int>();
 
+    public int[] destroyedID = new int[1];
 
-    //[SerializeField]
-    // GameObject load = null;
+    public bool hit = false;
+
+    //LoadLetters load;
+
     //public GameObject obj;
     LoadLetters load = new LoadLetters();
     public HITandSave()
@@ -20,8 +23,7 @@ public class HITandSave : MonoBehaviour
 
     void Start()
     {
-       
-        //gameObject.GetComponent<LoadLetters>
+        //load = new LoadLetters();
     }
 
     // Update is called once per frame
@@ -36,12 +38,11 @@ public class HITandSave : MonoBehaviour
         if (other.gameObject.CompareTag("projectile"))
         {
             Debug.Log("Letter Hit");
-            //load.AddDestroyedObject();
-            //load.CheckForDestroyedLetter();
-            load.GetList().Add(this.gameObject.GetInstanceID());
-            Debug.Log("LIST SIZE " + load.GetList().Count);
-            Destroy(this.gameObject);
-            Destroy(other.gameObject);
+            //destroyed.Add(this.gameObject.GetInstanceID());
+            //destroyedID[0] = this.gameObject.GetInstanceID();
+            //Destroy(this.gameObject);
+            hit = true;
+            //Destroy(other.gameObject);
         }
     }
 }

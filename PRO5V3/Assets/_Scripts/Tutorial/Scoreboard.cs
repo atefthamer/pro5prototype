@@ -17,7 +17,7 @@ public class Scoreboard : MonoBehaviour
 
     void SetScoreboardText()
     {
-        scoreText.text = " " + scoreboard.score.ToString();
-        timeText.text = " " + scoreboard.time.ToString("f0");
+        //scoreText.text = " " + scoreboard.score.ToString();
+        //timeText.text = " " + scoreboard.time.ToString("f0");
     }
 }

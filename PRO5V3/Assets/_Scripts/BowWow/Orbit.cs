@@ -56,13 +56,13 @@ public class Orbit : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("projectile"))
-        {
-            Debug.Log("Letter Hit");
-            Destroy(this.gameObject);
-            Destroy(other.gameObject);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("projectile"))
+    //    {
+    //        Debug.Log("Letter Hit");
+    //        Destroy(this.gameObject);
+    //        Destroy(other.gameObject);
+    //    }
+    //}
 }

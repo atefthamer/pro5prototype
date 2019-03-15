@@ -5,11 +5,14 @@ using UnityEngine;
 public class Target_color : MonoBehaviour
 {
     public Material[] mats;
+
     int value = 0;
     int childNumber = 2;
+
     [HideInInspector]
     public Transform[] childs;
     public GameObject[] childObjects;
+
     private float timer = 0.05f;
     public float nextColorTime = 0.05f;
 
@@ -23,12 +26,6 @@ public class Target_color : MonoBehaviour
             value++;
             childObjects.SetValue(tr.gameObject, value - 1);
         }
-
-        //Component[] renderers = this.GetComponentsInChildren(typeof(Renderer));
-        //foreach (Renderer childRenderer in renderers)
-        //{
-        //    childRenderer.material = mats[1];
-        //}
     }
 
     private void Update()
@@ -40,23 +37,6 @@ public class Target_color : MonoBehaviour
             NextColor();
             timer = nextColorTime;
         }
-
-        //childObjects[childNumber].GetComponent<Renderer>().material = mats[1];
-
-        //for (childNumber = 2; childNumber < 10; childNumber++)
-        //{
-        //    if (childNumber == childObjects.Length)
-        //    {
-        //        childNumber = 2;
-        //    }
-
-        //    Component[] renderers = this.GetComponentsInChildren(typeof(Renderer));
-        //    foreach(Renderer childRenderer in renderers)
-        //    {
-        //        childRenderer.material = mats[0];
-        //    }
-        //    childObjects[childNumber].GetComponent<Renderer>().material = mats[1];
-        //}
     }
 
     void NextColor()

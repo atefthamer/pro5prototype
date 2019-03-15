@@ -5,44 +5,23 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     public ReturnBall ball;
-    public GoalMinigame nextGoal;
-    public PickCategory categories;
-    public SFXTriggers sfx;
-
-    private void FixedUpdate()
-    {
-        nextGoal.time -= Time.deltaTime;
-
-        if (nextGoal.time <= 0)
-        {
-            GameFinished();
-            categories.ShowCategories();
-        }
-    }
+    public Tutorial_Minigame nextTarget;
+    public Trigger_Minigame trigger;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Interactable"))
+        if (other.gameObject.CompareTag("Interactable") && nextTarget.startMinigame == false)
         {
-            //Debug.Log("Goal!");
-
-            if (nextGoal.time <= 0)
-            {
-                Debug.Log("No Points");
-            }
-            else if (nextGoal.time >= 0)
-            {
-                sfx.GoalSound();
-                nextGoal.score++;
-                nextGoal.NextGoal();
-                ball.RespawnBall();
-            }
+            ball.RespawnBall();
+            nextTarget.NextTarget();
+            nextTarget.startMinigame = true;
+            trigger.TriggerMinigame();
         }
-    }
-
-    void GameFinished()
-    {
-        nextGoal.time = 0;
-        nextGoal.gameFinished();
+        else if (other.gameObject.CompareTag("Interactable") && nextTarget.startMinigame == true)
+        {
+            ball.RespawnBall();
+            nextTarget.NextTarget();
+            nextTarget.score++;
+        }
     }
 }
