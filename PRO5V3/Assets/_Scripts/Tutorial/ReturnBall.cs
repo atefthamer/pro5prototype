@@ -6,6 +6,10 @@ public class ReturnBall : MonoBehaviour
 {
     private Vector3 startPos;
     private bool respawn;
+    public GameObject particle;
+
+    [SerializeField]
+    Transform activeCamera = null;
 
     public void Start()
     {
@@ -26,5 +30,13 @@ public class ReturnBall : MonoBehaviour
     public void RespawnBall()
     {
         respawn = true;
+    }
+
+    public void Explode()
+    {
+        GameObject explode = Instantiate(particle, this.transform.position, Quaternion.identity);
+        explode.GetComponent<ParticleController>().targetCamera = (Transform)activeCamera;
+        particle.GetComponent<ParticleSystem>().Play();
+        Destroy(explode, 1.0f);
     }
 }

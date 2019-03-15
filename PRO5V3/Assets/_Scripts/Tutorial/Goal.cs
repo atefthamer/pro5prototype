@@ -20,6 +20,7 @@ public class Goal : MonoBehaviour
         else if (other.gameObject.CompareTag("Interactable") && nextTarget.startMinigame == true)
         {
             ball.RespawnBall();
+            ball.Explode();
             nextTarget.NextTarget();
             nextTarget.score++;
         }
