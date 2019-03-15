@@ -35,7 +35,7 @@ public class LoadLetters : MonoBehaviour
 
     private int indexKey = 0;
 
-    public List<int> destroyed = new List<int>();
+    //public List<int> destroyed = new List<int>();
     public List<GameObject> initObjects = new List<GameObject>();
     //public List<int> initObjects = new List<int>();
 
@@ -188,18 +188,18 @@ public class LoadLetters : MonoBehaviour
                     //Debug.Log("OBJ >>>>>>>>>>>>>>>>>>> " + obj.gameObject.GetComponent<HITandSave>().hit);
 
                     bool hitOrNot = obj.gameObject.GetComponent<HITandSave>().hit;
-                    var objID = obj.gameObject.GetComponent<HITandSave>().destroyed;
+                    //var objID = obj.gameObject.GetComponent<HITandSave>().destroyed;
                     //int objID = obj.gameObject.GetComponent<HITandSave>().destroyed.First();
 
                     if (hitOrNot)
                     {
                         foreach(var it in toShoot)
                         {
-                            if (objID.Contains(it.Value.prefab.GetInstanceID()))
-                            {
-                                initObjects.Remove(ID);
-                                Destroy(ID);
-                            }
+                            //if (objID.Contains(it.Value.prefab.GetInstanceID()))
+                            //{
+                            //    initObjects.Remove(ID);
+                            //    Destroy(ID);
+                            //}
                         }
                     }
                     //if (obj.Count != 0)

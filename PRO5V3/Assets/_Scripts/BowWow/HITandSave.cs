@@ -38,7 +38,7 @@ public class HITandSave : MonoBehaviour
         if (other.gameObject.CompareTag("projectile"))
         {
             Debug.Log("Letter Hit");
-            destroyed.Add(this.gameObject.GetInstanceID());
+            //destroyed.Add(this.gameObject.GetInstanceID());
             //destroyedID[0] = this.gameObject.GetInstanceID();
             //Destroy(this.gameObject);
             hit = true;
