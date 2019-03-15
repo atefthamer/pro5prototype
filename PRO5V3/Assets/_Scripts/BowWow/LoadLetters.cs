@@ -8,7 +8,11 @@ using System.Linq;
 
 public class LoadLetters : MonoBehaviour
 {
-    HITandSave hit;
+    //HITandSave hit;
+
+    bool checkForUpdate = false;
+
+    //GameObject obi;
     Orbit orbit;
     //public GameObject placeholder;
     // Start is called before the first frame update
@@ -47,12 +51,14 @@ public class LoadLetters : MonoBehaviour
 
     class Node 
     {
+        public GameObject initObject;
         public GameObject prefab;
         public string letter;
         public bool shooting;
         public bool isShot;
-        public Node(GameObject prefab, string letter, bool shooting, bool isShot)
+        public Node(GameObject initObject ,GameObject prefab, string letter, bool shooting, bool isShot)
         {
+            this.initObject = initObject;
             this.prefab = prefab;
             this.letter = letter;
             this.shooting = shooting;
@@ -94,8 +100,9 @@ public class LoadLetters : MonoBehaviour
         
         for(int i = 0; i < wordsDict[randomIndex].Length; i++)
         {
-            Node n = new Node(GetWordLetterAtIndex(randomIndex, i), wordsDict[randomIndex].ToUpper()[i].ToString(), true, false);
-            instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
+            var iniObject = instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
+            Node n = new Node(iniObject, GetWordLetterAtIndex(randomIndex, i), wordsDict[randomIndex].ToUpper()[i].ToString(), true, false);
+            //instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
             toShoot.Add(indexKey, n);
             indexKey++;
             //toShoot.Add(wordsDict[randomIndex].ToUpper()[i].ToString(), false);
@@ -103,13 +110,16 @@ public class LoadLetters : MonoBehaviour
 
         for(int j = 0; j < 10; j++)
         {
+            
             var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
-            instantiateLetters(GetRandomLetter(randomLetterIndex));
-            Node n = new Node(GetRandomLetter(randomLetterIndex), alphabet[randomLetterIndex], false, false);
+
+            var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
+            //instantiateLetters(GetRandomLetter(randomLetterIndex));
+            Node n = new Node(iniObject, GetRandomLetter(randomLetterIndex), alphabet[randomLetterIndex], false, false);
             toShoot.Add(indexKey, n);
             indexKey++;
         }
-
+        checkForUpdate = true;
     }
 
     private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
@@ -122,7 +132,7 @@ public class LoadLetters : MonoBehaviour
         return dict[alphabet[index]];
     }
 
-    private void instantiateLetters(GameObject prefab)
+    private GameObject instantiateLetters(GameObject prefab)
     {
         float randomRadius = UnityEngine.Random.Range(50.0f, 1000.0f);
 
@@ -158,13 +168,17 @@ public class LoadLetters : MonoBehaviour
         obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
         obi.transform.localScale += new Vector3(50.0f, 50.0f, 50.0f);
 
-        initObjects.Add(obi);
+        return obi;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckForDestroyedLetter();
+        if (checkForUpdate)
+        {
+            CheckForDestroyedLetter();
+        }
+       
     }
 
     public void CheckForDestroyedLetter()
@@ -172,51 +186,58 @@ public class LoadLetters : MonoBehaviour
         Debug.Log("THIS IS THE COUNT OF TO SHOOT " + toShoot.Count);
         foreach (var item in toShoot)
         {
-            //Debug.Log("THIS IS KEY " + item.Key);
-            //Debug.Log("THIS IS LETTER " + item.Value.letter);
-            //Debug.Log("THIS IS TO SHOOT OR NOT TO SHOOT " + item.Value.shooting);
-            //Debug.Log("THIS IS OBJECT ID " + item.Value.prefab.GetInstanceID().ToString());
-            Debug.Log("1-- OBJ INITOBJECTS SIZE IS " + initObjects.Count);
-            if (initObjects.Count != 0)
+            //Debug.Log("IS HIT? " + item.Value.initObject.gameObject.GetComponent<HITandSave>().hit);
+            Debug.Log("IS HIT? " + item.Value.initObject.gameObject.GetComponent<HITandSave>().hit);
+            bool isHit = item.Value.initObject.gameObject.GetComponent<HITandSave>().hit;
+            int letterId = item.Value.initObject.gameObject.GetComponent<HITandSave>().objectId;
+
+            if (isHit)
             {
-                Debug.Log("2-- OBJ INITOBJECTS SIZE IS " + initObjects.Count);
-                foreach (var ID in initObjects)
-                {
-                    //var obj = ID.GetComponent<HITandSave>().destroyed;
-                    //var obj = ID.GetComponent<HITandSave>().destroyed;
-                    var obj = ID;
-                    //Debug.Log("OBJ >>>>>>>>>>>>>>>>>>> " + obj.gameObject.GetComponent<HITandSave>().hit);
-
-                    bool hitOrNot = obj.gameObject.GetComponent<HITandSave>().hit;
-                    //var objID = obj.gameObject.GetComponent<HITandSave>().destroyed;
-                    //int objID = obj.gameObject.GetComponent<HITandSave>().destroyed.First();
-
-                    if (hitOrNot)
-                    {
-                        foreach(var it in toShoot)
-                        {
-                            //if (objID.Contains(it.Value.prefab.GetInstanceID()))
-                            //{
-                            //    initObjects.Remove(ID);
-                            //    Destroy(ID);
-                            //}
-                        }
-                    }
-                    //if (obj.Count != 0)
-                    //{
-                    //    Debug.Log("OBJ SIZE IS " + obj.Count);
-                    //    if (obj.Contains(item.Value.prefab.GetInstanceID()) && item.Value.shooting == true)
-                    //    {
-                    //        //int id = 
-                    //        toShoot.Remove(item.Key);
-                    //        obj.Remove(item.Value.prefab.GetInstanceID());
-                    //        initObjects.Remove(ID);
-                    //        Debug.Log("3-- OBJ INITOBJECTS SIZE IS " + initObjects.Count);
-                    //        Destroy(ID);
-                    //    }
-                    //}                  
-                }
+                Destroy(item.Value.initObject);
+                toShoot.Remove(item.Key);
             }
+
+            //Debug.Log("1-- OBJ INITOBJECTS SIZE IS " + initObjects.Count);
+            //if (initObjects.Count != 0)
+            //{
+            //    Debug.Log("2-- OBJ INITOBJECTS SIZE IS " + initObjects.Count);
+            //    foreach (var ID in initObjects)
+            //    {
+            //        //var obj = ID.GetComponent<HITandSave>().destroyed;
+            //        //var obj = ID.GetComponent<HITandSave>().destroyed;
+            //        var obj = ID;
+            //        //Debug.Log("OBJ >>>>>>>>>>>>>>>>>>> " + obj.gameObject.GetComponent<HITandSave>().hit);
+
+            //        bool hitOrNot = obj.gameObject.GetComponent<HITandSave>().hit;
+            //        //var objID = obj.gameObject.GetComponent<HITandSave>().destroyed;
+            //        //int objID = obj.gameObject.GetComponent<HITandSave>().destroyed.First();
+
+            //        if (hitOrNot)
+            //        {
+            //            foreach(var it in toShoot)
+            //            {
+            //                //if (objID.Contains(it.Value.prefab.GetInstanceID()))
+            //                //{
+            //                //    initObjects.Remove(ID);
+            //                //    Destroy(ID);
+            //                //}
+            //            }
+            //        }
+            //        //if (obj.Count != 0)
+            //        //{
+            //        //    Debug.Log("OBJ SIZE IS " + obj.Count);
+            //        //    if (obj.Contains(item.Value.prefab.GetInstanceID()) && item.Value.shooting == true)
+            //        //    {
+            //        //        //int id = 
+            //        //        toShoot.Remove(item.Key);
+            //        //        obj.Remove(item.Value.prefab.GetInstanceID());
+            //        //        initObjects.Remove(ID);
+            //        //        Debug.Log("3-- OBJ INITOBJECTS SIZE IS " + initObjects.Count);
+            //        //        Destroy(ID);
+            //        //    }
+            //        //}                  
+            //    }
+            //}
         }
     }
 
