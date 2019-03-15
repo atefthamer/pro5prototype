@@ -8,7 +8,7 @@ public class HITandSave : MonoBehaviour
 
     // public List<int> destroyed = new List<int>();
 
-    public int[] destroyedID = new int[1];
+    public int objectId = 0;
 
     public bool hit = false;
 
@@ -42,6 +42,7 @@ public class HITandSave : MonoBehaviour
             //destroyedID[0] = this.gameObject.GetInstanceID();
             //Destroy(this.gameObject);
             hit = true;
+            objectId = this.gameObject.GetInstanceID(); 
             //Destroy(other.gameObject);
         }
     }
