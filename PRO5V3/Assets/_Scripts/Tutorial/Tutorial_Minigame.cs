@@ -17,16 +17,9 @@ public class Tutorial_Minigame : MonoBehaviour
     [HideInInspector]
     public int score = 0;
 
-    private void Awake()
+    private void Start()
     {
-        foreach(GameObject obj in targets)
-        {
-            obj.SetActive(false);
-        }
-        index = Random.Range(0, targets.Length);
-        currentTarget = targets[index];
-        targets[index].SetActive(true);
-        startMinigame = true;
+
     }
 
     void Update()
