@@ -1,14 +1,23 @@
 fileFormatVersion: 2
-guid: a2aa43de76924c743931b2377da69126
+guid: a0836d056c553414b82e2bc48774c75e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: phong1
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: typeMesh1
+    100000: polySurface1
+    100002: polySurface2
+    100004: //RootNode
+    100006: transform24
+    400000: polySurface1
+    400002: polySurface2
+    400004: //RootNode
+    400006: transform24
+    2100000: typeBlinn27
+    2300000: polySurface1
+    2300002: polySurface2
+    3300000: polySurface1
+    3300002: polySurface2
+    4300000: polySurface1
+    4300002: polySurface2
   externalObjects: {}
   materials:
     importMaterials: 1
