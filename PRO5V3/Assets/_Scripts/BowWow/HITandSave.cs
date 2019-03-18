@@ -9,7 +9,7 @@ public class HITandSave : MonoBehaviour
     // public List<int> destroyed = new List<int>();
 
     public int objectId = 0;
-
+    public GameObject arrow;
     public bool hit = false;
 
     //LoadLetters load;
@@ -38,12 +38,10 @@ public class HITandSave : MonoBehaviour
         if (other.gameObject.CompareTag("projectile"))
         {
             Debug.Log("Letter Hit");
-            //destroyed.Add(this.gameObject.GetInstanceID());
-            //destroyedID[0] = this.gameObject.GetInstanceID();
-            //Destroy(this.gameObject);
-            hit = true;
-            objectId = this.gameObject.GetInstanceID(); 
             //Destroy(other.gameObject);
+            arrow = other.gameObject;
+            hit = true;
+            objectId = this.gameObject.GetInstanceID();          
         }
     }
 }
