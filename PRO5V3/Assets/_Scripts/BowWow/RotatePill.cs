@@ -17,13 +17,16 @@ public class RotatePill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(1.0f, 5.0f);
-        width = Random.Range(3.0f, 10.0f);
-        height = Random.Range(7.0f, 25.0f);
+        speed = Random.Range(1.0f, 2.0f);
+        width = Random.Range(3.0f, 5.0f);
+        height = Random.Range(7.0f, 9.0f);
 
-        float xRot = Random.Range(0.5f, 2.0f);
-        float yRot = Random.Range(0.5f, 2.0f);
-        float zRot = Random.Range(0.5f, 2.0f);
+        //float xRot = Random.Range(0.5f, 2.0f);
+        float xRot = 0.0f;
+        //float yRot = Random.Range(0.5f, 2.0f);
+        float yRot = 5.0f;
+        //float zRot = Random.Range(0.5f, 2.0f);
+        float zRot = 0.0f;
 
         randomRotation = new Vector3(xRot, yRot, zRot);
     }
@@ -32,12 +35,14 @@ public class RotatePill : MonoBehaviour
     void Update()
     {
         timeCounter += Time.deltaTime * speed;
-        xValue = (int)Random.Range(10.0f, 20.0f);
-        yValue = (int)Random.Range(5.0f, 20.0f);
+        //xValue = (int)Random.Range(0.1f, 0.5f);
+        xValue = 0;
+        //yValue = (int)Random.Range(0.1f, 0.1f);
+        yValue = 0;
 
         float x = Mathf.Cos(timeCounter) * width;
         float y = Mathf.Sin(timeCounter) * height;
-        float z = Mathf.Sin(timeCounter) * 1.0f;
+        float z = Mathf.Sin(timeCounter) * 0.0f;
 
         //this.gameObject.transform.position = new Vector3(x, y, z);
         this.gameObject.transform.Rotate(randomRotation * Time.deltaTime * speed, Space.World);
