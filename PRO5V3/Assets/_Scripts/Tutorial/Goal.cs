@@ -13,6 +13,7 @@ public class Goal : MonoBehaviour
         if (other.gameObject.CompareTag("Interactable") && nextTarget.startMinigame == false)
         {
             ball.RespawnBall();
+            ball.Explode();
             nextTarget.NextTarget();
             nextTarget.startMinigame = true;
             trigger.TriggerMinigame();

@@ -37,6 +37,6 @@ public class ReturnBall : MonoBehaviour
         GameObject explode = Instantiate(particle, this.transform.position, Quaternion.identity);
         explode.GetComponent<ParticleController>().targetCamera = (Transform)activeCamera;
         particle.GetComponent<ParticleSystem>().Play();
-        Destroy(explode, 1.0f);
+        Destroy(explode, 2.0f);
     }
 }
