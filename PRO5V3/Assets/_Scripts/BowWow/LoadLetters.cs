@@ -48,6 +48,9 @@ public class LoadLetters : MonoBehaviour
     private int incorrectLetters = 0;
     private int wordLength;
 
+    private string pathLetters;
+    private string fileExtension;
+
     public List<int> GetList()
     {
         return destroyed;
@@ -71,9 +74,12 @@ public class LoadLetters : MonoBehaviour
     void Start()
     {
         //hit = new HITandSave();
-        AddLettersToDictionary();
+        pathLetters = "./Assets/_Prefabs/PrefabLetters";
+        fileExtension = "*.prefab";
 
-        TestNeonLetters();
+        //AddLettersToDictionary();
+
+        NeonLetters(pathLetters, fileExtension, ".prefab");
 
         if (FillDictionaryWithWords())
         {
@@ -95,23 +101,23 @@ public class LoadLetters : MonoBehaviour
         }
     }
 
-    private void TestNeonLetters()
+    private void NeonLetters(string path, string fileToGet, string extension)
     {
-        string targetdirectory = "./Assets/_Prefabs/PrefabLetters";
-        string[] files = Directory.GetFiles(targetdirectory, "*.prefab").Select(file => Path.GetFileName(file)).ToArray();
-        string[] filesPath = Directory.GetFiles(targetdirectory, "*.prefab").ToArray();
+        string targetdirectory = path;
+        string[] files = Directory.GetFiles(targetdirectory, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
+        string[] filesPath = Directory.GetFiles(targetdirectory, fileToGet).ToArray();
 
         for (int i = 0; i < files.Length; i++)
         {
             //Debug.Log("FILE NAME FOR NOW ++++---->>>> " + files[i].Replace(".prefab", ""));
-            TESTdict.Add(files[i].Replace(".prefab", ""), (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), typeof(GameObject)));
+            dict.Add(files[i].Replace(extension, ""), (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), typeof(GameObject)));
         }
 
-        foreach(var elem in TESTdict)
-        {
-            Debug.Log("TESTDICTIONARY CONTENT " + elem.Key);
-            instantiateLetters(elem.Value);
-        }
+        //foreach(var elem in TESTdict)
+        //{
+        //    Debug.Log("TESTDICTIONARY CONTENT " + elem.Key);
+        //    instantiateLetters(elem.Value);
+        //}
 
     }
 
@@ -180,38 +186,29 @@ public class LoadLetters : MonoBehaviour
     private GameObject instantiateLetters(GameObject prefab)
     {
         float randomRadius = UnityEngine.Random.Range(50.0f, 1000.0f);
-
         Vector3 center = transform.position;
-
-        //Debug.Log("THIS IS CENTER --> " + center);
-
-        
         Vector3 pos = RandomCircle(center, randomRadius);
-
-        //Debug.Log("POS --> " + pos);
-        //Vector3 pos = randomPos(center, randomRadius);
-        //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
-
-        //var obi = Instantiate(dict[alphabet[i]], pos, rot);
-       
         var obi = Instantiate(prefab, pos, Quaternion.identity);
-        
-        
-        obi.AddComponent<Orbit>();
-        //obi.AddComponent<SpawnArea>();
-        obi.AddComponent<Rigidbody>();
 
-        
+        obi.AddComponent<Orbit>();
+        obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
 
         obi.AddComponent<HITandSave>();
+
+        obi.AddComponent<Rigidbody>();
+        
         obi.GetComponent<Rigidbody>().useGravity = false;
-        //obi.AddComponent<RotatePill>();
-        obi.AddComponent<SphereCollider>();
+
+        //obi.AddComponent<SphereCollider>();
+        //obi.GetComponent<SphereCollider>().isTrigger = true;
+
+        obi.AddComponent<MeshCollider>();
+        obi.GetComponent<MeshCollider>().convex = true;
+        obi.GetComponent<MeshCollider>().isTrigger = true;
+
         obi.AddComponent<RotatePill>();
-        obi.GetComponent<SphereCollider>().isTrigger = true;
-       
-        //obi.GetComponent<Orbit>().centerPoint.gameObject.name = "GameObject";
-        obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
+        
+        
         obi.transform.localScale += new Vector3(50.0f, 50.0f, 50.0f);
 
         return obi;
@@ -220,8 +217,6 @@ public class LoadLetters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         if(correctLetters == wordLength)
         {
             foreach(var obj in toShoot)
@@ -238,7 +233,6 @@ public class LoadLetters : MonoBehaviour
         {
             CheckForDestroyedLetter();
         }
-
     }
 
     public void CheckForDestroyedLetter()
@@ -251,6 +245,8 @@ public class LoadLetters : MonoBehaviour
 
             if (isHit)
             {
+                Destroy(arrow);             
+                Destroy(item.Value.initObject);
                 if (item.Value.target)
                 {
                     correctLetters++;
@@ -259,8 +255,6 @@ public class LoadLetters : MonoBehaviour
                 {
                     incorrectLetters++;
                 }
-                Destroy(arrow);
-                Destroy(item.Value.initObject);
                 toShoot.Remove(item.Key);
                 indexKey--;
             }
