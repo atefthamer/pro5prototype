@@ -33,27 +33,27 @@ public class HITandSave : MonoBehaviour
         
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("projectile"))
-    //    {
-    //        Debug.Log("Letter Hit");
-    //        //Destroy(other.gameObject);
-    //        arrow = other.gameObject;
-    //        hit = true;
-    //        objectId = this.gameObject.GetInstanceID();          
-    //    }
-    //}
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("projectile"))
+        if (other.gameObject.CompareTag("projectile"))
         {
             Debug.Log("Letter Hit");
             //Destroy(other.gameObject);
-            arrow = collision.gameObject;
+            arrow = other.gameObject;
             hit = true;
-            objectId = this.gameObject.GetInstanceID();
+            objectId = this.gameObject.GetInstanceID();          
         }
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("projectile"))
+    //    {
+    //        Debug.Log("Letter Hit");
+    //        //Destroy(other.gameObject);
+    //        arrow = collision.gameObject;
+    //        hit = true;
+    //        objectId = this.gameObject.GetInstanceID();
+    //    }
+    //}
 }

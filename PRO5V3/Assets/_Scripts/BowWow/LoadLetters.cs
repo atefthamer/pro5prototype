@@ -198,13 +198,17 @@ public class LoadLetters : MonoBehaviour
         obi.AddComponent<Rigidbody>();
         
         obi.GetComponent<Rigidbody>().useGravity = false;
+        obi.GetComponent<Rigidbody>().isKinematic = true;
 
         //obi.AddComponent<SphereCollider>();
         //obi.GetComponent<SphereCollider>().isTrigger = true;
 
-        obi.AddComponent<MeshCollider>();
-        obi.GetComponent<MeshCollider>().convex = true;
-        obi.GetComponent<MeshCollider>().isTrigger = true;
+        //obi.AddComponent<MeshCollider>();
+        //obi.GetComponent<MeshCollider>().convex = true;
+        //obi.GetComponent<MeshCollider>().isTrigger = true;
+
+        //obi.AddComponent<BoxCollider>();
+        //obi.GetComponent<BoxCollider>().isTrigger = true;
 
         obi.AddComponent<RotatePill>();
         
