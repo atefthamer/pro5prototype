@@ -6,15 +6,13 @@ using UnityEngine;
 public class SFXTriggers : MonoBehaviour
 {
     AudioSource audioData;
-    public float volume = 1.0f;
 
     void Start()
     {
         audioData = GetComponent<AudioSource>();
-        audioData.volume = volume;
     }
 
-    public void GoalSound()
+    public void PlaySound()
     {
         audioData.Play(0);
     }

@@ -12,6 +12,8 @@ public class LoadLetters : MonoBehaviour
 
     bool checkForUpdate = false;
 
+    public SFXTriggers sfx;
+
     //GameObject obi;
     Orbit orbit;
     //public GameObject placeholder;
@@ -249,6 +251,7 @@ public class LoadLetters : MonoBehaviour
 
             if (isHit)
             {
+                sfx.PlaySound();
                 Destroy(arrow);             
                 Destroy(item.Value.initObject);
                 if (item.Value.target)
