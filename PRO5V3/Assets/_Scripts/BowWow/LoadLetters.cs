@@ -8,43 +8,22 @@ using System.Linq;
 
 public class LoadLetters : MonoBehaviour
 {
-    //HITandSave hit;
-
-    bool checkForUpdate = false;
-
     public SFXTriggers sfx;
 
-    //GameObject obi;
-    Orbit orbit;
-    //public GameObject placeholder;
-    // Start is called before the first frame update
-    [SerializeField]
-    List<GameObject> letters = new List<GameObject>();
-
     Dictionary<string, GameObject> dict = new Dictionary<string, GameObject>();
-    Dictionary<string, GameObject> TESTdict = new Dictionary<string, GameObject>();
-    //Dictionary<char, GameObject> dict = new Dictionary<string, GameObject>();
+    Dictionary<int, Node> toShoot = new Dictionary<int, Node>();
+    Dictionary<int, string> wordsDict = new Dictionary<int, string>();
 
     [SerializeField]
     GameObject objectCenterPoint = null;
 
-    Dictionary<int, string> wordsDict = new Dictionary<int, string>();
+  
     public int wordsCount = 0;
-
-
-    public List<int> destroyed = new List<int>();
-
 
     string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
-    //Dictionary<string, bool> toShoot = new Dictionary<string, bool>();
-    Dictionary<int ,Node> toShoot = new Dictionary<int, Node>();
-
+    private bool checkForUpdate = false;
     private int indexKey = 0;
-
-    //public List<int> destroyed = new List<int>();
-    public List<GameObject> initObjects = new List<GameObject>();
-    //public List<int> initObjects = new List<int>();
 
     private int correctLetters = 0;
     private int incorrectLetters = 0;
@@ -53,11 +32,8 @@ public class LoadLetters : MonoBehaviour
     private string pathLetters;
     private string fileExtension;
 
-    public List<int> GetList()
-    {
-        return destroyed;
-    }
 
+    // Inner class to save various information about the dynamic gameobjects
     class Node 
     {
         public GameObject initObject; 
@@ -75,18 +51,23 @@ public class LoadLetters : MonoBehaviour
 
     void Start()
     {
-        //hit = new HITandSave();
+        // Path to the Neon letters
         pathLetters = "./Assets/_Prefabs/PrefabLetters";
+        // File extension we want
         fileExtension = "*.prefab";
 
         //AddLettersToDictionary();
 
+        // Add letters to dictionary
         NeonLetters(pathLetters, fileExtension, ".prefab");
 
+        // Fill the dictionary with the words from the txt file
         if (FillDictionaryWithWords())
         {
             Debug.Log("Done with file reader");
         }
+
+        // Spwan letters
         SpawnLetters();
     }
 
@@ -98,29 +79,25 @@ public class LoadLetters : MonoBehaviour
 
         for (int i = 0; i < files.Length; i++)
         {
-            //Debug.Log("FILE NAME FOR NOW ++++---->>>> " + files[i].Replace(".fbx", ""));
-            dict.Add(files[i].Replace(".fbx", ""), (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), typeof(GameObject)));
+            dict.Add(files[i].Replace(".fbx", ""), 
+                (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
+                typeof(GameObject))
+                );
         }
     }
 
     private void NeonLetters(string path, string fileToGet, string extension)
     {
-        string targetdirectory = path;
-        string[] files = Directory.GetFiles(targetdirectory, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
-        string[] filesPath = Directory.GetFiles(targetdirectory, fileToGet).ToArray();
+        string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
+        string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
 
         for (int i = 0; i < files.Length; i++)
         {
-            //Debug.Log("FILE NAME FOR NOW ++++---->>>> " + files[i].Replace(".prefab", ""));
-            dict.Add(files[i].Replace(extension, ""), (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), typeof(GameObject)));
+                 dict.Add(files[i].Replace(extension, ""), 
+                     (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
+                     typeof(GameObject))
+                     );
         }
-
-        //foreach(var elem in TESTdict)
-        //{
-        //    Debug.Log("TESTDICTIONARY CONTENT " + elem.Key);
-        //    instantiateLetters(elem.Value);
-        //}
-
     }
 
     private void SpawnLetters()
@@ -134,27 +111,13 @@ public class LoadLetters : MonoBehaviour
 
         for (int i = 0; i < wordsDict[randomIndex].Length; i++)
         {
+            string letter = wordsDict[randomIndex].ToUpper()[i].ToString();
             var iniObject = instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
-            //Node n = new Node(iniObject, GetWordLetterAtIndex(randomIndex, i), wordsDict[randomIndex].ToUpper()[i].ToString(), true, false);
-            Node n = new Node(iniObject, wordsDict[randomIndex].ToUpper()[i].ToString(), true, false);
-            //instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
+            Node n = new Node(iniObject, letter, true, false);
             toShoot.Add(indexKey, n);
             indexKey++;
-            //toShoot.Add(wordsDict[randomIndex].ToUpper()[i].ToString(), false);
         }
-
-        //for (int j = 0; j < 10; j++)
-        //{
-        //    var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
-
-        //    var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
-        //    //instantiateLetters(GetRandomLetter(randomLetterIndex));
-        //    //Node n = new Node(iniObject, GetRandomLetter(randomLetterIndex), alphabet[randomLetterIndex], false, false);
-        //    Node n = new Node(iniObject, alphabet[randomLetterIndex], false, false);
-        //    toShoot.Add(indexKey, n);
-        //    indexKey++;
-        //}
-      
+       
         int index = 0;
         
         while (index != 10)
@@ -164,7 +127,6 @@ public class LoadLetters : MonoBehaviour
            
             if (!wordToShoot.Contains(randomChar))
             {
-                Debug.Log("WORD " + wordToShoot + " DOES NOT CONTAIN" + randomChar);
                 var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
                 Node n = new Node(iniObject, alphabet[randomLetterIndex], false, false);
                 toShoot.Add(indexKey, n);
@@ -175,16 +137,19 @@ public class LoadLetters : MonoBehaviour
         checkForUpdate = true;
     }
 
+    // Return Letter object from the word at index x
     private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
     {
         return dict[wordsDict[wordIndex].ToUpper()[letterIndex].ToString()];
     }
 
+    // Return letter from alphabet array at index x
     private GameObject GetRandomLetter(int index)
     {
         return dict[alphabet[index]];
     }
 
+    // instantiate letter object and return the object
     private GameObject instantiateLetters(GameObject prefab)
     {
         float randomRadius = UnityEngine.Random.Range(50.0f, 1000.0f);
@@ -201,7 +166,8 @@ public class LoadLetters : MonoBehaviour
         
         obi.GetComponent<Rigidbody>().useGravity = false;
         obi.GetComponent<Rigidbody>().isKinematic = true;
-
+        
+        // Experimental 
         //obi.AddComponent<SphereCollider>();
         //obi.GetComponent<SphereCollider>().isTrigger = true;
 
@@ -213,8 +179,8 @@ public class LoadLetters : MonoBehaviour
         //obi.GetComponent<BoxCollider>().isTrigger = true;
 
         obi.AddComponent<RotatePill>();
-        
-        
+
+        // Make letter bigger
         obi.transform.localScale += new Vector3(50.0f, 50.0f, 50.0f);
 
         return obi;
@@ -223,37 +189,52 @@ public class LoadLetters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If correct letters are all shot, reset
         if(correctLetters == wordLength)
         {
+            // Delete remaining objects to start new spawn round
             foreach(var obj in toShoot)
             {
                 Destroy(obj.Value.initObject);
             }
+            // Clear the dictionary
             toShoot.Clear();
+            // Start at index 0 again
             indexKey = 0;
             correctLetters = 0;
             incorrectLetters = 0;
+            // Spawn letters
             SpawnLetters();
         }
         if (checkForUpdate)
         {
+            // Poll for the status of the letter objects
+            // Put more object properties in HITandSave.cs file 
             CheckForDestroyedLetter();
         }
     }
 
     public void CheckForDestroyedLetter()
     {
+        // Note: ToList() is used to copy the existing dictionary
+        // Because otherwise the list can't be modified in the loop
+        // TODO: if the list is long, it can be costly, find better solution.
         foreach (var item in toShoot.ToList())
         {
             bool isHit = item.Value.initObject.gameObject.GetComponent<HITandSave>().hit;
             int letterId = item.Value.initObject.gameObject.GetComponent<HITandSave>().objectId;
             GameObject arrow = item.Value.initObject.gameObject.GetComponent<HITandSave>().arrow;
 
+            // Is the letter hit?
             if (isHit)
             {
+                // Play sfx sound
                 sfx.PlaySound();
-                Destroy(arrow);             
+                // Destroy the arrow fired from the bow
+                Destroy(arrow); 
+                // Destroy the letter object
                 Destroy(item.Value.initObject);
+                // Keep track of the score
                 if (item.Value.target)
                 {
                     correctLetters++;
@@ -262,15 +243,12 @@ public class LoadLetters : MonoBehaviour
                 {
                     incorrectLetters++;
                 }
+                // Remove from the dictinary
                 toShoot.Remove(item.Key);
+                // Decrement the index
                 indexKey--;
             }
         }
-    }
-
-    public void AddDestroyedObject()
-    {
-        destroyed.Add(this.gameObject.GetInstanceID());
     }
 
     private static string GetGameObjectPath(GameObject obj)
