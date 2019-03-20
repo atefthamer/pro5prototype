@@ -322,11 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfx: {fileID: 473172197}
-  letters: []
   objectCenterPoint: {fileID: 111187999}
   wordsCount: 0
-  destroyed: 
-  initObjects: []
 --- !u!4 &111188002
 Transform:
   m_ObjectHideFlags: 0
@@ -1080,6 +1077,18 @@ PrefabInstance:
     - target: {fileID: 400036, guid: b04eca4e1f292324390515c287be0081, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.0886
+      objectReference: {fileID: 0}
+    - target: {fileID: 400036, guid: b04eca4e1f292324390515c287be0081, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8542336
+      objectReference: {fileID: 0}
+    - target: {fileID: 400036, guid: b04eca4e1f292324390515c287be0081, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8542336
+      objectReference: {fileID: 0}
+    - target: {fileID: 400036, guid: b04eca4e1f292324390515c287be0081, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8542336
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: b04eca4e1f292324390515c287be0081, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2049,6 +2058,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mountains
       objectReference: {fileID: 0}
+    - target: {fileID: 7273126563382874636, guid: 2bd70396385b6574b93c802f628e11f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7273126564607661909, guid: 2bd70396385b6574b93c802f628e11f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2102,11 +2116,6 @@ PrefabInstance:
     - target: {fileID: 7273126564607661909, guid: 2bd70396385b6574b93c802f628e11f0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273126563382874636, guid: 2bd70396385b6574b93c802f628e11f0,
-        type: 3}
-      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7273126563382874638, guid: 2bd70396385b6574b93c802f628e11f0,
@@ -2415,6 +2424,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoonLight
       objectReference: {fileID: 0}
+    - target: {fileID: 8972308671619692373, guid: e3c304d46beb08a439ab1f030861fe74,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972308671619692373, guid: e3c304d46beb08a439ab1f030861fe74,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8972308671619692373, guid: e3c304d46beb08a439ab1f030861fe74,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8972308671619692372, guid: e3c304d46beb08a439ab1f030861fe74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2469,21 +2493,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.718
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972308671619692373, guid: e3c304d46beb08a439ab1f030861fe74,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972308671619692373, guid: e3c304d46beb08a439ab1f030861fe74,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8972308671619692373, guid: e3c304d46beb08a439ab1f030861fe74,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3c304d46beb08a439ab1f030861fe74, type: 3}
@@ -2604,7 +2613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.324
+      value: 35.51
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
