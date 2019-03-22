@@ -2043,7 +2043,12 @@ public class CVRSystem
 	{
 		FnTable.AcknowledgeQuit_UserPrompt();
 	}
-}
+
+        public bool GetControllerStateWithPose(object trackingSpace, uint index, ref VRControllerState_t state, ref TrackedDevicePose_t pose)
+        {
+            throw new NotImplementedException();
+        }
+    }
 
 
 public class CVRExtendedDisplay
