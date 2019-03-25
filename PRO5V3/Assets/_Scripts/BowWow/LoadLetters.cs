@@ -31,6 +31,8 @@ public class LoadLetters : MonoBehaviour
 
     private string pathLetters;
     private string fileExtension;
+    public int score = 0;
+
 
 
     // Inner class to save various information about the dynamic gameobjects
@@ -203,6 +205,7 @@ public class LoadLetters : MonoBehaviour
             indexKey = 0;
             correctLetters = 0;
             incorrectLetters = 0;
+            score++;
             // Spawn letters
             SpawnLetters();
         }
