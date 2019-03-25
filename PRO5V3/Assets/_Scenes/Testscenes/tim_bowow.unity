@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b3c34886822ed489c5bd1edcbd58e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 0}
   letters: []
   objectCenterPoint: {fileID: 111187999}
   wordsCount: 0
