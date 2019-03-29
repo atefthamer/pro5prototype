@@ -70,14 +70,17 @@ public class LoadLetters : MonoBehaviour
         NeonLetters(pathLetters, fileExtension, ".prefab");
 
         // Fill the dictionary with the words from the txt file
-        if (FillDictionaryWithWords())
-        {
-            Debug.Log("Done with file reader");
-        }
+        //if (FillDictionaryWithWords())
+        //{
+        //    Debug.Log("Done with file reader");
+        //}
 
         // Spwan letters
-        SpawnLetters();
+        //SpawnLetters();
+
+        
         FillJSONDic();
+        SpawnLettersV2();
     }
 
     private void AddLettersToDictionary()
@@ -146,11 +149,53 @@ public class LoadLetters : MonoBehaviour
         checkForUpdate = true;
     }
 
+    private void SpawnLettersV2()
+    {
+        var randomIndex = (int)UnityEngine.Random.Range(0.0f, wordsCount);
+        string wordToShoot = jsonWordsDict[randomIndex].word.ToUpper();
+
+        Debug.Log("This is the word with index 2 " + jsonWordsDict[randomIndex].word.ToUpper());
+        Debug.Log("This is the word with index 2 with length " + jsonWordsDict[randomIndex].word.Length);
+        wordLength = jsonWordsDict[randomIndex].word.Length;
+
+        for (int i = 0; i < wordLength; i++)
+        {
+            string letter = jsonWordsDict[randomIndex].word.ToUpper()[i].ToString();
+            var iniObject = instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
+            Node n = new Node(iniObject, letter, true, false);
+            toShoot.Add(indexKey, n);
+            indexKey++;
+        }
+       
+        int index = 0;
+        
+        while (index != 5)
+        {
+            var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
+            string randomChar = alphabet[randomLetterIndex];
+           
+            if (!wordToShoot.Contains(randomChar))
+            {
+                var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
+                Node n = new Node(iniObject, alphabet[randomLetterIndex], false, false);
+                toShoot.Add(indexKey, n);
+                indexKey++;
+                index++;
+            }
+        }
+        checkForUpdate = true;
+    }
+
     // Return Letter object from the word at index x
     private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
     {
-        return dict[wordsDict[wordIndex].ToUpper()[letterIndex].ToString()];
+        return dict[jsonWordsDict[wordIndex].word.ToUpper()[letterIndex].ToString()];
     }
+
+    //private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
+    //{
+    //    return dict[wordsDict[wordIndex].ToUpper()[letterIndex].ToString()];
+    //}
 
     // Return letter from alphabet array at index x
     private GameObject GetRandomLetter(int index)
@@ -214,7 +259,8 @@ public class LoadLetters : MonoBehaviour
             incorrectLetters = 0;
             score++;
             // Spawn letters
-            SpawnLetters();
+            //SpawnLetters();
+            SpawnLettersV2();
         }
         if (checkForUpdate)
         {
@@ -381,6 +427,7 @@ public class LoadLetters : MonoBehaviour
 
             jsonWordsDict.Add(index, new ArrayListWords(word, level, imageSource));
             index++;
+            wordsCount++;
             Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].word);
             Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].level);
             Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].imageSource);
