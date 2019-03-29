@@ -14,6 +14,11 @@ public class LoadLetters : MonoBehaviour
     Dictionary<int, Node> toShoot = new Dictionary<int, Node>();
     Dictionary<int, string> wordsDict = new Dictionary<int, string>();
 
+
+    Dictionary<int, ArrayListWords> jsonWordsDict = new Dictionary<int, ArrayListWords>();
+
+
+
     [SerializeField]
     GameObject objectCenterPoint = null;
 
@@ -33,6 +38,7 @@ public class LoadLetters : MonoBehaviour
     private string fileExtension;
     public int score = 0;
 
+    public Vector3 pos;
 
 
     // Inner class to save various information about the dynamic gameobjects
@@ -71,6 +77,7 @@ public class LoadLetters : MonoBehaviour
 
         // Spwan letters
         SpawnLetters();
+        FillJSONDic();
     }
 
     private void AddLettersToDictionary()
@@ -122,7 +129,7 @@ public class LoadLetters : MonoBehaviour
        
         int index = 0;
         
-        while (index != 10)
+        while (index != 5)
         {
             var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
             string randomChar = alphabet[randomLetterIndex];
@@ -156,11 +163,8 @@ public class LoadLetters : MonoBehaviour
     {
         float randomRadius = UnityEngine.Random.Range(50.0f, 1000.0f);
         Vector3 center = transform.position;
-        Vector3 pos = RandomCircle(center, randomRadius);
+        pos = RandomCircle(center, randomRadius);
         var obi = Instantiate(prefab, pos, Quaternion.identity);
-
-        obi.AddComponent<Orbit>();
-        obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
 
         obi.AddComponent<HITandSave>();
 
@@ -181,6 +185,9 @@ public class LoadLetters : MonoBehaviour
         //obi.GetComponent<BoxCollider>().isTrigger = true;
 
         obi.AddComponent<RotatePill>();
+
+        obi.AddComponent<Orbit>();
+        obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
 
         // Make letter bigger
         obi.transform.localScale += new Vector3(50.0f, 50.0f, 50.0f);
@@ -265,7 +272,7 @@ public class LoadLetters : MonoBehaviour
         return path;
     }
 
-    private Vector3 RandomCircle(Vector3 center, float radius)
+    public Vector3 RandomCircle(Vector3 center, float radius)
     {
         //float ang = UnityEngine.Random.Range(-90.0f, 90.0f) * 360;
         float ang = UnityEngine.Random.value * 360;
@@ -314,5 +321,69 @@ public class LoadLetters : MonoBehaviour
 
         file.Close();
         return true;
+    }
+
+    public WordsList wordlist = new WordsList();
+    string text = "";
+
+    public string LoadJson(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            string dataAsJson = File.ReadAllText(filePath);
+            return dataAsJson;
+        }
+        return "";
+    }
+
+    //public List<Words> GetWordsFromJson(string path)
+    //{
+    //    //text = LoadJson("./Assets/_Scripts/BowWow/words-copy.json");
+    //    // Usage: path = "./Assets/_Scripts/BowWow/words-copy.json";
+    //    text = LoadJson(path);
+    //    wordlist = JsonUtility.FromJson<WordsList>(text);
+    //    return wordlist.Words;
+    //    //return wordlist.Words;
+    //}
+
+    public List<Words> GetWordsFromJson(string path)
+    {
+        //text = LoadJson("./Assets/_Scripts/BowWow/words-copy.json");
+        // Usage: path = "./Assets/_Scripts/BowWow/words-copy.json";
+        text = LoadJson(path);
+        return JsonUtility.FromJson<WordsList>(text).Words;
+    }
+
+    class ArrayListWords
+    {
+        public string word;
+        public int level;
+        public string imageSource;
+
+        public ArrayListWords(string word, int level, string imageSource)
+        {
+            this.word = word;
+            this.level = level;
+            this.imageSource = imageSource;
+        }
+    }
+
+    public void FillJSONDic()
+    {
+        int index = 0;
+        List<Words> wordlist = GetWordsFromJson("./Assets/_Scripts/BowWow/words-copy.json");
+
+        for(int i = 0; i < wordlist.Count; i++)
+        {
+            string word = wordlist[i].word;
+            int level = wordlist[i].level;
+            string imageSource = wordlist[i].img_src;
+
+            jsonWordsDict.Add(index, new ArrayListWords(word, level, imageSource));
+            index++;
+            Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].word);
+            Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].level);
+            Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].imageSource);
+        }
     }
 }
