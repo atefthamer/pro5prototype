@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
-
+using TMPro;
 
 
 public class LoadLetters : MonoBehaviour
@@ -14,12 +14,11 @@ public class LoadLetters : MonoBehaviour
     Dictionary<int, Node> toShoot = new Dictionary<int, Node>();
     Dictionary<int, string> wordsDict = new Dictionary<int, string>();
 
-
+    [SerializeField]
     Dictionary<int, ArrayListWords> jsonWordsDict = new Dictionary<int, ArrayListWords>();
 
 
-
-    [SerializeField]
+   [SerializeField]
     GameObject objectCenterPoint = null;
 
   
@@ -36,7 +35,11 @@ public class LoadLetters : MonoBehaviour
 
     private string pathLetters;
     private string fileExtension;
+
+    // Score and Words
     public int score = 0;
+    public string wordToDisplay = "";
+
 
     public Vector3 pos;
 
@@ -153,6 +156,8 @@ public class LoadLetters : MonoBehaviour
     {
         var randomIndex = (int)UnityEngine.Random.Range(0.0f, wordsCount);
         string wordToShoot = jsonWordsDict[randomIndex].word.ToUpper();
+
+        wordToDisplay = wordToShoot;
 
         Debug.Log("This is the word with index 2 " + jsonWordsDict[randomIndex].word.ToUpper());
         Debug.Log("This is the word with index 2 with length " + jsonWordsDict[randomIndex].word.Length);
@@ -433,4 +438,18 @@ public class LoadLetters : MonoBehaviour
             Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].imageSource);
         }
     }
+
+    public void loadSprite()
+    {
+        foreach(var word in jsonWordsDict)
+        {
+            if(word.Value.word == "kawasaki")
+            {
+
+            }
+        }
+    }
+
+
+
 }

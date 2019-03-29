@@ -1,9 +1,9 @@
 {
   "Words": [
     {
-      "word": "schaap",
+      "word": "kawasaki",
       "level": 1,
-      "img_src": "home/image/now/test.png"
+      "img_src": "./Assets/_Images/kawasaki.png"
     },
     {
       "word": "aap",
