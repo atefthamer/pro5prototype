@@ -63,7 +63,7 @@ public class LoadLetters : MonoBehaviour
     void Start()
     {
         // Path to the Neon letters
-        pathLetters = "./Assets/_Prefabs/PrefabLetters";
+        pathLetters = "./Assets/Resources";
         // File extension we want
         fileExtension = "*.prefab";
 
@@ -88,14 +88,14 @@ public class LoadLetters : MonoBehaviour
 
     private void AddLettersToDictionary()
     {
-        string targetdirectory = "./Assets/_Prefabs/Letters";
+        string targetdirectory = "./Assets/Resources";
         string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();
         string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").ToArray();
 
         for (int i = 0; i < files.Length; i++)
         {
             dict.Add(files[i].Replace(".fbx", ""), 
-                (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
+                (GameObject)Resources.Load(filesPath[i].Substring(2).Replace("\\", "/"), 
                 typeof(GameObject))
                 );
         }
@@ -109,7 +109,7 @@ public class LoadLetters : MonoBehaviour
         for (int i = 0; i < files.Length; i++)
         {
                  dict.Add(files[i].Replace(extension, ""), 
-                     (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
+                     (GameObject)Resources.Load(filesPath[i].Substring(2).Replace("\\", "/"), 
                      typeof(GameObject))
                      );
         }
