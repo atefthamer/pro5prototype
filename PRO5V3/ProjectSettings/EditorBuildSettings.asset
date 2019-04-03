@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Scenes/Bowwow.unity
     guid: 445cb8205c215854faf80fa19cbf8e0a
   - enabled: 0
     path: Assets/_Scenes/Tutorial.unity
     guid: 40e32d62a3b8afc47b33b2a5dca28355
-  - enabled: 1
+  - enabled: 0
     path: Assets/Oculus/VR/Scenes/GearVrControllerTest.unity
     guid: d56af3aeb2176e7459f753c1c2e2dd97
   m_configObjects: {}
