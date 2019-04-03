@@ -62,8 +62,10 @@ public class LoadLetters : MonoBehaviour
 
     void Start()
     {
-        // Path to the Neon letters
-        pathLetters = "./Assets/_Prefabs/PrefabLetters";
+        // Path to the Neon letters <- AssetsDatabase
+        //pathLetters = "./Assets/_Prefabs/PrefabLetters";
+        // Path to the Neon letters <- Resources.Load!
+        pathLetters = "./Assets/Resources/PrefabLetters";
         // File extension we want
         fileExtension = "*.prefab";
 
@@ -86,6 +88,24 @@ public class LoadLetters : MonoBehaviour
         SpawnLettersV2();
     }
 
+    private void NeonLetters(string path, string fileToGet, string extension)
+    {
+        string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
+        string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            // Load from Resources <-- Use for now
+            dict.Add(files[i].Replace(extension, ""), Resources.Load<GameObject>("PrefabLetters/"+files[i].Replace(extension,"")));
+
+            // Load From AssetsDatabase <-- Don't use
+            //dict.Add(files[i].Replace(extension, ""),
+            //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
+            //    typeof(GameObject))
+            //    );
+        }
+    }
+
     private void AddLettersToDictionary()
     {
         string targetdirectory = "./Assets/_Prefabs/Letters";
@@ -98,20 +118,6 @@ public class LoadLetters : MonoBehaviour
                 (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
                 typeof(GameObject))
                 );
-        }
-    }
-
-    private void NeonLetters(string path, string fileToGet, string extension)
-    {
-        string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
-        string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
-
-        for (int i = 0; i < files.Length; i++)
-        {
-                 dict.Add(files[i].Replace(extension, ""), 
-                     (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
-                     typeof(GameObject))
-                     );
         }
     }
 
