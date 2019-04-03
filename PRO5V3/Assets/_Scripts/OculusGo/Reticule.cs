@@ -12,6 +12,11 @@ public class Reticule : MonoBehaviour
 
     private Camera m_Camera = null;
 
+    [SerializeField]
+    Transform activeCamera = null;
+
+    public GameObject particle;
+
     private void Awake()
     {
         m_Pointer.OnPointerUpdate += UpdateSprite;
@@ -41,5 +46,13 @@ public class Reticule : MonoBehaviour
         {
             m_CircleRenderer.sprite = m_OpenSprite;
         }
+    }
+
+    public void Explode()
+    {
+        GameObject explode = Instantiate(particle, this.transform.position, Quaternion.identity);
+        explode.GetComponent<ParticleController>().targetCamera = (Transform)activeCamera;
+        particle.GetComponent<ParticleSystem>().Play();
+        Destroy(explode, 2.0f);
     }
 }

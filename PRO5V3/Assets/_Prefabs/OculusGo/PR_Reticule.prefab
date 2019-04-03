@@ -45,9 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Pointer: {fileID: 0}
-  m_CircleRenderer: {fileID: 0}
-  m_OpenSprite: {fileID: 0}
-  m_ClosedSprite: {fileID: 0}
+  m_CircleRenderer: {fileID: 4928114825151020976}
+  m_OpenSprite: {fileID: 21300000, guid: 3afa8bec9896c1840893f7d6fee440df, type: 3}
+  m_ClosedSprite: {fileID: 21300000, guid: dfffcd7cf730fc34ab103ded2cdc4acd, type: 3}
+  activeCamera: {fileID: 0}
+  particle: {fileID: 1778172875087570067, guid: 2dc238c1b748a7f45b071dbf6ea1c050,
+    type: 3}
 --- !u!212 &4928114825151020976
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65,7 +68,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7f31de375e167154aa45929466af30e4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,14 +88,14 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3afa8bec9896c1840893f7d6fee440df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.34, y: 5.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

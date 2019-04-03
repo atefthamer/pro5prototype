@@ -116,7 +116,7 @@ public class Pointer : MonoBehaviour
         if (!m_CurrentObject)
             return;
 
-        Interactable_Go interactable = m_CurrentObject.GetComponent<Interactable_Go>();
+        Goal_Go interactable = m_CurrentObject.GetComponent<Goal_Go>();
         interactable.Pressed();
     }
 }
