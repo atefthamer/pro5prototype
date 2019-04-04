@@ -71,7 +71,7 @@ public class LoadLetters : MonoBehaviour
         public int letterIndex;
         public bool target;
         public bool isShot;
-        public Node(GameObject initObject, string letter, bool target, bool isShot)
+        public Node(GameObject initObject, string letter, int letterIndex, bool target, bool isShot)
         {
             this.initObject = initObject;
             this.letter = letter;
@@ -83,8 +83,10 @@ public class LoadLetters : MonoBehaviour
 
     void Start()
     {
-        // Path to the Neon letters
-        pathLetters = "./Assets/_Prefabs/PrefabLetters";
+        // Path to the Neon letters <- AssetsDatabase
+        //pathLetters = "./Assets/_Prefabs/PrefabLetters";
+        // Path to the Neon letters <- Resources.Load!
+        pathLetters = "./Assets/Resources/PrefabLetters";
         // File extension we want
         fileExtension = "*.prefab";
 
@@ -181,32 +183,18 @@ public class LoadLetters : MonoBehaviour
         }
     }
 
-    //private void AddLettersToDictionary()
-    //{
-    //    string targetdirectory = "./Assets/_Prefabs/Letters";
-    //    string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();
-    //    string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").ToArray();
-
-    //    for (int i = 0; i < files.Length; i++)
-    //    {
-    //        dict.Add(files[i].Replace(".fbx", ""), 
-    //            (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
-    //            typeof(GameObject))
-    //            );
-    //    }
-    //}
-
-    private void NeonLetters(string path, string fileToGet, string extension)
+    private void AddLettersToDictionary()
     {
-        string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
-        string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
+        string targetdirectory = "./Assets/_Prefabs/Letters";
+        string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();
+        string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").ToArray();
 
         for (int i = 0; i < files.Length; i++)
         {
-                 dict.Add(files[i].Replace(extension, ""), 
-                     (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
-                     typeof(GameObject))
-                     );
+            dict.Add(files[i].Replace(".fbx", ""),
+                (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
+                typeof(GameObject))
+                );
         }
     }
 
@@ -565,7 +553,7 @@ public class LoadLetters : MonoBehaviour
     public void FillJSONDic()
     {
         int index = 0;
-        
+
         List<Words> wordlist = GetWordsFromJson("./Assets/_Scripts/BowWow/words-copy.json");
         Debug.Log("FILL THE DICTIONARY JSON");
         for (int i = 0; i < wordlist.Count; i++)
@@ -597,9 +585,3 @@ public class LoadLetters : MonoBehaviour
 
 
 }
-
-        public Node(GameObject initObject, string letter, int letterIndex, bool target, bool isShot)
-        // Path to the Neon letters <- AssetsDatabase
-        //pathLetters = "./Assets/_Prefabs/PrefabLetters";
-        // Path to the Neon letters <- Resources.Load!
-        pathLetters = "./Assets/Resources/PrefabLetters";
