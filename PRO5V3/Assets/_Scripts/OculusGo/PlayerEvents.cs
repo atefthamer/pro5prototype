@@ -8,6 +8,8 @@ public class PlayerEvents : MonoBehaviour
     #region Events
     public static UnityAction OnTouchpadUp = null;
     public static UnityAction OnTouchpadDown = null;
+    public static UnityAction OnTriggerUp = null;
+    public static UnityAction OnTriggerDown = null;
     public static UnityAction<OVRInput.Controller, GameObject> OnControllerSource = null;
     #endregion
 
@@ -96,6 +98,18 @@ public class PlayerEvents : MonoBehaviour
         {
             if (OnTouchpadUp != null)
                 OnTouchpadUp();
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+        {
+            if (OnTriggerDown != null)
+                OnTriggerDown();            
+        }
+
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
+        {
+            if (OnTriggerUp != null)
+                OnTriggerUp();
         }
     }
 

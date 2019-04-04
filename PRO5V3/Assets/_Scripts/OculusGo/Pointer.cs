@@ -19,7 +19,7 @@ public class Pointer : MonoBehaviour
     {
         PlayerEvents.OnControllerSource += UpdateOrigin;
         PlayerEvents.OnTouchpadDown += ProcessTouchpadDown;
-         
+        PlayerEvents.OnTriggerDown += ProcessTriggerDown;
     }
 
     private void Start()
@@ -31,6 +31,7 @@ public class Pointer : MonoBehaviour
     {
         PlayerEvents.OnControllerSource -= UpdateOrigin;
         PlayerEvents.OnTouchpadDown -= ProcessTouchpadDown;
+        PlayerEvents.OnTriggerDown -= ProcessTriggerDown;
     }
 
     private void Update()
@@ -112,6 +113,12 @@ public class Pointer : MonoBehaviour
     }
 
     private void ProcessTouchpadDown()
+    {
+        if (!m_CurrentObject)
+            return;
+    }
+
+    private void ProcessTriggerDown()
     {
         if (!m_CurrentObject)
             return;
