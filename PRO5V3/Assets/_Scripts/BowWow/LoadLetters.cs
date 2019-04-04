@@ -6,6 +6,7 @@ using System.Linq;
 using TMPro;
 
 
+[RequireComponent(typeof(AudioSource))]
 public class LoadLetters : MonoBehaviour
 {
     public SFXTriggers sfx;
@@ -13,6 +14,10 @@ public class LoadLetters : MonoBehaviour
     Dictionary<string, GameObject> dict = new Dictionary<string, GameObject>();
     Dictionary<int, Node> toShoot = new Dictionary<int, Node>();
     Dictionary<int, string> wordsDict = new Dictionary<int, string>();
+
+    // Sound
+    Dictionary<string, AudioClip> audioWords = new Dictionary<string, AudioClip>();
+    public AudioSource audio;
 
     [SerializeField]
     Dictionary<int, ArrayListWords> jsonWordsDict = new Dictionary<int, ArrayListWords>();
@@ -41,6 +46,7 @@ public class LoadLetters : MonoBehaviour
     // Score and Words
     public int score = 0;
     public string wordToDisplay = "";
+    public bool displayWord = false;
 
 
     public Vector3 pos;
@@ -87,10 +93,24 @@ public class LoadLetters : MonoBehaviour
 
         // Spwan letters
         //SpawnLetters();
+        audio.GetComponent<AudioSource>();
+
+
+        GetWordAudio();
+        FillJSONDic();
+
+        //this.gameObject.AddComponent<AudioSource>();
+
+        //audio.GetComponent<AudioClip>();
+        
+
+        SpawnLettersV2();
+
 
         
-        FillJSONDic();
-        SpawnLettersV2();
+        //audio.clip = audioWords["bak"];
+        //audio.Play();
+        //this.gameObject.GetComponent<AudioSource>().clip =
     }
 
     private void NeonLetters(string path, string fileToGet, string extension)
@@ -108,6 +128,36 @@ public class LoadLetters : MonoBehaviour
             //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
             //    typeof(GameObject))
             //    );
+        }
+    }
+
+    private void GetWordAudio()
+    {
+
+        string path = "./Assets/Resources/Audio/BowWow";
+        string fileToGet = "*.mp3";
+        string extension = ".mp3"; 
+
+        string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
+        string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            // Load from Resources <-- Use for now
+            audioWords.Add(files[i].Replace(extension, ""), Resources.Load<AudioClip>("Audio/BowWow/" + files[i].Replace(extension, "")));
+
+            // Load From AssetsDatabase <-- Don't use
+            //dict.Add(files[i].Replace(extension, ""),
+            //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
+            //    typeof(GameObject))
+            //    );
+
+        }
+
+        foreach (var item in audioWords)
+        {
+            Debug.Log("AUDIO FILES " + item.Value);
+            Debug.Log("AUDIO FILES " + item.Key);
         }
     }
 
@@ -188,6 +238,8 @@ public class LoadLetters : MonoBehaviour
 
         wordToDisplay = wordToShoot;
 
+        displayWord = true;
+
         Debug.Log("This is the word with index 2 " + jsonWordsDict[randomIndex].word.ToUpper());
         Debug.Log("This is the word with index 2 with length " + jsonWordsDict[randomIndex].word.Length);
         wordLength = jsonWordsDict[randomIndex].word.Length;
@@ -226,6 +278,9 @@ public class LoadLetters : MonoBehaviour
                 index++;
             }
         }
+
+        audio.clip = audioWords[wordToShoot.ToLower()];
+        audio.Play();
         checkForUpdate = true;
     }
 
@@ -286,8 +341,11 @@ public class LoadLetters : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //audio.clip = audioWords["bak"];
+        //audio.Play();
         // If correct letters are all shot, reset
-        if(correctLetters == wordLength)
+        if (correctLetters == wordLength)
         {
             // Delete remaining objects to start new spawn round
             foreach(var obj in toShoot)
