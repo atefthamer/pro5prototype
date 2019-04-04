@@ -18,10 +18,12 @@ public class LoadLetters : MonoBehaviour
     Dictionary<int, ArrayListWords> jsonWordsDict = new Dictionary<int, ArrayListWords>();
 
 
-   [SerializeField]
+    [SerializeField]
     GameObject objectCenterPoint = null;
 
-  
+    [SerializeField]
+    public int EXTRA_LETTERS = 5;
+
     public int wordsCount = 0;
 
     string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
@@ -43,19 +45,23 @@ public class LoadLetters : MonoBehaviour
 
     public Vector3 pos;
 
+    // Word split char array
+    public char[] wordSplit;
+    public bool useCharArray = false;
 
     // Inner class to save various information about the dynamic gameobjects
     class Node 
     {
         public GameObject initObject; 
         public string letter;
+        public int letterIndex;
         public bool target;
         public bool isShot;
-
         public Node(GameObject initObject, string letter, bool target, bool isShot)
         {
             this.initObject = initObject;
             this.letter = letter;
+            this.letterIndex = letterIndex;
             this.target = target;
             this.isShot = isShot;
         }
@@ -64,8 +70,7 @@ public class LoadLetters : MonoBehaviour
     void Start()
     {
         // Path to the Neon letters
-        //pathLetters = "./Assets/_Prefabs/PrefabLetters";
-        pathLetters = "./Assets/Resources";
+        pathLetters = "./Assets/_Prefabs/PrefabLetters";
         // File extension we want
         fileExtension = "*.prefab";
 
@@ -86,6 +91,24 @@ public class LoadLetters : MonoBehaviour
         
         FillJSONDic();
         SpawnLettersV2();
+    }
+
+    private void NeonLetters(string path, string fileToGet, string extension)
+    {
+        string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
+        string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            // Load from Resources <-- Use for now
+            dict.Add(files[i].Replace(extension, ""), Resources.Load<GameObject>("PrefabLetters/"+files[i].Replace(extension,"")));
+
+            // Load From AssetsDatabase <-- Don't use
+            //dict.Add(files[i].Replace(extension, ""),
+            //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
+            //    typeof(GameObject))
+            //    );
+        }
     }
 
     private void AddLettersToDictionary()
@@ -112,9 +135,8 @@ public class LoadLetters : MonoBehaviour
 
         for (int i = 0; i < files.Length; i++)
         {
-                 dict.Add(files[i].Replace(extension, ""),
-                     //(GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
-                     (GameObject)Resources.Load(filesPath[i].Substring(2).Replace("\\", "/"), 
+                 dict.Add(files[i].Replace(extension, ""), 
+                     (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
                      typeof(GameObject))
                      );
         }
@@ -129,11 +151,13 @@ public class LoadLetters : MonoBehaviour
         Debug.Log("This is the word with index 2 with length " + wordsDict[randomIndex].Length);
         wordLength = wordsDict[randomIndex].Length;
 
+        wordSplit = new char[wordLength];
+
         for (int i = 0; i < wordsDict[randomIndex].Length; i++)
         {
             string letter = wordsDict[randomIndex].ToUpper()[i].ToString();
             var iniObject = instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
-            Node n = new Node(iniObject, letter, true, false);
+            Node n = new Node(iniObject, letter, i, true, false);
             toShoot.Add(indexKey, n);
             indexKey++;
         }
@@ -148,7 +172,7 @@ public class LoadLetters : MonoBehaviour
             if (!wordToShoot.Contains(randomChar))
             {
                 var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
-                Node n = new Node(iniObject, alphabet[randomLetterIndex], false, false);
+                Node n = new Node(iniObject, alphabet[randomLetterIndex], randomLetterIndex, false, false);
                 toShoot.Add(indexKey, n);
                 indexKey++;
                 index++;
@@ -168,18 +192,27 @@ public class LoadLetters : MonoBehaviour
         Debug.Log("This is the word with index 2 with length " + jsonWordsDict[randomIndex].word.Length);
         wordLength = jsonWordsDict[randomIndex].word.Length;
 
+        wordSplit = new char[wordLength];
+
+        for (int i = 0; i < wordLength; i++)
+        {
+            wordSplit[i] = ' ';
+        }
+
+        useCharArray = true;
+
         for (int i = 0; i < wordLength; i++)
         {
             string letter = jsonWordsDict[randomIndex].word.ToUpper()[i].ToString();
             var iniObject = instantiateLetters(GetWordLetterAtIndex(randomIndex, i));
-            Node n = new Node(iniObject, letter, true, false);
+            Node n = new Node(iniObject, letter, i, true, false);
             toShoot.Add(indexKey, n);
             indexKey++;
         }
        
         int index = 0;
         
-        while (index != 5)
+        while (index != EXTRA_LETTERS)
         {
             var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
             string randomChar = alphabet[randomLetterIndex];
@@ -187,7 +220,7 @@ public class LoadLetters : MonoBehaviour
             if (!wordToShoot.Contains(randomChar))
             {
                 var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
-                Node n = new Node(iniObject, alphabet[randomLetterIndex], false, false);
+                Node n = new Node(iniObject, alphabet[randomLetterIndex], randomLetterIndex, false, false);
                 toShoot.Add(indexKey, n);
                 indexKey++;
                 index++;
@@ -275,12 +308,29 @@ public class LoadLetters : MonoBehaviour
         if (checkForUpdate)
         {
             // Poll for the status of the letter objects
-            // Put more object properties in HITandSave.cs file 
-            CheckForDestroyedLetter();
+            // Put more object properties in HITandSave.cs file
+            
+            int index = CheckForDestroyedLetter();
+            if(index != -1)
+            {
+                wordSplit[index] = wordToDisplay[index];
+            }
+            for (int i = 0; i < wordSplit.Length; i++)
+            {
+                Debug.Log("CHAR ______ " + wordSplit[i]);
+            }
+
         }
+        
+      
     }
 
-    public void CheckForDestroyedLetter()
+    private void fillCharArray()
+    {
+
+    }
+
+    public int CheckForDestroyedLetter()
     {
         // Note: ToList() is used to copy the existing dictionary
         // Because otherwise the list can't be modified in the loop
@@ -313,8 +363,13 @@ public class LoadLetters : MonoBehaviour
                 toShoot.Remove(item.Key);
                 // Decrement the index
                 indexKey--;
+
+                // Return the letter
+                return item.Value.letterIndex;
             }
         }
+        // Empty... 
+        return -1;
     }
 
     private static string GetGameObjectPath(GameObject obj)
@@ -458,3 +513,9 @@ public class LoadLetters : MonoBehaviour
 
 
 }
+
+        public Node(GameObject initObject, string letter, int letterIndex, bool target, bool isShot)
+        // Path to the Neon letters <- AssetsDatabase
+        //pathLetters = "./Assets/_Prefabs/PrefabLetters";
+        // Path to the Neon letters <- Resources.Load!
+        pathLetters = "./Assets/Resources/PrefabLetters";
