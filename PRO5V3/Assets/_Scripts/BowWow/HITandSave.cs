@@ -10,6 +10,7 @@ public class HITandSave : MonoBehaviour
 
     public int objectId = 0;
     public GameObject arrow;
+    public GameObject particle;
     public bool hit = false;
 
     //LoadLetters load;
@@ -43,6 +44,11 @@ public class HITandSave : MonoBehaviour
             hit = true;
             objectId = this.gameObject.GetInstanceID();          
         }
+    }
+
+    public void Explode()
+    {
+
     }
 
     //private void OnCollisionEnter(Collision collision)
