@@ -151,6 +151,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 10f66a616c670964ab0c3a6298d8cc31, type: 3}
+--- !u!1 &262020883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 925152457, guid: b0ad43544023f8141ad9e709ba2101e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1230067855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &336278698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 589221255, guid: 920c74bdf9394354c9725c85e5b8f4b3,
@@ -1190,10 +1196,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2120319756}
+  - {fileID: 2021784054}
+  - {fileID: 1701099292}
+  - {fileID: 262020883}
   gameTimer: 60
   startMinigame: 0
   score: 0
@@ -1339,30 +1345,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1612702530, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
+    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
+        type: 3}
       propertyPath: ret
       value: 
       objectReference: {fileID: 6648499864818576600}
-    - target: {fileID: 1612702530, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
+    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
+        type: 3}
       propertyPath: nextTarget
       value: 
       objectReference: {fileID: 1275412939}
-    - target: {fileID: 1612702530, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
+    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
+        type: 3}
       propertyPath: trigger
       value: 
       objectReference: {fileID: 1056370803}
-    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
-        type: 3}
+    - target: {fileID: 1612702530, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
       propertyPath: ret
       value: 
       objectReference: {fileID: 6648499864818576600}
-    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
-        type: 3}
+    - target: {fileID: 1612702530, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
       propertyPath: nextTarget
       value: 
       objectReference: {fileID: 1275412939}
-    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
-        type: 3}
+    - target: {fileID: 1612702530, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
       propertyPath: trigger
       value: 
       objectReference: {fileID: 1056370803}
@@ -2040,6 +2046,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1693889949}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1701099292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 925152457, guid: b0ad43544023f8141ad9e709ba2101e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1366009508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1741475692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2533784619974005976, guid: 52ef5955def0700479de6069a0e9c786,
@@ -2215,30 +2227,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1133935298, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
+    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
+        type: 3}
       propertyPath: ret
       value: 
       objectReference: {fileID: 6648499864818576600}
-    - target: {fileID: 1133935298, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
+    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
+        type: 3}
       propertyPath: nextTarget
       value: 
       objectReference: {fileID: 1275412939}
-    - target: {fileID: 1133935298, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
+    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
+        type: 3}
       propertyPath: trigger
       value: 
       objectReference: {fileID: 1056370803}
-    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
-        type: 3}
+    - target: {fileID: 1133935298, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
       propertyPath: ret
       value: 
       objectReference: {fileID: 6648499864818576600}
-    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
-        type: 3}
+    - target: {fileID: 1133935298, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
       propertyPath: nextTarget
       value: 
       objectReference: {fileID: 1275412939}
-    - target: {fileID: 4371714514594931573, guid: b0ad43544023f8141ad9e709ba2101e7,
-        type: 3}
+    - target: {fileID: 1133935298, guid: b0ad43544023f8141ad9e709ba2101e7, type: 3}
       propertyPath: trigger
       value: 
       objectReference: {fileID: 1056370803}
@@ -2296,6 +2308,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2021784054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 925152457, guid: b0ad43544023f8141ad9e709ba2101e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1912146399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2078312833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9126252157914765947, guid: 920c74bdf9394354c9725c85e5b8f4b3,
@@ -2332,6 +2350,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 10f66a616c670964ab0c3a6298d8cc31, type: 3}
+--- !u!1 &2120319756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 925152457, guid: b0ad43544023f8141ad9e709ba2101e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1777266890}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2131331536
 PrefabInstance:
   m_ObjectHideFlags: 0

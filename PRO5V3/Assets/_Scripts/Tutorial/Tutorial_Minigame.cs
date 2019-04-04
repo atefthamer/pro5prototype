@@ -17,11 +17,6 @@ public class Tutorial_Minigame : MonoBehaviour
     [HideInInspector]
     public int score = 0;
 
-    private void Start()
-    {
-
-    }
-
     void Update()
     {
 

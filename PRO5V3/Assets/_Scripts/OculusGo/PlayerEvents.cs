@@ -100,13 +100,15 @@ public class PlayerEvents : MonoBehaviour
                 OnTouchpadUp();
         }
 
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger))
+        // Back Trigger down
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             if (OnTriggerDown != null)
                 OnTriggerDown();            
         }
 
-        if (OVRInput.GetUp(OVRInput.Button.PrimaryHandTrigger))
+        // Back Trigger up
+        if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
         {
             if (OnTriggerUp != null)
                 OnTriggerUp();
