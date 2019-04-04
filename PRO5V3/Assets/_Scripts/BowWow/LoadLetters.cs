@@ -183,20 +183,20 @@ public class LoadLetters : MonoBehaviour
         }
     }
 
-    private void AddLettersToDictionary()
-    {
-        string targetdirectory = "./Assets/_Prefabs/Letters";
-        string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();
-        string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").ToArray();
+    //private void AddLettersToDictionary()
+    //{
+    //    string targetdirectory = "./Assets/_Prefabs/Letters";
+    //    string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();
+    //    string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").ToArray();
 
-        for (int i = 0; i < files.Length; i++)
-        {
-            dict.Add(files[i].Replace(".fbx", ""),
-                (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
-                typeof(GameObject))
-                );
-        }
-    }
+    //    for (int i = 0; i < files.Length; i++)
+    //    {
+    //        dict.Add(files[i].Replace(".fbx", ""), 
+    //            (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
+    //            typeof(GameObject))
+    //            );
+    //    }
+    //}
 
     private void SpawnLetters()
     {
