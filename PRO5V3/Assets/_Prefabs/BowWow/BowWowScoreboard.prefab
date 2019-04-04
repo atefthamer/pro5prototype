@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8119261911725596730}
   - component: {fileID: 8005178881759917430}
   m_Layer: 0
-  m_Name: TextMeshPro
+  m_Name: BowWowScoreboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 15.7252865, w: 3.190792}
+  m_margin: {x: 0, y: 0, z: 4.529871, w: 3.190792}
   m_textInfo:
     textComponent: {fileID: 8119261911725596730}
     characterCount: 7
