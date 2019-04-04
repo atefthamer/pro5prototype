@@ -439,10 +439,10 @@ GameObject:
   - component: {fileID: 1032648033}
   - component: {fileID: 1032648038}
   - component: {fileID: 1032648037}
+  - component: {fileID: 1032648039}
   - component: {fileID: 1032648036}
   - component: {fileID: 1032648035}
   - component: {fileID: 1032648034}
-  - component: {fileID: 1032648039}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -592,7 +592,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1032648037
