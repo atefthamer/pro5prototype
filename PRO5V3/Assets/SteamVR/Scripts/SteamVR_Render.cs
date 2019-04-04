@@ -119,8 +119,6 @@ namespace Valve.VR
             }
         }
 
-        public ETrackingUniverseOrigin trackingSpace { get; set; }
-
         private WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
 
         private IEnumerator RenderLoop()

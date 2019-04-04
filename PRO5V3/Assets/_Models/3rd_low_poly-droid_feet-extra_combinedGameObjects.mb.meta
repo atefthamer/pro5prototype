@@ -1,0 +1,259 @@
+fileFormatVersion: 2
+guid: a6536f63f07ab124bba67cf6ab0f8859
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: bottom
+    100004: charcter_model
+    100006: head
+    100008: imagePlane1
+    100010: imagePlane2
+    100012: leftArm
+    100014: LeftHand
+    100016: leftLeg
+    100018: rightArm
+    100020: RightHand
+    100022: rightLeg
+    100024: torso
+    400000: //RootNode
+    400002: bottom
+    400004: charcter_model
+    400006: head
+    400008: imagePlane1
+    400010: imagePlane2
+    400012: leftArm
+    400014: LeftHand
+    400016: leftLeg
+    400018: rightArm
+    400020: RightHand
+    400022: rightLeg
+    400024: torso
+    2000000: bottom
+    2100000: phong2
+    2300000: head
+    2300002: leftArm
+    2300004: LeftHand
+    2300006: leftLeg
+    2300008: rightArm
+    2300010: RightHand
+    2300012: rightLeg
+    2300014: torso
+    3300000: head
+    3300002: leftArm
+    3300004: LeftHand
+    3300006: leftLeg
+    3300008: rightArm
+    3300010: RightHand
+    3300012: rightLeg
+    3300014: torso
+    4300000: head
+    4300002: torso
+    4300004: rightArm
+    4300006: RightHand
+    4300008: leftArm
+    4300010: LeftHand
+    4300012: rightLeg
+    4300014: leftLeg
+    9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 1
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths:
+    - charcter_model/head
+    - charcter_model/head/torso
+    - charcter_model/head/torso/leftArm
+    - charcter_model/head/torso/leftArm/LeftHand
+    - charcter_model/head/torso/leftLeg
+    - charcter_model/head/torso/rightArm
+    - charcter_model/head/torso/rightArm/RightHand
+    - charcter_model/head/torso/rightLeg
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human:
+    - boneName: LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: leftLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: rightLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: 3rd_low_poly-droid_feet-extra_combinedGameObjects(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: imagePlane1
+      parentName: 3rd_low_poly-droid_feet-extra_combinedGameObjects(Clone)
+      position: {x: -0.070865326, y: 6.933306, z: -6.009186}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: imagePlane2
+      parentName: 3rd_low_poly-droid_feet-extra_combinedGameObjects(Clone)
+      position: {x: 6, y: 6.9335294, z: 0.4147655}
+      rotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: bottom
+      parentName: 3rd_low_poly-droid_feet-extra_combinedGameObjects(Clone)
+      position: {x: -0, y: -1000.1, z: 0}
+      rotation: {x: 0, y: -0.7071068, z: -0.7071068, w: 0}
+      scale: {x: 1, y: 1, z: 1}
+    - name: charcter_model
+      parentName: 3rd_low_poly-droid_feet-extra_combinedGameObjects(Clone)
+      position: {x: -0.063427925, y: 6.504045, z: 0.0125976205}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: head
+      parentName: charcter_model
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: torso
+      parentName: head
+      position: {x: -0, y: -0.9151921, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightArm
+      parentName: torso
+      position: {x: 3.8558638, y: 4.574974, z: -0.18955988}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: RightHand
+      parentName: rightArm
+      position: {x: -1.4938004, y: -0.16093874, z: 0.16624057}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftArm
+      parentName: torso
+      position: {x: -3.8461726, y: 4.574974, z: -0.18955988}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: LeftHand
+      parentName: leftArm
+      position: {x: -1.5034916, y: -0.16093874, z: 0.16624057}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: rightLeg
+      parentName: torso
+      position: {x: 0.55766386, y: -1.7759407, z: 0.00018456578}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: leftLeg
+      parentName: torso
+      position: {x: -0.5382814, y: -1.7759407, z: 0.00018456578}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
