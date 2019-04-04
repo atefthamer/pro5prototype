@@ -6,7 +6,7 @@
 //namespace DigitalRuby.PyroParticles
 //{
 //    [CustomEditor(typeof(DemoScript))]
-//    public class LightningBoltEditor
+//    public class LightningBoltEditor : Editor
 //    {
 //        private Texture2D logo;
 
@@ -14,7 +14,7 @@
 //        {
 //            if (logo == null)
 //            {
-//                //string[] guids = AssetDatabase.FindAssets("PyroParticlesLogo");
+//                string[] guids = AssetDatabase.FindAssets("PyroParticlesLogo");
 //                foreach (string guid in guids)
 //                {
 //                    string path = AssetDatabase.GUIDToAssetPath(guid);
