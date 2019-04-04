@@ -5,25 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-<<<<<<< HEAD
-  - enabled: 0
+  - enabled: 1
+    path: Assets/_Scenes/MENU_MFMFMMF.unity
+    guid: 7096059750d10e74c915b22b7caac68e
+  - enabled: 1
     path: Assets/_Scenes/Tutorial.unity
     guid: 40e32d62a3b8afc47b33b2a5dca28355
-  - enabled: 0
-    path: Assets/_Scenes/Testscenes/tim_bowow.unity
-    guid: f59ab505d7fe4a544af7f9d12e5f17d6
-  - enabled: 0
-    path: Assets/_Scenes/Game_MainMenu_0.unity
-    guid: 89ca5eeac7a6ccf4ba9340fe650696ee
+  - enabled: 1
+    path: Assets/_Scenes/SwitchScene_transition_1.unity
+    guid: 81452f3402653944c8968207110a9142
   - enabled: 1
     path: Assets/_Scenes/Bowwow-LOW.unity
     guid: e0ffa5c2a1cf4904491b876078366f9d
-=======
->>>>>>> devdev
   m_configObjects: {}
