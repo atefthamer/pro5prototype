@@ -9,6 +9,15 @@ using TMPro;
 [RequireComponent(typeof(AudioSource))]
 public class LoadLetters : MonoBehaviour
 {
+    [SerializeField]
+    List<GameObject> letters = new List<GameObject>();
+
+    [SerializeField]
+    List<AudioClip> audioClips = new List<AudioClip>();
+
+    [SerializeField]
+    TextAsset jsonFile;
+
     public SFXTriggers sfx;
 
     Dictionary<string, GameObject> dict = new Dictionary<string, GameObject>();
@@ -21,7 +30,6 @@ public class LoadLetters : MonoBehaviour
 
     [SerializeField]
     Dictionary<int, ArrayListWords> jsonWordsDict = new Dictionary<int, ArrayListWords>();
-
 
     [SerializeField]
     GameObject objectCenterPoint = null;
@@ -56,9 +64,9 @@ public class LoadLetters : MonoBehaviour
     public bool useCharArray = false;
 
     // Inner class to save various information about the dynamic gameobjects
-    class Node 
+    class Node
     {
-        public GameObject initObject; 
+        public GameObject initObject;
         public string letter;
         public int letterIndex;
         public bool target;
@@ -104,12 +112,12 @@ public class LoadLetters : MonoBehaviour
         //this.gameObject.AddComponent<AudioSource>();
 
         //audio.GetComponent<AudioClip>();
-        
+
 
         SpawnLettersV2();
 
 
-        
+
         //audio.clip = audioWords["bak"];
         //audio.Play();
         //this.gameObject.GetComponent<AudioSource>().clip =
@@ -120,40 +128,52 @@ public class LoadLetters : MonoBehaviour
         string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
         string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
 
-        for (int i = 0; i < files.Length; i++)
-        {
-            // Load from Resources <-- Use for now
-            dict.Add(files[i].Replace(extension, ""), Resources.Load<GameObject>("PrefabLetters/"+files[i].Replace(extension,"")));
+        //for (int i = 0; i < files.Length; i++)
+        //{
+        //    // Load from Resources <-- Use for now
+        //    dict.Add(files[i].Replace(extension, ""), Resources.Load<GameObject>("PrefabLetters/"+files[i].Replace(extension,"")));
 
-            // Load From AssetsDatabase <-- Don't use
-            //dict.Add(files[i].Replace(extension, ""),
-            //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
-            //    typeof(GameObject))
-            //    );
+        //    // Load From AssetsDatabase <-- Don't use
+        //    //dict.Add(files[i].Replace(extension, ""),
+        //    //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
+        //    //    typeof(GameObject))
+        //    //    );
+        //}
+        if (letters.Count != 0)
+        {
+            foreach (var item in letters)
+            {
+                dict.Add(item.name, item);
+            }
         }
     }
 
     private void GetWordAudio()
     {
 
-        string path = "./Assets/Resources/Audio/BowWow";
-        string fileToGet = "*.mp3";
-        string extension = ".mp3"; 
+        //string path = "./Assets/Resources/Audio/BowWow";
+        //string fileToGet = "*.mp3";
+        //string extension = ".mp3"; 
 
-        string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
-        string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
+        //string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
+        //string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
 
-        for (int i = 0; i < files.Length; i++)
+        //for (int i = 0; i < files.Length; i++)
+        //{
+        //    // Load from Resources <-- Use for now
+        //    audioWords.Add(files[i].Replace(extension, ""), Resources.Load<AudioClip>("Audio/BowWow/" + files[i].Replace(extension, "")));
+
+        //    // Load From AssetsDatabase <-- Don't use
+        //    //dict.Add(files[i].Replace(extension, ""),
+        //    //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
+        //    //    typeof(GameObject))
+        //    //    );
+
+        //}
+
+        foreach (var item in audioClips)
         {
-            // Load from Resources <-- Use for now
-            audioWords.Add(files[i].Replace(extension, ""), Resources.Load<AudioClip>("Audio/BowWow/" + files[i].Replace(extension, "")));
-
-            // Load From AssetsDatabase <-- Don't use
-            //dict.Add(files[i].Replace(extension, ""),
-            //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
-            //    typeof(GameObject))
-            //    );
-
+            audioWords.Add(item.name, item);
         }
 
         foreach (var item in audioWords)
@@ -171,8 +191,8 @@ public class LoadLetters : MonoBehaviour
 
         for (int i = 0; i < files.Length; i++)
         {
-            dict.Add(files[i].Replace(".fbx", ""), 
-                (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
+            dict.Add(files[i].Replace(".fbx", ""),
+                (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
                 typeof(GameObject))
                 );
         }
@@ -197,14 +217,14 @@ public class LoadLetters : MonoBehaviour
             toShoot.Add(indexKey, n);
             indexKey++;
         }
-       
+
         int index = 0;
-        
+
         while (index != 5)
         {
             var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
             string randomChar = alphabet[randomLetterIndex];
-           
+
             if (!wordToShoot.Contains(randomChar))
             {
                 var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
@@ -247,14 +267,14 @@ public class LoadLetters : MonoBehaviour
             toShoot.Add(indexKey, n);
             indexKey++;
         }
-       
+
         int index = 0;
-        
+
         while (index != EXTRA_LETTERS)
         {
             var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
             string randomChar = alphabet[randomLetterIndex];
-           
+
             if (!wordToShoot.Contains(randomChar))
             {
                 var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
@@ -298,10 +318,10 @@ public class LoadLetters : MonoBehaviour
         obi.AddComponent<HITandSave>();
 
         obi.AddComponent<Rigidbody>();
-        
+
         obi.GetComponent<Rigidbody>().useGravity = false;
         obi.GetComponent<Rigidbody>().isKinematic = true;
-        
+
         // Experimental 
         //obi.AddComponent<SphereCollider>();
         //obi.GetComponent<SphereCollider>().isTrigger = true;
@@ -334,7 +354,7 @@ public class LoadLetters : MonoBehaviour
         if (correctLetters == wordLength)
         {
             // Delete remaining objects to start new spawn round
-            foreach(var obj in toShoot)
+            foreach (var obj in toShoot)
             {
                 Destroy(obj.Value.initObject);
             }
@@ -353,9 +373,9 @@ public class LoadLetters : MonoBehaviour
         {
             // Poll for the status of the letter objects
             // Put more object properties in HITandSave.cs file
-            
+
             int index = CheckForDestroyedLetter();
-            if(index != -1)
+            if (index != -1)
             {
                 wordSplit[index] = wordToDisplay[index];
             }
@@ -365,8 +385,8 @@ public class LoadLetters : MonoBehaviour
             }
 
         }
-        
-      
+
+
     }
 
     private void fillCharArray()
@@ -391,7 +411,7 @@ public class LoadLetters : MonoBehaviour
                 // Play sfx sound
                 sfx.PlaySound();
                 // Destroy the arrow fired from the bow
-                Destroy(arrow); 
+                Destroy(arrow);
                 // Destroy the letter object
                 Destroy(item.Value.initObject);
                 // Keep track of the score
@@ -442,7 +462,7 @@ public class LoadLetters : MonoBehaviour
     }
 
     private Vector3 randomPos(Vector3 center, float radius)
-    {        
+    {
         // get the angle for this step (in radians, not degrees)
         var angle = 0.9f * Mathf.PI * 2;
         // the X &amp; Y position for this angle are calculated using Sin &amp; Cos
@@ -456,7 +476,7 @@ public class LoadLetters : MonoBehaviour
     public bool FillDictionaryWithWords()
     {
         string line;
-        
+
         // Read the file and display it line by line.  
         System.IO.StreamReader file = new System.IO.StreamReader("Assets/_Scripts/BowWow/words.txt");
 
@@ -467,8 +487,8 @@ public class LoadLetters : MonoBehaviour
             wordsDict.Add(wordsCount, line);
             wordsCount++;
         }
-        
-        if(wordsCount == 0)
+
+        if (wordsCount == 0)
         {
             file.Close();
             return false;
@@ -491,6 +511,12 @@ public class LoadLetters : MonoBehaviour
         return "";
     }
 
+    public string jsonToText()
+    {
+        return File.ReadAllText(jsonFile.ToString());
+        //return dataAsJson;
+    }
+
     //public List<Words> GetWordsFromJson(string path)
     //{
     //    //text = LoadJson("./Assets/_Scripts/BowWow/words-copy.json");
@@ -505,8 +531,9 @@ public class LoadLetters : MonoBehaviour
     {
         //text = LoadJson("./Assets/_Scripts/BowWow/words-copy.json");
         // Usage: path = "./Assets/_Scripts/BowWow/words-copy.json";
-        text = LoadJson(path);
-        return JsonUtility.FromJson<WordsList>(text).Words;
+        //text = LoadJson(path);
+        //text = jsonToText();
+        return JsonUtility.FromJson<WordsList>(jsonFile.ToString()).Words;
     }
 
     class ArrayListWords
@@ -526,9 +553,10 @@ public class LoadLetters : MonoBehaviour
     public void FillJSONDic()
     {
         int index = 0;
+        
         List<Words> wordlist = GetWordsFromJson("./Assets/_Scripts/BowWow/words-copy.json");
-
-        for(int i = 0; i < wordlist.Count; i++)
+        Debug.Log("FILL THE DICTIONARY JSON");
+        for (int i = 0; i < wordlist.Count; i++)
         {
             string word = wordlist[i].word;
             int level = wordlist[i].level;
@@ -545,9 +573,9 @@ public class LoadLetters : MonoBehaviour
 
     public void loadSprite()
     {
-        foreach(var word in jsonWordsDict)
+        foreach (var word in jsonWordsDict)
         {
-            if(word.Value.word == "kawasaki")
+            if (word.Value.word == "kawasaki")
             {
 
             }
