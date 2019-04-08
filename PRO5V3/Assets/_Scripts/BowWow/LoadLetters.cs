@@ -36,6 +36,7 @@ public class LoadLetters : MonoBehaviour
     public int EXTRA_LETTERS = 5;
 
     public int wordsCount = 0;
+    public float letterSize = 50.0f;
 
     string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
@@ -343,7 +344,7 @@ public class LoadLetters : MonoBehaviour
         obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
 
         // Make letter bigger
-        obi.transform.localScale += new Vector3(30.0f, 30.0f, 30.0f);
+        obi.transform.localScale += new Vector3(letterSize, letterSize, letterSize);
 
         return obi;
     }
