@@ -335,7 +335,9 @@ public class LoadLetters : MonoBehaviour
         //obi.AddComponent<BoxCollider>();
         //obi.GetComponent<BoxCollider>().isTrigger = true;
 
-        obi.AddComponent<RotatePill>();
+        // obi.AddComponent<RotatePill>();
+        obi.AddComponent<RotateTowards>();
+        obi.GetComponent<RotateTowards>().target = this.gameObject.transform;
 
         obi.AddComponent<Orbit>();
         obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
@@ -553,7 +555,7 @@ public class LoadLetters : MonoBehaviour
     public void FillJSONDic()
     {
         int index = 0;
-        
+
         List<Words> wordlist = GetWordsFromJson("./Assets/_Scripts/BowWow/words-copy.json");
         Debug.Log("FILL THE DICTIONARY JSON");
         for (int i = 0; i < wordlist.Count; i++)
