@@ -10,8 +10,11 @@ public class HITandSave : MonoBehaviour
 
     public int objectId = 0;
     public GameObject arrow;
-    public GameObject particle;
+    public GameObject explodeParticle;
     public bool hit = false;
+
+    [SerializeField]
+    Transform activeCamera = null;
 
     //LoadLetters load;
 
@@ -48,7 +51,10 @@ public class HITandSave : MonoBehaviour
 
     public void Explode()
     {
-
+        GameObject explode = Instantiate(explodeParticle, this.transform.position, Quaternion.identity);
+        explode.GetComponent<ParticleController>().targetCamera = (Transform)activeCamera;
+        explodeParticle.GetComponent<ParticleSystem>().Play();
+        Destroy(explode, 2.0f);
     }
 
     //private void OnCollisionEnter(Collision collision)
