@@ -31,10 +31,10 @@ public class Orbit : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    
+
+
         //position =  this.gameObject.GetComponent<LoadLetters>().RandomCircle(center, radius);
-        
+
         if (!random)
         {
             xSpread = 0.0f;
@@ -51,7 +51,7 @@ public class Orbit : MonoBehaviour
             //rotSpeed = Random.Range(0.05f, 0.1f);
             rotSpeed = Random.Range(0.05f, 0.1f);
         }
-       
+
     }
 
 

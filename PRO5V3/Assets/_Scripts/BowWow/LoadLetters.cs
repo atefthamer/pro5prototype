@@ -18,8 +18,6 @@ public class LoadLetters : MonoBehaviour
     [SerializeField]
     TextAsset jsonFile;
 
-    public SFXTriggers sfx;
-
     Dictionary<string, GameObject> dict = new Dictionary<string, GameObject>();
     Dictionary<int, Node> toShoot = new Dictionary<int, Node>();
     Dictionary<int, string> wordsDict = new Dictionary<int, string>();
@@ -50,6 +48,9 @@ public class LoadLetters : MonoBehaviour
 
     private string pathLetters;
     private string fileExtension;
+
+    public GameObject particle;
+    public Camera camera;
 
     // Score and Words
     public int score = 0;
@@ -93,7 +94,7 @@ public class LoadLetters : MonoBehaviour
         //AddLettersToDictionary();
 
         // Add letters to dictionary
-        NeonLetters(pathLetters, fileExtension, ".prefab");
+        NeonLetters();
 
         // Fill the dictionary with the words from the txt file
         //if (FillDictionaryWithWords())
@@ -123,10 +124,10 @@ public class LoadLetters : MonoBehaviour
         //this.gameObject.GetComponent<AudioSource>().clip =
     }
 
-    private void NeonLetters(string path, string fileToGet, string extension)
+    private void NeonLetters()
     {
-        string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
-        string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
+        //string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
+        //string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
 
         //for (int i = 0; i < files.Length; i++)
         //{
@@ -316,6 +317,7 @@ public class LoadLetters : MonoBehaviour
         var obi = Instantiate(prefab, pos, Quaternion.identity);
 
         obi.AddComponent<HITandSave>();
+        obi.GetComponent<HITandSave>().explodeParticle = particle;
 
         obi.AddComponent<Rigidbody>();
 
@@ -333,7 +335,9 @@ public class LoadLetters : MonoBehaviour
         //obi.AddComponent<BoxCollider>();
         //obi.GetComponent<BoxCollider>().isTrigger = true;
 
-        obi.AddComponent<RotatePill>();
+        // obi.AddComponent<RotatePill>();
+        obi.AddComponent<RotateTowards>();
+        obi.GetComponent<RotateTowards>().target = this.gameObject.transform;
 
         obi.AddComponent<Orbit>();
         obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
@@ -408,8 +412,6 @@ public class LoadLetters : MonoBehaviour
             // Is the letter hit?
             if (isHit)
             {
-                // Play sfx sound
-                sfx.PlaySound();
                 // Destroy the arrow fired from the bow
                 Destroy(arrow);
                 // Destroy the letter object
@@ -553,7 +555,7 @@ public class LoadLetters : MonoBehaviour
     public void FillJSONDic()
     {
         int index = 0;
-        
+
         List<Words> wordlist = GetWordsFromJson("./Assets/_Scripts/BowWow/words-copy.json");
         Debug.Log("FILL THE DICTIONARY JSON");
         for (int i = 0; i < wordlist.Count; i++)
@@ -561,7 +563,9 @@ public class LoadLetters : MonoBehaviour
             string word = wordlist[i].word;
             int level = wordlist[i].level;
             string imageSource = wordlist[i].img_src;
-
+            Debug.Log("WORDLIST  >> " + word);
+            Debug.Log("WORDLIST  >> " + level);
+            Debug.Log("WORDLIST  >> " + imageSource);
             jsonWordsDict.Add(index, new ArrayListWords(word, level, imageSource));
             index++;
             wordsCount++;
