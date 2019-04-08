@@ -426,6 +426,7 @@ GameObject:
   - component: {fileID: 331713285}
   - component: {fileID: 331713284}
   - component: {fileID: 331713282}
+  - component: {fileID: 331713288}
   - component: {fileID: 331713287}
   - component: {fileID: 331713283}
   m_Layer: 0
@@ -562,6 +563,7 @@ MonoBehaviour:
   maxScale: 8
   sound: {fileID: 2103504245}
   bln_rub: {fileID: 791071410}
+  sw: {fileID: 331713288}
   hit: 0
 --- !u!135 &331713284
 SphereCollider:
@@ -640,6 +642,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &331713288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331713280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04468c24ba6b6094b8a51a0060143a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &404783995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,14 +1635,14 @@ RectTransform:
   m_GameObject: {fileID: 1166370527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 29.97}
-  m_LocalScale: {x: 0.02404222, y: 0.02404222, z: 0.02404222}
+  m_LocalScale: {x: 0.012402421, y: 0.012402421, z: 0.012402421}
   m_Children: []
   m_Father: {fileID: 206543222}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67.4, y: -21.5}
+  m_AnchoredPosition: {x: -67.4, y: 7.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1166370529
@@ -2121,7 +2135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67.4, y: 43.1}
+  m_AnchoredPosition: {x: -67.4, y: 22.9}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1714198044
@@ -2310,6 +2324,7 @@ GameObject:
   - component: {fileID: 1957710501}
   - component: {fileID: 1957710500}
   - component: {fileID: 1957710499}
+  - component: {fileID: 1957710505}
   - component: {fileID: 1957710504}
   m_Layer: 0
   m_Name: redBalloon
@@ -2444,6 +2459,7 @@ MonoBehaviour:
   maxScale: 8
   sound: {fileID: 2083248723}
   bln_rub: {fileID: 719211987}
+  sw: {fileID: 1957710505}
   hit: 0
 --- !u!135 &1957710501
 SphereCollider:
@@ -2522,6 +2538,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1957710505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957710497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04468c24ba6b6094b8a51a0060143a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1980044628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,6 +2596,7 @@ GameObject:
   - component: {fileID: 2049107218}
   - component: {fileID: 2049107222}
   - component: {fileID: 2049107223}
+  - component: {fileID: 2049107225}
   - component: {fileID: 2049107224}
   m_Layer: 0
   m_Name: blueBalloon
@@ -2664,6 +2693,7 @@ MonoBehaviour:
   maxScale: 8
   sound: {fileID: 404783998}
   bln_rub: {fileID: 1007983664}
+  sw: {fileID: 2049107225}
   hit: 0
 --- !u!82 &2049107223
 AudioSource:
@@ -2780,6 +2810,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2049107225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049107217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04468c24ba6b6094b8a51a0060143a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2083248721
 GameObject:
   m_ObjectHideFlags: 0

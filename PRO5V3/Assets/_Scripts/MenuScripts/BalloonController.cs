@@ -8,6 +8,7 @@ public class BalloonController : MonoBehaviour {
     public float maxScale = 8;
     public BalloonSoundScript sound;
     public BLN_Rub_SFX bln_rub;
+    public SceneSwitch sw;
 
     [SerializeField]
     public bool hit = false;
@@ -18,6 +19,8 @@ public class BalloonController : MonoBehaviour {
         if (transform.localScale.x >= maxScale) {
             sound.PlaySound();
             Destroy(gameObject);
+            sw.SceneSwitcher(3);
+
         }
     }
 }
