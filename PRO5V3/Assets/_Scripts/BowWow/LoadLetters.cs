@@ -4,67 +4,47 @@ using UnityEngine;
 using UnityEditor;
 using System.Linq;
 using TMPro;
-
-
 [RequireComponent(typeof(AudioSource))]
 public class LoadLetters : MonoBehaviour
 {
     [SerializeField]
     List<GameObject> letters = new List<GameObject>();
-
     [SerializeField]
     List<AudioClip> audioClips = new List<AudioClip>();
-
     [SerializeField]
     TextAsset jsonFile;
-
     Dictionary<string, GameObject> dict = new Dictionary<string, GameObject>();
     Dictionary<int, Node> toShoot = new Dictionary<int, Node>();
     Dictionary<int, string> wordsDict = new Dictionary<int, string>();
-
     // Sound
     Dictionary<string, AudioClip> audioWords = new Dictionary<string, AudioClip>();
     public AudioSource audio;
-
     [SerializeField]
     Dictionary<int, ArrayListWords> jsonWordsDict = new Dictionary<int, ArrayListWords>();
-
     [SerializeField]
     GameObject objectCenterPoint = null;
-
     [SerializeField]
     public int EXTRA_LETTERS = 5;
-
     public int wordsCount = 0;
     public float letterSize = 50.0f;
-
     string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-
     private bool checkForUpdate = false;
     private int indexKey = 0;
-
     private int correctLetters = 0;
     private int incorrectLetters = 0;
     private int wordLength;
-
     private string pathLetters;
     private string fileExtension;
-
     public GameObject particle;
     public Transform camera;
-
     // Score and Words
     public int score = 0;
     public string wordToDisplay = "";
     public bool displayWord = false;
-
-
     public Vector3 pos;
-
     // Word split char array
     public char[] wordSplit;
     public bool useCharArray = false;
-
     // Inner class to save various information about the dynamic gameobjects
     class Node
     {
@@ -82,7 +62,6 @@ public class LoadLetters : MonoBehaviour
             this.isShot = isShot;
         }
     }
-
     void Start()
     {
         // Path to the Neon letters <- AssetsDatabase
@@ -91,50 +70,34 @@ public class LoadLetters : MonoBehaviour
         pathLetters = "./Assets/Resources/PrefabLetters";
         // File extension we want
         fileExtension = "*.prefab";
-
         //AddLettersToDictionary();
-
         // Add letters to dictionary
         NeonLetters();
-
         // Fill the dictionary with the words from the txt file
         //if (FillDictionaryWithWords())
         //{
         //    Debug.Log("Done with file reader");
         //}
-
         // Spwan letters
         //SpawnLetters();
         audio.GetComponent<AudioSource>();
-
-
         GetWordAudio();
         FillJSONDic();
-
         //this.gameObject.AddComponent<AudioSource>();
-
         //audio.GetComponent<AudioClip>();
-
-
         SpawnLettersV2();
-
-
-
         //audio.clip = audioWords["bak"];
         //audio.Play();
         //this.gameObject.GetComponent<AudioSource>().clip =
     }
-
     private void NeonLetters()
     {
         //string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
         //string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
-
         //for (int i = 0; i < files.Length; i++)
         //{
         //    // Load from Resources <-- Use for now
         //    dict.Add(files[i].Replace(extension, ""), Resources.Load<GameObject>("PrefabLetters/"+files[i].Replace(extension,"")));
-
         //    // Load From AssetsDatabase <-- Don't use
         //    //dict.Add(files[i].Replace(extension, ""),
         //    //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
@@ -149,68 +112,54 @@ public class LoadLetters : MonoBehaviour
             }
         }
     }
-
     private void GetWordAudio()
     {
-
         //string path = "./Assets/Resources/Audio/BowWow";
         //string fileToGet = "*.mp3";
         //string extension = ".mp3"; 
-
         //string[] files = Directory.GetFiles(path, fileToGet).Select(file => Path.GetFileName(file)).ToArray();
         //string[] filesPath = Directory.GetFiles(path, fileToGet).ToArray();
-
         //for (int i = 0; i < files.Length; i++)
         //{
         //    // Load from Resources <-- Use for now
         //    audioWords.Add(files[i].Replace(extension, ""), Resources.Load<AudioClip>("Audio/BowWow/" + files[i].Replace(extension, "")));
-
         //    // Load From AssetsDatabase <-- Don't use
         //    //dict.Add(files[i].Replace(extension, ""),
         //    //    (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
         //    //    typeof(GameObject))
         //    //    );
-
         //}
-
         foreach (var item in audioClips)
         {
             audioWords.Add(item.name, item);
         }
-
         foreach (var item in audioWords)
         {
             Debug.Log("AUDIO FILES " + item.Value);
             Debug.Log("AUDIO FILES " + item.Key);
         }
     }
-
-    private void AddLettersToDictionary()
-    {
-        string targetdirectory = "./Assets/_Prefabs/Letters";
-        string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();
-        string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").ToArray();
-
-        for (int i = 0; i < files.Length; i++)
-        {
-            dict.Add(files[i].Replace(".fbx", ""),
-                (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"),
-                typeof(GameObject))
-                );
-        }
-    }
-
+    //private void AddLettersToDictionary()
+    //{
+    //    string targetdirectory = "./Assets/_Prefabs/Letters";
+    //    string[] files = Directory.GetFiles(targetdirectory, "*.fbx").Select(file => Path.GetFileName(file)).ToArray();
+    //    string[] filesPath = Directory.GetFiles(targetdirectory, "*.fbx").ToArray();
+    //    for (int i = 0; i < files.Length; i++)
+    //    {
+    //        dict.Add(files[i].Replace(".fbx", ""), 
+    //            (GameObject)AssetDatabase.LoadAssetAtPath(filesPath[i].Substring(2).Replace("\\", "/"), 
+    //            typeof(GameObject))
+    //            );
+    //    }
+    //}
     private void SpawnLetters()
     {
         var randomIndex = (int)UnityEngine.Random.Range(0.0f, wordsCount);
         string wordToShoot = wordsDict[randomIndex].ToUpper();
-
         Debug.Log("This is the word with index 2 " + wordsDict[randomIndex].ToUpper());
         Debug.Log("This is the word with index 2 with length " + wordsDict[randomIndex].Length);
         wordLength = wordsDict[randomIndex].Length;
-
         wordSplit = new char[wordLength];
-
         for (int i = 0; i < wordsDict[randomIndex].Length; i++)
         {
             string letter = wordsDict[randomIndex].ToUpper()[i].ToString();
@@ -219,14 +168,11 @@ public class LoadLetters : MonoBehaviour
             toShoot.Add(indexKey, n);
             indexKey++;
         }
-
         int index = 0;
-
         while (index != 5)
         {
             var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
             string randomChar = alphabet[randomLetterIndex];
-
             if (!wordToShoot.Contains(randomChar))
             {
                 var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
@@ -238,29 +184,21 @@ public class LoadLetters : MonoBehaviour
         }
         checkForUpdate = true;
     }
-
     private void SpawnLettersV2()
     {
         var randomIndex = (int)UnityEngine.Random.Range(0.0f, wordsCount);
         string wordToShoot = jsonWordsDict[randomIndex].word.ToUpper();
-
         wordToDisplay = wordToShoot;
-
         displayWord = true;
-
         Debug.Log("This is the word with index 2 " + jsonWordsDict[randomIndex].word.ToUpper());
         Debug.Log("This is the word with index 2 with length " + jsonWordsDict[randomIndex].word.Length);
         wordLength = jsonWordsDict[randomIndex].word.Length;
-
         wordSplit = new char[wordLength];
-
         for (int i = 0; i < wordLength; i++)
         {
             wordSplit[i] = ' ';
         }
-
         useCharArray = true;
-
         for (int i = 0; i < wordLength; i++)
         {
             string letter = jsonWordsDict[randomIndex].word.ToUpper()[i].ToString();
@@ -269,14 +207,11 @@ public class LoadLetters : MonoBehaviour
             toShoot.Add(indexKey, n);
             indexKey++;
         }
-
         int index = 0;
-
         while (index != EXTRA_LETTERS)
         {
             var randomLetterIndex = (int)UnityEngine.Random.Range(0.0f, 25.0f);
             string randomChar = alphabet[randomLetterIndex];
-
             if (!wordToShoot.Contains(randomChar))
             {
                 var iniObject = instantiateLetters(GetRandomLetter(randomLetterIndex));
@@ -286,29 +221,24 @@ public class LoadLetters : MonoBehaviour
                 index++;
             }
         }
-
         audio.clip = audioWords[wordToShoot.ToLower()];
         audio.Play();
         checkForUpdate = true;
     }
-
     // Return Letter object from the word at index x
     private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
     {
         return dict[jsonWordsDict[wordIndex].word.ToUpper()[letterIndex].ToString()];
     }
-
     //private GameObject GetWordLetterAtIndex(int wordIndex, int letterIndex)
     //{
     //    return dict[wordsDict[wordIndex].ToUpper()[letterIndex].ToString()];
     //}
-
     // Return letter from alphabet array at index x
     private GameObject GetRandomLetter(int index)
     {
         return dict[alphabet[index]];
     }
-
     // instantiate letter object and return the object
     private GameObject instantiateLetters(GameObject prefab)
     {
@@ -316,44 +246,32 @@ public class LoadLetters : MonoBehaviour
         Vector3 center = transform.position;
         pos = RandomCircle(center, randomRadius);
         var obi = Instantiate(prefab, pos, Quaternion.identity);
-
         obi.AddComponent<HITandSave>();
         obi.GetComponent<HITandSave>().explodeParticle = particle;
         obi.GetComponent<HITandSave>().activeCamera = camera;
-
         obi.AddComponent<Rigidbody>();
-
         obi.GetComponent<Rigidbody>().useGravity = false;
         obi.GetComponent<Rigidbody>().isKinematic = true;
-
         // Experimental 
         //obi.AddComponent<SphereCollider>();
         //obi.GetComponent<SphereCollider>().isTrigger = true;
-
         //obi.AddComponent<MeshCollider>();
         //obi.GetComponent<MeshCollider>().convex = true;
         //obi.GetComponent<MeshCollider>().isTrigger = true;
-
         //obi.AddComponent<BoxCollider>();
         //obi.GetComponent<BoxCollider>().isTrigger = true;
-
         // obi.AddComponent<RotatePill>();
         obi.AddComponent<RotateTowards>();
         obi.GetComponent<RotateTowards>().target = this.gameObject.transform;
-
         obi.AddComponent<Orbit>();
         obi.GetComponent<Orbit>().centerPoint = (GameObject)objectCenterPoint;
-
         // Make letter bigger
         obi.transform.localScale += new Vector3(letterSize, letterSize, letterSize);
-
         return obi;
     }
-
     // Update is called once per frame
     void Update()
     {
-
         //audio.clip = audioWords["bak"];
         //audio.Play();
         // If correct letters are all shot, reset
@@ -379,7 +297,6 @@ public class LoadLetters : MonoBehaviour
         {
             // Poll for the status of the letter objects
             // Put more object properties in HITandSave.cs file
-
             int index = CheckForDestroyedLetter();
             if (index != -1)
             {
@@ -389,17 +306,11 @@ public class LoadLetters : MonoBehaviour
             {
                 Debug.Log("CHAR ______ " + wordSplit[i]);
             }
-
         }
-
-
     }
-
     private void fillCharArray()
     {
-
     }
-
     public int CheckForDestroyedLetter()
     {
         // Note: ToList() is used to copy the existing dictionary
@@ -410,7 +321,6 @@ public class LoadLetters : MonoBehaviour
             bool isHit = item.Value.initObject.gameObject.GetComponent<HITandSave>().hit;
             int letterId = item.Value.initObject.gameObject.GetComponent<HITandSave>().objectId;
             GameObject arrow = item.Value.initObject.gameObject.GetComponent<HITandSave>().arrow;
-
             // Is the letter hit?
             if (isHit)
             {
@@ -431,7 +341,6 @@ public class LoadLetters : MonoBehaviour
                 toShoot.Remove(item.Key);
                 // Decrement the index
                 indexKey--;
-
                 // Return the letter
                 return item.Value.letterIndex;
             }
@@ -439,7 +348,6 @@ public class LoadLetters : MonoBehaviour
         // Empty... 
         return -1;
     }
-
     private static string GetGameObjectPath(GameObject obj)
     {
         string path = "/" + obj.name;
@@ -450,7 +358,6 @@ public class LoadLetters : MonoBehaviour
         }
         return path;
     }
-
     public Vector3 RandomCircle(Vector3 center, float radius)
     {
         //float ang = UnityEngine.Random.Range(-90.0f, 90.0f) * 360;
@@ -464,7 +371,6 @@ public class LoadLetters : MonoBehaviour
         pos.z = center.z * UnityEngine.Random.Range(5.0f, 50.0f);
         return pos;
     }
-
     private Vector3 randomPos(Vector3 center, float radius)
     {
         // get the angle for this step (in radians, not degrees)
@@ -473,38 +379,29 @@ public class LoadLetters : MonoBehaviour
         var x = Mathf.Sin(angle) * radius;
         var y = Mathf.Cos(angle) * radius;
         var pos = new Vector3(x, y, 0) + center.normalized;
-
         return pos;
     }
-
     public bool FillDictionaryWithWords()
     {
         string line;
-
         // Read the file and display it line by line.  
         System.IO.StreamReader file = new System.IO.StreamReader("Assets/_Scripts/BowWow/words.txt");
-
         while ((line = file.ReadLine()) != null)
         {
             Debug.Log("Words read: " + line);
-
             wordsDict.Add(wordsCount, line);
             wordsCount++;
         }
-
         if (wordsCount == 0)
         {
             file.Close();
             return false;
         }
-
         file.Close();
         return true;
     }
-
     public WordsList wordlist = new WordsList();
     string text = "";
-
     public string LoadJson(string filePath)
     {
         if (File.Exists(filePath))
@@ -514,13 +411,11 @@ public class LoadLetters : MonoBehaviour
         }
         return "";
     }
-
     public string jsonToText()
     {
         return File.ReadAllText(jsonFile.ToString());
         //return dataAsJson;
     }
-
     //public List<Words> GetWordsFromJson(string path)
     //{
     //    //text = LoadJson("./Assets/_Scripts/BowWow/words-copy.json");
@@ -530,7 +425,6 @@ public class LoadLetters : MonoBehaviour
     //    return wordlist.Words;
     //    //return wordlist.Words;
     //}
-
     public List<Words> GetWordsFromJson(string path)
     {
         //text = LoadJson("./Assets/_Scripts/BowWow/words-copy.json");
@@ -539,13 +433,11 @@ public class LoadLetters : MonoBehaviour
         //text = jsonToText();
         return JsonUtility.FromJson<WordsList>(jsonFile.ToString()).Words;
     }
-
     class ArrayListWords
     {
         public string word;
         public int level;
         public string imageSource;
-
         public ArrayListWords(string word, int level, string imageSource)
         {
             this.word = word;
@@ -553,11 +445,9 @@ public class LoadLetters : MonoBehaviour
             this.imageSource = imageSource;
         }
     }
-
     public void FillJSONDic()
     {
         int index = 0;
-
         List<Words> wordlist = GetWordsFromJson("./Assets/_Scripts/BowWow/words-copy.json");
         Debug.Log("FILL THE DICTIONARY JSON");
         for (int i = 0; i < wordlist.Count; i++)
@@ -576,18 +466,13 @@ public class LoadLetters : MonoBehaviour
             Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].imageSource);
         }
     }
-
     public void loadSprite()
     {
         foreach (var word in jsonWordsDict)
         {
             if (word.Value.word == "kawasaki")
             {
-
             }
         }
     }
-
-
-
 }
