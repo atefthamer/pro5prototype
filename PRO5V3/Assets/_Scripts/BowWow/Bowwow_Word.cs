@@ -15,7 +15,7 @@ public class Bowwow_Word : MonoBehaviour
         if (wordGenerator.displayWord)
         {
             wordText.SetText("Word: " + wordGenerator.wordToDisplay);
-        Debug.Log("DISPLAY THE WORD!! " + wordGenerator.wordToDisplay);
+            //Debug.Log("DISPLAY THE WORD!! " + wordGenerator.wordToDisplay);
         }
 
     }
