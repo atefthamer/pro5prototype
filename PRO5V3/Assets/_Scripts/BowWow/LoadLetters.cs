@@ -36,7 +36,7 @@ public class LoadLetters : MonoBehaviour
     public int EXTRA_LETTERS = 5;
 
     public int wordsCount = 0;
-    public float letterSize = 50.0f;
+    public float letterSize = 38.0f;
 
     string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
 
@@ -178,11 +178,11 @@ public class LoadLetters : MonoBehaviour
             audioWords.Add(item.name, item);
         }
 
-        foreach (var item in audioWords)
-        {
-            Debug.Log("AUDIO FILES " + item.Value);
-            Debug.Log("AUDIO FILES " + item.Key);
-        }
+        // foreach (var item in audioWords)
+        // {
+        //     Debug.Log("AUDIO FILES " + item.Value);
+        //     Debug.Log("AUDIO FILES " + item.Key);
+        // }
     }
 
     //private void AddLettersToDictionary()
@@ -205,8 +205,8 @@ public class LoadLetters : MonoBehaviour
         var randomIndex = (int)UnityEngine.Random.Range(0.0f, wordsCount);
         string wordToShoot = wordsDict[randomIndex].ToUpper();
 
-        Debug.Log("This is the word with index 2 " + wordsDict[randomIndex].ToUpper());
-        Debug.Log("This is the word with index 2 with length " + wordsDict[randomIndex].Length);
+        //Debug.Log("This is the word with index 2 " + wordsDict[randomIndex].ToUpper());
+        //Debug.Log("This is the word with index 2 with length " + wordsDict[randomIndex].Length);
         wordLength = wordsDict[randomIndex].Length;
 
         wordSplit = new char[wordLength];
@@ -248,8 +248,8 @@ public class LoadLetters : MonoBehaviour
 
         displayWord = true;
 
-        Debug.Log("This is the word with index 2 " + jsonWordsDict[randomIndex].word.ToUpper());
-        Debug.Log("This is the word with index 2 with length " + jsonWordsDict[randomIndex].word.Length);
+        //Debug.Log("This is the word with index 2 " + jsonWordsDict[randomIndex].word.ToUpper());
+        //Debug.Log("This is the word with index 2 with length " + jsonWordsDict[randomIndex].word.Length);
         wordLength = jsonWordsDict[randomIndex].word.Length;
 
         wordSplit = new char[wordLength];
@@ -385,14 +385,8 @@ public class LoadLetters : MonoBehaviour
             {
                 wordSplit[index] = wordToDisplay[index];
             }
-            for (int i = 0; i < wordSplit.Length; i++)
-            {
-                Debug.Log("CHAR ______ " + wordSplit[i]);
-            }
 
         }
-
-
     }
 
     private void fillCharArray()
@@ -559,21 +553,15 @@ public class LoadLetters : MonoBehaviour
         int index = 0;
 
         List<Words> wordlist = GetWordsFromJson("./Assets/_Scripts/BowWow/words-copy.json");
-        Debug.Log("FILL THE DICTIONARY JSON");
+
         for (int i = 0; i < wordlist.Count; i++)
         {
             string word = wordlist[i].word;
             int level = wordlist[i].level;
             string imageSource = wordlist[i].img_src;
-            Debug.Log("WORDLIST  >> " + word);
-            Debug.Log("WORDLIST  >> " + level);
-            Debug.Log("WORDLIST  >> " + imageSource);
             jsonWordsDict.Add(index, new ArrayListWords(word, level, imageSource));
             index++;
             wordsCount++;
-            Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].word);
-            Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].level);
-            Debug.Log("WORDLIST YEAH >> " + jsonWordsDict[i].imageSource);
         }
     }
 
