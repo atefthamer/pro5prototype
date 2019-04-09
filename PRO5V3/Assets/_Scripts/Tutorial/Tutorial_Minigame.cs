@@ -58,6 +58,6 @@ public class Tutorial_Minigame : MonoBehaviour
             obj.SetActive(false);
         }
 
-        sw.SceneSwitcher(2);
+        sw.DestroyPlayer(2);
     }
 }
