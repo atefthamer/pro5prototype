@@ -26,17 +26,17 @@ public class Orbit : MonoBehaviour
         }
         else
         {
-            xzSpread = Random.Range(-31.0f, 31.0f);
-            yOffset = Random.Range(1.0f, 15.0f);
+            xzSpread = Random.Range(-26.0f, 26.0f);
+            yOffset = Random.Range(10.0f, 30.0f);
             //rotSpeed = Random.Range(0.05f, 0.1f);
-            rotSpeed = Random.Range(5.0f, 10.0f);
+            rotSpeed = Random.Range(2.0f, 8.0f);
         }
 
         this.gameObject.transform.position = new Vector3(xzSpread, yOffset, xzSpread);
 
     }
 
-    // Update is called once per frame
+    // Update is called once per frame-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
     void Update()
     {
         transform.RotateAround(centerPoint.transform.position, new Vector3(0, 3, 0), rotSpeed * Time.deltaTime);
