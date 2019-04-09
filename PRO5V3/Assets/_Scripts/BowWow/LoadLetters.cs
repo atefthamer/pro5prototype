@@ -51,7 +51,7 @@ public class LoadLetters : MonoBehaviour
     private string fileExtension;
 
     public GameObject particle;
-    public Camera camera;
+    public Transform camera;
 
     // Score and Words
     public int score = 0;
@@ -319,6 +319,7 @@ public class LoadLetters : MonoBehaviour
 
         obi.AddComponent<HITandSave>();
         obi.GetComponent<HITandSave>().explodeParticle = particle;
+        obi.GetComponent<HITandSave>().activeCamera = camera;
 
         obi.AddComponent<Rigidbody>();
 

@@ -13,6 +13,7 @@ public class SceneSwitch : UIElement
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        destroy = false;
         Debug.Log(player);
     }
 
