@@ -5,6 +5,7 @@ using TMPro;
 
 public class Tutorial_Minigame : MonoBehaviour
 {
+    public SceneSwitch sw;
     public GameObject[] targets;
     GameObject currentTarget;
     int index;
@@ -51,5 +52,7 @@ public class Tutorial_Minigame : MonoBehaviour
         {
             obj.SetActive(false);
         }
+
+        sw.DestroyPlayer(2);
     }
 }

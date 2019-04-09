@@ -15,12 +15,12 @@ public class JSONExample : MonoBehaviour
     {
         text = LoadJson("./Assets/_Scripts/BowWow/words-copy.json");
         wordlist = JsonUtility.FromJson<WordsList>(text);
-        foreach (var item in wordlist.Words)
-        {
-            Debug.Log("word: " + item.word);
-            Debug.Log("level: " + item.level);
-            Debug.Log("img source: " + item.img_src);
-        }
+        //foreach (var item in wordlist.Words)
+        //{
+        //    Debug.Log("word: " + item.word);
+        //    Debug.Log("level: " + item.level);
+        //    Debug.Log("img source: " + item.img_src);
+        //}
     }
 
     // Update is called once per frame

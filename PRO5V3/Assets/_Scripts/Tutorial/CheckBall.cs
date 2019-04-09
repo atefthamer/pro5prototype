@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CheckBall : MonoBehaviour
 {
-    public float timer = 3.0f;
+    public float timer = 2.0f;
     private bool inside;
     public ReturnBall ball;
 
@@ -28,7 +28,7 @@ public class CheckBall : MonoBehaviour
         {
             //Debug.Log("Inside");
             inside = true;
-            timer = 3.0f;
+            timer = 2.0f;
         }
     }
 

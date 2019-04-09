@@ -10,8 +10,10 @@ public class HITandSave : MonoBehaviour
 
     public int objectId = 0;
     public GameObject arrow;
-    public GameObject particle;
+    public GameObject explodeParticle;
     public bool hit = false;
+
+    public Transform activeCamera = null;
 
     //LoadLetters load;
 
@@ -39,7 +41,7 @@ public class HITandSave : MonoBehaviour
         if (other.gameObject.CompareTag("projectile"))
         {
             Debug.Log("Letter Hit");
-            //Destroy(other.gameObject);
+            Explode();
             arrow = other.gameObject;
             hit = true;
             objectId = this.gameObject.GetInstanceID();          
@@ -48,18 +50,10 @@ public class HITandSave : MonoBehaviour
 
     public void Explode()
     {
-
+        GameObject explode = Instantiate(explodeParticle, this.transform.position, Quaternion.identity) as GameObject;
+        explode.transform.localScale = new Vector3(2f, 2f, 2f);
+        explode.GetComponent<ParticleController>().targetCamera = (Transform)activeCamera;
+        explodeParticle.GetComponent<ParticleSystem>().Play();
+        Destroy(explode, 2.0f);
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("projectile"))
-    //    {
-    //        Debug.Log("Letter Hit");
-    //        //Destroy(other.gameObject);
-    //        arrow = collision.gameObject;
-    //        hit = true;
-    //        objectId = this.gameObject.GetInstanceID();
-    //    }
-    //}
 }

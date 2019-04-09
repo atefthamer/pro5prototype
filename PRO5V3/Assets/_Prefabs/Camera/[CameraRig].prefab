@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4757083488207938727}
   - component: {fileID: 3020714281451655116}
   - component: {fileID: 1725769899423830865}
-  - component: {fileID: 1115345967434264947}
+  - component: {fileID: 5471353511792249084}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -230,7 +230,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1115345967434264947
+--- !u!114 &5471353511792249084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4891843295418954265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83759e0609fbd6444b7fbf0172139ad9, type: 3}
+  m_Script: {fileID: 11500000, guid: 815294c59154b3d4fb6570943c1dc63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_GrabAction:
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 1893758147281145060}
   - component: {fileID: 2005866312456484225}
   - component: {fileID: 4133815065409089477}
-  - component: {fileID: 4973124709021477774}
+  - component: {fileID: 7014866167406932644}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -550,7 +550,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4973124709021477774
+--- !u!114 &7014866167406932644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7486789144963116893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83759e0609fbd6444b7fbf0172139ad9, type: 3}
+  m_Script: {fileID: 11500000, guid: 815294c59154b3d4fb6570943c1dc63b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_GrabAction:
