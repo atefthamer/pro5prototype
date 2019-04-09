@@ -562,7 +562,6 @@ MonoBehaviour:
   maxScale: 8
   sound: {fileID: 2103504245}
   bln_rub: {fileID: 791071410}
-  sw: {fileID: 1480875197}
   hit: 0
 --- !u!135 &331713284
 SphereCollider:
@@ -1864,6 +1863,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 429506, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1895,10 +1898,6 @@ PrefabInstance:
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 429506, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11465950, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: hands.Array.data[1]
@@ -1978,10 +1977,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
   m_ContactInteractables: []
-  balloons:
-  - {fileID: 2049107217}
-  - {fileID: 1957710497}
-  - {fileID: 331713280}
+  bManager: {fileID: 1480875199}
 --- !u!114 &1411743189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2022,10 +2018,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/GrabPinch
     needsReinit: 0
   m_ContactInteractables: []
-  balloons:
-  - {fileID: 2049107217}
-  - {fileID: 1957710497}
-  - {fileID: 331713280}
+  bManager: {fileID: 1480875199}
 --- !u!1 &1480875195
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1480875196}
   - component: {fileID: 1480875198}
+  - component: {fileID: 1480875199}
   - component: {fileID: 1480875197}
   m_Layer: 0
   m_Name: Balloons
@@ -2130,6 +2124,23 @@ MonoBehaviour:
   handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+--- !u!114 &1480875199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480875195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50db5267be4fff44586ac4c1cf069b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloons:
+  - {fileID: 2049107217}
+  - {fileID: 1957710497}
+  - {fileID: 331713280}
+  sw: {fileID: 1480875197}
 --- !u!1 &1531432789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,7 +2397,6 @@ GameObject:
   - component: {fileID: 1957710501}
   - component: {fileID: 1957710500}
   - component: {fileID: 1957710499}
-  - component: {fileID: 1957710505}
   - component: {fileID: 1957710504}
   m_Layer: 0
   m_Name: redBalloon
@@ -2521,7 +2531,6 @@ MonoBehaviour:
   maxScale: 8
   sound: {fileID: 2083248723}
   bln_rub: {fileID: 719211987}
-  sw: {fileID: 1480875197}
   hit: 0
 --- !u!135 &1957710501
 SphereCollider:
@@ -2600,35 +2609,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1957710505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1957710497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04468c24ba6b6094b8a51a0060143a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onHandClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Valve.VR.InteractionSystem.CustomEvents+UnityEventHand, SteamVR, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  player: {fileID: 0}
 --- !u!1 &1980044628
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,7 +2655,6 @@ GameObject:
   - component: {fileID: 2049107218}
   - component: {fileID: 2049107222}
   - component: {fileID: 2049107223}
-  - component: {fileID: 2049107225}
   - component: {fileID: 2049107224}
   m_Layer: 0
   m_Name: blueBalloon
@@ -2772,7 +2751,6 @@ MonoBehaviour:
   maxScale: 8
   sound: {fileID: 404783998}
   bln_rub: {fileID: 1007983664}
-  sw: {fileID: 1480875197}
   hit: 0
 --- !u!82 &2049107223
 AudioSource:
@@ -2889,35 +2867,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2049107225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049107217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04468c24ba6b6094b8a51a0060143a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onHandClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Valve.VR.InteractionSystem.CustomEvents+UnityEventHand, SteamVR, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  player: {fileID: 0}
 --- !u!1 &2083248721
 GameObject:
   m_ObjectHideFlags: 0

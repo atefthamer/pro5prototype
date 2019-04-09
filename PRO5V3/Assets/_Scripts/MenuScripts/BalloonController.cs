@@ -6,10 +6,9 @@ public class BalloonController : MonoBehaviour {
 
     public float scaleFactor = 1.2f;
     public float maxScale = 8;
-    private bool pop = false;
+    public static bool pop = false;
     public BalloonSoundScript sound;
     public BLN_Rub_SFX bln_rub;
-    public SceneSwitch sw;
 
     [SerializeField]
     public bool hit = false;
@@ -23,10 +22,10 @@ public class BalloonController : MonoBehaviour {
             Destroy(gameObject);
             pop = true;
 
-            if (pop == true)
-            {
-                sw.DestroyPlayer(3);
-            }
+            //if (pop == true)
+            //{
+            //    sw.DestroyPlayer(3);
+            //}
         }
     }
 }

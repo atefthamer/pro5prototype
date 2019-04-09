@@ -13,11 +13,12 @@ public class HandBalloon : MonoBehaviour
     private Interactable m_CurrentInteractable = null;
     public List<Interactable> m_ContactInteractables = new List<Interactable>();
 
-    //public BalloonController balloon;
+    public BalloonManager bManager;
 
+    //public BalloonController balloon;
     //public GameObject[] balloons;
-    [SerializeField]
-    List<GameObject> balloons = new List<GameObject>();
+    //[SerializeField]
+    //List<GameObject> balloons = new List<GameObject>();
 
     private void Awake()
     {
@@ -31,7 +32,7 @@ public class HandBalloon : MonoBehaviour
         if (m_GrabAction.GetStateDown(m_Pose.inputSource))
         {
             //print(m_Pose.inputSource + " Trigger Down");
-            foreach(GameObject obj in balloons)
+            foreach (GameObject obj in bManager.balloons)
             {
                 obj.GetComponent<BalloonController>().hit = true;
 
@@ -44,12 +45,11 @@ public class HandBalloon : MonoBehaviour
         if (m_GrabAction.GetStateUp(m_Pose.inputSource))
         {
             //print(m_Pose.inputSource + " Trigger Up");
-            foreach(GameObject obj in balloons)
+            foreach (GameObject obj in bManager.balloons)
             {
                 obj.GetComponent<BalloonController>().hit = false;
             }
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
