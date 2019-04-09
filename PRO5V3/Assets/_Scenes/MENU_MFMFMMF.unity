@@ -279,7 +279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: S A V E
+  m_Text: L O A D / S A V E
 --- !u!222 &617929884
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -869,7 +869,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 25c6b7146d744644e832d3b665fab831, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 60
@@ -958,7 +958,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: L O A D
+  m_Text: P R O F I L E
 --- !u!222 &1174691605
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1185,7 +1185,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: S T A R T
+  m_Text: S T A R T   G A M E
 --- !u!222 &1275841904
 CanvasRenderer:
   m_ObjectHideFlags: 0
