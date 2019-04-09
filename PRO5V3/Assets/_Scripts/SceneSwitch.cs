@@ -6,43 +6,35 @@ using Valve.VR.InteractionSystem;
 public class SceneSwitch : UIElement
 {
     [SerializeField]
-    private readonly GameObject player;
+    private GameObject player;
+
+    private bool destroy = false;
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         Debug.Log(player);
     }
 
     protected override void Awake()
     {
         base.Awake();
-
-        //ui = this.GetComponentInParent<SkeletonUIOptions>();
-        //sw = this.GetComponent<SceneSwitch>();
-        //mng = new SceneManager();
     }
 
-    public void DestroyPlayer()
+    public void DestroyPlayer(int sceneIndex)
     {
         Destroy(player);
-        SceneManager.LoadScene(1);
+        destroy = true;
+
+        if (destroy == true)
+        {
+            destroy = false;
+            SceneManager.LoadScene(sceneIndex);
+        }
     }
 
     protected override void OnButtonClick()
     {
         base.OnButtonClick();
-        //SceneManager.LoadScene()
-        //if(sw != null)
-        //{
-        //    sw.SceneSwitcher(1);
-        //}
-
-
     }
-
-    //public void SceneSwitcher (int sceneIndex)
-    //{
-    //    Destroy(player);
-    //    SceneManager.LoadScene (sceneIndex);
-    //}
 }

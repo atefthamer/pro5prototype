@@ -19,7 +19,7 @@ public class BalloonController : MonoBehaviour {
         if (transform.localScale.x >= maxScale) {
             sound.PlaySound();
             Destroy(gameObject);
-            //sw.SceneSwitcher(3);
+            sw.DestroyPlayer(3);
 
         }
     }
