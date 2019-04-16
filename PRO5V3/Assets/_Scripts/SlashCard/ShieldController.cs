@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ShieldController : MonoBehaviour
 {
-    private GameObject currentProjectile = null;
+    [HideInInspector]
+    public GameObject currentProjectile = null;
 
     public LauncherManager launcher;
 

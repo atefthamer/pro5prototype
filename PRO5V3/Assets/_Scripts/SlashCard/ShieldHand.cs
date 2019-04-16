@@ -18,7 +18,7 @@ public class ShieldHand : MonoBehaviour
     private void Update()
     {
         // Down
-        if (m_GrabAction.GetStateDown(m_Pose.inputSource))
+        if (m_GrabAction.GetStateDown(m_Pose.inputSource) && shield.currentProjectile != null)
         {
             shield.ShootProjectile();
         }
