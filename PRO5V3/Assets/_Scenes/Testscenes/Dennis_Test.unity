@@ -433,7 +433,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -458,7 +458,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 1
+    widthMultiplier: 0.05
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -504,7 +504,7 @@ LineRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0
-    numCapVertices: 0
+    numCapVertices: 6
     alignment: 0
     textureMode: 0
     shadowBias: 0.5
@@ -871,6 +871,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6215567488272350149, guid: 9ad859984b4ddac4fba504caadb3b002,
     type: 3}
+--- !u!1 &1634636605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1634636606}
+  m_Layer: 0
+  m_Name: PointerEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1634636606
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634636605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -70, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1869748212}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646686114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,6 +1194,7 @@ Transform:
   m_Children:
   - {fileID: 1878041983}
   - {fileID: 963748183}
+  - {fileID: 1634636606}
   m_Father: {fileID: 945363914}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1238,6 +1269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentProjectile: {fileID: 0}
+  pointer: {fileID: 963748184}
+  pointerEnd: {fileID: 1634636605}
+  speed: 1
   launcher: {fileID: 1952020622}
 --- !u!54 &1869748217
 Rigidbody:
