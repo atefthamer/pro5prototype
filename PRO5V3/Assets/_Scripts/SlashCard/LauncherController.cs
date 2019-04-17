@@ -11,9 +11,4 @@ public class LauncherController : MonoBehaviour
     {
         GameObject shoot = Instantiate(projectile, this.transform.position, Quaternion.identity);
     }
-
-    private void Update()
-    {
-        
-    }
 }
