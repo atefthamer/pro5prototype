@@ -27,6 +27,7 @@ public class ShieldController : MonoBehaviour
             currentProjectile = other.gameObject;
             currentProjectile.GetComponent<ProjectileController>().enabled = false;
             this.transform.GetChild(1).gameObject.SetActive(true);
+            this.transform.GetChild(2).gameObject.SetActive(true);
         }
     }
 
@@ -58,6 +59,7 @@ public class ShieldController : MonoBehaviour
     {
         shootingPoint.transform.position = pointerEnd.transform.position;
         this.transform.GetChild(1).gameObject.SetActive(false);
+        this.transform.GetChild(2).gameObject.SetActive(false);
         fired = true;
     }
 }
