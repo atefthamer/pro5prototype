@@ -6,13 +6,6 @@ public class TargetController : MonoBehaviour
 {
     public TargetManager tMan;
 
-    Component halo;
-
-    private void Start()
-    {
-        halo = GetComponent("Halo");  
-    }
-
     private void Update()
     {
         if (tMan.incorrect == true)
@@ -27,7 +20,7 @@ public class TargetController : MonoBehaviour
         {
             tMan.firstTarget = this.gameObject;
             Debug.Log("FIRST TARGET = " + tMan.firstTarget);
-            halo.GetType().GetProperty("enabled").SetValue(halo, true, null);
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
         else if (other.gameObject.CompareTag("projectile") && tMan.firstTarget != null && this.gameObject != tMan.firstTarget)
         {
@@ -51,7 +44,7 @@ public class TargetController : MonoBehaviour
 
     private void DisableHalo()
     {
-        halo.GetType().GetProperty("enabled").SetValue(halo, false, null);
+        this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         tMan.incorrect = false;
         Debug.Log(tMan.incorrect);
     }

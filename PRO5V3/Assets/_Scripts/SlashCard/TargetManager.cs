@@ -26,7 +26,7 @@ public class TargetManager : MonoBehaviour
                 firstTarget.transform.position = Vector3.MoveTowards(firstTarget.transform.position, player.transform.position, shot);
                 secondTarget.transform.position = Vector3.MoveTowards(secondTarget.transform.position, player.transform.position, shot);
 
-                if (Vector3.Distance(firstTarget.transform.position, player.transform.position) < 1.0f && (Vector3.Distance(secondTarget.transform.position, player.transform.position) < 2.0f))
+                if (Vector3.Distance(firstTarget.transform.position, player.transform.position) < 1.0f && (Vector3.Distance(secondTarget.transform.position, player.transform.position) < 1.0f))
                 {
                     
                 }
