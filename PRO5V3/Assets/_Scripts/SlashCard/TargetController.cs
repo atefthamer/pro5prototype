@@ -6,14 +6,6 @@ public class TargetController : MonoBehaviour
 {
     public TargetManager tMan;
 
-    private void Update()
-    {
-        if (tMan.incorrect == true)
-        {
-            DisableHalo();
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("projectile") && tMan.firstTarget == null)
@@ -29,23 +21,16 @@ public class TargetController : MonoBehaviour
             tMan.targetsHit = true;
         }
 
-        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.firstTarget)
+        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.firstTarget && tMan.correct == true)
         {
             Destroy(this.gameObject);
             tMan.firstTarget = null;
         }
 
-        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.secondTarget)
+        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.secondTarget && tMan.correct == true)
         {
             Destroy(this.gameObject);
             tMan.secondTarget = null;
         }
-    }
-
-    private void DisableHalo()
-    {
-        this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-        tMan.incorrect = false;
-        Debug.Log(tMan.incorrect);
     }
 }
