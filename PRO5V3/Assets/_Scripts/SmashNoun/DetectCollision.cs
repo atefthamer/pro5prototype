@@ -18,7 +18,7 @@ public class DetectCollision : MonoBehaviour
     }
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name == ObjectName)
+        if (col.gameObject.CompareTag("Interactable"))
         {
             Destroy(this.gameObject);
         }
