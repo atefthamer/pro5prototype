@@ -43,6 +43,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectName: powerstick
+--- !u!114 &1222058717767834861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224110124889392495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1149bc37ed90de4790d8e414fbdbcba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &654969789627826411
 MonoBehaviour:
   m_ObjectHideFlags: 0

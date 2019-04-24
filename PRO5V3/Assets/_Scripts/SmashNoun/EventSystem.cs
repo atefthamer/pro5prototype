@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EventCallbacks
+namespace SmashNoun
 {
     public class EventSystem : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace EventCallbacks
         {
             get
             {
-                if(__Current == null)
+                if (__Current == null)
                 {
                     __Current = GameObject.FindObjectOfType<EventSystem>();
                 }
@@ -38,7 +38,7 @@ namespace EventCallbacks
                 eventListeners = new Dictionary<System.Type, List<EventListener>>();
             }
 
-            if(eventListeners.ContainsKey(eventType) == false || eventListeners[eventType] == null)
+            if (eventListeners.ContainsKey(eventType) == false || eventListeners[eventType] == null)
             {
                 eventListeners[eventType] = new List<EventListener>();
             }
@@ -65,9 +65,9 @@ namespace EventCallbacks
                 return;
             }
 
-            foreach(EventListener el in eventListeners[trueEventInfoClass])
+            foreach (EventListener el in eventListeners[trueEventInfoClass])
             {
-                el( eventInfo );
+                el(eventInfo);
             }
         }
 

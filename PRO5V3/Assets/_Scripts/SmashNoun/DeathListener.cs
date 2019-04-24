@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EventCallbacks
+namespace SmashNoun
 {
     public class DeathListener : MonoBehaviour
     {

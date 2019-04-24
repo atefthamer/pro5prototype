@@ -2,27 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectCollision : MonoBehaviour
+namespace SmashNoun
 {
-    public string ObjectName = "powerstick";
-    // Start is called before the first frame update
-    void Start()
+    public class DetectCollision : MonoBehaviour
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.CompareTag("Interactable"))
+        public string ObjectName = "powerstick";
+        // Start is called before the first frame update
+        void Start()
         {
-            Destroy(this.gameObject);
-        }
-        Debug.Log("COLLISION OBJECT " + col.gameObject.name);
-    }
 
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+        void OnCollisionEnter(Collision col)
+        {
+            if (col.gameObject.name == ObjectName)
+            {
+                //Destroy(this.gameObject);
+            }
+            Debug.Log("COLLISION OBJECT " + col.gameObject.name);
+
+            UnitDeathEventInfo udei = new UnitDeathEventInfo();
+            udei.EventDescription = "Unit " + gameObject.name + " has died.";
+            udei.UnitGO = gameObject;
+            Debug.Log("It just works " + udei.UnitGO.name);
+            EventSystem.Current.FireEvent(udei);
+        }
+
+    }
 }
