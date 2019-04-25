@@ -12,6 +12,7 @@ namespace SmashNoun
         //List<string> wordsList = new List<string>();
         // How many rounds per game?
         public const int MAX_ROUNDS = 3;
+        private const int ANSWER_COUNT = 3;
         public GameObject barrel;
         [SerializeField]
         List<Vector3> tseries = new List<Vector3>();
@@ -61,42 +62,23 @@ namespace SmashNoun
                 );
             }
 
-            // List<GameObject> barrelsInTheWorld = new List<GameObject>();
-            // foreach (var item in tseries)
-            // {
-            //     GameObject obj = SpawnUnit(item);
-            //     barrelsInTheWorld.Add(obj);
-            // }
-            // Give barrels information
-            // foreach (var barrel in barrelsInTheWorld)
-            // {
-            //     foreach (var item in questionAnswer)
-            //     {
-            //         // Debug.Log("Questions: " + item.questionData);
-            //         item.answer.ForEach(
-            //             (x) =>
-            //             {
-            //                 
-            //             }
-            //        if (x.IsCorrect == true)
-            //                 {
-            //                     barrel.gameObject.GetComponent<BarrelInformation>().isCorrect = true;
-            //                     barrel.gameObject.GetComponent<BarrelInformation>().Answer = x.AnswerData;
-            //                 }
-            //                 else
-            //                 {
-            //                     barrel.gameObject.GetComponent<BarrelInformation>().isCorrect = false;
-            //                     barrel.gameObject.GetComponent<BarrelInformation>().Answer = x.AnswerData;
-            //                 } );
-            //     }
-            // }
+            Stack<Question> stq = new Stack<Question>();
+
+            for (int i = 0; i < MAX_ROUNDS; i++)
+            {
+                stq.Push(questionAnswer.ElementAt(i));
+            }
+
+
+
             int index = 0;
             foreach (var item in tseries)
             {
                 GameObject obj = SpawnUnit(item);
 
-
                 var what = questionAnswer.ElementAt(0).answer.ElementAt(index);
+                //var what = stq.Pop().answer.ElementAt(index);
+
                 if (what.IsCorrect == true)
                 {
                     obj.gameObject.GetComponent<BarrelInformation>().isCorrect = true;
@@ -107,7 +89,13 @@ namespace SmashNoun
                     obj.gameObject.GetComponent<BarrelInformation>().isCorrect = false;
                     obj.gameObject.GetComponent<BarrelInformation>().Answer = what.AnswerData;
                 }
+
                 index++;
+
+                if (index == ANSWER_COUNT)
+                {
+                    index = 0;
+                }
             }
 
         }
