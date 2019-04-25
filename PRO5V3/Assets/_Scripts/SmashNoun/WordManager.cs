@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System.Threading.Tasks;
+
 //using System;
 
 namespace SmashNoun
@@ -25,51 +27,13 @@ namespace SmashNoun
 
             insertAlotOfQuestions();
 
-            foreach (var item in questionAnswer)
-            {
-                Debug.Log("Questions: " + item.questionData);
-                item.answer.ForEach(
-                    (x) =>
-                    {
-                        if (x.IsCorrect == true)
-                        {
-                            Debug.Log("YES YES YES YES YES YES YES YES");
-                        }
-                    }
-                );
-            }
-
-            foreach (var item in questionAnswer)
-            {
-                Debug.Log("Questions: " + item.questionData);
-                item.answer.ForEach(
-                    (x) =>
-                    {
-                        Debug.Log("Answers: " + x.AnswerData);
-                    }
-                );
-            }
-
             questionAnswer.Shuffle();
-
-            foreach (var item in questionAnswer)
-            {
-                Debug.Log("Questions: " + item.questionData);
-                item.answer.ForEach(
-                    (x) =>
-                    {
-                        Debug.Log("Answers: " + x.AnswerData);
-                    }
-                );
-            }
-
-
 
             for (int i = 0; i < MAX_ROUNDS; i++)
             {
                 stq.Push(questionAnswer.ElementAt(i));
             }
-
+            Debug.Log("1 STACK SIZE " + stq.Count);
             DoYourThang();
 
         }
@@ -77,25 +41,26 @@ namespace SmashNoun
         List<GameObject> spwnd = new List<GameObject>();
         private void DoYourThang()
         {
-
             int index = 0;
+            var what = stq.Pop();//.answer.ElementAt(index);
+
             foreach (var item in tseries)
             {
                 GameObject obj = SpawnUnit(item);
                 spwnd.Add(obj);
-                // var what = questionAnswer.ElementAt(0).answer.ElementAt(index);
-                var what = stq.Pop().answer.ElementAt(index);
-
-                if (what.IsCorrect == true)
+                // var what = questionAnswer.ElementAt(0).answer.ElementAt(index);             
+                var ans = what.answer.ElementAt(index);
+                if (ans.IsCorrect == true)
                 {
                     obj.gameObject.GetComponent<BarrelInformation>().isCorrect = true;
-                    obj.gameObject.GetComponent<BarrelInformation>().Answer = what.AnswerData;
+                    obj.gameObject.GetComponent<BarrelInformation>().Answer = ans.AnswerData;
                 }
                 else
                 {
                     obj.gameObject.GetComponent<BarrelInformation>().isCorrect = false;
-                    obj.gameObject.GetComponent<BarrelInformation>().Answer = what.AnswerData;
+                    obj.gameObject.GetComponent<BarrelInformation>().Answer = ans.AnswerData;
                 }
+                index++;
             }
         }
 
@@ -120,6 +85,39 @@ namespace SmashNoun
             return Instantiate(barrel, dreamLocation, Quaternion.Euler(new Vector3(-90, 0, 0)));
         }
 
+        bool isCoroutineExecuting = false;
+
+        IEnumerator ExecuteAfterTime(float time, GameObject go)
+        {
+            if (isCoroutineExecuting)
+                yield break;
+
+            isCoroutineExecuting = true;
+            yield return new WaitForSeconds(time);
+            // Code to execute after the delay
+            Destroy(go);
+
+
+            isCoroutineExecuting = false;
+            if (stq.Count != 0)
+            {
+                StartCoroutine(RespawnAfterTime(5));
+            }
+        }
+
+        IEnumerator RespawnAfterTime(float time)
+        {
+            if (isCoroutineExecuting)
+                yield break;
+
+            isCoroutineExecuting = true;
+            yield return new WaitForSeconds(time);
+            // Code to execute after the delay
+            DoYourThang();
+            isCoroutineExecuting = false;
+
+
+        }
         void UnitDied(UnitDeathEventInfo unitDeathInfo)
         {
             //unitDeathInfo.
@@ -127,7 +125,9 @@ namespace SmashNoun
             var target = go.gameObject.GetComponent<BarrelInformation>().isCorrect;
             if (target)
             {
-                Destroy(go);
+
+                StartCoroutine(ExecuteAfterTime(5, go));
+
                 spwnd.Remove(go);
 
                 for (int i = 0; i < spwnd.Count; i++)
@@ -136,11 +136,9 @@ namespace SmashNoun
                 }
 
                 spwnd.Clear();
+                Debug.Log("2 STACK SIZE " + stq.Count);
 
-                if (stq.Count != 0)
-                {
-                    DoYourThang();
-                }
+
             }
 
         }
