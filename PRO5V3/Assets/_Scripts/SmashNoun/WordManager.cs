@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using System;
 
 namespace SmashNoun
 {
@@ -8,6 +9,8 @@ namespace SmashNoun
     {
         //[SerializeField]
         //List<string> wordsList = new List<string>();
+        // How many rounds per game?
+        public const int MAX_ROUNDS = 3;
         public GameObject barrel;
 
         [SerializeField]
@@ -98,12 +101,14 @@ namespace SmashNoun
             while (indexSet.Count != max)
             {
                 indexSet.Add((int)Random.Range(0.0f, (float)max));
+
             }
 
             foreach (var item in indexSet)
             {
                 Debug.Log("HashSet -> " + item);
             }
+
 
 
         }
@@ -233,6 +238,54 @@ namespace SmashNoun
 
             // questionAnswer.Add(1, qq);
             questionAnswer.Add(qq);
+        }
+
+        // static Random _random = new Random();
+
+        // /// <summary>
+        // /// Shuffle the array.
+        // /// </summary>
+        // /// <typeparam name="T">Array element type.</typeparam>
+        // /// <param name="array">Array to shuffle.</param>
+        // static void Shuffle<T>(T[] array)
+        // {
+        //     int n = array.Length;
+        //     for (int i = 0; i < n; i++)
+        //     {
+        //         // Use Next on random instance with an argument.
+        //         // ... The argument is an exclusive bound.
+        //         //     So we will not go past the end of the array.
+        //         int r = i + _random.Next(n - i);
+        //         T t = array[r];
+        //         array[r] = array[i];
+        //         array[i] = t;
+        //     }
+        // }
+
+        void Shuffle(int[] a)
+        {
+            // Loops through array
+            for (int i = a.Length - 1; i > 0; i--)
+            {
+                // Randomize a number between 0 and i (so that the range decreases each time)
+                int rnd = Random.Range(0, i);
+                // Save the value of the current i, otherwise it'll overright when we swap the values
+                int temp = a[i];
+                // Swap the new and old values
+                a[i] = a[rnd];
+                a[rnd] = temp;
+            }
+        }
+
+        void Shuffle(List<int> t)
+        {
+            for (int i = t.Count - 1; i > 0; i--)
+            {
+                int randomIndex = Random.Range(0, i);
+                int temp = t[i];
+                t[i] = t[randomIndex];
+                t[randomIndex] = temp;
+            }
         }
     }
 }
