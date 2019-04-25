@@ -74,12 +74,11 @@ namespace SmashNoun
             }
 
             insertAlotOfQuestionsTest();
-            //insertQuestions();
-            // Get Values
+
             foreach (var item in questionAnswer)
             {
-                Debug.Log("Questions: " + item.Value.questionData);
-                item.Value.answer.ForEach(
+                Debug.Log("Questions: " + item.questionData);
+                item.answer.ForEach(
                     (x) =>
                     {
                         if (x.IsCorrect == true)
@@ -90,6 +89,21 @@ namespace SmashNoun
                 );
             }
 
+            List<int> indexes = new List<int>();
+            int max = questionAnswer.Count;
+
+            // Unique index set
+            HashSet<int> indexSet = new HashSet<int>();
+
+            while (indexSet.Count != max)
+            {
+                indexSet.Add((int)Random.Range(0.0f, (float)max));
+            }
+
+            foreach (var item in indexSet)
+            {
+                Debug.Log("HashSet -> " + item);
+            }
 
 
         }
@@ -159,7 +173,8 @@ namespace SmashNoun
         }
 
 
-        public Dictionary<int, Question> questionAnswer = new Dictionary<int, Question>();
+        //public Dictionary<int, Question> questionAnswer = new Dictionary<int, Question>();
+        public List<Question> questionAnswer = new List<Question>();
 
         private void insertQuestions()
         {
@@ -168,7 +183,8 @@ namespace SmashNoun
             qs.answer.Add(new Answer("Hello", true));
             qs.answer.Add(new Answer("Hola", false));
 
-            questionAnswer.Add(0, qs);
+            // questionAnswer.Add(0, qs);
+            questionAnswer.Add(qs);
         }
 
         private Question getQuestion(string question)
@@ -180,16 +196,13 @@ namespace SmashNoun
         private void insertAlotOfQuestionsTest()
         {
             Question qq = getQuestion("Hello");
-            if (qq == null)
-            {
-                Debug.Log("IS NULL ");
-                return;
-            }
-            qq.answer.Add(new Answer("Hoi", false));
+
+            qq.answer.Add(new Answer("Hola", false));
             qq.answer.Add(new Answer("Hello", true));
             qq.answer.Add(new Answer("Hoi", false));
 
-            questionAnswer.Add(0, qq);
+            // questionAnswer.Add(0, qq);
+            questionAnswer.Add(qq);
 
             qq = null;
 
@@ -198,7 +211,28 @@ namespace SmashNoun
             qq.answer.Add(new Answer("White", false));
             qq.answer.Add(new Answer("Pink", true));
 
-            questionAnswer.Add(1, qq);
+            // questionAnswer.Add(1, qq);
+            questionAnswer.Add(qq);
+
+            qq = null;
+
+            qq = getQuestion("Square");
+            qq.answer.Add(new Answer("Square", true));
+            qq.answer.Add(new Answer("Triangle", false));
+            qq.answer.Add(new Answer("Trapazoid", false));
+
+            // questionAnswer.Add(1, qq);
+            questionAnswer.Add(qq);
+
+            qq = null;
+
+            qq = getQuestion("Mercedes-Benz");
+            qq.answer.Add(new Answer("BMW", false));
+            qq.answer.Add(new Answer("Volkswagen", false));
+            qq.answer.Add(new Answer("Mercedes-Benz", true));
+
+            // questionAnswer.Add(1, qq);
+            questionAnswer.Add(qq);
         }
     }
 }
