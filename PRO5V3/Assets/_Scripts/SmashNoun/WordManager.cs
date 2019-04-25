@@ -106,10 +106,31 @@ namespace SmashNoun
 
             foreach (var item in indexSet)
             {
-                Debug.Log("HashSet -> " + item);
+                // Debug.Log("HashSet -> " + item);
             }
 
+            foreach (var item in questionAnswer)
+            {
+                Debug.Log("Questions: " + item.questionData);
+                item.answer.ForEach(
+                    (x) =>
+                    {
+                        Debug.Log("Answers: " + x.AnswerData);
+                    }
+                );
+            }
+            questionAnswer.Shuffle();
 
+            foreach (var item in questionAnswer)
+            {
+                Debug.Log("Questions: " + item.questionData);
+                item.answer.ForEach(
+                    (x) =>
+                    {
+                        Debug.Log("Answers: " + x.AnswerData);
+                    }
+                );
+            }
 
         }
 
@@ -262,30 +283,51 @@ namespace SmashNoun
         //     }
         // }
 
-        void Shuffle(int[] a)
-        {
-            // Loops through array
-            for (int i = a.Length - 1; i > 0; i--)
-            {
-                // Randomize a number between 0 and i (so that the range decreases each time)
-                int rnd = Random.Range(0, i);
-                // Save the value of the current i, otherwise it'll overright when we swap the values
-                int temp = a[i];
-                // Swap the new and old values
-                a[i] = a[rnd];
-                a[rnd] = temp;
-            }
-        }
+        // void Shuffle(int[] a)
+        // {
+        //     // Loops through array
+        //     for (int i = a.Length - 1; i > 0; i--)
+        //     {
+        //         // Randomize a number between 0 and i (so that the range decreases each time)
+        //         int rnd = Random.Range(0, i);
+        //         // Save the value of the current i, otherwise it'll overright when we swap the values
+        //         int temp = a[i];
+        //         // Swap the new and old values
+        //         a[i] = a[rnd];
+        //         a[rnd] = temp;
+        //     }
+        // }
 
-        void Shuffle(List<int> t)
+        // void Shuffle<T>(List<T> t)
+        // {
+        //     for (int i = t.Count - 1; i > 0; i--)
+        //     {
+        //         int randomIndex = Random.Range(0, i);
+        //         int temp = t[i];
+        //         t[i] = t[randomIndex];
+        //         t[randomIndex] = temp;
+        //     }
+        // }
+
+
+    }
+
+    // https://stackoverflow.com/questions/273313/randomize-a-listt
+    static class Extension
+    {
+        public static void Shuffle<T>(this IList<T> list)
         {
-            for (int i = t.Count - 1; i > 0; i--)
+            int n = list.Count;
+            while (n > 1)
             {
-                int randomIndex = Random.Range(0, i);
-                int temp = t[i];
-                t[i] = t[randomIndex];
-                t[randomIndex] = temp;
+                n--;
+                //int rnd = Random.Range(0, n);
+                int k = Random.Range(0, n);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
             }
         }
     }
+
 }
