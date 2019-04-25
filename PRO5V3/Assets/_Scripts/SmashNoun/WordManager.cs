@@ -16,6 +16,7 @@ namespace SmashNoun
         public GameObject barrel;
         [SerializeField]
         List<Vector3> tseries = new List<Vector3>();
+        Stack<Question> stq = new Stack<Question>();
 
         void Start()
         {
@@ -62,22 +63,28 @@ namespace SmashNoun
                 );
             }
 
-            Stack<Question> stq = new Stack<Question>();
+
 
             for (int i = 0; i < MAX_ROUNDS; i++)
             {
                 stq.Push(questionAnswer.ElementAt(i));
             }
 
+            DoYourThang();
 
+        }
+
+        List<GameObject> spwnd = new List<GameObject>();
+        private void DoYourThang()
+        {
 
             int index = 0;
             foreach (var item in tseries)
             {
                 GameObject obj = SpawnUnit(item);
-
-                var what = questionAnswer.ElementAt(0).answer.ElementAt(index);
-                //var what = stq.Pop().answer.ElementAt(index);
+                spwnd.Add(obj);
+                // var what = questionAnswer.ElementAt(0).answer.ElementAt(index);
+                var what = stq.Pop().answer.ElementAt(index);
 
                 if (what.IsCorrect == true)
                 {
@@ -89,15 +96,7 @@ namespace SmashNoun
                     obj.gameObject.GetComponent<BarrelInformation>().isCorrect = false;
                     obj.gameObject.GetComponent<BarrelInformation>().Answer = what.AnswerData;
                 }
-
-                index++;
-
-                if (index == ANSWER_COUNT)
-                {
-                    index = 0;
-                }
             }
-
         }
 
 
@@ -124,6 +123,26 @@ namespace SmashNoun
         void UnitDied(UnitDeathEventInfo unitDeathInfo)
         {
             //unitDeathInfo.
+            var go = unitDeathInfo.UnitGO;
+            var target = go.gameObject.GetComponent<BarrelInformation>().isCorrect;
+            if (target)
+            {
+                Destroy(go);
+                spwnd.Remove(go);
+
+                for (int i = 0; i < spwnd.Count; i++)
+                {
+                    Destroy(spwnd[i]);
+                }
+
+                spwnd.Clear();
+
+                if (stq.Count != 0)
+                {
+                    DoYourThang();
+                }
+            }
+
         }
 
         [System.Serializable]
