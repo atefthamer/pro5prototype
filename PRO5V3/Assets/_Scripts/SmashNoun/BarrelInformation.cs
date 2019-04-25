@@ -5,8 +5,10 @@ using UnityEngine;
 public class BarrelInformation : MonoBehaviour
 {
     // Start is called before the first frame update
-    public string word = null;
-    public bool target = false;
+    [SerializeField]
+    public string Answer = null;
+    [SerializeField]
+    public bool isCorrect = false;
     void Start()
     {
 
