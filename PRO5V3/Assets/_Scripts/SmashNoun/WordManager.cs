@@ -20,6 +20,10 @@ namespace SmashNoun
         List<Vector3> tseries = new List<Vector3>();
         Stack<Question> stq = new Stack<Question>();
 
+        // If you want to use the inspector
+        [SerializeField]
+        Question ko = new Question();
+
         void Start()
         {
             // Register event callback functions here
@@ -97,7 +101,6 @@ namespace SmashNoun
             // Code to execute after the delay
             Destroy(go);
 
-
             isCoroutineExecuting = false;
             if (stq.Count != 0)
             {
@@ -120,7 +123,6 @@ namespace SmashNoun
         }
         void UnitDied(UnitDeathEventInfo unitDeathInfo)
         {
-            //unitDeathInfo.
             var go = unitDeathInfo.UnitGO;
             var target = go.gameObject.GetComponent<BarrelInformation>().isCorrect;
             if (target)
@@ -136,9 +138,6 @@ namespace SmashNoun
                 }
 
                 spwnd.Clear();
-                Debug.Log("2 STACK SIZE " + stq.Count);
-
-
             }
 
         }
@@ -163,6 +162,10 @@ namespace SmashNoun
             public string questionData;
             public List<Answer> answer;
 
+            public Question()
+            {
+                answer = new List<Answer>();
+            }
             public Question(string questionData)
             {
                 this.questionData = questionData;
