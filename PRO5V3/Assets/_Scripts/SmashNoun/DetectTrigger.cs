@@ -20,15 +20,23 @@ namespace SmashNoun
 
         }
 
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.gameObject.CompareTag("Barrel"))
+        //    {
+        //        UnitDeathEventInfo udei = new UnitDeathEventInfo();
+        //        udei.EventDescription = "Unit " + gameObject.name + " has died.";
+        //        udei.UnitGO = gameObject;
+        //        Debug.Log("It just works " + udei.UnitGO.name);
+        //        EventSystem.Current.FireEvent(udei);
+        //    }
+        //}
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.CompareTag("Barrel"))
             {
-                UnitDeathEventInfo udei = new UnitDeathEventInfo();
-                udei.EventDescription = "Unit " + gameObject.name + " has died.";
-                udei.UnitGO = gameObject;
-                Debug.Log("It just works " + udei.UnitGO.name);
-                EventSystem.Current.FireEvent(udei);
+                Debug.Log("COLLISION DETECTED");
+                Destroy(other.gameObject);
             }
         }
     }

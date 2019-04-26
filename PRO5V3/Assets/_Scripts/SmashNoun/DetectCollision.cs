@@ -18,20 +18,21 @@ namespace SmashNoun
         {
 
         }
-        void OnCollisionEnter(Collision col)
-        {
-            if (col.gameObject.name == ObjectName)
-            {
-                Destroy(this.gameObject);
-            }
-            Debug.Log("COLLISION OBJECT " + col.gameObject.name);
+        //void OnCollisionEnter(Collision col)
+        //{
+        //    if (col.gameObject.name == ObjectName)
+        //    {
+        //        Debug.Log("COLLISION: " + col);
+        //        Destroy(this.gameObject);
+        //    }
 
-            UnitDeathEventInfo udei = new UnitDeathEventInfo();
-            udei.EventDescription = "Unit " + gameObject.name + " has died.";
-            udei.UnitGO = gameObject;
-            Debug.Log("It just works " + udei.UnitGO.name);
-            EventSystem.Current.FireEvent(udei);
-        }
+        //    Debug.Log("COLLISION OBJECT " + col.gameObject.name);
 
+        //    UnitDeathEventInfo udei = new UnitDeathEventInfo();
+        //    udei.EventDescription = "Unit " + gameObject.name + " has died.";
+        //    udei.UnitGO = gameObject;
+        //    Debug.Log("It just works " + udei.UnitGO.name);
+        //    EventSystem.Current.FireEvent(udei);
+        //}
     }
 }
