@@ -16,6 +16,7 @@ namespace SmashNoun
         public const int MAX_ROUNDS = 3;
         private const int ANSWER_COUNT = 3;
         public GameObject barrel;
+        public GameObject Fox;
         [SerializeField]
         List<Vector3> BarrelLocations = new List<Vector3>();
         Stack<Question> PlayRoundStack = new Stack<Question>();
