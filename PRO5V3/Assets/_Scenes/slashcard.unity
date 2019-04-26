@@ -310,6 +310,54 @@ PrefabInstance:
       propertyPath: SFX
       value: 
       objectReference: {fileID: 736001989}
+    - target: {fileID: 8205054373741280855, guid: 6b926c25262463b42862c1ecf6e9d2b1,
+        type: 3}
+      propertyPath: targets.Array.data[2]
+      value: 
+      objectReference: {fileID: 7665882338635723465, guid: 25322f7ef398d7a449a2591e8535e231,
+        type: 3}
+    - target: {fileID: 8205054373741280855, guid: 6b926c25262463b42862c1ecf6e9d2b1,
+        type: 3}
+      propertyPath: targets.Array.data[3]
+      value: 
+      objectReference: {fileID: 7665882338635723465, guid: 25322f7ef398d7a449a2591e8535e231,
+        type: 3}
+    - target: {fileID: 8205054373741280855, guid: 6b926c25262463b42862c1ecf6e9d2b1,
+        type: 3}
+      propertyPath: targets.Array.data[4]
+      value: 
+      objectReference: {fileID: 7665882338635723465, guid: 3a3ce474d1f465341862f327b873d35c,
+        type: 3}
+    - target: {fileID: 8205054373741280855, guid: 6b926c25262463b42862c1ecf6e9d2b1,
+        type: 3}
+      propertyPath: targets.Array.data[5]
+      value: 
+      objectReference: {fileID: 7665882338635723465, guid: 3a3ce474d1f465341862f327b873d35c,
+        type: 3}
+    - target: {fileID: 8205054373741280855, guid: 6b926c25262463b42862c1ecf6e9d2b1,
+        type: 3}
+      propertyPath: targets.Array.data[6]
+      value: 
+      objectReference: {fileID: 7665882338635723465, guid: 8a715ac0521c7dc4d9c7fc6125abb313,
+        type: 3}
+    - target: {fileID: 8205054373741280855, guid: 6b926c25262463b42862c1ecf6e9d2b1,
+        type: 3}
+      propertyPath: targets.Array.data[7]
+      value: 
+      objectReference: {fileID: 7665882338635723465, guid: 8a715ac0521c7dc4d9c7fc6125abb313,
+        type: 3}
+    - target: {fileID: 8205054373741280855, guid: 6b926c25262463b42862c1ecf6e9d2b1,
+        type: 3}
+      propertyPath: targets.Array.data[8]
+      value: 
+      objectReference: {fileID: 7665882338635723465, guid: dd1186a37abb37c41a5e959d5968532c,
+        type: 3}
+    - target: {fileID: 8205054373741280855, guid: 6b926c25262463b42862c1ecf6e9d2b1,
+        type: 3}
+      propertyPath: targets.Array.data[9]
+      value: 
+      objectReference: {fileID: 7665882338635723465, guid: dd1186a37abb37c41a5e959d5968532c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b926c25262463b42862c1ecf6e9d2b1, type: 3}
 --- !u!1001 &1241887127

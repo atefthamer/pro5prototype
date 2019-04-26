@@ -54,14 +54,14 @@ public class TargetController : MonoBehaviour
             //Destroy(other);
         }
 
-        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.firstTarget && tMan.correct == true)
+        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.firstTarget && tMan.targetHittable == true)
         {
             tMan.firstHit = true;
             Destroy(this.gameObject);
             tMan.firstTarget = null;
         }
 
-        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.secondTarget && tMan.correct == true)
+        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.secondTarget && tMan.targetHittable == true)
         {
             tMan.secondHit = true;
             Destroy(this.gameObject);

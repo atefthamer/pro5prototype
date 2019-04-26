@@ -19,6 +19,8 @@ public class TargetManager : MonoBehaviour
     [HideInInspector]
     public bool incorrect = false;
     [HideInInspector]
+    public bool targetHittable = false;
+    [HideInInspector]
     public bool firstHit;
     [HideInInspector]
     public bool secondHit;
@@ -148,7 +150,7 @@ public class TargetManager : MonoBehaviour
                 if (speechTimer >= 3.0f)
                 {
                     speechTimer = 3.0f;
-
+                    targetHittable = true;
                     sword.ChargeSword();
 
                     float shot = speed * Time.deltaTime;
@@ -184,6 +186,7 @@ public class TargetManager : MonoBehaviour
             sword.UnchargeSword();
             firstHit = false;
             secondHit = false;
+            targetHittable = false;
         }
     }
 
