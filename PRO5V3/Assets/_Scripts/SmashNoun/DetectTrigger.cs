@@ -8,17 +8,7 @@ namespace SmashNoun
 
     public class DetectTrigger : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        public SmashNounSFX sfx;
 
         //private void OnTriggerEnter(Collider other)
         //{
@@ -36,6 +26,7 @@ namespace SmashNoun
             if (other.gameObject.CompareTag("Barrel"))
             {
                 Debug.Log("COLLISION DETECTED");
+                sfx.DestroyBarrel();
                 Destroy(other.gameObject);
             }
         }
