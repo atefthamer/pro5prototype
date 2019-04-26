@@ -104,30 +104,29 @@ public class TargetManager : MonoBehaviour
 
         List<GameObject> spawnList = new List<GameObject>(targets);
 
-        for (int i = 0; i < spawnList.Count; i++)
+        while (spawnList.Count > 0)
         {
-            int randomIndex = Random.Range(0, spawnList.Count);
-            Debug.Log(randomIndex);
-
-            if (spawnList.ElementAt(randomIndex) != null)
+            for (int i = 0; i < spawnList.Count; i++)
             {
-                Debug.Log("ELEMENT NOT NULL");
-                // TODO: Fix spawning issue
-                float angle = i * Mathf.PI * 2f / 10;
-                Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
-                GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
-                instance.name = instance.name.Replace("(Clone)", "").Trim();
-                instance.gameObject.GetComponent<TargetController>().tMan = this;
-                instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
-                instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
-                Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
-                //spawnList.RemoveAt(randomIndex);
+                int randomIndex = Random.Range(0, spawnList.Count);
+                Debug.Log(randomIndex);
+                Debug.Log("LOOP: " + i);
+
+                if (spawnList.ElementAt(randomIndex) != null)
+                {
+                    Debug.Log("ELEMENT NOT NULL");
+                    // TODO: Fix spawning issue
+                    float angle = i * Mathf.PI * 2f / 10;
+                    Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
+                    GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
+                    instance.name = instance.name.Replace("(Clone)", "").Trim();
+                    instance.gameObject.GetComponent<TargetController>().tMan = this;
+                    instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+                    instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+                    Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
+                }
+                spawnList.RemoveAt(randomIndex);
             }
-            //else if (spawnList.ElementAt(randomIndex) == null)
-            //{
-            //    Debug.Log("ELEMENT IS NULL");
-            //    i--;
-            //}
         }
     }
 
