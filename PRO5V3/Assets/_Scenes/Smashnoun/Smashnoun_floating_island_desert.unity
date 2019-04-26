@@ -3391,6 +3391,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 90c0b08b779612d4ba4ea7aefb757d6b, type: 2}
+    - target: {fileID: 13700002, guid: 72d4f809075d24943985abb88399505e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 06b1841f0922b104ea70a6d7de23c3ca, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72d4f809075d24943985abb88399505e, type: 3}
 --- !u!1001 &678182253
@@ -3460,6 +3464,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: -2289.3057
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 5002aa15b4a172d4ba25cdfab2ff1fdf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fda85422da220614484bc90cd16fdfbf, type: 2}
+    - target: {fileID: 2300000, guid: 5002aa15b4a172d4ba25cdfab2ff1fdf, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: fda85422da220614484bc90cd16fdfbf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5002aa15b4a172d4ba25cdfab2ff1fdf, type: 3}
 --- !u!1 &710042539
@@ -5012,6 +5024,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6320500825264255285, guid: 19e78019ef9b08047bec2c984d62b592,
+        type: 3}
+      propertyPath: ObjectName
+      value: JudgeGavel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19e78019ef9b08047bec2c984d62b592, type: 3}
 --- !u!4 &1163134678 stripped
@@ -5227,8 +5244,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1232983082
-MeshCollider:
+--- !u!65 &1232983082
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5237,10 +5254,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1239963988
 PrefabInstance:
   m_ObjectHideFlags: 0

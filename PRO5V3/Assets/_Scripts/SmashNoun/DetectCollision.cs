@@ -6,7 +6,7 @@ namespace SmashNoun
 {
     public class DetectCollision : MonoBehaviour
     {
-        public string ObjectName = "powerstick";
+        public string ObjectName = "JudgeGavel";
         // Start is called before the first frame update
         void Start()
         {
@@ -22,7 +22,7 @@ namespace SmashNoun
         {
             if (col.gameObject.name == ObjectName)
             {
-                //Destroy(this.gameObject);
+                Destroy(this.gameObject);
             }
             Debug.Log("COLLISION OBJECT " + col.gameObject.name);
 
