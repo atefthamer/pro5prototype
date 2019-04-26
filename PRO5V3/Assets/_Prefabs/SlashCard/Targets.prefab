@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8205054373741280849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8205054373741280854}
+  - component: {fileID: 8205054373741280855}
+  m_Layer: 0
+  m_Name: Targets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8205054373741280854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205054373741280849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8205054373741280855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205054373741280849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b180b57d67ee2814bb23d5afe8286722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets:
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  firstTarget: {fileID: 0}
+  secondTarget: {fileID: 0}
+  targetsHit: 0
+  correct: 0
+  incorrect: 0
+  firstHit: 0
+  secondHit: 0
+  lookPoint: {fileID: 0}
+  speed: 1
+  launcherManager: {fileID: 0}
+  sword: {fileID: 0}
+  SFX: {fileID: 0}
