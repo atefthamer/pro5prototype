@@ -41,42 +41,92 @@ public class TargetManager : MonoBehaviour
 
     private void Start()
     {
-        //foreach (var device in Microphone.devices)
+        if (targets != null)
+        {
+            List<GameObject> spawnList = new List<GameObject>(targets);
+
+            while (spawnList.Count > 0)
+            {
+                int randomIndex = Random.Range(0, spawnList.Count);
+                Vector3 center = transform.position;
+
+                for (int i = 0; i < spawnList.Count; i++)
+                {
+                    Vector3 pos = RandomCircle(center, 3.0f);
+                    //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, center - pos);
+                    GameObject instance = Instantiate(spawnList[randomIndex], pos, Quaternion.identity);
+                    instance.name = instance.name.Replace("(Clone)", "").Trim();
+                    instance.gameObject.GetComponent<TargetController>().tMan = this;
+                    instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+                    instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+                    Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
+                    spawnList.RemoveAt(randomIndex);
+                }
+            }
+        }
+
+        //if (targets != null)
         //{
-        //    Debug.Log("Name: " + device);
+        //    List<GameObject> spawnList = new List<GameObject>(targets);
+
+        //    while (spawnList.Count > 0)
+        //    {
+        //        int randomIndex = Random.Range(0, spawnList.Count);
+
+        //        for (int i = 0; i < spawnList.Count; i++)
+        //        {
+        //            if (spawnList.ElementAt(randomIndex) != null)
+        //            {
+        //                Debug.Log("ELEMENT NOT NULL");
+        //                // TODO: Fix spawning issue
+        //                float angle = i * Mathf.PI * 2f / 10;
+        //                Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
+        //                GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
+        //                instance.name = instance.name.Replace("(Clone)", "").Trim();
+        //                instance.gameObject.GetComponent<TargetController>().tMan = this;
+        //                instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+        //                instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+        //                Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
+        //                spawnList.RemoveAt(randomIndex);
+        //            }
+        //            else if (spawnList.ElementAt(randomIndex) == null)
+        //            {
+        //                Debug.Log("ELEMENT IS NULL");
+        //                i--;
+        //            }
+        //        }
+        //    }
         //}
 
-        //audioSource = GetComponent<AudioSource>();
-        //audioSource.clip = null;
+        //correct = true;
 
-        correct = true;
+        //List<GameObject> spawnList = new List<GameObject>(targets);
 
-        List<GameObject> spawnList = new List<GameObject>(targets);
+        //for (int i = 0; i < spawnList.Count; i++)
+        //{
+        //    int randomIndex = Random.Range(0, spawnList.Count);
+        //    Debug.Log(randomIndex);
 
-        //randomNumber = new int[spawnList.Count];
-
-        for (int i = 0; i < spawnList.Count; i++)
-        {
-            int randomIndex = Random.Range(0, spawnList.Count);
-
-            if (spawnList[randomIndex] != null)
-            {
-                // TODO: Fix spawning issue
-                float angle = i * Mathf.PI * 2f / 10;
-                Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
-                GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
-                instance.name = instance.name.Replace("(Clone)", "").Trim();
-                instance.gameObject.GetComponent<TargetController>().tMan = this;
-                instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
-                instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
-                Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
-            }
-            else
-            {
-                return;
-            }
-            //spawnList.RemoveAt(randomIndex);
-        }
+        //    if (spawnList.ElementAt(randomIndex) != null)
+        //    {
+        //        Debug.Log("ELEMENT NOT NULL");
+        //        // TODO: Fix spawning issue
+        //        float angle = i * Mathf.PI * 2f / 10;
+        //        Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
+        //        GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
+        //        instance.name = instance.name.Replace("(Clone)", "").Trim();
+        //        instance.gameObject.GetComponent<TargetController>().tMan = this;
+        //        instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+        //        instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+        //        Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
+        //        spawnList.RemoveAt(randomIndex);
+        //    }
+        //    else if (spawnList.ElementAt(randomIndex) == null)
+        //    {
+        //        Debug.Log("ELEMENT IS NULL");
+        //        i--;
+        //    }
+        //}
     }
 
     void Update()
@@ -135,5 +185,15 @@ public class TargetManager : MonoBehaviour
             firstHit = false;
             secondHit = false;
         }
+    }
+
+    Vector3 RandomCircle (Vector3 center, float radius)
+    {
+        float ang = Random.value * 360;
+        Vector3 pos;
+        pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
+        pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+        pos.z = center.z;
+        return pos;
     }
 }
