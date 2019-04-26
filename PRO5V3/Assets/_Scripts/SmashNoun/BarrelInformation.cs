@@ -9,6 +9,9 @@ public class BarrelInformation : MonoBehaviour
     public string Answer = null;
     [SerializeField]
     public bool isCorrect = false;
+
+    [SerializeField]
+    public AudioClip Clip;
     void Start()
     {
 

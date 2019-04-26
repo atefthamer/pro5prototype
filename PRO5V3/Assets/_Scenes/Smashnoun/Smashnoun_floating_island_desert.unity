@@ -1008,7 +1008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140459131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.04, y: 4.36, z: -52.96}
+  m_LocalPosition: {x: 13.58, y: 4.36, z: -53.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2042,11 +2042,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrel: {fileID: 6224110124889392495, guid: 19e78019ef9b08047bec2c984d62b592, type: 3}
-  tseries:
-  - {x: 16.174, y: 4.36, z: -53.48}
-  - {x: 14.797, y: 4.36, z: -53.48}
-  - {x: 14.371, y: 4.36, z: -54.904}
-  ko:
+  BarrelLocations:
+  - {x: 13.16, y: 3.17, z: -51.94}
+  - {x: 13.16, y: 3.17, z: -55.65}
+  - {x: 13.58, y: 3.17, z: -53.64}
+  SerializedQuestionAnswer:
     questionData: 
     answer: []
   questionAnswer:
@@ -4736,7 +4736,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970479381}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.18, y: 4.36, z: -54.44}
+  m_LocalPosition: {x: 13.16, y: 4.36, z: -55.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6563,7 +6563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442574215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.67, y: 4.36, z: -51.53}
+  m_LocalPosition: {x: 14.69, y: 4.36, z: -51.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

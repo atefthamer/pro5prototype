@@ -17,12 +17,12 @@ namespace SmashNoun
         private const int ANSWER_COUNT = 3;
         public GameObject barrel;
         [SerializeField]
-        List<Vector3> tseries = new List<Vector3>();
-        Stack<Question> stq = new Stack<Question>();
+        List<Vector3> BarrelLocations = new List<Vector3>();
+        Stack<Question> PlayRoundStack = new Stack<Question>();
 
         // If you want to use the inspector
-        [SerializeField]
-        Question ko = new Question();
+        //[SerializeField]
+        Question SerializedQuestionAnswer = new Question();
 
         void Start()
         {
@@ -35,9 +35,9 @@ namespace SmashNoun
 
             for (int i = 0; i < MAX_ROUNDS; i++)
             {
-                stq.Push(questionAnswer.ElementAt(i));
+                PlayRoundStack.Push(questionAnswer.ElementAt(i));
             }
-            Debug.Log("1 STACK SIZE " + stq.Count);
+
             DoYourThang();
 
         }
@@ -46,23 +46,31 @@ namespace SmashNoun
         private void DoYourThang()
         {
             int index = 0;
-            var what = stq.Pop();//.answer.ElementAt(index);
+            var Round = PlayRoundStack.Pop();//.answer.ElementAt(index);
 
-            foreach (var item in tseries)
+            foreach (var location in BarrelLocations)
             {
-                GameObject obj = SpawnUnit(item);
-                spwnd.Add(obj);
+                GameObject barrel = SpawnUnit(location);
+                spwnd.Add(barrel);
                 // var what = questionAnswer.ElementAt(0).answer.ElementAt(index);             
-                var ans = what.answer.ElementAt(index);
-                if (ans.IsCorrect == true)
+                var answer = Round.answer.ElementAt(index);
+                if (answer.IsCorrect == true)
                 {
-                    obj.gameObject.GetComponent<BarrelInformation>().isCorrect = true;
-                    obj.gameObject.GetComponent<BarrelInformation>().Answer = ans.AnswerData;
+                    barrel.gameObject.GetComponent<BarrelInformation>().isCorrect = true;
+                    barrel.gameObject.GetComponent<BarrelInformation>().Answer = answer.AnswerData;
+                    if (answer.clip != null)
+                    {
+                        barrel.gameObject.GetComponent<BarrelInformation>().Clip = answer.clip;
+                    }
                 }
                 else
                 {
-                    obj.gameObject.GetComponent<BarrelInformation>().isCorrect = false;
-                    obj.gameObject.GetComponent<BarrelInformation>().Answer = ans.AnswerData;
+                    barrel.gameObject.GetComponent<BarrelInformation>().isCorrect = false;
+                    barrel.gameObject.GetComponent<BarrelInformation>().Answer = answer.AnswerData;
+                    if (answer.clip != null)
+                    {
+                        barrel.gameObject.GetComponent<BarrelInformation>().Clip = answer.clip;
+                    }
                 }
                 index++;
             }
@@ -102,7 +110,7 @@ namespace SmashNoun
             Destroy(go);
 
             isCoroutineExecuting = false;
-            if (stq.Count != 0)
+            if (PlayRoundStack.Count != 0)
             {
                 StartCoroutine(RespawnAfterTime(5));
             }
@@ -147,6 +155,7 @@ namespace SmashNoun
         {
             public string AnswerData;
             public bool IsCorrect;
+            public AudioClip clip;
 
             public Answer(string AnswerData, bool IsCorrect)
             {
@@ -160,7 +169,9 @@ namespace SmashNoun
         public class Question
         {
             public string questionData;
+            public AudioClip clip;
             public List<Answer> answer;
+
 
             public Question()
             {
@@ -175,6 +186,7 @@ namespace SmashNoun
 
 
         //public Dictionary<int, Question> questionAnswer = new Dictionary<int, Question>();
+        [SerializeField]
         public List<Question> questionAnswer = new List<Question>();
 
         private void insertQuestions()
