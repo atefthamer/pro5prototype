@@ -30,6 +30,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 0}
+--- !u!114 &1222058717767834861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224110124889392495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1149bc37ed90de4790d8e414fbdbcba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Answer: 
+  isCorrect: 0
+  Clip: {fileID: 0}
 --- !u!114 &6320500825264255285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,18 +58,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectName: powerstick
---- !u!114 &1222058717767834861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6224110124889392495}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1149bc37ed90de4790d8e414fbdbcba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &654969789627826411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +81,10 @@ PrefabInstance:
     - target: {fileID: 1000010455766620, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
       propertyPath: m_Name
       value: Barrel1_LOD Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010455766620, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
+      propertyPath: m_TagString
+      value: Barrel
       objectReference: {fileID: 0}
     - target: {fileID: 4000012345957466, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
       propertyPath: m_LocalPosition.x
