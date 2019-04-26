@@ -24,17 +24,16 @@ public class Shake : MonoBehaviour
             temp_shake_intensity -= shake_decay;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ObjectShake();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    ObjectShake();
+        //}
     }
 
-    void ObjectShake()
+    public void ObjectShake()
     {
         originPosition = transform.position;
         originRotation = transform.rotation;
         temp_shake_intensity = shake_intensity;
-
     }
 }

@@ -636,24 +636,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
-  - {fileID: 6891598313380399332, guid: f7468fb8068cd0045b07e25c02c2e2c5, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
+  - {fileID: 7665882338635723465, guid: e96b8d5f7176eac4cb70d1ee04e6e2d8, type: 3}
   firstTarget: {fileID: 0}
   secondTarget: {fileID: 0}
   targetsHit: 0
   correct: 0
+  incorrect: 0
   firstHit: 0
   secondHit: 0
   lookPoint: {fileID: 473639303}
-  player: {fileID: 2032806505}
   speed: 1
   launcherManager: {fileID: 1952020622}
   sword: {fileID: 1331987555}
@@ -1589,12 +1589,6 @@ MonoBehaviour:
   - {fileID: 1264510128}
   - {fileID: 1766382870}
   - {fileID: 555006310}
---- !u!1 &2032806505 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1839056522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2094528601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 485514, guid: dc06161b6d97feb419f45f03b62e14b9,

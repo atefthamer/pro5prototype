@@ -17,6 +17,8 @@ public class TargetManager : MonoBehaviour
     [HideInInspector]
     public bool correct;
     [HideInInspector]
+    public bool incorrect = false;
+    [HideInInspector]
     public bool firstHit;
     [HideInInspector]
     public bool secondHit;
@@ -24,7 +26,7 @@ public class TargetManager : MonoBehaviour
     [SerializeField]
     Transform lookPoint = null;
 
-    public GameObject player;
+    //public GameObject player;
     public float speed = 1.0f;
 
     private float speechTimer = 0.0f;
@@ -83,8 +85,14 @@ public class TargetManager : MonoBehaviour
         {
             if (firstTarget.name == secondTarget.name && firstTarget != null && secondTarget != null)
             {
+                if (correct == true)
+                {
+                    SFX.Correct();
+                    correct = false;
+                }
+
                 //audioSource.clip = Microphone.Start("Microphone (VIVE Pro Mutimedia Audio)", false, 3, 44100);
-                firstTarget.transform.GetChild(0).gameObject.SetActive(false);
+                //firstTarget.transform.GetChild(0).gameObject.SetActive(false);
                 speechTimer += Time.deltaTime;
 
                 if (speechTimer >= 3.0f)
@@ -93,17 +101,11 @@ public class TargetManager : MonoBehaviour
 
                     sword.ChargeSword();
 
-                    if (correct == true)
-                    {
-                        SFX.Correct();
-                        correct = false;
-                    }
-
                     float shot = speed * Time.deltaTime;
-                    firstTarget.transform.position = Vector3.MoveTowards(firstTarget.transform.position, player.transform.position, shot);
-                    secondTarget.transform.position = Vector3.MoveTowards(secondTarget.transform.position, player.transform.position, shot);
+                    firstTarget.transform.position = Vector3.MoveTowards(firstTarget.transform.position, lookPoint.transform.position, shot);
+                    secondTarget.transform.position = Vector3.MoveTowards(secondTarget.transform.position, lookPoint.transform.position, shot);
 
-                    if (Vector3.Distance(firstTarget.transform.position, player.transform.position) < 1.0f && (Vector3.Distance(secondTarget.transform.position, player.transform.position) < 1.0f))
+                    if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 1.0f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 1.0f))
                     {
                         Debug.Log("Destination reached");
                         //audioSource.clip = null;
@@ -121,10 +123,9 @@ public class TargetManager : MonoBehaviour
             else if (firstTarget.name != secondTarget.name & firstTarget != null && secondTarget != null)
             {
                 SFX.Incorrect();
-                firstTarget.transform.GetChild(0).gameObject.SetActive(false);
+                //firstTarget.transform.GetChild(0).gameObject.SetActive(false);
+                incorrect = true;
                 targetsHit = false;
-                firstTarget = null;
-                secondTarget = null;
             }
         }
 
