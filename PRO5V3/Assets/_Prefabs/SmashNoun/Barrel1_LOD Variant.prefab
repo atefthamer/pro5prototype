@@ -44,7 +44,7 @@ MonoBehaviour:
   Answer: 
   isCorrect: 0
   Clip: {fileID: 0}
---- !u!114 &6320500825264255285
+--- !u!114 &3352889396684400013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,10 +53,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6224110124889392495}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4a95466bbce01342937f1501782a45b, type: 3}
+  m_Script: {fileID: 11500000, guid: aa1bb56dbf348e147952ff64d5098adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: JudgeGavel
+  sfx: {fileID: 0}
 --- !u!114 &654969789627826411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,10 +86,6 @@ PrefabInstance:
       value: Barrel
       objectReference: {fileID: 0}
     - target: {fileID: 1000010455766620, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000011298462702, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -149,11 +145,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.80586
       objectReference: {fileID: 0}
-    - target: {fileID: 23000013302832126, guid: 1c5a9772a26e4b74991250d48f83f849,
-        type: 3}
-      propertyPath: m_ScaleInLightmap
-      value: 0.86616737
-      objectReference: {fileID: 0}
     - target: {fileID: 205000013665925236, guid: 1c5a9772a26e4b74991250d48f83f849,
         type: 3}
       propertyPath: m_LODs.Array.data[0].renderers.Array.data[0].renderer
@@ -168,11 +159,26 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1000011298462702, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23000013302832126, guid: 1c5a9772a26e4b74991250d48f83f849,
+        type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0.86616737
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
 --- !u!1 &6224110124889392495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000010455766620, guid: 1c5a9772a26e4b74991250d48f83f849,
+    type: 3}
+  m_PrefabInstance: {fileID: 6225090344104301363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6211098081732036291 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23000012479960560, guid: 1c5a9772a26e4b74991250d48f83f849,
     type: 3}
   m_PrefabInstance: {fileID: 6225090344104301363}
   m_PrefabAsset: {fileID: 0}
@@ -185,12 +191,6 @@ GameObject:
 --- !u!23 &6211098083056650445 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 23000013302832126, guid: 1c5a9772a26e4b74991250d48f83f849,
-    type: 3}
-  m_PrefabInstance: {fileID: 6225090344104301363}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &6211098081732036291 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 23000012479960560, guid: 1c5a9772a26e4b74991250d48f83f849,
     type: 3}
   m_PrefabInstance: {fileID: 6225090344104301363}
   m_PrefabAsset: {fileID: 0}

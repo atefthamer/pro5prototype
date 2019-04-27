@@ -10,26 +10,29 @@ namespace SmashNoun
     {
         public SmashNounSFX sfx;
 
-        //private void OnTriggerEnter(Collider other)
-        //{
-        //    if (other.gameObject.CompareTag("Barrel"))
-        //    {
-        //        UnitDeathEventInfo udei = new UnitDeathEventInfo();
-        //        udei.EventDescription = "Unit " + gameObject.name + " has died.";
-        //        udei.UnitGO = gameObject;
-        //        Debug.Log("It just works " + udei.UnitGO.name);
-        //        EventSystem.Current.FireEvent(udei);
-        //    }
-        //}
+        [SerializeField]
+        public string ObjectTag;
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.gameObject.CompareTag("Barrel"))
+            if (other.gameObject.CompareTag("Hammer"))
             {
-                Debug.Log("COLLISION DETECTED");
-                sfx.DestroyBarrel();
-                Destroy(other.gameObject);
+                UnitDeathEventInfo udei = new UnitDeathEventInfo();
+                udei.EventDescription = "Unit " + gameObject.name + " has died.";
+                udei.UnitGO = gameObject;
+                Debug.Log("It just works " + udei.UnitGO.name);
+                EventSystem.Current.FireEvent(udei);
             }
         }
+        // private void OnTriggerEnter(Collider other)
+        // {
+        //     if (other.gameObject.CompareTag("Barrel"))
+        //     {
+        //         Debug.Log("COLLISION DETECTED");
+        //         sfx.DestroyBarrel();
+        //         Destroy(other.gameObject);
+        //     }
+        // }
     }
 
 }
