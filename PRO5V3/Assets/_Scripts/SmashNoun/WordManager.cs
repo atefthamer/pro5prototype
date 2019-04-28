@@ -13,6 +13,7 @@ namespace SmashNoun
 
         //[SerializeField]
         //List<string> wordsList = new List<string>();
+        public AudioSource IntroSound;
         // How many rounds per game?
         public const int MAX_ROUNDS = 3;
         private const int ANSWER_COUNT = 3;
@@ -31,7 +32,9 @@ namespace SmashNoun
             // Register event callback functions here
             EventSystem.Current.RegisterListener<UnitDeathEventInfo>(UnitDied);
 
-            insertAlotOfQuestions();
+            IntroSound = GetComponent<AudioSource>();
+
+            //insertAlotOfQuestions();
 
             questionAnswer.Shuffle();
 
@@ -44,12 +47,13 @@ namespace SmashNoun
 
         }
 
-        List<GameObject> spwnd = new List<GameObject>();
+        private AudioClip questionClip;
+        public List<GameObject> spwnd = new List<GameObject>();
         private void DoYourThang()
         {
             int index = 0;
             var Round = PlayRoundStack.Pop();//.answer.ElementAt(index);
-
+            questionClip = Round.clip;
             foreach (var location in BarrelLocations)
             {
                 GameObject barrel = SpawnUnit(location);
@@ -76,27 +80,6 @@ namespace SmashNoun
                 }
                 index++;
             }
-        }
-
-
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
-        void SpawnUnit()
-        {
-            float x = Random.Range(5f, 17f);
-            float z = Random.Range(-44f, -55f);
-            float y = Random.Range(5f, 9f);
-            GameObject go = Instantiate(barrel, new Vector3(x, y, z), Quaternion.Euler(new Vector3(-90, 0, 0)));
-        }
-
-        GameObject SpawnUnit(Vector3 dreamLocation)
-        {
-            return Instantiate(barrel, dreamLocation, Quaternion.Euler(new Vector3(-90, 0, 0)));
         }
 
         bool isCoroutineExecuting = false;
@@ -131,25 +114,140 @@ namespace SmashNoun
 
 
         }
+
+        IEnumerator playQuestionAnswer(float time)
+        {
+            if (isCoroutineExecuting)
+                yield break;
+
+            isCoroutineExecuting = true;
+            IntroSound.Play(0);
+            yield return new WaitForSeconds(time);
+            // Code to execute after the delay
+            playSound = true;
+            isCoroutineExecuting = false;
+        }
+
+        IEnumerator playAnswer(AudioClip clippy)
+        {
+            if (isCoroutineExecuting)
+                yield break;
+
+            isCoroutineExecuting = true;
+            IntroSound.clip = clippy;
+            IntroSound.Play();
+            playNext = false;
+            yield return new WaitForSeconds(IntroSound.clip.length + 3);
+            // Code to execute after the delay
+            playNext = true;
+            isCoroutineExecuting = false;
+        }
+
+        private bool checkTheList = true;
+        public bool listIsNotEmmptyCanWork = false;
+
+        private bool playSound = false;
+
+        private bool playIntro = true;
+
+        private bool playNext = false;
+        private bool playFirst = true;
+        // Update is called once per frame
+        void Update()
+        {
+            if (questionAnswer.Count != 0 && checkTheList)
+            {
+                listIsNotEmmptyCanWork = true;
+                checkTheList = false;
+            }
+
+            if (playIntro)
+            {
+                // IntroSound.Play(0);
+                playIntro = false;
+                StartCoroutine(playQuestionAnswer(IntroSound.clip.length + 2));
+            }
+
+            if (playSound)
+            {
+                playSound = false;
+                StartCoroutine(playAnswersYeah());
+
+            }
+        }
+
+        private bool playQuestion = true;
+        private bool playAnswers = false;
+
+
+        IEnumerator playAnswersYeah()
+        {
+
+            yield return null;
+            if (playQuestion)
+            {
+                IntroSound.clip = questionClip;
+                IntroSound.PlayDelayed(2);
+
+                yield return new WaitForSeconds(IntroSound.clip.length + 3);
+                playAnswers = true;
+            }
+            if (playAnswers)
+            {
+                foreach (var barrel in spwnd)
+                {
+
+                    IntroSound.clip = barrel.GetComponent<BarrelInformation>().Clip;
+                    IntroSound.PlayDelayed(2);
+                    while (IntroSound.isPlaying)
+                    {
+                        yield return null;
+
+                    }
+
+                }
+            }
+            playAnswers = false;
+        }
+
+        void SpawnUnit()
+        {
+            float x = Random.Range(5f, 17f);
+            float z = Random.Range(-44f, -55f);
+            float y = Random.Range(5f, 9f);
+            GameObject go = Instantiate(barrel, new Vector3(x, y, z), Quaternion.Euler(new Vector3(-90, 0, 0)));
+        }
+
+        GameObject SpawnUnit(Vector3 dreamLocation)
+        {
+            return Instantiate(barrel, dreamLocation, Quaternion.Euler(new Vector3(-90, 0, 0)));
+        }
+
+
+
+        bool toHit = false;
         void UnitDied(UnitDeathEventInfo unitDeathInfo)
         {
             var go = unitDeathInfo.UnitGO;
             var target = go.gameObject.GetComponent<BarrelInformation>().isCorrect;
-            if (target)
+            if (toHit)
             {
-
-                StartCoroutine(ExecuteAfterTime(5, go));
-
-                spwnd.Remove(go);
-
-                for (int i = 0; i < spwnd.Count; i++)
+                if (target)
                 {
-                    Destroy(spwnd[i]);
+
+                    StartCoroutine(ExecuteAfterTime(5, go));
+
+                    spwnd.Remove(go);
+
+                    for (int i = 0; i < spwnd.Count; i++)
+                    {
+                        Destroy(spwnd[i]);
+                    }
+
+                    spwnd.Clear();
+                    playSound = true;
                 }
-
-                spwnd.Clear();
             }
-
         }
 
         [System.Serializable]

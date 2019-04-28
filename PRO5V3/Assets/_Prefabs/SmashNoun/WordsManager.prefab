@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190225793558587573}
   - component: {fileID: 1190225793558587572}
+  - component: {fileID: 2476871109327005512}
   m_Layer: 0
   m_Name: WordsManager
   m_TagString: Untagged
@@ -43,12 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511b783e606a56b4489ea4cbde9d30fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IntroSound: {fileID: 0}
   barrel: {fileID: 6224110124889392495, guid: 19e78019ef9b08047bec2c984d62b592, type: 3}
   Fox: {fileID: 0}
   BarrelLocations:
   - {x: 23.3, y: 3.32, z: -43.76}
   - {x: 22, y: 3.32, z: -42.76}
   - {x: 25.7, y: 3.32, z: -42.76}
+  spwnd: []
+  listIsNotEmmptyCanWork: 0
   questionAnswer:
   - questionData: 'Jij ziet iemand, die hulp nodig is en jij wilt hem helpen, wat
       zeg je tegen hem? '
@@ -102,3 +106,99 @@ MonoBehaviour:
     - AnswerData: Fietsen vind ik leuk.
       IsCorrect: 0
       clip: {fileID: 8300000, guid: dfea93001123f3f4baea252e51c8452c, type: 3}
+--- !u!82 &2476871109327005512
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190225793558587579}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 68e4901ebf9321a408d0ee9b63cdfc41, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
