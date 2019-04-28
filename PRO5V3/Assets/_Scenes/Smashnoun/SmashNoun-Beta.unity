@@ -806,7 +806,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d224cebd820dae2468732140468af404, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1185,6 +1185,7 @@ Transform:
   m_Children:
   - {fileID: 1457869225}
   - {fileID: 1013650777}
+  - {fileID: 476763898}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1385,6 +1386,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 471469070}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &476763897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 476763898}
+  - component: {fileID: 476763899}
+  m_Layer: 0
+  m_Name: ObjectsMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &476763898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476763897}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 449764863}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &476763899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476763897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7494b88797faa548a391f38984fafdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WordManager: {fileID: 1013650775}
 --- !u!1001 &485841082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2241,6 +2286,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19b412c20413f7647bfa520a3517013c, type: 3}
+--- !u!1 &1013650775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1190225793558587579, guid: 75a628f28eec5ab43b659f4435357548,
+    type: 3}
+  m_PrefabInstance: {fileID: 1190225793766800876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1013650777 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1190225793558587573, guid: 75a628f28eec5ab43b659f4435357548,
