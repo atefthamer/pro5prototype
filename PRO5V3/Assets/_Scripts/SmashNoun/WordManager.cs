@@ -90,14 +90,24 @@ namespace SmashNoun
                 yield break;
 
             isCoroutineExecuting = true;
+            spwnd.Remove(go);
+            for (int i = 0; i < spwnd.Count; i++)
+            {
+                Destroy(spwnd[i]);
+            }
+
             yield return new WaitForSeconds(time);
             // Code to execute after the delay
-            Destroy(go);
 
+            Destroy(go);
             isCoroutineExecuting = false;
             if (PlayRoundStack.Count != 0)
             {
-                StartCoroutine(RespawnAfterTime(5));
+                //StartCoroutine(RespawnAfterTime(5));
+
+                spwnd.Clear();
+                DoYourThang();
+                playSound = true;
             }
         }
 
@@ -170,6 +180,7 @@ namespace SmashNoun
 
             if (playSound)
             {
+                toHit = false;
                 playSound = false;
                 StartCoroutine(playAnswersYeah());
 
@@ -182,7 +193,7 @@ namespace SmashNoun
 
         IEnumerator playAnswersYeah()
         {
-
+            Debug.Log("SPWND SIZE " + spwnd.Count);
             yield return null;
             if (playQuestion)
             {
@@ -190,8 +201,8 @@ namespace SmashNoun
                 IntroSound.PlayDelayed(2);
 
                 yield return new WaitForSeconds(IntroSound.clip.length + 3);
-                playAnswers = true;
             }
+            playAnswers = true;
             if (playAnswers)
             {
                 foreach (var barrel in spwnd)
@@ -206,8 +217,10 @@ namespace SmashNoun
                     }
 
                 }
+                toHit = true;
             }
             playAnswers = false;
+
         }
 
         void SpawnUnit()
@@ -237,15 +250,15 @@ namespace SmashNoun
 
                     StartCoroutine(ExecuteAfterTime(5, go));
 
-                    spwnd.Remove(go);
+                    // spwnd.Remove(go);
 
-                    for (int i = 0; i < spwnd.Count; i++)
-                    {
-                        Destroy(spwnd[i]);
-                    }
+                    // for (int i = 0; i < spwnd.Count; i++)
+                    // {
+                    //     Destroy(spwnd[i]);
+                    // }
 
-                    spwnd.Clear();
-                    playSound = true;
+                    // spwnd.Clear();
+                    // playSound = true;
                 }
             }
         }
