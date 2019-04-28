@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1190225793558587579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1190225793558587573}
+  - component: {fileID: 1190225793558587572}
+  m_Layer: 0
+  m_Name: WordsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1190225793558587573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190225793558587579}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.372718, y: 2.682384, z: -4.646679}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190225793558587572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190225793558587579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511b783e606a56b4489ea4cbde9d30fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrel: {fileID: 6224110124889392495, guid: 19e78019ef9b08047bec2c984d62b592, type: 3}
+  Fox: {fileID: 0}
+  BarrelLocations:
+  - {x: 23.3, y: 3.32, z: -43.76}
+  - {x: 22, y: 3.32, z: -42.76}
+  - {x: 25.7, y: 3.32, z: -42.76}
+  questionAnswer:
+  - questionData: 'Jij ziet iemand, die hulp nodig is en jij wilt hem helpen, wat
+      zeg je tegen hem? '
+    clip: {fileID: 8300000, guid: 45a2e48a7f650974fab4d381abd50fa6, type: 3}
+    answer:
+    - AnswerData: Hallo, ik zie dat je hulp nodig bent, kan ik je helpen?
+      IsCorrect: 1
+      clip: {fileID: 8300000, guid: 4e326f75111636244875da1a57b6cc70, type: 3}
+    - AnswerData: Hallo, vandaag is het een mooie dag.
+      IsCorrect: 0
+      clip: {fileID: 8300000, guid: 77129e41f20cf66448292c1c34551053, type: 3}
+    - AnswerData: Hallo, doei.
+      IsCorrect: 0
+      clip: {fileID: 8300000, guid: 8c0a94691cc35994ebc0c198c7b87da3, type: 3}
+  - questionData: Jij wilt een ijsje kopen. Wat zeg je tegen de medewerker?
+    clip: {fileID: 8300000, guid: c9cf61698bd17bf4eb8e4e00630031a8, type: 3}
+    answer:
+    - AnswerData: Hallo, ik ben Jan en ik wil naar huis.
+      IsCorrect: 0
+      clip: {fileID: 8300000, guid: 2bf90e5f6b7e98a458cd00f2c8edcf12, type: 3}
+    - AnswerData: Hallo, ik wil heel graag een ijsje, met aardbeien smaak.
+      IsCorrect: 1
+      clip: {fileID: 8300000, guid: ec43cc921df4a66408010766795e12d6, type: 3}
+    - AnswerData: Hallo, ik wil naar het toilet.
+      IsCorrect: 0
+      clip: {fileID: 8300000, guid: 25d6d7b448bbdf4498d1e187fbb77387, type: 3}
+  - questionData: Je hond heeft je huiswerk opgegeten, je Leeraar vraagt naar je huiswerk,
+      wat zeg je?
+    clip: {fileID: 8300000, guid: a04bdd87d5530a845bac3c13b5dcb006, type: 3}
+    answer:
+    - AnswerData: Ik heb mijn huiswerk niet bij mij, mijn hond heeft mijn huiswerk
+        opgegeten.
+      IsCorrect: 1
+      clip: {fileID: 8300000, guid: 9fc9dab3a75bbde4faa51b10ddee1130, type: 3}
+    - AnswerData: Mijn hond is heel erg mooi.
+      IsCorrect: 0
+      clip: {fileID: 8300000, guid: 78f41865a7b914c40ae097da85d3c371, type: 3}
+    - AnswerData: Wiskunde vind ik leuk.
+      IsCorrect: 0
+      clip: {fileID: 8300000, guid: 6f7edaeb5aa6f1b4d85e1c1ccce7956a, type: 3}
+  - questionData: ' Je hebt een film gekeken met je vrienden, ze vragen aan het eind
+      van de film naar je mening, wat zeg je?'
+    clip: {fileID: 8300000, guid: 10e58da15adcc88419ed7b150b7f9d97, type: 3}
+    answer:
+    - AnswerData: Film vond ik erg leuk.
+      IsCorrect: 1
+      clip: {fileID: 8300000, guid: a7f27845d255c4a488e557b8bf3b8f86, type: 3}
+    - AnswerData: Gisteren heb ik chips gegeten.
+      IsCorrect: 0
+      clip: {fileID: 8300000, guid: 7c0104d041202504bb44f71257b69414, type: 3}
+    - AnswerData: Fietsen vind ik leuk.
+      IsCorrect: 0
+      clip: {fileID: 8300000, guid: dfea93001123f3f4baea252e51c8452c, type: 3}
