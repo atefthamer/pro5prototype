@@ -238,7 +238,7 @@ namespace SmashNoun
 
 
 
-        bool toHit = false;
+        public bool toHit = true;
         void UnitDied(UnitDeathEventInfo unitDeathInfo)
         {
             var go = unitDeathInfo.UnitGO;
@@ -259,6 +259,11 @@ namespace SmashNoun
 
                     // spwnd.Clear();
                     // playSound = true;
+                }
+                else
+                {
+                    Debug.Log("Activate SHAKE SHAKE");
+                    go.gameObject.GetComponent<ShakeObject>().StartShake(3);
                 }
             }
         }

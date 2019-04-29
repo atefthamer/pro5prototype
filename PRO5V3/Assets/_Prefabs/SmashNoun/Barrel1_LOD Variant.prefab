@@ -57,6 +57,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfx: {fileID: 0}
+  ObjectTag: 
+--- !u!114 &715076077608391108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224110124889392495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cd86ee2fef43b48a1b648a3a120805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shake_speed: 1
+  shake_intensity: 1
+  originPosition: {x: 0, y: 0, z: 0}
+  isShaking: 1
+  timerRunning: 1
 --- !u!114 &654969789627826411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +88,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectName: powerstick
+--- !u!114 &1535946897735581595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224110126169213149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cd86ee2fef43b48a1b648a3a120805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shake_speed: 1
+  shake_intensity: 1
+  originPosition: {x: 0, y: 0, z: 0}
+  isShaking: 1
+  timerRunning: 1
 --- !u!1001 &6225090344104301363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,6 +124,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 205000013665925236, guid: 1c5a9772a26e4b74991250d48f83f849,
+        type: 3}
+      propertyPath: m_LODs.Array.data[0].renderers.Array.data[0].renderer
+      value: 
+      objectReference: {fileID: 6211098081732036291}
+    - target: {fileID: 205000013665925236, guid: 1c5a9772a26e4b74991250d48f83f849,
+        type: 3}
+      propertyPath: m_LODs.Array.data[1].renderers.Array.data[0].renderer
+      value: 
+      objectReference: {fileID: 6211098083056650445}
     - target: {fileID: 4000012345957466, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
       propertyPath: m_LocalPosition.x
       value: 42.170483
@@ -145,16 +190,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.80586
       objectReference: {fileID: 0}
-    - target: {fileID: 205000013665925236, guid: 1c5a9772a26e4b74991250d48f83f849,
-        type: 3}
-      propertyPath: m_LODs.Array.data[0].renderers.Array.data[0].renderer
-      value: 
-      objectReference: {fileID: 6211098081732036291}
-    - target: {fileID: 205000013665925236, guid: 1c5a9772a26e4b74991250d48f83f849,
-        type: 3}
-      propertyPath: m_LODs.Array.data[1].renderers.Array.data[0].renderer
-      value: 
-      objectReference: {fileID: 6211098083056650445}
     - target: {fileID: 1000013383922036, guid: 1c5a9772a26e4b74991250d48f83f849, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
