@@ -31,6 +31,7 @@ public class TargetManager : MonoBehaviour
     public float speed = 1.0f;
 
     private float speechTimer = 0.0f;
+    private float lookTimer = 0.0f;
 
     public LauncherManager launcherManager;
     public SwordController sword;
@@ -96,8 +97,17 @@ public class TargetManager : MonoBehaviour
             else if (firstTarget.name != secondTarget.name & firstTarget != null && secondTarget != null)
             {
                 SFX.Incorrect();
-                incorrect = true;
-                targetsHit = false;
+                lookTimer += Time.deltaTime;
+
+                if (lookTimer >= 3.0f)
+                {
+                    lookTimer = 3.0f;
+                    firstTarget.gameObject.transform.Rotate(0, 180, 0);
+                    firstTarget.GetComponent<Shake>().ObjectShake();
+                    secondTarget.gameObject.transform.Rotate(0, 180, 0);
+                    secondTarget.GetComponent<Shake>().ObjectShake();
+                    targetsHit = false;
+                }
             }
         }
 
