@@ -37,14 +37,16 @@ public class TargetController : MonoBehaviour
         {
             tMan.firstHit = true;
             Destroy(this.gameObject);
-            tMan.firstTarget = null;
+            tMan.targetsHit = false;
+            //tMan.firstTarget = null;
         }
 
         if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.secondTarget && tMan.targetHittable == true)
         {
             tMan.secondHit = true;
             Destroy(this.gameObject);
-            tMan.secondTarget = null;
+            tMan.targetsHit = false;
+            //tMan.secondTarget = null;
         }
     }
 }

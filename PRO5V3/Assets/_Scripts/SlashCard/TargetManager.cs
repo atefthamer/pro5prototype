@@ -88,6 +88,7 @@ public class TargetManager : MonoBehaviour
                     if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 1.0f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 1.0f))
                     {
                         Debug.Log("Destination reached");
+                        targetsHit = false;
                     }
                 }
             }
@@ -99,21 +100,21 @@ public class TargetManager : MonoBehaviour
                     incorrect = false;
                 }
 
-                lookTimer += Time.deltaTime;
-
-                if (lookTimer >= 3.0f)
-                {
-                    firstTarget.gameObject.transform.Rotate(0, 180, 0);
-                    //firstTarget.GetComponent<Shake>().ObjectShake();
-                    secondTarget.gameObject.transform.Rotate(0, 180, 0);
-                    //secondTarget.GetComponent<Shake>().ObjectShake();
-                    incorrect = true;
-                    lookTimer = 0.0f;
-                    firstTarget = null;
-                    secondTarget = null;
-                    targetsHit = false;
-                }
+                lookTimer += Time.deltaTime;            
             }
+        }
+
+        if (lookTimer >= 3.0f)
+        {
+            firstTarget.gameObject.transform.Rotate(0, 180, 0);
+            //firstTarget.GetComponent<Shake>().ObjectShake();
+            secondTarget.gameObject.transform.Rotate(0, 180, 0);
+            //secondTarget.GetComponent<Shake>().ObjectShake();
+            incorrect = true;
+            firstTarget = null;
+            secondTarget = null;
+            targetsHit = false;
+            lookTimer = 0.0f;
         }
 
         if (firstHit == true && secondHit == true)
@@ -122,6 +123,8 @@ public class TargetManager : MonoBehaviour
             correct = true;
             speechTimer = 0.0f;
             targetHittable = false;
+            firstTarget = null;
+            secondTarget = null;
             targetsHit = false;
             firstHit = false;
             secondHit = false;
