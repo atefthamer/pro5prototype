@@ -17,7 +17,7 @@ public class TargetManager : MonoBehaviour
     [HideInInspector]
     public bool correct;
     [HideInInspector]
-    public bool incorrect = false;
+    public bool incorrect;
     [HideInInspector]
     public bool targetHittable = false;
     [HideInInspector]
@@ -40,6 +40,7 @@ public class TargetManager : MonoBehaviour
     private void Start()
     {
         correct = true;
+        incorrect = true;
 
         List<GameObject> spawnList = new List<GameObject>(targets);
 
@@ -65,7 +66,7 @@ public class TargetManager : MonoBehaviour
     {
         if (targetsHit == true)
         {
-            if (firstTarget.name == secondTarget.name && firstTarget != null && secondTarget != null)
+            if (firstTarget.name == secondTarget.name)
             {
                 if (correct == true)
                 {
@@ -77,7 +78,6 @@ public class TargetManager : MonoBehaviour
 
                 if (speechTimer >= 3.0f)
                 {
-                    speechTimer = 3.0f;
                     targetHittable = true;
                     sword.ChargeSword();
 
@@ -88,24 +88,29 @@ public class TargetManager : MonoBehaviour
                     if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 1.0f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 1.0f))
                     {
                         Debug.Log("Destination reached");
-                        correct = true;
-                        speechTimer = 0.0f;
-                        targetsHit = false;
                     }
                 }
             }
-            else if (firstTarget.name != secondTarget.name & firstTarget != null && secondTarget != null)
+            else if (firstTarget.name != secondTarget.name)
             {
-                SFX.Incorrect();
+                if (incorrect == true)
+                {
+                    SFX.Incorrect();
+                    incorrect = false;
+                }
+
                 lookTimer += Time.deltaTime;
 
                 if (lookTimer >= 3.0f)
                 {
-                    lookTimer = 3.0f;
                     firstTarget.gameObject.transform.Rotate(0, 180, 0);
-                    firstTarget.GetComponent<Shake>().ObjectShake();
+                    //firstTarget.GetComponent<Shake>().ObjectShake();
                     secondTarget.gameObject.transform.Rotate(0, 180, 0);
-                    secondTarget.GetComponent<Shake>().ObjectShake();
+                    //secondTarget.GetComponent<Shake>().ObjectShake();
+                    incorrect = true;
+                    lookTimer = 0.0f;
+                    firstTarget = null;
+                    secondTarget = null;
                     targetsHit = false;
                 }
             }
@@ -114,9 +119,12 @@ public class TargetManager : MonoBehaviour
         if (firstHit == true && secondHit == true)
         {
             sword.UnchargeSword();
+            correct = true;
+            speechTimer = 0.0f;
+            targetHittable = false;
+            targetsHit = false;
             firstHit = false;
             secondHit = false;
-            targetHittable = false;
         }
     }
 }
