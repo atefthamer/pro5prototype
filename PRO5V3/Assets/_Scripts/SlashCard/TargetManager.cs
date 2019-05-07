@@ -24,6 +24,8 @@ public class TargetManager : MonoBehaviour
     public bool firstHit;
     [HideInInspector]
     public bool secondHit;
+    [HideInInspector]
+    public int score;
 
     [SerializeField]
     Transform lookPoint = null;
@@ -41,6 +43,7 @@ public class TargetManager : MonoBehaviour
     {
         correct = true;
         incorrect = true;
+        score = 0;
 
         List<GameObject> spawnList = new List<GameObject>(targets);
 
@@ -119,6 +122,7 @@ public class TargetManager : MonoBehaviour
 
         if (firstHit == true && secondHit == true)
         {
+            score++;
             sword.UnchargeSword();
             correct = true;
             speechTimer = 0.0f;
