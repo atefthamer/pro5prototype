@@ -8,6 +8,8 @@ public class TargetManager : MonoBehaviour
     public GameObject[] targets;
     float radius = 3f;
 
+    public GameObject[] completeTargets;
+
     [HideInInspector]
     public GameObject firstTarget = null;
     [HideInInspector]
@@ -21,9 +23,9 @@ public class TargetManager : MonoBehaviour
     [HideInInspector]
     public bool targetHittable = false;
     [HideInInspector]
-    public bool firstHit;
-    [HideInInspector]
-    public bool secondHit;
+    public bool targetDestroyed;
+    //[HideInInspector]
+    //public bool secondHit;
     [HideInInspector]
     public int score;
 
@@ -38,6 +40,11 @@ public class TargetManager : MonoBehaviour
     public LauncherManager launcherManager;
     public SwordController sword;
     public SlashcardSFX SFX;
+    public GameObject spawnPoint;
+
+    private float xValue;
+    private float yValue;
+    private float zValue;
 
     private void Start()
     {
@@ -45,23 +52,65 @@ public class TargetManager : MonoBehaviour
         incorrect = true;
         score = 0;
 
+        xValue = spawnPoint.transform.position.x;
+        yValue = spawnPoint.transform.position.y;
+        zValue = spawnPoint.transform.position.z;
+
         List<GameObject> spawnList = new List<GameObject>(targets);
 
-        for (int i = 0; i < 10; i++)
+        //for (int i = 0; i < 10; i++)
+        //{
+        //    int randomIndex = Random.Range(0, spawnList.Count);
+        //    Debug.Log("INDEX: " + randomIndex);
+        //    Debug.Log("LOOP: " + i);
+        //    Debug.Log("COUNT: " + spawnList.Count);
+        //    float angle = i * Mathf.PI * 2f / 10;
+        //    Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
+        //    GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
+        //    instance.name = instance.name.Replace("(Clone)", "").Trim();
+        //    instance.gameObject.GetComponent<TargetController>().tMan = this;
+        //    instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+        //    instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+        //    Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
+        //    spawnList.RemoveAt(randomIndex);
+        //}
+
+        for (int i = 0; i < 5; i++)
         {
             int randomIndex = Random.Range(0, spawnList.Count);
             Debug.Log("INDEX: " + randomIndex);
             Debug.Log("LOOP: " + i);
             Debug.Log("COUNT: " + spawnList.Count);
-            float angle = i * Mathf.PI * 2f / 10;
-            Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
-            GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
+            GameObject instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+            zValue += 1.5f;
             instance.name = instance.name.Replace("(Clone)", "").Trim();
             instance.gameObject.GetComponent<TargetController>().tMan = this;
-            instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
-            instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+            //instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+            //instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
             Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
             spawnList.RemoveAt(randomIndex);
+
+            if (i == 4)
+            {
+                yValue += 2.0f;
+                zValue = spawnPoint.transform.position.z;
+
+                for (int j = 0; j < 5; j++)
+                {
+                    randomIndex = Random.Range(0, spawnList.Count);
+                    Debug.Log("INDEX: " + randomIndex);
+                    Debug.Log("LOOP: " + j);
+                    Debug.Log("COUNT: " + spawnList.Count);
+                    instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                    zValue += 1.5f;
+                    instance.name = instance.name.Replace("(Clone)", "").Trim();
+                    instance.gameObject.GetComponent<TargetController>().tMan = this;
+                    //instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+                    //instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+                    Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
+                    spawnList.RemoveAt(randomIndex);
+                }
+            }
         }
     }
 
@@ -88,10 +137,60 @@ public class TargetManager : MonoBehaviour
                     firstTarget.transform.position = Vector3.MoveTowards(firstTarget.transform.position, lookPoint.transform.position, shot);
                     secondTarget.transform.position = Vector3.MoveTowards(secondTarget.transform.position, lookPoint.transform.position, shot);
 
-                    if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 1.0f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 1.0f))
+                    if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 0.1f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 0.1f))
                     {
-                        Debug.Log("Destination reached");
-                        targetsHit = false;
+                        GameObject obj = null;
+                        Destroy(firstTarget);
+                        Destroy(secondTarget);
+
+                        switch (firstTarget.name)
+                        {
+                            case "Card":
+                                obj = Instantiate(completeTargets[0], lookPoint.transform.position, Quaternion.identity);
+                                obj.name = obj.name.Replace("(Clone)", "").Trim();
+                                obj.transform.Rotate(0, 180, 0);
+                                obj.gameObject.GetComponent<TargetController>().tMan = this;
+                                firstTarget = null;
+                                secondTarget = null;
+                                targetsHit = false;
+                                break;
+                            case "Card2":
+                                obj = Instantiate(completeTargets[1], lookPoint.transform.position, Quaternion.identity);
+                                obj.name = obj.name.Replace("(Clone)", "").Trim();
+                                obj.transform.Rotate(0, 180, 0);
+                                obj.gameObject.GetComponent<TargetController>().tMan = this;
+                                firstTarget = null;
+                                secondTarget = null;
+                                targetsHit = false;
+                                break;
+                            case "Card3":
+                                obj = Instantiate(completeTargets[2], lookPoint.transform.position, Quaternion.identity);
+                                obj.name = obj.name.Replace("(Clone)", "").Trim();
+                                obj.transform.Rotate(0, 180, 0);
+                                obj.gameObject.GetComponent<TargetController>().tMan = this;
+                                firstTarget = null;
+                                secondTarget = null;
+                                targetsHit = false;
+                                break;
+                            case "Card4":
+                                obj = Instantiate(completeTargets[3], lookPoint.transform.position, Quaternion.identity);
+                                obj.name = obj.name.Replace("(Clone)", "").Trim();
+                                obj.transform.Rotate(0, 180, 0);
+                                obj.gameObject.GetComponent<TargetController>().tMan = this;
+                                firstTarget = null;
+                                secondTarget = null;
+                                targetsHit = false;
+                                break;
+                            case "Card5":
+                                obj = Instantiate(completeTargets[4], lookPoint.transform.position, Quaternion.identity);
+                                obj.name = obj.name.Replace("(Clone)", "").Trim();
+                                obj.transform.Rotate(0, 180, 0);
+                                obj.gameObject.GetComponent<TargetController>().tMan = this;
+                                firstTarget = null;
+                                secondTarget = null;
+                                targetsHit = false;
+                                break;
+                        }
                     }
                 }
             }
@@ -120,7 +219,7 @@ public class TargetManager : MonoBehaviour
             lookTimer = 0.0f;
         }
 
-        if (firstHit == true && secondHit == true)
+        if (targetDestroyed == true)
         {
             score++;
             sword.UnchargeSword();
@@ -130,8 +229,7 @@ public class TargetManager : MonoBehaviour
             firstTarget = null;
             secondTarget = null;
             targetsHit = false;
-            firstHit = false;
-            secondHit = false;
+            targetDestroyed = false;
         }
     }
 }

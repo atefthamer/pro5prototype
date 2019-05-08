@@ -6,16 +6,16 @@ public class TargetController : MonoBehaviour
 {
     [HideInInspector]
     public TargetManager tMan;
-    [HideInInspector]
-    public LauncherManager lMan;
-    [HideInInspector]
-    public Transform lookPoint = null;
+    //[HideInInspector]
+    //public LauncherManager lMan;
+    //[HideInInspector]
+    //public Transform lookPoint = null;
 
-    private void Start()
-    {
-        transform.LookAt(lookPoint);
-        transform.Rotate(new Vector3(0, -90, 0));
-    }
+    //private void Start()
+    //{
+    //    transform.LookAt(lookPoint);
+    //    transform.Rotate(new Vector3(0, -90, 0));
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -33,20 +33,20 @@ public class TargetController : MonoBehaviour
             this.gameObject.transform.Rotate(0, 180, 0);
         }
 
-        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.firstTarget && tMan.targetHittable == true)
-        {
-            tMan.firstHit = true;
-            Destroy(this.gameObject);
-            tMan.targetsHit = false;
-            //tMan.firstTarget = null;
-        }
+        //if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.firstTarget && tMan.targetHittable == true)
+        //{
+        //    tMan.firstHit = true;
+        //    Destroy(this.gameObject);
+        //    tMan.targetsHit = false;
+        //    //tMan.firstTarget = null;
+        //}
 
-        if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.secondTarget && tMan.targetHittable == true)
-        {
-            tMan.secondHit = true;
-            Destroy(this.gameObject);
-            tMan.targetsHit = false;
-            //tMan.secondTarget = null;
-        }
+        //if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.secondTarget && tMan.targetHittable == true)
+        //{
+        //    tMan.secondHit = true;
+        //    Destroy(this.gameObject);
+        //    tMan.targetsHit = false;
+        //    //tMan.secondTarget = null;
+        //}
     }
 }
