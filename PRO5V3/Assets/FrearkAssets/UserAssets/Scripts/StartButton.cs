@@ -45,10 +45,11 @@ public class StartButton : MonoBehaviour
 
 	public void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.name == "Controller (right)") 
+		if (other.gameObject.name == "RightHand") 
 		{
 			if (EngineRunning == false) 
 			{
+                Debug.Log("ENGINE RUNNING: " + EngineRunning);
 				EngineRunning = true;
 				anim.Play ("StartButton");
 				audioButton.Play ();
@@ -61,7 +62,8 @@ public class StartButton : MonoBehaviour
 			}
 			else
 			{
-				EngineRunning = false;
+                Debug.Log("ENGINE RUNNING: " + EngineRunning);
+                EngineRunning = false;
 				anim.Play ("StartButton");
 				audioButton.Play ();
 				audioEngine.Stop ();
