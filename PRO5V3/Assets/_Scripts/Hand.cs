@@ -24,14 +24,14 @@ public class Hand : MonoBehaviour
         // Down
         if (m_GrabAction.GetStateDown(m_Pose.inputSource))
         {
-            //print(m_Pose.inputSource + " Trigger Down");
+            print(m_Pose.inputSource + " Trigger Down");
             Pickup();
         }
 
         // Up
         if (m_GrabAction.GetStateUp(m_Pose.inputSource))
         {
-            //print(m_Pose.inputSource + " Trigger Up");
+            print(m_Pose.inputSource + " Trigger Up");
             Drop();
         }
     }
@@ -40,7 +40,7 @@ public class Hand : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Interactable"))
             return;
-
+        Debug.Log("ENTER COLLISION WITH INTERACTABLE");
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());       
     }
 
@@ -48,7 +48,7 @@ public class Hand : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Interactable"))
             return;
-
+        Debug.Log("EXIT COLLISION WITH INTERACTABLE");
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
     }
 

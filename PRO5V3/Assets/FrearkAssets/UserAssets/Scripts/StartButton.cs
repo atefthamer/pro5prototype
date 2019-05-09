@@ -45,7 +45,7 @@ public class StartButton : MonoBehaviour
 
 	public void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.name == "RightHand") 
+		if (other.gameObject.CompareTag("Interactable")) 
 		{
 			if (EngineRunning == false) 
 			{
