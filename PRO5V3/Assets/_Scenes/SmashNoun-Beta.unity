@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 295269415}
-  m_IndirectSpecularColor: {r: 0.10528026, g: 0.28905043, b: 0.74870014, a: 1}
+  m_IndirectSpecularColor: {r: 0.105271585, g: 0.28905532, b: 0.7486992, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4730,11 +4730,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
-      propertyPath: questionAnswer.Array.data[1].answer.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
       propertyPath: BarrelLocations.Array.data[0].x
       value: 24.44189
       objectReference: {fileID: 0}
@@ -4777,191 +4772,6 @@ PrefabInstance:
         type: 3}
       propertyPath: BarrelLocations.Array.data[2].z
       value: -41.6258
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].questionData
-      value: Ik voel mij niet zo lekker
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].answer.Array.data[0].AnswerData
-      value: O, oke
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d8ec1a4a15951eb43836c3d0b097f6bd, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].answer.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9abc19a08fae1dd46a7a5f072a2bb8c4, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].answer.Array.data[1].AnswerData
-      value: Dat is vervelend, beterschap
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].answer.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: eb04a071dfdc84346957ddeaaa4aa926, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].answer.Array.data[2].AnswerData
-      value: Dat is goed!
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].answer.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e5f2048f4b922e6419a03b178502cb63, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[1].questionData
-      value: Hoe gaat het met jou?
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2efdd5ccd27d0704186b6bf9f3869020, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[1].answer.Array.data[0].AnswerData
-      value: Goed.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[1].answer.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: e797bb1b656c69c48896620d3d35ba15, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[1].answer.Array.data[1].AnswerData
-      value: Goed en met jou?
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[1].answer.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d5435738d66c21c43b2138a3f9dba1d7, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].questionData
-      value: Wil je vandaag met mij buiten spelen?
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: fbf63049cb84552428be89918bd038b0, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].answer.Array.data[0].AnswerData
-      value: Nee
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].answer.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 33ea441076691ae4d8c18512b58189d3, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].answer.Array.data[1].AnswerData
-      value: Ja, wat wil je spelen?
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].answer.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: ccc76f40a87cdfb4a97add805de4a8e3, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].answer.Array.data[2].AnswerData
-      value: Nee, ik kan vandaag niet.
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].answer.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9f6b8b9e30d65fd45a3fec0dcaba932c, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].questionData
-      value: Je gaat bij de winkel een zak snoep kopen, wat zeg je?
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 88107021c9ff5234e991d1f13c25b727, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].answer.Array.data[0].AnswerData
-      value: Hallo
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].answer.Array.data[0].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6d0d09fdfe0cdcf4080bdefac6a18e22, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].answer.Array.data[1].AnswerData
-      value: Ik wil snoep kopen
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].answer.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7ab8b2d3b7d188e4b87d8820ab022152, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].answer.Array.data[2].AnswerData
-      value: Hallo, zou ik een zak snoep mogen kopen?
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].answer.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 25dad35a40cff2b47aa9b4c50fa7a7ce, type: 3}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].answer.Array.data[0].IsCorrect
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[0].answer.Array.data[1].IsCorrect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].answer.Array.data[0].IsCorrect
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].answer.Array.data[1].IsCorrect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[2].answer.Array.data[2].IsCorrect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].answer.Array.data[2].IsCorrect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
-        type: 3}
-      propertyPath: questionAnswer.Array.data[3].answer.Array.data[0].IsCorrect
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a628f28eec5ab43b659f4435357548, type: 3}
@@ -5032,5 +4842,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3724881309481781506, guid: 9c87c8702ec2832449f88267e66b4ba2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: d62cbb18a5861e64e8a7da017ca041a3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c87c8702ec2832449f88267e66b4ba2, type: 3}
