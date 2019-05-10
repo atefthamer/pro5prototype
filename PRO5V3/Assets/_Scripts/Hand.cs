@@ -83,9 +83,9 @@ public class Hand : MonoBehaviour
             return;
 
         // Apply velocity
-        Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
-        targetBody.velocity = m_Pose.GetVelocity();
-        targetBody.angularVelocity = m_Pose.GetAngularVelocity();
+        //Rigidbody targetBody = m_CurrentInteractable.GetComponent<Rigidbody>();
+        //targetBody.velocity = m_Pose.GetVelocity();
+        //targetBody.angularVelocity = m_Pose.GetAngularVelocity();
 
         // Detach
         m_Joint.connectedBody = null;

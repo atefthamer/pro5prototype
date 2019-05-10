@@ -140,56 +140,106 @@ public class TargetManager : MonoBehaviour
                     if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 0.1f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 0.1f))
                     {
                         GameObject obj = null;
-                        Destroy(firstTarget);
-                        Destroy(secondTarget);
+                        firstTarget.gameObject.SetActive(false);
+                        secondTarget.gameObject.SetActive(false);
 
-                        switch (firstTarget.name)
+                        //switch (firstTarget.name)
+                        //{
+                        //    case "Card":
+                        //        obj = Instantiate(completeTargets[0], lookPoint.transform.position, Quaternion.identity);
+                        //        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        //        obj.transform.Rotate(0, 180, 0);
+                        //        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        //        Destroy(firstTarget);
+                        //        Destroy(secondTarget);
+                        //        targetsHit = false;
+                        //        break;
+                        //    case "Card2":
+                        //        obj = Instantiate(completeTargets[1], lookPoint.transform.position, Quaternion.identity);
+                        //        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        //        obj.transform.Rotate(0, 180, 0);
+                        //        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        //        Destroy(firstTarget);
+                        //        Destroy(secondTarget);
+                        //        targetsHit = false;
+                        //        break;
+                        //    case "Card3":
+                        //        obj = Instantiate(completeTargets[2], lookPoint.transform.position, Quaternion.identity);
+                        //        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        //        obj.transform.Rotate(0, 180, 0);
+                        //        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        //        Destroy(firstTarget);
+                        //        Destroy(secondTarget);
+                        //        targetsHit = false;
+                        //        break;
+                        //    case "Card4":
+                        //        obj = Instantiate(completeTargets[3], lookPoint.transform.position, Quaternion.identity);
+                        //        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        //        obj.transform.Rotate(0, 180, 0);
+                        //        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        //        Destroy(firstTarget);
+                        //        Destroy(secondTarget);
+                        //        targetsHit = false;
+                        //        break;
+                        //    case "Card5":
+                        //        obj = Instantiate(completeTargets[4], lookPoint.transform.position, Quaternion.identity);
+                        //        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        //        obj.transform.Rotate(0, 180, 0);
+                        //        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        //        Destroy(firstTarget);
+                        //        Destroy(secondTarget);
+                        //        targetsHit = false;
+                        //        break;
+
+                        if (firstTarget.name == "Card")
                         {
-                            case "Card":
-                                obj = Instantiate(completeTargets[0], lookPoint.transform.position, Quaternion.identity);
-                                obj.name = obj.name.Replace("(Clone)", "").Trim();
-                                obj.transform.Rotate(0, 180, 0);
-                                obj.gameObject.GetComponent<TargetController>().tMan = this;
-                                firstTarget = null;
-                                secondTarget = null;
-                                targetsHit = false;
-                                break;
-                            case "Card2":
-                                obj = Instantiate(completeTargets[1], lookPoint.transform.position, Quaternion.identity);
-                                obj.name = obj.name.Replace("(Clone)", "").Trim();
-                                obj.transform.Rotate(0, 180, 0);
-                                obj.gameObject.GetComponent<TargetController>().tMan = this;
-                                firstTarget = null;
-                                secondTarget = null;
-                                targetsHit = false;
-                                break;
-                            case "Card3":
-                                obj = Instantiate(completeTargets[2], lookPoint.transform.position, Quaternion.identity);
-                                obj.name = obj.name.Replace("(Clone)", "").Trim();
-                                obj.transform.Rotate(0, 180, 0);
-                                obj.gameObject.GetComponent<TargetController>().tMan = this;
-                                firstTarget = null;
-                                secondTarget = null;
-                                targetsHit = false;
-                                break;
-                            case "Card4":
-                                obj = Instantiate(completeTargets[3], lookPoint.transform.position, Quaternion.identity);
-                                obj.name = obj.name.Replace("(Clone)", "").Trim();
-                                obj.transform.Rotate(0, 180, 0);
-                                obj.gameObject.GetComponent<TargetController>().tMan = this;
-                                firstTarget = null;
-                                secondTarget = null;
-                                targetsHit = false;
-                                break;
-                            case "Card5":
-                                obj = Instantiate(completeTargets[4], lookPoint.transform.position, Quaternion.identity);
-                                obj.name = obj.name.Replace("(Clone)", "").Trim();
-                                obj.transform.Rotate(0, 180, 0);
-                                obj.gameObject.GetComponent<TargetController>().tMan = this;
-                                firstTarget = null;
-                                secondTarget = null;
-                                targetsHit = false;
-                                break;
+                            obj = Instantiate(completeTargets[0], lookPoint.transform.position, Quaternion.identity);
+                            obj.name = obj.name.Replace("(Clone)", "").Trim();
+                            obj.transform.Rotate(0, 180, 0);
+                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                            Destroy(firstTarget);
+                            Destroy(secondTarget);
+                            targetsHit = false;
+                        }
+                        else if (firstTarget.name == "Card2")
+                        {
+                            obj = Instantiate(completeTargets[1], lookPoint.transform.position, Quaternion.identity);
+                            obj.name = obj.name.Replace("(Clone)", "").Trim();
+                            obj.transform.Rotate(0, 180, 0);
+                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                            Destroy(firstTarget);
+                            Destroy(secondTarget);
+                            targetsHit = false;
+                        }
+                        else if (firstTarget.name == "Card3")
+                        {
+                            obj = Instantiate(completeTargets[2], lookPoint.transform.position, Quaternion.identity);
+                            obj.name = obj.name.Replace("(Clone)", "").Trim();
+                            obj.transform.Rotate(0, 180, 0);
+                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                            Destroy(firstTarget);
+                            Destroy(secondTarget);
+                            targetsHit = false;
+                        }
+                        else if (firstTarget.name == "Card4")
+                        {
+                            obj = Instantiate(completeTargets[3], lookPoint.transform.position, Quaternion.identity);
+                            obj.name = obj.name.Replace("(Clone)", "").Trim();
+                            obj.transform.Rotate(0, 180, 0);
+                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                            Destroy(firstTarget);
+                            Destroy(secondTarget);
+                            targetsHit = false;
+                        }
+                        else if (firstTarget.name == "Card5")
+                        {
+                            obj = Instantiate(completeTargets[4], lookPoint.transform.position, Quaternion.identity);
+                            obj.name = obj.name.Replace("(Clone)", "").Trim();
+                            obj.transform.Rotate(0, 180, 0);
+                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                            Destroy(firstTarget);
+                            Destroy(secondTarget);
+                            targetsHit = false;
                         }
                     }
                 }
