@@ -26,6 +26,7 @@ public class ShieldController : MonoBehaviour
         {
             currentProjectile = other.gameObject;
             currentProjectile.GetComponent<ProjectileController>().enabled = false;
+            currentProjectile.GetComponent<AudioSource>().enabled = false;
             this.transform.GetChild(1).gameObject.SetActive(true);
             this.transform.GetChild(2).gameObject.SetActive(true);
         }
