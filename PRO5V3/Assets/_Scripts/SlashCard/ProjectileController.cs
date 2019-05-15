@@ -19,7 +19,7 @@ public class ProjectileController : MonoBehaviour
     void Update()
     {
         anim += Time.deltaTime;
-        anim = anim % 4f;
-        transform.position = MathParabola.Parabola(startPos, playerPos, 3f, anim / 4f);
+        anim = anim % 3f;
+        transform.position = MathParabola.Parabola(startPos, playerPos, 3f, anim / 1f);
     }
 }

@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/_Scenes/SmashNoun-Beta.unity
+    guid: 40ecd63839dc8cb47b2098a34d73ea8e
+  - enabled: 1
+    path: Assets/_Scenes/slashcard.unity
+    guid: c9821ecbd9a262a4bb0365c27b352813
   m_configObjects: {}

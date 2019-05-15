@@ -126,73 +126,69 @@ public class TargetManager : MonoBehaviour
                     correct = false;
                 }
 
-                speechTimer += Time.deltaTime;
+                //speechTimer += Time.deltaTime;
+                targetHittable = true;
+                sword.ChargeSword();
 
-                if (speechTimer >= 3.0f)
+                float shot = speed * Time.deltaTime;
+                firstTarget.transform.position = Vector3.MoveTowards(firstTarget.transform.position, lookPoint.transform.position, shot);
+                secondTarget.transform.position = Vector3.MoveTowards(secondTarget.transform.position, lookPoint.transform.position, shot);
+
+                if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 0.1f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 0.1f))
                 {
-                    targetHittable = true;
-                    sword.ChargeSword();
+                    GameObject obj = null;
+                    firstTarget.gameObject.SetActive(false);
+                    secondTarget.gameObject.SetActive(false);
 
-                    float shot = speed * Time.deltaTime;
-                    firstTarget.transform.position = Vector3.MoveTowards(firstTarget.transform.position, lookPoint.transform.position, shot);
-                    secondTarget.transform.position = Vector3.MoveTowards(secondTarget.transform.position, lookPoint.transform.position, shot);
-
-                    if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 0.1f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 0.1f))
+                    if (firstTarget.name == "Card")
                     {
-                        GameObject obj = null;
-                        firstTarget.gameObject.SetActive(false);
-                        secondTarget.gameObject.SetActive(false);
-
-                        if (firstTarget.name == "Card")
-                        {
-                            obj = Instantiate(completeTargets[0], lookPoint.transform.position, Quaternion.identity);
-                            obj.name = obj.name.Replace("(Clone)", "").Trim();
-                            obj.transform.Rotate(0, 180, 0);
-                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
-                            Destroy(firstTarget);
-                            Destroy(secondTarget);
-                            targetsHit = false;
-                        }
-                        else if (firstTarget.name == "Card2")
-                        {
-                            obj = Instantiate(completeTargets[1], lookPoint.transform.position, Quaternion.identity);
-                            obj.name = obj.name.Replace("(Clone)", "").Trim();
-                            obj.transform.Rotate(0, 180, 0);
-                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
-                            Destroy(firstTarget);
-                            Destroy(secondTarget);
-                            targetsHit = false;
-                        }
-                        else if (firstTarget.name == "Card3")
-                        {
-                            obj = Instantiate(completeTargets[2], lookPoint.transform.position, Quaternion.identity);
-                            obj.name = obj.name.Replace("(Clone)", "").Trim();
-                            obj.transform.Rotate(0, 180, 0);
-                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
-                            Destroy(firstTarget);
-                            Destroy(secondTarget);
-                            targetsHit = false;
-                        }
-                        else if (firstTarget.name == "Card4")
-                        {
-                            obj = Instantiate(completeTargets[3], lookPoint.transform.position, Quaternion.identity);
-                            obj.name = obj.name.Replace("(Clone)", "").Trim();
-                            obj.transform.Rotate(0, 180, 0);
-                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
-                            Destroy(firstTarget);
-                            Destroy(secondTarget);
-                            targetsHit = false;
-                        }
-                        else if (firstTarget.name == "Card5")
-                        {
-                            obj = Instantiate(completeTargets[4], lookPoint.transform.position, Quaternion.identity);
-                            obj.name = obj.name.Replace("(Clone)", "").Trim();
-                            obj.transform.Rotate(0, 180, 0);
-                            obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
-                            Destroy(firstTarget);
-                            Destroy(secondTarget);
-                            targetsHit = false;
-                        }
+                        obj = Instantiate(completeTargets[0], lookPoint.transform.position, Quaternion.identity);
+                        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        obj.transform.Rotate(0, 180, 0);
+                        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        Destroy(firstTarget);
+                        Destroy(secondTarget);
+                        targetsHit = false;
+                    }
+                    else if (firstTarget.name == "Card2")
+                    {
+                        obj = Instantiate(completeTargets[1], lookPoint.transform.position, Quaternion.identity);
+                        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        obj.transform.Rotate(0, 180, 0);
+                        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        Destroy(firstTarget);
+                        Destroy(secondTarget);
+                        targetsHit = false;
+                    }
+                    else if (firstTarget.name == "Card3")
+                    {
+                        obj = Instantiate(completeTargets[2], lookPoint.transform.position, Quaternion.identity);
+                        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        obj.transform.Rotate(0, 180, 0);
+                        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        Destroy(firstTarget);
+                        Destroy(secondTarget);
+                        targetsHit = false;
+                    }
+                    else if (firstTarget.name == "Card4")
+                    {
+                        obj = Instantiate(completeTargets[3], lookPoint.transform.position, Quaternion.identity);
+                        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        obj.transform.Rotate(0, 180, 0);
+                        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        Destroy(firstTarget);
+                        Destroy(secondTarget);
+                        targetsHit = false;
+                    }
+                    else if (firstTarget.name == "Card5")
+                    {
+                        obj = Instantiate(completeTargets[4], lookPoint.transform.position, Quaternion.identity);
+                        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        obj.transform.Rotate(0, 180, 0);
+                        obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        Destroy(firstTarget);
+                        Destroy(secondTarget);
+                        targetsHit = false;
                     }
                 }
             }
@@ -208,7 +204,7 @@ public class TargetManager : MonoBehaviour
             }
         }
 
-        if (lookTimer >= 3.0f)
+        if (lookTimer >= 2.0f)
         {
             firstTarget.gameObject.transform.Rotate(0, 180, 0);
             //firstTarget.GetComponent<Shake>().ObjectShake();
