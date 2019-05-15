@@ -39,6 +39,7 @@ public class TargetManager : MonoBehaviour
 
     public LauncherManager launcherManager;
     public SwordController sword;
+    public ShieldController shield;
     public SlashcardSFX SFX;
     public GameObject spawnPoint;
 
@@ -85,7 +86,8 @@ public class TargetManager : MonoBehaviour
             zValue += 1.5f;
             instance.name = instance.name.Replace("(Clone)", "").Trim();
             instance.gameObject.GetComponent<TargetController>().tMan = this;
-            //instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+            instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+            instance.gameObject.GetComponent<TargetController>().sCon = shield;
             //instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
             Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
             spawnList.RemoveAt(randomIndex);
@@ -105,7 +107,7 @@ public class TargetManager : MonoBehaviour
                     zValue += 1.5f;
                     instance.name = instance.name.Replace("(Clone)", "").Trim();
                     instance.gameObject.GetComponent<TargetController>().tMan = this;
-                    //instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+                    instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
                     //instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
                     Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
                     spawnList.RemoveAt(randomIndex);
@@ -146,6 +148,7 @@ public class TargetManager : MonoBehaviour
                         obj.name = obj.name.Replace("(Clone)", "").Trim();
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -156,6 +159,7 @@ public class TargetManager : MonoBehaviour
                         obj.name = obj.name.Replace("(Clone)", "").Trim();
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -166,6 +170,7 @@ public class TargetManager : MonoBehaviour
                         obj.name = obj.name.Replace("(Clone)", "").Trim();
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -176,6 +181,7 @@ public class TargetManager : MonoBehaviour
                         obj.name = obj.name.Replace("(Clone)", "").Trim();
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -186,6 +192,7 @@ public class TargetManager : MonoBehaviour
                         obj.name = obj.name.Replace("(Clone)", "").Trim();
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
+                        obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -206,6 +213,7 @@ public class TargetManager : MonoBehaviour
 
         if (lookTimer >= 2.0f)
         {
+            launcherManager.NextLauncher();
             firstTarget.gameObject.transform.Rotate(0, 180, 0);
             //firstTarget.GetComponent<Shake>().ObjectShake();
             secondTarget.gameObject.transform.Rotate(0, 180, 0);

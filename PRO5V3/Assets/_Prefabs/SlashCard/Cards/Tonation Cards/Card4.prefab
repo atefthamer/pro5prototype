@@ -96,8 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tMan: {fileID: 0}
-  lMan: {fileID: 0}
-  lookPoint: {fileID: 0}
 --- !u!65 &6231693544916164940
 BoxCollider:
   m_ObjectHideFlags: 0

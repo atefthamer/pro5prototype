@@ -14,6 +14,7 @@ public class ShieldController : MonoBehaviour
     public float speed = 1.0f;
 
     public LauncherManager launcher;
+    public TargetManager tMan;
 
     private void Start()
     {

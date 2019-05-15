@@ -6,8 +6,10 @@ public class TargetController : MonoBehaviour
 {
     [HideInInspector]
     public TargetManager tMan;
-    //[HideInInspector]
-    //public LauncherManager lMan;
+    [HideInInspector]
+    public LauncherManager lMan;
+    [HideInInspector]
+    public ShieldController sCon;
     //[HideInInspector]
     //public Transform lookPoint = null;
 
@@ -24,12 +26,17 @@ public class TargetController : MonoBehaviour
             tMan.firstTarget = this.gameObject;
             Debug.Log("FIRST TARGET = " + tMan.firstTarget);
             this.gameObject.transform.Rotate(0, 180, 0);
+            Destroy(other.gameObject);
+            sCon.currentProjectile = null;
+            lMan.NextLauncher();
         }
         else if (other.gameObject.CompareTag("projectile") && tMan.firstTarget != null && this.gameObject != tMan.firstTarget)
         {
             tMan.secondTarget = this.gameObject;
             Debug.Log("SECOND TARGET = " + tMan.secondTarget);
             tMan.targetsHit = true;
+            Destroy(other.gameObject);
+            sCon.currentProjectile = null;
             this.gameObject.transform.Rotate(0, 180, 0);
         }
 

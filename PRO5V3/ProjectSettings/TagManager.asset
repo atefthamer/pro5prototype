@@ -7,9 +7,6 @@ TagManager:
   - projectile
   - FxTemporaire
   - Interactable
-  - Fire
-  - Barrel
-  - Hammer
   layers:
   - Default
   - TransparentFX

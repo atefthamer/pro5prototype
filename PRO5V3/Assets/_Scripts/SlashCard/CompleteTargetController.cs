@@ -6,8 +6,8 @@ public class CompleteTargetController : MonoBehaviour
 {
     [HideInInspector]
     public TargetManager tMan;
-    //[HideInInspector]
-    //public LauncherManager lMan;
+    [HideInInspector]
+    public LauncherManager lMan;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +16,7 @@ public class CompleteTargetController : MonoBehaviour
             tMan.targetDestroyed = true;
             Destroy(this.gameObject);
             tMan.targetsHit = false;
+            lMan.NextLauncher();
             //tMan.firstTarget = null;
         }
 
