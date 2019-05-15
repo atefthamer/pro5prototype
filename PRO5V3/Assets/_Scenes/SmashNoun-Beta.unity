@@ -1892,7 +1892,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 0d867292243cd0b4b897d4f5201a37f1, type: 3}
       propertyPath: m_Name
-      value: cockpict zepplin (1)
+      value: cockpit zepplin (1)
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0d867292243cd0b4b897d4f5201a37f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3856,6 +3856,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 477119137}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1444169334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444169333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a23820d5ae9a2b48ac4df26dbdeee83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xMin: -15
+  xMax: 15
 --- !u!4 &1444169336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 0d867292243cd0b4b897d4f5201a37f1,
@@ -4650,7 +4664,7 @@ PrefabInstance:
     - target: {fileID: 41170811312966471, guid: 9ef2e8268c59d7e4d9002ad46ddb483d,
         type: 3}
       propertyPath: speedRotx
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 41170811312966471, guid: 9ef2e8268c59d7e4d9002ad46ddb483d,
         type: 3}
