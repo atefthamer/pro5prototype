@@ -4,11 +4,24 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: node_id4
+    100004: node_id5
     400000: //RootNode
+    400002: node_id4
+    400004: node_id5
     2100000: typeBlinn
+    2100002: Material_51
+    2100004: Material_53
+    2100006: Material_57
     2300000: //RootNode
+    2300002: node_id4
+    2300004: node_id5
     3300000: //RootNode
+    3300002: node_id4
+    3300004: node_id5
     4300000: typeMesh1
+    4300002: node_id4
+    4300004: node_id5
   externalObjects: {}
   materials:
     importMaterials: 1
