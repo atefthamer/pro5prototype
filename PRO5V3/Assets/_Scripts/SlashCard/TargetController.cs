@@ -10,14 +10,16 @@ public class TargetController : MonoBehaviour
     public LauncherManager lMan;
     [HideInInspector]
     public ShieldController sCon;
-    //[HideInInspector]
-    //public Transform lookPoint = null;
 
-    //private void Start()
-    //{
-    //    transform.LookAt(lookPoint);
-    //    transform.Rotate(new Vector3(0, -90, 0));
-    //}
+    // CODE FOR CARDS IN CIRCLE
+    [HideInInspector]
+    public Transform lookPoint = null;
+
+    private void Start()
+    {
+        transform.LookAt(lookPoint);
+        transform.Rotate(new Vector3(0, -270, 0));
+    }
 
     private void OnTriggerEnter(Collider other)
     {
