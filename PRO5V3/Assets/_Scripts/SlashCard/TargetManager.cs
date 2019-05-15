@@ -108,6 +108,7 @@ public class TargetManager : MonoBehaviour
                     instance.name = instance.name.Replace("(Clone)", "").Trim();
                     instance.gameObject.GetComponent<TargetController>().tMan = this;
                     instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+                    instance.gameObject.GetComponent<TargetController>().sCon = shield;
                     //instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
                     Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
                     spawnList.RemoveAt(randomIndex);

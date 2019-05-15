@@ -10,7 +10,8 @@ public class ShieldController : MonoBehaviour
     public LineRenderer pointer;
     public GameObject pointerEnd;
     private GameObject shootingPoint;
-    private bool fired = false;
+    [HideInInspector]
+    public bool fired = false;
     public float speed = 1.0f;
 
     public LauncherManager launcher;

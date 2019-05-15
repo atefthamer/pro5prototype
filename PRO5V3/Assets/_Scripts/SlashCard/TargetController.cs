@@ -28,6 +28,7 @@ public class TargetController : MonoBehaviour
             this.gameObject.transform.Rotate(0, 180, 0);
             Destroy(other.gameObject);
             sCon.currentProjectile = null;
+            sCon.fired = false;
             lMan.NextLauncher();
         }
         else if (other.gameObject.CompareTag("projectile") && tMan.firstTarget != null && this.gameObject != tMan.firstTarget)
@@ -37,6 +38,7 @@ public class TargetController : MonoBehaviour
             tMan.targetsHit = true;
             Destroy(other.gameObject);
             sCon.currentProjectile = null;
+            sCon.fired = false;
             this.gameObject.transform.Rotate(0, 180, 0);
         }
 
