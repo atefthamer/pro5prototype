@@ -87,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3765235041798143643}
   - component: {fileID: 4933580536729451564}
+  - component: {fileID: 1367366675370216196}
   m_Layer: 0
   m_Name: L
   m_TagString: Untagged
@@ -102,8 +103,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4277560017189111704}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.245026, y: -0.10000038, z: -10.854308}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 8152507157548343625}
   - {fileID: 7662430833801852511}
@@ -124,6 +125,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.09, y: 0.12959999, z: 0.033753872}
   m_Center: {x: -0.057, y: 0.059244365, z: 0.013682127}
+--- !u!114 &1367366675370216196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277560017189111704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98bece8a1e650b4478cfddb6d079bd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookPoint: {fileID: 0}
 --- !u!1 &5666268885005349541
 GameObject:
   m_ObjectHideFlags: 0
