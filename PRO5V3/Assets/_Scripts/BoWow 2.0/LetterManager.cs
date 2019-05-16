@@ -20,7 +20,7 @@ public class LetterManager : MonoBehaviour
             Debug.Log("INDEX: " + randomIndex);
             Debug.Log("LOOP: " + i);
             float angle = i * Mathf.PI * 2f / 10;
-            Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
+            Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.5f, Mathf.Sin(angle) * radius);
             GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
             instance.name = instance.name.Replace("(Clone)", "").Trim();
             instance.gameObject.GetComponent<LetterController>().lookPoint = lookPoint;
