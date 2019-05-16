@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 295269415}
-  m_IndirectSpecularColor: {r: 0.105322674, g: 0.28909546, b: 0.7486932, a: 1}
+  m_IndirectSpecularColor: {r: 0.10528026, g: 0.28905043, b: 0.74870014, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4064,7 +4064,27 @@ PrefabInstance:
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[1].answer.Array.size
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].answer.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].answer.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[3].answer.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
@@ -4114,123 +4134,127 @@ PrefabInstance:
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[0].questionData
-      value: Ik voel mij niet zo lekker
+      value: 'Hoe vind je mijn eiland? '
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[0].answer.Array.data[0].AnswerData
-      value: O, oke
+      value: Sorry, ik hou niet van woestijnen.
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: d8ec1a4a15951eb43836c3d0b097f6bd, type: 3}
+      objectReference: {fileID: 8300000, guid: cabb906f5f66c1a4f8485c730ab2e338, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[0].answer.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 9abc19a08fae1dd46a7a5f072a2bb8c4, type: 3}
+      objectReference: {fileID: 8300000, guid: bbbf688cdd7e89946864dab7ccc0b761, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[0].answer.Array.data[1].AnswerData
-      value: Dat is vervelend, beterschap
+      value: "Het is ok\xE9 "
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[0].answer.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: eb04a071dfdc84346957ddeaaa4aa926, type: 3}
+      objectReference: {fileID: 8300000, guid: e04b77993607a4946a98c5caa8f8f239, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[0].answer.Array.data[2].AnswerData
-      value: Dat is goed!
+      value: 'Ik vind het leuk hier. Dank je wel voor je ontvangst. '
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[0].answer.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: e5f2048f4b922e6419a03b178502cb63, type: 3}
+      objectReference: {fileID: 8300000, guid: 600c6a4f0a9ee4a42ba71b6de46eb6fc, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[1].questionData
-      value: Hoe gaat het met jou?
+      value: Dat kan, iedereen heeft zo zijn/haar eigen smaak. Maar goed, hoe gaat
+        het met je?
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 2efdd5ccd27d0704186b6bf9f3869020, type: 3}
+      objectReference: {fileID: 8300000, guid: 1bf650fb56308554caee54f7c16e9601, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[1].answer.Array.data[0].AnswerData
-      value: Goed.
+      value: Vandaag voel ik me niet zo goed.
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[1].answer.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: e797bb1b656c69c48896620d3d35ba15, type: 3}
+      objectReference: {fileID: 8300000, guid: dcf50d464d4c44b4a8345d5105873a2c, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[1].answer.Array.data[1].AnswerData
-      value: Goed en met jou?
+      value: Het gaat goed.
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[1].answer.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: d5435738d66c21c43b2138a3f9dba1d7, type: 3}
+      objectReference: {fileID: 8300000, guid: 561c597ff86e7fe47ae1339dac9f9734, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[2].questionData
-      value: Wil je vandaag met mij buiten spelen?
+      value: Oke, met mij gaat het ook goed. Bedankt voor het vragen. Wat is jouw
+        hobby?
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: fbf63049cb84552428be89918bd038b0, type: 3}
+      objectReference: {fileID: 8300000, guid: a035baefe3b6aec4fa91ed639506dafc, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[2].answer.Array.data[0].AnswerData
-      value: Nee
+      value: Ik hou ook van muziek!
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[2].answer.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 33ea441076691ae4d8c18512b58189d3, type: 3}
+      objectReference: {fileID: 8300000, guid: b3cc2bcb03c9abf44ad235523f023cd8, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[2].answer.Array.data[1].AnswerData
-      value: Ja, wat wil je spelen?
+      value: Ik speel graag buiten met mijn vrienden
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[2].answer.Array.data[1].clip
       value: 
-      objectReference: {fileID: 8300000, guid: ccc76f40a87cdfb4a97add805de4a8e3, type: 3}
+      objectReference: {fileID: 8300000, guid: df902461512542c46bf0850455132e73, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[2].answer.Array.data[2].AnswerData
-      value: Nee, ik kan vandaag niet.
+      value: Ik hou van sporten. Als je wil, kunnen wij dit een keer samen spelen?
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[2].answer.Array.data[2].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 9f6b8b9e30d65fd45a3fec0dcaba932c, type: 3}
+      objectReference: {fileID: 8300000, guid: e5e91b04cd1c2da4a941b2d142800d7d, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[3].questionData
-      value: Je gaat bij de winkel een zak snoep kopen, wat zeg je?
+      value: Ah, super aardig! Dat lijkt mij erg leuk om samen te doen. Ik zal het
+        onthouden. Het was erg leuk om met je gesproken te hebben. Hoop je snel weer
+        te spreken.
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[3].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 88107021c9ff5234e991d1f13c25b727, type: 3}
+      objectReference: {fileID: 8300000, guid: 08d7927645ced7d48a80beb58f8c562a, type: 3}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[3].answer.Array.data[0].AnswerData
@@ -4269,7 +4293,7 @@ PrefabInstance:
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
       propertyPath: questionAnswer.Array.data[0].answer.Array.data[1].IsCorrect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
         type: 3}
@@ -4295,6 +4319,126 @@ PrefabInstance:
         type: 3}
       propertyPath: questionAnswer.Array.data[3].answer.Array.data[0].IsCorrect
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].questionData
+      value: Je gaat bij de winkel een zak snoep kopen, wat zeg je?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 88107021c9ff5234e991d1f13c25b727, type: 3}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].answer.Array.data[0].AnswerData
+      value: Hallo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].answer.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d0d09fdfe0cdcf4080bdefac6a18e22, type: 3}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].answer.Array.data[1].AnswerData
+      value: Ik wil snoep kopen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].answer.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ab8b2d3b7d188e4b87d8820ab022152, type: 3}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].answer.Array.data[2].AnswerData
+      value: Hallo, zou ik een zak snoep mogen kopen?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].answer.Array.data[2].IsCorrect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[4].answer.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 25dad35a40cff2b47aa9b4c50fa7a7ce, type: 3}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].questionData
+      value: Je gaat bij de winkel een zak snoep kopen, wat zeg je?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 88107021c9ff5234e991d1f13c25b727, type: 3}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].answer.Array.data[0].AnswerData
+      value: Hallo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].answer.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d0d09fdfe0cdcf4080bdefac6a18e22, type: 3}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].answer.Array.data[1].AnswerData
+      value: Ik wil snoep kopen
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].answer.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ab8b2d3b7d188e4b87d8820ab022152, type: 3}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].answer.Array.data[2].AnswerData
+      value: Hallo, zou ik een zak snoep mogen kopen?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].answer.Array.data[2].IsCorrect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[5].answer.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 25dad35a40cff2b47aa9b4c50fa7a7ce, type: 3}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[0].answer.Array.data[2].IsCorrect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[1].answer.Array.data[2].AnswerData
+      value: Het gaat goed, en met jou?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[1].answer.Array.data[2].IsCorrect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[1].answer.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 688bc9e0d4ad4d049abdec4559fe17e6, type: 3}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[1].answer.Array.data[1].IsCorrect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190225793558587572, guid: 75a628f28eec5ab43b659f4435357548,
+        type: 3}
+      propertyPath: questionAnswer.Array.data[1].answer.Array.data[0].IsCorrect
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75a628f28eec5ab43b659f4435357548, type: 3}
