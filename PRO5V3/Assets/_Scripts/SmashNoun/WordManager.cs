@@ -15,7 +15,7 @@ namespace SmashNoun
         //List<string> wordsList = new List<string>();
         public AudioSource IntroSound;
         // How many rounds per game?
-        public const int MAX_ROUNDS = 3;
+        public const int MAX_ROUNDS = 4;
         private const int ANSWER_COUNT = 3;
         public GameObject barrel;
         public GameObject Fox;
