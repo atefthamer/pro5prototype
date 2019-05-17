@@ -5,10 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_Scenes/ISLANDS/SmashNoun-Beta.unity
-    guid: 40ecd63839dc8cb47b2098a34d73ea8e
+  - enabled: 1
+    path: Assets/_Scenes/ISLANDS/Zeppelin.unity
+    guid: edea3e6576934a746a6f7c35fdc5207e
+  - enabled: 1
+    path: Assets/_Scenes/ISLANDS/Startingpoint.unity
+    guid: 03f6d3438a75d214da902ceec5bf6214
   - enabled: 1
     path: Assets/_Scenes/ISLANDS/slashcard.unity
     guid: c9821ecbd9a262a4bb0365c27b352813
+  - enabled: 1
+    path: Assets/_Scenes/ISLANDS/SmashNoun-Beta.unity
+    guid: 40ecd63839dc8cb47b2098a34d73ea8e
+  - enabled: 1
+    path: Assets/_Scenes/ISLANDS/BoWow.unity
+    guid: bdc2ec023d428e24c846031a909a33c2
   m_configObjects: {}
