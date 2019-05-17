@@ -12,14 +12,14 @@ public class TargetController : MonoBehaviour
     public ShieldController sCon;
 
     // CODE FOR CARDS IN CIRCLE
-    [HideInInspector]
-    public Transform lookPoint = null;
+    //[HideInInspector]
+    //public Transform lookPoint = null;
 
-    private void Start()
-    {
-        transform.LookAt(lookPoint);
-        transform.Rotate(new Vector3(0, -270, 0));
-    }
+    //private void Start()
+    //{
+    //    transform.LookAt(lookPoint);
+    //    transform.Rotate(new Vector3(0, 180, 0));
+    //}
 
     private void OnTriggerEnter(Collider other)
     {

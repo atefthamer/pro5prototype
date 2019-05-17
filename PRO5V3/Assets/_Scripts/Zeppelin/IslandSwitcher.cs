@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Valve.VR;
 
 public class IslandSwitcher : MonoBehaviour
 {
-    public int index;
+    public string sceneName;
     public GameObject player;
     private bool destroy = false;
 
@@ -26,7 +27,7 @@ public class IslandSwitcher : MonoBehaviour
         if (destroy == true)
         {
             destroy = false;
-            SceneManager.LoadScene(index);
+            SteamVR_LoadLevel.Begin(sceneName, false, 0.5f, 255, 255, 255, 1);
         }
     }
 }
