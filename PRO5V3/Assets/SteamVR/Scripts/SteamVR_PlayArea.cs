@@ -24,7 +24,8 @@ namespace Valve.VR
             Calibrated,
             _400x300,
             _300x225,
-            _200x150
+            _200x150,
+            _200x200
         }
 
         public Size size;
