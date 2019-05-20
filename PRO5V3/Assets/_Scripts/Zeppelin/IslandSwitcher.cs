@@ -8,6 +8,7 @@ public class IslandSwitcher : MonoBehaviour
 {
     public string sceneName;
     public GameObject player;
+    public ZeppelinSpawner zSpawn;
     private bool destroy = false;
 
     private void OnTriggerEnter(Collider other)
@@ -27,6 +28,7 @@ public class IslandSwitcher : MonoBehaviour
         if (destroy == true)
         {
             destroy = false;
+            zSpawn.lastScene = sceneName;
             SteamVR_LoadLevel.Begin(sceneName, false, 0.5f, 255, 255, 255, 1);
         }
     }
