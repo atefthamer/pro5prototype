@@ -40,7 +40,7 @@ public class Hand : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Interactable"))
             return;
-        Debug.Log("ENTER COLLISION WITH INTERACTABLE");
+        //Debug.Log("ENTER COLLISION WITH INTERACTABLE");
         m_ContactInteractables.Add(other.gameObject.GetComponent<Interactable>());       
     }
 
@@ -48,7 +48,7 @@ public class Hand : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Interactable"))
             return;
-        Debug.Log("EXIT COLLISION WITH INTERACTABLE");
+        //Debug.Log("EXIT COLLISION WITH INTERACTABLE");
         m_ContactInteractables.Remove(other.gameObject.GetComponent<Interactable>());
     }
 
