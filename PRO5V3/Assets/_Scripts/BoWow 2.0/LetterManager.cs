@@ -7,6 +7,8 @@ public class LetterManager : MonoBehaviour
     public GameObject[] letters;
     float radius = 5f;
 
+    public string[] sentences;
+
     [SerializeField]
     Transform lookPoint = null;
 

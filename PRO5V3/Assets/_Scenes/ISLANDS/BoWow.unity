@@ -864,6 +864,12 @@ MonoBehaviour:
   - {fileID: 5913691396878325631, guid: 95fb0c86e151aef41b7c9140e72031d3, type: 3}
   - {fileID: 1673399821939116994, guid: 8f9dce6ac06310a438172728a106b348, type: 3}
   - {fileID: 33916621507362374, guid: bf6fde51eb1600f4b9b4d6bed008024f, type: 3}
+  sentences:
+  - Mijn vriend en ik vervelen ons, ... gaan wij buitenspelen
+  - Ik moet naar bed, ... ik ben nog niet moe
+  - Ik moet na school huiswerk maken, ... ik wil geen straf
+  - Als ik groot ben wil ik trouwen, ... ik wil gaan reizen
+  - Ik kom straks naar buiten, ... na het eten
   lookPoint: {fileID: 1521916216}
 --- !u!1001 &1889172002
 PrefabInstance:
