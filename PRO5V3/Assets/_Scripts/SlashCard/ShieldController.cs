@@ -39,11 +39,11 @@ public class ShieldController : MonoBehaviour
         pointer.SetPosition(0, transform.position);
         pointer.SetPosition(1, pointerEnd.transform.position);
 
-        if (currentProjectile != null && fired == false)
+        if (currentProjectile != null && fired == false && tMan.score < 5)
         {
             currentProjectile.transform.position = this.transform.GetChild(0).transform.position;
         }
-        else if (currentProjectile != null && fired == true)
+        else if (currentProjectile != null && fired == true && tMan.score < 5)
         {
             float shot = speed * Time.deltaTime;
             currentProjectile.transform.position = Vector3.MoveTowards(currentProjectile.transform.position, shootingPoint.transform.position, shot);

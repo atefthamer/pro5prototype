@@ -42,6 +42,7 @@ public class TargetManager : MonoBehaviour
     public ShieldController shield;
     public SlashcardSFX SFX;
     public GameObject spawnPoint;
+    public GameObject ladder;
 
     private float xValue;
     private float yValue;
@@ -142,7 +143,7 @@ public class TargetManager : MonoBehaviour
                 firstTarget.transform.position = Vector3.MoveTowards(firstTarget.transform.position, lookPoint.transform.position, shot);
                 secondTarget.transform.position = Vector3.MoveTowards(secondTarget.transform.position, lookPoint.transform.position, shot);
 
-                if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 1.0f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 1.0f))
+                if (Vector3.Distance(firstTarget.transform.position, lookPoint.transform.position) < 0.1f && (Vector3.Distance(secondTarget.transform.position, lookPoint.transform.position) < 0.1f))
                 {
                     GameObject obj = null;
                     firstTarget.gameObject.SetActive(false);
@@ -242,6 +243,11 @@ public class TargetManager : MonoBehaviour
             secondTarget = null;
             targetsHit = false;
             targetDestroyed = false;
+        }
+
+        if (score == 5)
+        {
+            ladder.gameObject.SetActive(true);
         }
     }
 }

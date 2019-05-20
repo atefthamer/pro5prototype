@@ -1,19 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Valve.VR;
 
-public class IslandSwitcher : MonoBehaviour
+public class LadderManager : MonoBehaviour
 {
-    public string sceneName;
     public GameObject player;
-    public ZeppelinSpawner zSpawn;
     private bool destroy = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Zeppelin"))
+        if (other.gameObject.CompareTag("Interactable"))
         {
             Debug.Log("Collision Detected");
             SwitchScene();
@@ -28,8 +25,7 @@ public class IslandSwitcher : MonoBehaviour
         if (destroy == true)
         {
             destroy = false;
-            zSpawn.lastScene = sceneName;
-            SteamVR_LoadLevel.Begin(sceneName, false, 1.0f, 255, 255, 255, 1);
+            SteamVR_LoadLevel.Begin("Zeppelin", false, 1.0f, 255, 255, 255, 1);
         }
     }
 }

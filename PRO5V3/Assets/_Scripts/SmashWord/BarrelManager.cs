@@ -8,6 +8,8 @@ public class BarrelManager : MonoBehaviour
     public GameObject[] barrelGroup2;
     public GameObject[] barrelGroup3;
 
+    public GameObject ladder;
+
     private List<GameObject> destroyList = new List<GameObject>();
 
     private float firstTimer = 0.0f;
@@ -139,6 +141,8 @@ public class BarrelManager : MonoBehaviour
                 Destroy(go);
                 //destroyList.Clear();
             }
+
+            ladder.gameObject.SetActive(true);
         }
     }
 }
