@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bMan: {fileID: 0}
-  answer: {fileID: 8300000, guid: e5f2048f4b922e6419a03b178502cb63, type: 3}
+  answer: {fileID: 8300000, guid: bbbf688cdd7e89946864dab7ccc0b761, type: 3}
 --- !u!64 &813882425363217232
 MeshCollider:
   m_ObjectHideFlags: 0
