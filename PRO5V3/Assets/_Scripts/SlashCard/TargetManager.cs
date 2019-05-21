@@ -42,7 +42,7 @@ public class TargetManager : MonoBehaviour
     public ShieldController shield;
     public SlashcardSFX SFX;
     public GameObject spawnPoint;
-    public GameObject ladder;
+    //public GameObject ladder;
 
     private float xValue;
     private float yValue;
@@ -89,6 +89,8 @@ public class TargetManager : MonoBehaviour
                 Debug.Log("LOOP: " + i);
                 Debug.Log("COUNT: " + spawnList.Count);
                 GameObject instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                // Makes it so the cards are already turned
+                instance.gameObject.transform.Rotate(0, 180, 0);
                 zValue += 1.5f;
                 instance.name = instance.name.Replace("(Clone)", "").Trim();
                 instance.gameObject.GetComponent<TargetController>().tMan = this;
@@ -110,6 +112,8 @@ public class TargetManager : MonoBehaviour
                         Debug.Log("LOOP: " + j);
                         Debug.Log("COUNT: " + spawnList.Count);
                         instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                        // Makes it so the cards are already turned     
+                        instance.gameObject.transform.Rotate(0, 180, 0);
                         zValue += 1.5f;
                         instance.name = instance.name.Replace("(Clone)", "").Trim();
                         instance.gameObject.GetComponent<TargetController>().tMan = this;
@@ -247,7 +251,7 @@ public class TargetManager : MonoBehaviour
 
         if (score == 5)
         {
-            ladder.gameObject.SetActive(true);
+            //ladder.gameObject.SetActive(true);
         }
     }
 }
