@@ -90,7 +90,7 @@ public class TargetManager : MonoBehaviour
                 Debug.Log("COUNT: " + spawnList.Count);
                 GameObject instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
                 // Makes it so the cards are already turned
-                instance.gameObject.transform.Rotate(0, 180, 0);
+                //instance.gameObject.transform.Rotate(0, 180, 0);
                 zValue += 1.5f;
                 instance.name = instance.name.Replace("(Clone)", "").Trim();
                 instance.gameObject.GetComponent<TargetController>().tMan = this;
@@ -113,7 +113,7 @@ public class TargetManager : MonoBehaviour
                         Debug.Log("COUNT: " + spawnList.Count);
                         instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
                         // Makes it so the cards are already turned     
-                        instance.gameObject.transform.Rotate(0, 180, 0);
+                        //instance.gameObject.transform.Rotate(0, 180, 0);
                         zValue += 1.5f;
                         instance.name = instance.name.Replace("(Clone)", "").Trim();
                         instance.gameObject.GetComponent<TargetController>().tMan = this;

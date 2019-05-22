@@ -28,7 +28,7 @@ public class TargetController : MonoBehaviour
             tMan.firstTarget = this.gameObject;
             Debug.Log("FIRST TARGET = " + tMan.firstTarget);
             // Makes it so cards turn to player after hit
-            //this.gameObject.transform.Rotate(0, 180, 0);
+            this.gameObject.transform.Rotate(0, 180, 0);
             Destroy(other.gameObject);
             sCon.currentProjectile = null;
             sCon.fired = false;
@@ -43,7 +43,7 @@ public class TargetController : MonoBehaviour
             sCon.currentProjectile = null;
             sCon.fired = false;
             // Makes it so cards turn to player after hit
-            //this.gameObject.transform.Rotate(0, 180, 0);
+            this.gameObject.transform.Rotate(0, 180, 0);
         }
     }
 }
