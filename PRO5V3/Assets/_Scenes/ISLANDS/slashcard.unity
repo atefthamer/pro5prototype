@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2270d96d9a5284e40845cf556aed75d6, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.5122083, g: 0.6305541, b: 0.7072403, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1221,11 +1221,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2312680534691054147, guid: 83035ae75ae44b94cac4c16222486f3e,
-        type: 3}
-      propertyPath: m_Name
-      value: Mountains
-      objectReference: {fileID: 0}
     - target: {fileID: 2312680534691054144, guid: 83035ae75ae44b94cac4c16222486f3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1281,6 +1276,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2312680534691054147, guid: 83035ae75ae44b94cac4c16222486f3e,
+        type: 3}
+      propertyPath: m_Name
+      value: Mountains
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83035ae75ae44b94cac4c16222486f3e, type: 3}
 --- !u!1001 &2917892160197711324
@@ -1290,11 +1290,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2917892160129452657, guid: 641fc0556dea03c47a523a091da05acb,
-        type: 3}
-      propertyPath: m_Name
-      value: FlyingIsland
-      objectReference: {fileID: 0}
     - target: {fileID: 2917892160129452658, guid: 641fc0556dea03c47a523a091da05acb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1350,6 +1345,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2917892160129452657, guid: 641fc0556dea03c47a523a091da05acb,
+        type: 3}
+      propertyPath: m_Name
+      value: FlyingIsland
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 641fc0556dea03c47a523a091da05acb, type: 3}
 --- !u!1001 &4524928336022551189
@@ -1359,11 +1359,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4524928335253373677, guid: af413d701c8a9824ca5d05df158901c6,
-        type: 3}
-      propertyPath: m_Name
-      value: Trees
-      objectReference: {fileID: 0}
     - target: {fileID: 4524928335253373676, guid: af413d701c8a9824ca5d05df158901c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1419,6 +1414,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4524928335253373677, guid: af413d701c8a9824ca5d05df158901c6,
+        type: 3}
+      propertyPath: m_Name
+      value: Trees
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af413d701c8a9824ca5d05df158901c6, type: 3}
 --- !u!4 &4524928336022551190 stripped
@@ -1434,11 +1434,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7732782169903063559, guid: 2ae6b56b99331c147a331f65eafc54a9,
-        type: 3}
-      propertyPath: m_Name
-      value: Objects
-      objectReference: {fileID: 0}
     - target: {fileID: 1684109301238802484, guid: 2ae6b56b99331c147a331f65eafc54a9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1493,6 +1488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7732782169903063559, guid: 2ae6b56b99331c147a331f65eafc54a9,
+        type: 3}
+      propertyPath: m_Name
+      value: Objects
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ae6b56b99331c147a331f65eafc54a9, type: 3}
