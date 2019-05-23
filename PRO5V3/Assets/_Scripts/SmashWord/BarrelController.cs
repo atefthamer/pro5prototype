@@ -20,7 +20,7 @@ public class BarrelController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 1")
         {
-            StartCoroutine(rcontrol.RabbitTalkSequence());
+            StartCoroutine(rcontrol.RabbitTalkSequence1());
         }
 
         if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 3" ||
@@ -32,7 +32,7 @@ public class BarrelController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 4")
         {
-
+            StartCoroutine(rcontrol.RabbitTalkSequence2());
         }
 
         if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 6" ||
@@ -44,7 +44,7 @@ public class BarrelController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 7")
         {
-
+            StartCoroutine(rcontrol.RabbitTalkSequence3());
         }
     }
 }
