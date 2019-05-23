@@ -194,6 +194,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 898732d4429387440af0c750090e414a, type: 3}
+      propertyPath: m_Name
+      value: bowowuserplatform
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 898732d4429387440af0c750090e414a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -249,10 +253,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 898732d4429387440af0c750090e414a, type: 3}
       propertyPath: m_LocalScale.z
       value: -198.42067
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 898732d4429387440af0c750090e414a, type: 3}
-      propertyPath: m_Name
-      value: bowowuserplatform
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 898732d4429387440af0c750090e414a, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1048,15 +1048,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cf14ea54b85be8444bce5a1da65bf496, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7484055
+      value: -3.6077
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cf14ea54b85be8444bce5a1da65bf496, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.146397
+      value: -8.8125
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cf14ea54b85be8444bce5a1da65bf496, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0750833
+      value: 1.0223
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cf14ea54b85be8444bce5a1da65bf496, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1092,15 +1092,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cf14ea54b85be8444bce5a1da65bf496, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1316.6508
+      value: 1263.9847
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cf14ea54b85be8444bce5a1da65bf496, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1316.6508
+      value: 1263.9847
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cf14ea54b85be8444bce5a1da65bf496, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1316.6508
+      value: 1263.9847
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: cf14ea54b85be8444bce5a1da65bf496, type: 3}
       propertyPath: m_Materials.Array.data[0]
