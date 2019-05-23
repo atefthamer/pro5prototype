@@ -20,7 +20,7 @@ public class BarrelController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 1")
         {
-            rcontrol.PlayAnimation();
+            StartCoroutine(rcontrol.RabbitTalkSequence());
         }
 
         if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 3" ||
