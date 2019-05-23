@@ -29,7 +29,7 @@ public class IslandSwitcher : MonoBehaviour
         {
             destroy = false;
             zSpawn.lastScene = sceneName;
-            SteamVR_LoadLevel.Begin(sceneName, false, 1.0f, 255, 255, 255, 1);
+            SteamVR_LoadLevel.Begin(sceneName, false, 0.5f, 255, 255, 255, 1);
         }
     }
 }
