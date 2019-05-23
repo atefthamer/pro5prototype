@@ -42,6 +42,7 @@ public class TargetManager : MonoBehaviour
     public ShieldController shield;
     public SlashcardSFX SFX;
     public GameObject spawnPoint;
+    //public GameObject ladder;
 
     private float xValue;
     private float yValue;
@@ -61,64 +62,69 @@ public class TargetManager : MonoBehaviour
 
         // CODE FOR CARDS IN CIRCLE
 
-        for (int i = 0; i < 10; i++)
-        {
-            int randomIndex = Random.Range(0, spawnList.Count);
-            Debug.Log("INDEX: " + randomIndex);
-            Debug.Log("LOOP: " + i);
-            Debug.Log("COUNT: " + spawnList.Count);
-            float angle = i * Mathf.PI * 2f / 10;
-            Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
-            GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
-            instance.name = instance.name.Replace("(Clone)", "").Trim();
-            instance.gameObject.GetComponent<TargetController>().tMan = this;
-            instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
-            instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
-            Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
-            spawnList.RemoveAt(randomIndex);
-        }
+        //for (int i = 0; i < 10; i++)
+            //{
+            //    int randomIndex = Random.Range(0, spawnList.Count);
+            //    Debug.Log("INDEX: " + randomIndex);
+            //    Debug.Log("LOOP: " + i);
+            //    Debug.Log("COUNT: " + spawnList.Count);
+            //    float angle = i * Mathf.PI * 2f / 10;
+            //    Vector3 newPos = new Vector3(Mathf.Cos(angle) * radius, 1.0f, Mathf.Sin(angle) * radius);
+            //    GameObject instance = Instantiate(spawnList[randomIndex], newPos, Quaternion.identity);
+            //    instance.name = instance.name.Replace("(Clone)", "").Trim();
+            //    instance.gameObject.GetComponent<TargetController>().tMan = this;
+            //    instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+            //    instance.gameObject.GetComponent<TargetController>().sCon = shield;
+            //    instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+            //    Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
+            //    spawnList.RemoveAt(randomIndex);
+            //}
 
-        // CODE FOR CARDS IN ROWS
+            // CODE FOR CARDS IN ROWS
 
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    int randomIndex = Random.Range(0, spawnList.Count);
-        //    Debug.Log("INDEX: " + randomIndex);
-        //    Debug.Log("LOOP: " + i);
-        //    Debug.Log("COUNT: " + spawnList.Count);
-        //    GameObject instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-        //    zValue += 1.5f;
-        //    instance.name = instance.name.Replace("(Clone)", "").Trim();
-        //    instance.gameObject.GetComponent<TargetController>().tMan = this;
-        //    instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
-        //    instance.gameObject.GetComponent<TargetController>().sCon = shield;
-        //    //instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
-        //    Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
-        //    spawnList.RemoveAt(randomIndex);
+            for (int i = 0; i < 5; i++)
+            {
+                int randomIndex = Random.Range(0, spawnList.Count);
+                Debug.Log("INDEX: " + randomIndex);
+                Debug.Log("LOOP: " + i);
+                Debug.Log("COUNT: " + spawnList.Count);
+                GameObject instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                // Makes it so the cards are already turned
+                //instance.gameObject.transform.Rotate(0, 180, 0);
+                zValue += 1.5f;
+                instance.name = instance.name.Replace("(Clone)", "").Trim();
+                instance.gameObject.GetComponent<TargetController>().tMan = this;
+                instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+                instance.gameObject.GetComponent<TargetController>().sCon = shield;
+                //instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+                Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
+                spawnList.RemoveAt(randomIndex);
 
-        //    if (i == 4)
-        //    {
-        //        yValue += 2.0f;
-        //        zValue = spawnPoint.transform.position.z;
+                if (i == 4)
+                {
+                    yValue += 2.0f;
+                    zValue = spawnPoint.transform.position.z;
 
-        //        for (int j = 0; j < 5; j++)
-        //        {
-        //            randomIndex = Random.Range(0, spawnList.Count);
-        //            Debug.Log("INDEX: " + randomIndex);
-        //            Debug.Log("LOOP: " + j);
-        //            Debug.Log("COUNT: " + spawnList.Count);
-        //            instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-        //            zValue += 1.5f;
-        //            instance.name = instance.name.Replace("(Clone)", "").Trim();
-        //            instance.gameObject.GetComponent<TargetController>().tMan = this;
-        //            instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
-        //            instance.gameObject.GetComponent<TargetController>().sCon = shield;
-        //            //instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
-        //            Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
-        //            spawnList.RemoveAt(randomIndex);
-        //        }
-        //    }
-        //}
+                    for (int j = 0; j < 5; j++)
+                    {
+                        randomIndex = Random.Range(0, spawnList.Count);
+                        Debug.Log("INDEX: " + randomIndex);
+                        Debug.Log("LOOP: " + j);
+                        Debug.Log("COUNT: " + spawnList.Count);
+                        instance = Instantiate(spawnList[randomIndex], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                        // Makes it so the cards are already turned     
+                        //instance.gameObject.transform.Rotate(0, 180, 0);
+                        zValue += 1.5f;
+                        instance.name = instance.name.Replace("(Clone)", "").Trim();
+                        instance.gameObject.GetComponent<TargetController>().tMan = this;
+                        instance.gameObject.GetComponent<TargetController>().lMan = launcherManager;
+                        instance.gameObject.GetComponent<TargetController>().sCon = shield;
+                        //instance.gameObject.GetComponent<TargetController>().lookPoint = lookPoint;
+                        Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
+                        spawnList.RemoveAt(randomIndex);
+                    }
+                }
+            }
     }
 
     void Update()
@@ -241,6 +247,11 @@ public class TargetManager : MonoBehaviour
             secondTarget = null;
             targetsHit = false;
             targetDestroyed = false;
+        }
+
+        if (score == 5)
+        {
+            //ladder.gameObject.SetActive(true);
         }
     }
 }

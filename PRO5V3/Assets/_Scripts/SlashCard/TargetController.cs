@@ -12,14 +12,14 @@ public class TargetController : MonoBehaviour
     public ShieldController sCon;
 
     // CODE FOR CARDS IN CIRCLE
-    [HideInInspector]
-    public Transform lookPoint = null;
+    //[HideInInspector]
+    //public Transform lookPoint = null;
 
-    private void Start()
-    {
-        transform.LookAt(lookPoint);
-        transform.Rotate(new Vector3(0, -270, 0));
-    }
+    //private void Start()
+    //{
+    //    transform.LookAt(lookPoint);
+    //    transform.Rotate(new Vector3(0, 180, 0));
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +27,7 @@ public class TargetController : MonoBehaviour
         {
             tMan.firstTarget = this.gameObject;
             Debug.Log("FIRST TARGET = " + tMan.firstTarget);
+            // Makes it so cards turn to player after hit
             this.gameObject.transform.Rotate(0, 180, 0);
             Destroy(other.gameObject);
             sCon.currentProjectile = null;
@@ -41,23 +42,8 @@ public class TargetController : MonoBehaviour
             Destroy(other.gameObject);
             sCon.currentProjectile = null;
             sCon.fired = false;
+            // Makes it so cards turn to player after hit
             this.gameObject.transform.Rotate(0, 180, 0);
         }
-
-        //if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.firstTarget && tMan.targetHittable == true)
-        //{
-        //    tMan.firstHit = true;
-        //    Destroy(this.gameObject);
-        //    tMan.targetsHit = false;
-        //    //tMan.firstTarget = null;
-        //}
-
-        //if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.secondTarget && tMan.targetHittable == true)
-        //{
-        //    tMan.secondHit = true;
-        //    Destroy(this.gameObject);
-        //    tMan.targetsHit = false;
-        //    //tMan.secondTarget = null;
-        //}
     }
 }
