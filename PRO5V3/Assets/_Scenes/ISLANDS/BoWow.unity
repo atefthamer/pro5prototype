@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 83bafccde1ed60c4b9797fe8d1d971f3, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 65d3da4941f6640f5affd14afc45ebc2, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.064063795, g: 0.05777761, b: 0.056733206, a: 1}
+  m_IndirectSpecularColor: {r: 0.0108109545, g: 0.032221608, b: 0.08752543, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -194,10 +194,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 100000, guid: 898732d4429387440af0c750090e414a, type: 3}
-      propertyPath: m_Name
-      value: bowowuserplatform
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 898732d4429387440af0c750090e414a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -253,6 +249,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 898732d4429387440af0c750090e414a, type: 3}
       propertyPath: m_LocalScale.z
       value: -198.42067
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 898732d4429387440af0c750090e414a, type: 3}
+      propertyPath: m_Name
+      value: bowowuserplatform
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 898732d4429387440af0c750090e414a, type: 3}
       propertyPath: m_Materials.Array.data[0]
