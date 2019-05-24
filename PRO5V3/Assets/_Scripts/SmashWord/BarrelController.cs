@@ -61,8 +61,6 @@ public class BarrelController : MonoBehaviour
         {
             bMan.barrelHit = true;
             StartCoroutine(rcontrol.RabbitTalkSequence2());
-            this.gameObject.GetComponent<MeshCollider>().enabled = false;
-            Debug.Log("SECOND BARREL GROUP HIT");
         }
 
         if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 6" ||
@@ -84,8 +82,10 @@ public class BarrelController : MonoBehaviour
         {
             bMan.barrelHit = true;
             StartCoroutine(rcontrol.RabbitTalkSequence3());
-            this.gameObject.GetComponent<MeshCollider>().enabled = false;
-            Debug.Log("THIRD BARREL GROUP HIT");
         }
     }
 }
+            this.gameObject.GetComponent<MeshCollider>().enabled = false;
+            Debug.Log("SECOND BARREL GROUP HIT");
+            this.gameObject.GetComponent<MeshCollider>().enabled = false;
+            Debug.Log("THIRD BARREL GROUP HIT");
