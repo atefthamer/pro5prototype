@@ -89,6 +89,7 @@ public class BarrelManager : MonoBehaviour
                     xValue -= 0.8f;
                     obj.name = obj.name.Replace("(Clone)", "").Trim();
                     obj.gameObject.GetComponent<BarrelController>().bMan = this;
+                    obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
                     obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
                     destroyList.Add(obj);
 
@@ -125,6 +126,7 @@ public class BarrelManager : MonoBehaviour
                     xValue -= 0.8f;
                     obj.name = obj.name.Replace("(Clone)", "").Trim();
                     obj.gameObject.GetComponent<BarrelController>().bMan = this;
+                    obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
                     obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
                     destroyList.Add(obj);
 
