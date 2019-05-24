@@ -84,8 +84,4 @@ public class BarrelController : MonoBehaviour
             StartCoroutine(rcontrol.RabbitTalkSequence3());
         }
     }
-}
-            this.gameObject.GetComponent<MeshCollider>().enabled = false;
-            Debug.Log("SECOND BARREL GROUP HIT");
-            this.gameObject.GetComponent<MeshCollider>().enabled = false;
-            Debug.Log("THIRD BARREL GROUP HIT");
+}
