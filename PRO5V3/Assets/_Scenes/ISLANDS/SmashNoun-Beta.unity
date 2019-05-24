@@ -1819,7 +1819,7 @@ PrefabInstance:
     - target: {fileID: 4542906600888551349, guid: 0391a70420b94954288d869f04750240,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4542906600888551349, guid: 0391a70420b94954288d869f04750240,
         type: 3}
@@ -2515,7 +2515,7 @@ PrefabInstance:
     - target: {fileID: 371055072090324221, guid: 4488f33774b16984784c604a02e259d8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 371055072090324221, guid: 4488f33774b16984784c604a02e259d8,
         type: 3}
@@ -4765,7 +4765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6766,7 +6766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6974,6 +6974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ZeppelinWithLadder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334079059460378711, guid: f634a51d1627d114f84becd756a3e0b9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5358219397344290968, guid: f634a51d1627d114f84becd756a3e0b9,
         type: 3}
