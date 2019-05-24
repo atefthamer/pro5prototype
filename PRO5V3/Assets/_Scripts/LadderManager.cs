@@ -21,7 +21,6 @@ public class LadderManager : MonoBehaviour
             if (Vector3.Distance(player.transform.position, ladderTop.transform.position) < 1.0f)
             {
                 SwitchScene();
-
             }
         } 
     }
