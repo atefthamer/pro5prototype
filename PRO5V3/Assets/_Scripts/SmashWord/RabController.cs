@@ -10,6 +10,7 @@ public class RabController : MonoBehaviour
     private bool animationPlaying = false;
 
     public GameObject rabbit;
+    public BarrelManager bMan;
 
     public List<AudioClip> rabbitClips = new List<AudioClip>();
 
@@ -28,13 +29,14 @@ public class RabController : MonoBehaviour
         rab.Play("Talking");
         anim.Play("ani_idle_bunny");
         yield return new WaitForSeconds(9.805f);
-        //rab.Play("Idle");
-        //yield return new WaitForSeconds(1.0f);
         anim.Play("Ani_down_bunny");
         rab.Play("Jumping Down");
         yield return new WaitForSeconds(2.933f);
         rab.Play("Idle");
         anim.Play("EmptyState");
+        bMan.barrelHit = false;
+        bMan.firstGroupHit = true;
+        bMan.PlayQuestion(2);
     }
 
     public IEnumerator RabbitTalkSequence2()
@@ -46,13 +48,14 @@ public class RabController : MonoBehaviour
         rab.Play("Talking");
         anim.Play("ani_idle_bunny");
         yield return new WaitForSeconds(20.095f);
-        //rab.Play("Idle");
-        //yield return new WaitForSeconds(1.0f);
         anim.Play("Ani_down_bunny");
         rab.Play("Jumping Down");
         yield return new WaitForSeconds(2.933f);
         rab.Play("Idle");
         anim.Play("EmptyState");
+        bMan.barrelHit = false;
+        bMan.secondGroupHit = true;
+        StartCoroutine(bMan.QuestionNumerator(5));
     }
 
     public IEnumerator RabbitTalkSequence3()
@@ -64,12 +67,13 @@ public class RabController : MonoBehaviour
         rab.Play("Talking");
         anim.Play("ani_idle_bunny");
         yield return new WaitForSeconds(11.001f);
-        //rab.Play("Idle");
-        //yield return new WaitForSeconds(1.0f);
         anim.Play("Ani_down_bunny");
         rab.Play("Jumping Down");
         yield return new WaitForSeconds(2.933f);
         rab.Play("Idle");
         anim.Play("EmptyState");
+        bMan.barrelHit = false;
+        bMan.thirdGroupHit = true;
+        bMan.PlayQuestion(9);
     }
 }

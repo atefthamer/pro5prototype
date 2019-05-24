@@ -21,12 +21,17 @@ public class BarrelManager : MonoBehaviour
     private float yValue;
     private float zValue;
 
-    public AudioClip firstQuestion;
-    public AudioClip secondQuestion;
-    public AudioClip thirdQuestion;
+    [HideInInspector]
+    public bool barrelHit;
 
-    private bool playSecondQuestion;
-    private bool playThirdQuestion;
+    //public AudioClip firstQuestion;
+    //public AudioClip secondQuestion;
+    //public AudioClip thirdQuestion;
+
+    public List<AudioClip> foxQuestions = new List<AudioClip>();
+
+    //private bool playSecondQuestion;
+    //private bool playThirdQuestion;
 
     [HideInInspector]
     public bool firstGroupHit = false;
@@ -37,10 +42,12 @@ public class BarrelManager : MonoBehaviour
 
     void Start()
     {
-        this.gameObject.GetComponent<AudioSource>().PlayOneShot(firstQuestion);
+        //this.gameObject.GetComponent<AudioSource>().PlayOneShot(firstQuestion);
 
-        playSecondQuestion = true;
-        playThirdQuestion = true;
+        //playSecondQuestion = true;
+        //playThirdQuestion = true;
+
+        barrelHit = false;
 
         xValue = this.gameObject.transform.position.x;
         yValue = this.gameObject.transform.position.y;
@@ -77,11 +84,11 @@ public class BarrelManager : MonoBehaviour
 
             if (firstTimer >= 1.0f)
             {
-                if (playSecondQuestion == true)
-                {
-                    this.gameObject.GetComponent<AudioSource>().PlayOneShot(secondQuestion);
-                    playSecondQuestion = false;
-                }
+                //if (playSecondQuestion == true)
+                //{
+                //    this.gameObject.GetComponent<AudioSource>().PlayOneShot(secondQuestion);
+                //    playSecondQuestion = false;
+                //}
 
                 for (int j = 0; j < 3; j++)
                 {
@@ -114,11 +121,11 @@ public class BarrelManager : MonoBehaviour
 
             if (secondTimer >= 1.0f)
             {
-                if (playThirdQuestion == true)
-                {
-                    this.gameObject.GetComponent<AudioSource>().PlayOneShot(thirdQuestion);
-                    playThirdQuestion = false;
-                }
+                //if (playThirdQuestion == true)
+                //{
+                //    this.gameObject.GetComponent<AudioSource>().PlayOneShot(thirdQuestion);
+                //    playThirdQuestion = false;
+                //}
 
                 for (int k = 0; k < 3; k++)
                 {
@@ -149,5 +156,17 @@ public class BarrelManager : MonoBehaviour
 
             ladder.gameObject.SetActive(true);
         }
+    }
+
+    public void PlayQuestion(int index)
+    {
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+    }
+
+    public IEnumerator QuestionNumerator(int index)
+    {
+        PlayQuestion(index);
+        yield return new WaitForSeconds(7.0f);
+        PlayQuestion(7);
     }
 }

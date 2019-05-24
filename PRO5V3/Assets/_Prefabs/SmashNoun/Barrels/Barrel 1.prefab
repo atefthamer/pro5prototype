@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba80239a2adb9d74987518c2dac70f33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answer: {fileID: 8300000, guid: e5f2048f4b922e6419a03b178502cb63, type: 3}
+  answer: {fileID: 8300000, guid: 4caec97eb193daf4888dcd3e4df91401, type: 3}
 --- !u!1 &6690419444243797470
 GameObject:
   m_ObjectHideFlags: 0
