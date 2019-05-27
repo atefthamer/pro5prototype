@@ -563,9 +563,9 @@ MonoBehaviour:
   rabbit: {fileID: 149275529}
   bMan: {fileID: 1442996176}
   rabbitClips:
-  - {fileID: 8300000, guid: 1f4cd3c234d5afc4a9d6364084b9ec72, type: 3}
-  - {fileID: 8300000, guid: 19f092de8cb7c7a4a8b1cdecdb1a3151, type: 3}
-  - {fileID: 8300000, guid: d958b0f710085c7429eb2fc3a914e89c, type: 3}
+  - {fileID: 8300000, guid: 98ee52bc1c3d7f64a942495ba75d753b, type: 3}
+  - {fileID: 8300000, guid: 069f62560ec37fd4c83523e8bc2f5a3a, type: 3}
+  - {fileID: 8300000, guid: 63002665469c78b45a55cae8f1ecb8a1, type: 3}
 --- !u!82 &98876344
 AudioSource:
   m_ObjectHideFlags: 0
