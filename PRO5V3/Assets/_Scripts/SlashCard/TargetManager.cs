@@ -42,7 +42,7 @@ public class TargetManager : MonoBehaviour
     public ShieldController shield;
     public SlashcardSFX SFX;
     public GameObject spawnPoint;
-    //public GameObject ladder;
+    public GameObject ladder;
 
     private float xValue;
     private float yValue;
@@ -251,7 +251,7 @@ public class TargetManager : MonoBehaviour
 
         if (score == 5)
         {
-            //ladder.gameObject.SetActive(true);
+            ladder.gameObject.SetActive(true);
         }
     }
 }
