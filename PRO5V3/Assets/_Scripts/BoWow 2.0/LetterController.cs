@@ -8,6 +8,8 @@ public class LetterController : MonoBehaviour
     public Transform lookPoint = null;
     [HideInInspector]
     public LetterManager lMan;
+    [HideInInspector]
+    public GameObject hitParticle;
 
     void Update()
     {
@@ -26,7 +28,8 @@ public class LetterController : MonoBehaviour
             other.gameObject.CompareTag("projectile") && this.gameObject.name == "Of" && lMan.sentence.text == "Ik kom straks naar buiten, ... na het avond eten")
         {
             if (lMan.score < 5)
-            {
+            {               
+                Explode(other.gameObject);
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);
                 lMan.sentenceList.RemoveAt(lMan.randomSentence);
@@ -34,5 +37,18 @@ public class LetterController : MonoBehaviour
                 lMan.NextSentence();
             }
         }
+        else
+        {
+            lMan.IncorrectSound();
+        }
+    }
+
+    private void Explode(GameObject arrow)
+    {
+        lMan.CorrectSound();
+        GameObject explode = Instantiate(hitParticle, arrow.transform.position, Quaternion.identity);
+        explode.GetComponent<ParticleController>().targetCamera = (Transform)lookPoint;
+        hitParticle.GetComponent<ParticleSystem>().Play();
+        Destroy(explode, 2.0f);
     }
 }
