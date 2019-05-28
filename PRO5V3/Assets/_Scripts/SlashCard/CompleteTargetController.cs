@@ -16,16 +16,10 @@ public class CompleteTargetController : MonoBehaviour
             tMan.targetDestroyed = true;
             Destroy(this.gameObject);
             tMan.targetsHit = false;
-            lMan.NextLauncher();
-            //tMan.firstTarget = null;
+            if (tMan.score < 5)
+            {
+                lMan.NextLauncher();
+            }
         }
-
-        //if (other.gameObject.CompareTag("Interactable") && this.gameObject == tMan.secondTarget && tMan.targetHittable == true)
-        //{
-        //    tMan.secondHit = true;
-        //    Destroy(this.gameObject);
-        //    tMan.targetsHit = false;
-        //    //tMan.secondTarget = null;
-        //}
     }
 }
