@@ -137,23 +137,27 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102493314494082734}
-    m_Position: {x: -312, y: 48, z: 0}
+    m_Position: {x: -312, y: -108, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102875132912649604}
-    m_Position: {x: 120, y: -36, z: 0}
+    m_Position: {x: -84, y: -168, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102340744687496274}
+<<<<<<< Updated upstream
     m_Position: {x: -96, y: 48, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102708099977100384}
     m_Position: {x: -528, y: 48, z: 0}
+=======
+    m_Position: {x: -96, y: -108, z: 0}
+>>>>>>> Stashed changes
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 0, y: -120, z: 0}
-  m_EntryPosition: {x: -144, y: -36, z: 0}
-  m_ExitPosition: {x: 132, y: 60, z: 0}
+  m_AnyStatePosition: {x: -180, y: -240, z: 0}
+  m_EntryPosition: {x: -324, y: -156, z: 0}
+  m_ExitPosition: {x: -192, y: -48, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102875132912649604}
