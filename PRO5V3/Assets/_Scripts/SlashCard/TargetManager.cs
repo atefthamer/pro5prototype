@@ -42,7 +42,7 @@ public class TargetManager : MonoBehaviour
     public ShieldController shield;
     public SlashcardSFX SFX;
     public GameObject spawnPoint;
-    //public GameObject ladder;
+    public GameObject ladder;
 
     private float xValue;
     private float yValue;
@@ -160,6 +160,7 @@ public class TargetManager : MonoBehaviour
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
                         obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
+                        obj.gameObject.GetComponent<AudioSource>().Play();
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -171,6 +172,7 @@ public class TargetManager : MonoBehaviour
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
                         obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
+                        obj.gameObject.GetComponent<AudioSource>().Play();
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -182,6 +184,7 @@ public class TargetManager : MonoBehaviour
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
                         obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
+                        obj.gameObject.GetComponent<AudioSource>().Play();
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -193,6 +196,7 @@ public class TargetManager : MonoBehaviour
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
                         obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
+                        obj.gameObject.GetComponent<AudioSource>().Play();
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -204,6 +208,7 @@ public class TargetManager : MonoBehaviour
                         obj.transform.Rotate(0, 180, 0);
                         obj.gameObject.GetComponent<CompleteTargetController>().tMan = this;
                         obj.gameObject.GetComponent<CompleteTargetController>().lMan = launcherManager;
+                        obj.gameObject.GetComponent<AudioSource>().Play();
                         Destroy(firstTarget);
                         Destroy(secondTarget);
                         targetsHit = false;
@@ -251,7 +256,7 @@ public class TargetManager : MonoBehaviour
 
         if (score == 5)
         {
-            //ladder.gameObject.SetActive(true);
+            ladder.gameObject.SetActive(true);
         }
     }
 }

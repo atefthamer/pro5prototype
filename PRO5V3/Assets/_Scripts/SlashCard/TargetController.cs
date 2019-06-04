@@ -25,6 +25,7 @@ public class TargetController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("projectile") && tMan.firstTarget == null)
         {
+            this.gameObject.GetComponent<AudioSource>().Play();
             tMan.firstTarget = this.gameObject;
             Debug.Log("FIRST TARGET = " + tMan.firstTarget);
             // Makes it so cards turn to player after hit
@@ -36,6 +37,7 @@ public class TargetController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("projectile") && tMan.firstTarget != null && this.gameObject != tMan.firstTarget)
         {
+            this.gameObject.GetComponent<AudioSource>().Play();
             tMan.secondTarget = this.gameObject;
             Debug.Log("SECOND TARGET = " + tMan.secondTarget);
             tMan.targetsHit = true;

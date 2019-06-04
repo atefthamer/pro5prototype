@@ -24,14 +24,7 @@ public class BarrelManager : MonoBehaviour
     [HideInInspector]
     public bool barrelHit;
 
-    //public AudioClip firstQuestion;
-    //public AudioClip secondQuestion;
-    //public AudioClip thirdQuestion;
-
     public List<AudioClip> foxQuestions = new List<AudioClip>();
-
-    //private bool playSecondQuestion;
-    //private bool playThirdQuestion;
 
     [HideInInspector]
     public bool firstGroupHit = false;
@@ -42,11 +35,6 @@ public class BarrelManager : MonoBehaviour
 
     void Start()
     {
-        //this.gameObject.GetComponent<AudioSource>().PlayOneShot(firstQuestion);
-
-        //playSecondQuestion = true;
-        //playThirdQuestion = true;
-
         barrelHit = false;
 
         xValue = this.gameObject.transform.position.x;
@@ -77,19 +65,12 @@ public class BarrelManager : MonoBehaviour
             foreach (GameObject go in destroyList)
             {
                 Destroy(go);
-                //destroyList.Clear();
             }
 
             firstTimer += Time.deltaTime;
 
             if (firstTimer >= 1.0f)
             {
-                //if (playSecondQuestion == true)
-                //{
-                //    this.gameObject.GetComponent<AudioSource>().PlayOneShot(secondQuestion);
-                //    playSecondQuestion = false;
-                //}
-
                 for (int j = 0; j < 3; j++)
                 {
                     GameObject obj = Instantiate(barrelGroup2[j], new Vector3(xValue, yValue, zValue), Quaternion.identity);
@@ -114,19 +95,12 @@ public class BarrelManager : MonoBehaviour
             foreach (GameObject go in destroyList)
             {
                 Destroy(go);
-                //destroyList.Clear();
             }
 
             secondTimer += Time.deltaTime;
 
             if (secondTimer >= 1.0f)
             {
-                //if (playThirdQuestion == true)
-                //{
-                //    this.gameObject.GetComponent<AudioSource>().PlayOneShot(thirdQuestion);
-                //    playThirdQuestion = false;
-                //}
-
                 for (int k = 0; k < 3; k++)
                 {
                     GameObject obj = Instantiate(barrelGroup3[k], new Vector3(xValue, yValue, zValue), Quaternion.identity);
@@ -151,11 +125,17 @@ public class BarrelManager : MonoBehaviour
             foreach (GameObject go in destroyList)
             {
                 Destroy(go);
-                //destroyList.Clear();
             }
 
             ladder.gameObject.SetActive(true);
         }
+    }
+
+    private IEnumerator EndGame()
+    {
+        ladder.gameObject.SetActive(true);
+        yield return new WaitForSeconds(15.0f);
+        ladder.gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 
     public void PlayQuestion(int index)

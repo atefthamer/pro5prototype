@@ -7,7 +7,7 @@ public class LetterManager : MonoBehaviour
 {
     public GameObject[] letters;
 
-    float radius = 5f;
+    float radius = 4.0f;
 
     public List<string> sentenceList = new List<string>();
 
@@ -20,8 +20,15 @@ public class LetterManager : MonoBehaviour
     public TextMeshPro scoreText;
     public GameObject ladder;
 
+    public AudioClip correct;
+    public AudioClip incorrect;
+
     [SerializeField]
     Transform lookPoint = null;
+    public GameObject particle;
+
+    public GameObject leftHand;
+    public GameObject rightHand;
 
     void Start()
     {
@@ -40,6 +47,7 @@ public class LetterManager : MonoBehaviour
             instance.name = instance.name.Replace("(Clone)", "").Trim();
             instance.gameObject.GetComponent<LetterController>().lMan = this;
             instance.gameObject.GetComponent<LetterController>().lookPoint = lookPoint;
+            instance.gameObject.GetComponent<LetterController>().hitParticle = particle;
             Debug.Log("Created: " + instance.name + " " + instance.GetInstanceID());
             spawnList.RemoveAt(randomIndex);
         }
@@ -58,6 +66,10 @@ public class LetterManager : MonoBehaviour
         {
             sentence.text = "Goed gedaan! Klim de ladder op om terug te gaan naar de zeppelin";
             ladder.gameObject.SetActive(true);
+            leftHand.gameObject.GetComponent<SphereCollider>().enabled = true;
+            rightHand.gameObject.GetComponent<SphereCollider>().enabled = true;
+            leftHand.gameObject.AddComponent<Rigidbody>();
+            rightHand.gameObject.AddComponent<Rigidbody>();
         }
     }
 
@@ -67,5 +79,15 @@ public class LetterManager : MonoBehaviour
         sentence.text = sentenceList[randomSentence];
         Debug.Log("CURRENT SENTENCE: " + sentenceList[randomSentence]);
         //sentenceList.RemoveAt(randomSentence);
+    }
+
+    public void CorrectSound()
+    {
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(correct);
+    }
+
+    public void IncorrectSound()
+    {
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(incorrect);
     }
 }
