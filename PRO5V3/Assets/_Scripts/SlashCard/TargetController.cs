@@ -33,6 +33,7 @@ public class TargetController : MonoBehaviour
             Destroy(other.gameObject);
             sCon.currentProjectile = null;
             sCon.fired = false;
+            Debug.Log("NEXT LAUNCHER");
             lMan.NextLauncher();
         }
         else if (other.gameObject.CompareTag("projectile") && tMan.firstTarget != null && this.gameObject != tMan.firstTarget)

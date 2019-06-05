@@ -11,12 +11,18 @@ public class CompleteTargetController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Interactable") && tMan.targetHittable == true && tMan.score <= 4)
+        if (other.gameObject.CompareTag("Interactable") && tMan.targetHittable == true)
         {
+            tMan.score++;
             tMan.targetDestroyed = true;
             Destroy(this.gameObject);
             tMan.targetsHit = false;
-            lMan.NextLauncher();
+
+            if (tMan.score < 5)
+            {
+                Debug.Log("NEXT LAUNCHER");
+                lMan.NextLauncher();
+            }
         }
     }
 }

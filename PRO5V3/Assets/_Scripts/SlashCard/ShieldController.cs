@@ -53,6 +53,7 @@ public class ShieldController : MonoBehaviour
                 Destroy(currentProjectile);
                 currentProjectile = null;
                 fired = false;
+                Debug.Log("NEXT LAUNCHER");
                 launcher.NextLauncher();
             }
         }

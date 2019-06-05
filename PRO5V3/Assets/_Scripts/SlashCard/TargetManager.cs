@@ -229,6 +229,7 @@ public class TargetManager : MonoBehaviour
 
         if (lookTimer >= 2.0f)
         {
+            Debug.Log("NEXT LAUNCHER");
             launcherManager.NextLauncher();
             firstTarget.gameObject.transform.Rotate(0, 180, 0);
             //firstTarget.GetComponent<Shake>().ObjectShake();
@@ -243,7 +244,6 @@ public class TargetManager : MonoBehaviour
 
         if (targetDestroyed == true)
         {
-            score++;
             sword.UnchargeSword();
             correct = true;
             speechTimer = 0.0f;
