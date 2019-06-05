@@ -11,6 +11,8 @@ TagManager:
   - Hammer
   - Barrel
   - Zeppelin
+  - Box
+  - Tracker
   layers:
   - Default
   - TransparentFX
