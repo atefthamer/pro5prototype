@@ -7,13 +7,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterShaderMat
-  m_Shader: {fileID: 4800000, guid: c7b975cc66c056943a2574d5c834aeb5, type: 3}
+  m_Name: FlatLand
+  m_Shader: {fileID: 4800000, guid: 1486fdc75b1c646488aa3cbe50a0856e, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -56,31 +56,27 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AlphaFactor: 1
     - _BumpScale: 1
+    - _CollisionWaveLength: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Glossiness: 0.07
+    - _Metallic: 0.44
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RandomHeight: 0.5
-    - _RandomSpeed: 0.5
-    - _Shininess: 1
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _Speed: 100
+    - _RandomHeight: 0
+    - _RandomSpeed: 0
+    - _Shininess: 10
     - _SrcBlend: 1
-    - _Strength: 0.395
     - _UVSec: 0
-    - _WaveHeight: 0.5
-    - _WaveLength: 0.5
-    - _WaveSpeed: 1
+    - _WaveHeight: 0
+    - _WaveLength: 1
+    - _WaveSpeed: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.11681201, g: 0.9552703, b: 0.990566, a: 1}
+    - _Color: {r: 0.20728807, g: 0.39705884, b: 0.28712267, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0.24309677, g: 0.31617647, b: 0.19296063, a: 1}
