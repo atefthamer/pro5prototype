@@ -72,9 +72,9 @@ Material:
     - _Shininess: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 100
+    - _Speed: 30
     - _SrcBlend: 1
-    - _Strength: 0.395
+    - _Strength: 0.08
     - _UVSec: 0
     - _WaveHeight: 0.5
     - _WaveLength: 0.5
