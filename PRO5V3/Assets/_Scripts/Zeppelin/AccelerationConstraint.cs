@@ -6,30 +6,25 @@ public class AccelerationConstraint : MonoBehaviour
 {
     private float lockPos = 0.0f;
 
-    private float minXRot = 0.0f;
-    private float maxXRot = 138.0f;
+    public float minZ = 0.0f;
+    public float maxZ = 0.127f;
 
     void Update()
     {
-        //if (transform.localEulerAngles.x < minXRot)
-        //{
-        //    transform.localEulerAngles = new Vector3(minXRot, lockPos, lockPos);
-        //    //GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
-        //    //GetComponent<Rigidbody>().angularVelocity = new Vector3(0.0f, 0.0f, 0.0f);
-        //}
-        //else transform.localEulerAngles = new Vector3(transform.localRotation.x, lockPos, lockPos);
+        if (transform.localPosition.z < minZ)
+        {
+            transform.localPosition = new Vector3(lockPos, lockPos, minZ);
+            GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            GetComponent<Rigidbody>().angularVelocity = new Vector3(0.0f, 0.0f, 0.0f);
+        }
+        else transform.localPosition = new Vector3(lockPos, lockPos, transform.localPosition.z);
 
-        //if (transform.localEulerAngles.x > maxXRot)
-        //{
-        //    transform.localEulerAngles = new Vector3(maxXRot, lockPos, lockPos);
-        //    //GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
-        //    //GetComponent<Rigidbody>().angularVelocity = new Vector3(0.0f, 0.0f, 0.0f);
-        //}
-        //else transform.localEulerAngles = new Vector3(transform.localRotation.x, lockPos, lockPos);
-
-        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
-        GetComponent<Rigidbody>().angularVelocity = new Vector3(0.0f, 0.0f, 0.0f);
-
-        transform.localPosition = new Vector3(-9.384676e-07f, 0.02357813f, -3.317891e-05f);
+        if (transform.localPosition.z > maxZ)
+        {
+            transform.localPosition = new Vector3(lockPos, lockPos, maxZ);
+            GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            GetComponent<Rigidbody>().angularVelocity = new Vector3(0.0f, 0.0f, 0.0f);
+        }
+        else transform.localPosition = new Vector3(lockPos, lockPos, transform.localPosition.z);
     }
 }
