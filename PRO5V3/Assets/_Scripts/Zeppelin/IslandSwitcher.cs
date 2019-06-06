@@ -7,14 +7,21 @@ using Valve.VR;
 public class IslandSwitcher : MonoBehaviour
 {
     public GameObject player;
-    public ZeppelinSpawner zSpawn;
+    public string sceneName;
+    private GameObject islandTracker;
     private bool destroy = false;
+
+    private void Start()
+    {
+        islandTracker = GameObject.FindGameObjectWithTag("Tracker");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Zeppelin"))
         {
             Debug.Log("Collision Detected");
+            islandTracker.GetComponent<IslandTracker>().lastIsland = sceneName;
             SwitchScene();
         }
     }

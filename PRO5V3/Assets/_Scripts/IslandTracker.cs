@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class IslandTracker : MonoBehaviour
 {
+    [HideInInspector]
+    public string lastIsland;
+
+    private void Start()
+    {
+        lastIsland = "Startingpoint";
+    }
 
     private void Awake()
     {

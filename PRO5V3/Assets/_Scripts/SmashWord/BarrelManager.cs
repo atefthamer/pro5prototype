@@ -14,9 +14,6 @@ public class BarrelManager : MonoBehaviour
 
     private List<GameObject> destroyList = new List<GameObject>();
 
-    private float firstTimer = 0.0f;
-    private float secondTimer = 0.0f;
-
     private float xValue;
     private float yValue;
     private float zValue;
@@ -62,91 +59,75 @@ public class BarrelManager : MonoBehaviour
     {
         if (firstGroupHit == true)
         {
-            foreach (GameObject go in destroyList)
+            for (int j = 0; j < 3; j++)
             {
-                Destroy(go);
-            }
+                GameObject obj = Instantiate(barrelGroup2[j], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                xValue -= 0.8f;
+                obj.name = obj.name.Replace("(Clone)", "").Trim();
+                obj.gameObject.GetComponent<BarrelController>().bMan = this;
+                obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
+                obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
+                destroyList.Add(obj);
 
-            firstTimer += Time.deltaTime;
-
-            if (firstTimer >= 1.0f)
-            {
-                for (int j = 0; j < 3; j++)
+                if (j == 2)
                 {
-                    GameObject obj = Instantiate(barrelGroup2[j], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-                    xValue -= 0.8f;
-                    obj.name = obj.name.Replace("(Clone)", "").Trim();
-                    obj.gameObject.GetComponent<BarrelController>().bMan = this;
-                    obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
-                    obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
-                    destroyList.Add(obj);
-
-                    if (j == 2)
-                    {
-                        xValue = this.gameObject.transform.position.x;
-                        firstGroupHit = false;
-                    }
+                    xValue = this.gameObject.transform.position.x;
+                    firstGroupHit = false;
                 }
             }
         }
 
         if (secondGroupHit == true)
         {
-            foreach (GameObject go in destroyList)
+            for (int k = 0; k < 3; k++)
             {
-                Destroy(go);
-            }
+                GameObject obj = Instantiate(barrelGroup3[k], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                xValue -= 0.8f;
+                obj.name = obj.name.Replace("(Clone)", "").Trim();
+                obj.gameObject.GetComponent<BarrelController>().bMan = this;
+                obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
+                obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
+                destroyList.Add(obj);
 
-            secondTimer += Time.deltaTime;
-
-            if (secondTimer >= 1.0f)
-            {
-                for (int k = 0; k < 3; k++)
+                if (k == 2)
                 {
-                    GameObject obj = Instantiate(barrelGroup3[k], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-                    xValue -= 0.8f;
-                    obj.name = obj.name.Replace("(Clone)", "").Trim();
-                    obj.gameObject.GetComponent<BarrelController>().bMan = this;
-                    obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
-                    obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
-                    destroyList.Add(obj);
-
-                    if (k == 2)
-                    {
-                        xValue = this.gameObject.transform.position.x;
-                        secondGroupHit = false;
-                    }
-                }
+                    xValue = this.gameObject.transform.position.x;
+                    secondGroupHit = false;
+                }         
             }
         }
 
         if (thirdGroupHit == true)
         {
-            foreach (GameObject go in destroyList)
-            {
-                Destroy(go);
-            }
-
             ladder.gameObject.SetActive(true);
         }
     }
 
-    private IEnumerator EndGame()
+    public void RemoveBarrels()
     {
-        ladder.gameObject.SetActive(true);
-        yield return new WaitForSeconds(15.0f);
-        ladder.gameObject.GetComponent<BoxCollider>().enabled = true;
+        foreach (GameObject go in destroyList)
+        {
+            Destroy(go);
+        }
     }
 
-    public void PlayQuestion(int index)
+    public IEnumerator PlayQuestion(int index, float waitTime, bool trigger)
     {
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+        yield return new WaitForSeconds(waitTime);
+        trigger = true;
     }
 
-    public IEnumerator QuestionNumerator(int index)
+    public IEnumerator PlayQuestionWithoutBool(int index, float waitTime)
     {
-        PlayQuestion(index);
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+        yield return new WaitForSeconds(waitTime);
+    }
+
+    public IEnumerator QuestionNumerator(int index, float waitTime)
+    {
+        StartCoroutine(PlayQuestionWithoutBool(index, waitTime));
         yield return new WaitForSeconds(7.0f);
-        PlayQuestion(7);
+        PlayQuestion(7, 1.868f, secondGroupHit);
     }
 }

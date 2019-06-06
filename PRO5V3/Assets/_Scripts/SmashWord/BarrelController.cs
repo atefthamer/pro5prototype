@@ -24,14 +24,14 @@ public class BarrelController : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("FIRST BARREL GROUP HIT");
-            bMan.firstGroupHit = true;
+            bMan.RemoveBarrels();
             if (this.gameObject.name == "Barrel")
             {
-                bMan.PlayQuestion(1);
+                bMan.PlayQuestion(1, 6.170f, bMan.firstGroupHit);
             }
             else
             {
-                bMan.PlayQuestion(3);
+                bMan.PlayQuestion(3, 4.6f, bMan.firstGroupHit);
             }
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 1")
@@ -47,14 +47,14 @@ public class BarrelController : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("SECOND BARREL GROUP HIT");
-            bMan.secondGroupHit = true;
+            bMan.RemoveBarrels();
             if (this.gameObject.name == "Barrel 3")
             {
-                StartCoroutine(bMan.QuestionNumerator(4));
+                StartCoroutine(bMan.QuestionNumerator(4, 6.650f));
             }
             else
             {
-                StartCoroutine(bMan.QuestionNumerator(6));
+                StartCoroutine(bMan.QuestionNumerator(6, 6.515f));
             }
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 4")
@@ -68,14 +68,14 @@ public class BarrelController : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("THIRD BARREL GROUP HIT");
-            bMan.thirdGroupHit = true;
+            bMan.RemoveBarrels();
             if (this.gameObject.name == "Barrel 6")
             {
-                bMan.PlayQuestion(8);
+                bMan.PlayQuestion(8, 18.613f, bMan.thirdGroupHit);
             }
             else
             {
-                bMan.PlayQuestion(10);
+                bMan.PlayQuestion(10, 16.485f, bMan.thirdGroupHit);
             }
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "Barrel 7")
