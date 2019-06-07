@@ -7,7 +7,7 @@ public class LetterManager : MonoBehaviour
 {
     public GameObject[] letters;
 
-    float radius = 4.0f;
+    float radius = 4f;
 
     public List<string> sentenceList = new List<string>();
 

@@ -341,6 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookPoint: {fileID: 0}
   lMan: {fileID: 0}
+  hitParticle: {fileID: 0}
 --- !u!65 &2678305673968931268
 BoxCollider:
   m_ObjectHideFlags: 0
