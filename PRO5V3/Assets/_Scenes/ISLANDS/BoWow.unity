@@ -5370,12 +5370,6 @@ PrefabInstance:
       propertyPath: rightHand
       value: 
       objectReference: {fileID: 1620167384}
-    - target: {fileID: 4687996558322092325, guid: 041328343a6751e469765c09ea98e714,
-        type: 3}
-      propertyPath: letters.Array.data[0]
-      value: 
-      objectReference: {fileID: 297277123953216935, guid: aef84deffced3be4b933e7ae4e25add8,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041328343a6751e469765c09ea98e714, type: 3}
 --- !u!1001 &6585441019963428283

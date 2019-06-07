@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4687996558322092323}
-  m_LocalRotation: {x: -0, y: -0.7991203, z: -0, w: 0.60117114}
+  m_LocalRotation: {x: 0, y: -0.79911846, z: 0, w: 0.60117364}
   m_LocalPosition: {x: 12.453216, y: 0, z: 5.8658304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -45,17 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letters:
-  - {fileID: 8384427851067830883, guid: 277be51724bbb714a8cbf8d416f1f65e, type: 3}
-  - {fileID: 7372949322488102761, guid: b24b1e1d165750949a971bf0bb6d3722, type: 3}
-  - {fileID: 5913691396878325631, guid: 95fb0c86e151aef41b7c9140e72031d3, type: 3}
-  - {fileID: 1673399821939116994, guid: 8f9dce6ac06310a438172728a106b348, type: 3}
-  - {fileID: 33916621507362374, guid: bf6fde51eb1600f4b9b4d6bed008024f, type: 3}
+  - {fileID: 3528380596722123899, guid: abfa6350066f9454980e14bd7c93ca1b, type: 3}
+  - {fileID: 5975046422681310777, guid: b29e3188aabe796479914ee93afd9d0f, type: 3}
+  - {fileID: 5097006475662416127, guid: fb53326094b6e674e9bec7641397038b, type: 3}
+  - {fileID: 8542798252983273504, guid: c5495b7bd81569241b0ffb75cba948b5, type: 3}
+  - {fileID: 607515867982286837, guid: 2454fc8e0d5dfda4386ec68d82fac80d, type: 3}
   sentenceList:
-  - 'Ik moet na school mijn huiswerk maken __ ik wil geen straf   '
-  - '__ schooltijd mogen wij niet op onze mobiel.  '
-  - 'Ik hou van snoepen, buiten spelen __ gamen.  '
-  - 'Mijn vriend en ik vervelen ons __ gaan wij buiten spelen.   '
-  - 'Morgen moet ik naar school __ ik voel mij niet zo lekker. '
+  - Ik moet na school mijn huiswerk maken __ ik wil geen straf
+  - __ schooltijd mogen wij niet op onze mobiel
+  - Ik hou van snoepen, buiten spelen __ gamen
+  - Mijn vriend en ik vervelen ons __ gaan wij buiten spelen
+  - Morgen moet ik naar school __ ik voel mij niet zo lekker
   score: 0
   randomSentence: 0
   sentence: {fileID: 0}
