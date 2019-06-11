@@ -42,12 +42,11 @@ public class BarrelManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             GameObject obj = Instantiate(barrelGroup1[i], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-            xValue -= 0.8f;
+            xValue -= 1.2f;
             obj.name = obj.name.Replace("(Clone)", "").Trim();
             obj.gameObject.GetComponent<BarrelController>().bMan = this;
             obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
             obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
-            obj.gameObject.GetComponent<BarrelController>().particle = particle;
             destroyList.Add(obj);
 
             if (i == 2)
@@ -64,11 +63,10 @@ public class BarrelManager : MonoBehaviour
             for (int j = 0; j < 3; j++)
             {
                 GameObject obj = Instantiate(barrelGroup2[j], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-                xValue -= 0.8f;
+                xValue -= 1.2f;
                 obj.name = obj.name.Replace("(Clone)", "").Trim();
                 obj.gameObject.GetComponent<BarrelController>().bMan = this;
                 obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
-                obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
                 destroyList.Add(obj);
 
                 if (j == 2)
@@ -84,11 +82,10 @@ public class BarrelManager : MonoBehaviour
             for (int k = 0; k < 3; k++)
             {
                 GameObject obj = Instantiate(barrelGroup3[k], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-                xValue -= 0.8f;
+                xValue -= 1.2f;
                 obj.name = obj.name.Replace("(Clone)", "").Trim();
                 obj.gameObject.GetComponent<BarrelController>().bMan = this;
                 obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
-                obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
                 destroyList.Add(obj);
 
                 if (k == 2)
@@ -133,3 +130,6 @@ public class BarrelManager : MonoBehaviour
         PlayQuestion(7, 1.868f, secondGroupHit);
     }
 }
+
+            obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
+            obj.gameObject.GetComponent<BarrelController>().particle = particle;

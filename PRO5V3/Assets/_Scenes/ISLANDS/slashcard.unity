@@ -1572,6 +1572,21 @@ PrefabInstance:
       propertyPath: tMan
       value: 
       objectReference: {fileID: 103965583}
+    - target: {fileID: 8934382774638681251, guid: 74338d4116621a94b8fcacc7e1ed559e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934382774638681251, guid: 74338d4116621a94b8fcacc7e1ed559e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 5856921525568112147, guid: 74338d4116621a94b8fcacc7e1ed559e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 162216580785796029, guid: 74338d4116621a94b8fcacc7e1ed559e,
         type: 3}
       propertyPath: m_Mesh

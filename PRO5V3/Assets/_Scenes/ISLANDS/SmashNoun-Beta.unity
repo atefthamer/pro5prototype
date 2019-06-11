@@ -1973,7 +1973,7 @@ PrefabInstance:
     - target: {fileID: 4542906600888551349, guid: 0391a70420b94954288d869f04750240,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4542906600888551349, guid: 0391a70420b94954288d869f04750240,
         type: 3}
@@ -7189,11 +7189,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1252367881642297297, guid: f634a51d1627d114f84becd756a3e0b9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2435823463458804263, guid: f634a51d1627d114f84becd756a3e0b9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7214,6 +7209,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 644316419}
+    - target: {fileID: 1252367881642297297, guid: f634a51d1627d114f84becd756a3e0b9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3989115023355078696, guid: f634a51d1627d114f84becd756a3e0b9,
         type: 3}
       propertyPath: m_IsTrigger
@@ -7759,17 +7759,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rabcontrol: {fileID: 98876343}
   barrelGroup1:
-  - {fileID: 6690419444243797470, guid: 6516e9cd5c6867d49a81aa377fff429c, type: 3}
-  - {fileID: 6690419444243797470, guid: 866f6a4ea73f77246b2c1d618556b1ee, type: 3}
-  - {fileID: 6690419444243797470, guid: 83ece0ce14b46ad4898de970d2358b70, type: 3}
+  - {fileID: 6275423957589798581, guid: 9f98d75c2adbcae429af48bd9ae24091, type: 3}
+  - {fileID: 6275423957589798581, guid: 20acd1da4ea382d4c9fc41704443d9a6, type: 3}
+  - {fileID: 6275423957589798581, guid: ca4c1172a6c0f874c85f69fe0a0df233, type: 3}
   barrelGroup2:
-  - {fileID: 6690419444243797470, guid: a4a6d4e414436b4469a57579513d152d, type: 3}
-  - {fileID: 6690419444243797470, guid: 97a8d4dab11d9454fab1afe37ddf4adb, type: 3}
-  - {fileID: 6690419444243797470, guid: f73068697bd761d47a01bf4a914c426a, type: 3}
+  - {fileID: 6275423957589798581, guid: cb9b7be964adbfb43a349efbfdcf7538, type: 3}
+  - {fileID: 6275423957589798581, guid: 5ae873eefcddabf4c8a7925a2566f907, type: 3}
+  - {fileID: 6275423957589798581, guid: f05f74bf4fc87cc4ca72148215259b8a, type: 3}
   barrelGroup3:
-  - {fileID: 6690419444243797470, guid: 81d77adf7869bd5459796cf34cea600d, type: 3}
-  - {fileID: 6690419444243797470, guid: d32b7b5ec4694334b8b6011293a0dba1, type: 3}
-  - {fileID: 6690419444243797470, guid: 03b29fcb365de024da0c8902df24ee9c, type: 3}
+  - {fileID: 6275423957589798581, guid: f0741a6ef2baf2748ac4005a48d624dd, type: 3}
+  - {fileID: 6275423957589798581, guid: 6c4b8ceaac06c244a815fef66bbfbaff, type: 3}
+  - {fileID: 6275423957589798581, guid: 06a29f6210da9974a95ad23a5c4d36c1, type: 3}
   ladder: {fileID: 1049687921}
   barrelHit: 0
   foxQuestions:
