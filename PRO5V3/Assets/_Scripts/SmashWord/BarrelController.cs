@@ -8,6 +8,7 @@ public class BarrelController : MonoBehaviour
     public RabController rcontrol;
     public BarrelManager bMan;
     public AudioClip answer;
+    public GameObject particle;
 
     private void Update()
     {
@@ -25,6 +26,7 @@ public class BarrelController : MonoBehaviour
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("FIRST BARREL GROUP HIT");
             bMan.RemoveBarrels();
+            SpawnParticle();
             if (this.gameObject.name == "Barrel")
             {
                 bMan.PlayQuestion(1, 6.170f, bMan.firstGroupHit);
@@ -48,6 +50,7 @@ public class BarrelController : MonoBehaviour
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("SECOND BARREL GROUP HIT");
             bMan.RemoveBarrels();
+            SpawnParticle();
             if (this.gameObject.name == "Barrel 3")
             {
                 StartCoroutine(bMan.QuestionNumerator(4, 6.650f));
@@ -69,6 +72,7 @@ public class BarrelController : MonoBehaviour
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("THIRD BARREL GROUP HIT");
             bMan.RemoveBarrels();
+            SpawnParticle();
             if (this.gameObject.name == "Barrel 6")
             {
                 bMan.PlayQuestion(8, 18.613f, bMan.thirdGroupHit);
@@ -83,5 +87,11 @@ public class BarrelController : MonoBehaviour
             bMan.barrelHit = true;
             StartCoroutine(rcontrol.RabbitTalkSequence3());
         }
+
+    }
+    private void SpawnParticle()
+    {
+        GameObject smoke = Instantiate(particle, this.transform.position, Quaternion.identity);
+        Destroy(smoke, 5.0f);
     }
 }

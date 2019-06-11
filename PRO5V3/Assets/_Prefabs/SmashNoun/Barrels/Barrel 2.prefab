@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 701678300883023219}
   - component: {fileID: 3475642964383447923}
   - component: {fileID: 2095667956857348778}
+  - component: {fileID: 2373072367365238854}
   m_Layer: 0
   m_Name: Barrel 2
   m_TagString: Untagged
@@ -350,6 +351,7 @@ MonoBehaviour:
   rcontrol: {fileID: 0}
   bMan: {fileID: 0}
   answer: {fileID: 8300000, guid: 600c6a4f0a9ee4a42ba71b6de46eb6fc, type: 3}
+  particle: {fileID: 0}
 --- !u!64 &3475642964383447923
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -380,6 +382,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &2373072367365238854
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6690419444243797470}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8fe80dea0b584f24ea9fd475e8e994e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &6429515683890700693
 PrefabInstance:
   m_ObjectHideFlags: 0

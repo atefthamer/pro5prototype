@@ -11,6 +11,7 @@ public class BarrelManager : MonoBehaviour
     public GameObject[] barrelGroup3;
 
     public GameObject ladder;
+    public GameObject particle;
 
     private List<GameObject> destroyList = new List<GameObject>();
 
@@ -46,6 +47,7 @@ public class BarrelManager : MonoBehaviour
             obj.gameObject.GetComponent<BarrelController>().bMan = this;
             obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
             obj.transform.Rotate(-90.0f, 0.0f, 180.0f);
+            obj.gameObject.GetComponent<BarrelController>().particle = particle;
             destroyList.Add(obj);
 
             if (i == 2)
