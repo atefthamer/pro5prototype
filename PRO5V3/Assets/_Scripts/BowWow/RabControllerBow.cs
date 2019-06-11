@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RabControllerSlash : MonoBehaviour
+public class RabControllerBow : MonoBehaviour
 {
     private Animator rab;
     public List<AudioClip> rabbitClips = new List<AudioClip>();
