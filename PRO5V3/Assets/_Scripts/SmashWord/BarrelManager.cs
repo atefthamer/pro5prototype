@@ -12,6 +12,7 @@ public class BarrelManager : MonoBehaviour
 
     public GameObject ladder;
     public GameObject particle;
+    public GameObject fox;
 
     private List<GameObject> destroyList = new List<GameObject>();
 
@@ -48,14 +49,14 @@ public class BarrelManager : MonoBehaviour
         xValue = this.gameObject.transform.position.x;
         yValue = this.gameObject.transform.position.y;
         zValue = this.gameObject.transform.position.z;
-
-        StartCoroutine(StartGame(9.652f, 0));
     }
 
     void Update()
     {
         if (startGame == true)
-        {          
+        {
+            fox.gameObject.GetComponent<Animator>().Play("Talking");
+
             for (int i = 0; i < 3; i++)
             {
                 GameObject obj = Instantiate(barrelGroup1[i], new Vector3(xValue, yValue, zValue), Quaternion.identity);
@@ -154,6 +155,7 @@ public class BarrelManager : MonoBehaviour
     public IEnumerator StartGame(float waitTime, int index)
     {
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+        fox.gameObject.GetComponent<Animator>().Play("Talking");
         yield return new WaitForSeconds(waitTime);
         startGame = true;
     }

@@ -18,6 +18,17 @@ public class RabController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rab = rabbit.GetComponent<Animator>();
+
+        StartCoroutine(RabbitExplanation());
+    }
+
+    public IEnumerator RabbitExplanation()
+    {
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
+        rab.Play("Talking");
+        yield return new WaitForSeconds(12.44f);
+        rab.Play("Idle");
+        StartCoroutine(bMan.StartGame(9.652f, 0));
     }
 
     public IEnumerator RabbitTalkSequence1()
@@ -25,7 +36,7 @@ public class RabController : MonoBehaviour
         anim.Play("Ani_bundle_bunny");
         rab.Play("Jumping Up");
         yield return new WaitForSeconds(3.233f);
-        this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[1]);
         rab.Play("Talking");
         anim.Play("ani_idle_bunny");
         yield return new WaitForSeconds(9.805f);
@@ -46,7 +57,7 @@ public class RabController : MonoBehaviour
         anim.Play("Ani_bundle_bunny");
         rab.Play("Jumping Up");
         yield return new WaitForSeconds(3.233f);
-        this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[1]);
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[2]);
         rab.Play("Talking");
         anim.Play("ani_idle_bunny");
         yield return new WaitForSeconds(20.095f);
@@ -67,7 +78,7 @@ public class RabController : MonoBehaviour
         anim.Play("Ani_bundle_bunny");
         rab.Play("Jumping Up");
         yield return new WaitForSeconds(3.233f);
-        this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[2]);
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[3]);
         rab.Play("Talking");
         anim.Play("ani_idle_bunny");
         yield return new WaitForSeconds(11.001f);
