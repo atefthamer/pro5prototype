@@ -7419,7 +7419,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbitClips:
-  - {fileID: 8300000, guid: f5a5bc16e8701b04c9543cc93d9f37ee, type: 3}
+  - {fileID: 8300000, guid: 3483e622ff30d754a9ad8ef77c2dd874, type: 3}
+  - {fileID: 8300000, guid: c8a6b968ab4e8cc4181b062b1431a0bd, type: 3}
 --- !u!1001 &710375865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17892,7 +17893,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+    - target: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -17940,7 +17941,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+    - target: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}

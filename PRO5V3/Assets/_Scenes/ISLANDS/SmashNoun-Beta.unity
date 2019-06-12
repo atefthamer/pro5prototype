@@ -563,6 +563,7 @@ MonoBehaviour:
   rabbit: {fileID: 149275529}
   bMan: {fileID: 1442996176}
   rabbitClips:
+  - {fileID: 8300000, guid: 9e4bc9cb7ed1261408aab42cb15d3903, type: 3}
   - {fileID: 8300000, guid: 98ee52bc1c3d7f64a942495ba75d753b, type: 3}
   - {fileID: 8300000, guid: 069f62560ec37fd4c83523e8bc2f5a3a, type: 3}
   - {fileID: 8300000, guid: 63002665469c78b45a55cae8f1ecb8a1, type: 3}
@@ -6901,7 +6902,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+    - target: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString
       value: Interactable
       objectReference: {fileID: 0}
@@ -6949,7 +6950,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+    - target: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString
       value: Interactable
       objectReference: {fileID: 0}

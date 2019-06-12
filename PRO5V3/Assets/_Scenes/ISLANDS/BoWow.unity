@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbitClips:
-  - {fileID: 8300000, guid: f5a5bc16e8701b04c9543cc93d9f37ee, type: 3}
+  - {fileID: 8300000, guid: 4619634a84f535444801c5f29a06bfd2, type: 3}
 --- !u!1001 &686197374
 PrefabInstance:
   m_ObjectHideFlags: 0
