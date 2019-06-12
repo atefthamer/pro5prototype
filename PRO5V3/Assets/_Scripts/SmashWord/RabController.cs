@@ -35,8 +35,8 @@ public class RabController : MonoBehaviour
         rab.Play("Idle");
         anim.Play("EmptyState");
         bMan.barrelHit = false;
+        StartCoroutine(bMan.PlayQuestion1(2, 6.077f));
         bMan.RemoveBarrels();
-        bMan.PlayQuestion(2, 6.077f, bMan.firstGroupHit);
     }
 
     public IEnumerator RabbitTalkSequence2()
@@ -54,8 +54,8 @@ public class RabController : MonoBehaviour
         rab.Play("Idle");
         anim.Play("EmptyState");
         bMan.barrelHit = false;
-        bMan.RemoveBarrels();
         StartCoroutine(bMan.QuestionNumerator(5, 3.838f));
+        bMan.RemoveBarrels();
     }
 
     public IEnumerator RabbitTalkSequence3()
@@ -73,7 +73,7 @@ public class RabController : MonoBehaviour
         rab.Play("Idle");
         anim.Play("EmptyState");
         bMan.barrelHit = false;
+        StartCoroutine(bMan.PlayQuestion3(9, 14.351f));
         bMan.RemoveBarrels();
-        bMan.PlayQuestion(9, 14.351f, bMan.thirdGroupHit);
     }
 }
