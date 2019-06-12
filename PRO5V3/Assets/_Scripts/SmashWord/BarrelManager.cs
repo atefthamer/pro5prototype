@@ -25,6 +25,8 @@ public class BarrelManager : MonoBehaviour
     public List<AudioClip> foxQuestions = new List<AudioClip>();
 
     [HideInInspector]
+    public bool startGame = false;
+    [HideInInspector]
     public bool firstGroupHit = false;
     [HideInInspector]
     public bool secondGroupHit = false;
@@ -38,25 +40,29 @@ public class BarrelManager : MonoBehaviour
         xValue = this.gameObject.transform.position.x;
         yValue = this.gameObject.transform.position.y;
         zValue = this.gameObject.transform.position.z;
-
-        for (int i = 0; i < 3; i++)
-        {
-            GameObject obj = Instantiate(barrelGroup1[i], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-            xValue -= 1.2f;
-            obj.name = obj.name.Replace("(Clone)", "").Trim();
-            obj.gameObject.GetComponent<BarrelController>().bMan = this;
-            obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
-            destroyList.Add(obj);
-
-            if (i == 2)
-            {
-                xValue = this.gameObject.transform.position.x;
-            }
-        }
     }
 
     void Update()
     {
+        if (startGame == true)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject obj = Instantiate(barrelGroup1[i], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                xValue -= 1.2f;
+                obj.name = obj.name.Replace("(Clone)", "").Trim();
+                obj.gameObject.GetComponent<BarrelController>().bMan = this;
+                obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
+                destroyList.Add(obj);
+
+                if (i == 2)
+                {
+                    xValue = this.gameObject.transform.position.x;
+                    startGame = false;
+                }
+            }
+        }
+
         if (firstGroupHit == true)
         {
             for (int j = 0; j < 3; j++)
@@ -107,6 +113,13 @@ public class BarrelManager : MonoBehaviour
         {
             Destroy(go);
         }
+    }
+
+    public IEnumerator StartGame()
+    {
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[0]);
+        yield return new WaitForSeconds(9.652f);
+        startGame = true;
     }
 
     public IEnumerator PlayQuestion(int index, float waitTime, bool trigger)

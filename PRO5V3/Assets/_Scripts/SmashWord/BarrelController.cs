@@ -26,7 +26,7 @@ public class BarrelController : MonoBehaviour
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("FIRST BARREL GROUP HIT");
             bMan.RemoveBarrels();
-            SpawnParticle();
+            //SpawnParticle();
             if (this.gameObject.name == "SmashWordBarrel")
             {
                 bMan.PlayQuestion(1, 6.170f, bMan.firstGroupHit);
@@ -50,7 +50,7 @@ public class BarrelController : MonoBehaviour
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("SECOND BARREL GROUP HIT");
             bMan.RemoveBarrels();
-            SpawnParticle();
+            //SpawnParticle();
             if (this.gameObject.name == "SmashWordBarrel 3")
             {
                 StartCoroutine(bMan.QuestionNumerator(4, 6.650f));
@@ -72,7 +72,7 @@ public class BarrelController : MonoBehaviour
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("THIRD BARREL GROUP HIT");
             bMan.RemoveBarrels();
-            SpawnParticle();
+            //SpawnParticle();
             if (this.gameObject.name == "SmashWordBarrel 6")
             {
                 bMan.PlayQuestion(8, 18.613f, bMan.thirdGroupHit);
