@@ -33,21 +33,29 @@ public class BarrelManager : MonoBehaviour
     [HideInInspector]
     public bool thirdGroupHit = false;
 
+    private bool playSound;
+
+    private float timer1 = 0.0f;
+    private float timer2 = 0.0f;
+    private float timer3 = 0.0f;
+    private float timer4 = 0.0f;
+
     void Start()
     {
         barrelHit = false;
+        playSound = true;
 
         xValue = this.gameObject.transform.position.x;
         yValue = this.gameObject.transform.position.y;
         zValue = this.gameObject.transform.position.z;
 
-        StartCoroutine(StartGame(9.652f));
+        StartCoroutine(StartGame(9.652f, 0));
     }
 
     void Update()
     {
         if (startGame == true)
-        {
+        {          
             for (int i = 0; i < 3; i++)
             {
                 GameObject obj = Instantiate(barrelGroup1[i], new Vector3(xValue, yValue, zValue), Quaternion.identity);
@@ -62,50 +70,76 @@ public class BarrelManager : MonoBehaviour
                     xValue = this.gameObject.transform.position.x;
                     startGame = false;
                 }
-            }
+            }        
         }
 
         if (firstGroupHit == true)
         {
-            for (int j = 0; j < 3; j++)
-            {
-                GameObject obj = Instantiate(barrelGroup2[j], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-                xValue -= 1.2f;
-                obj.name = obj.name.Replace("(Clone)", "").Trim();
-                obj.gameObject.GetComponent<BarrelController>().bMan = this;
-                obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
-                destroyList.Add(obj);
+            timer1 += Time.deltaTime;
 
-                if (j == 2)
+            if (timer1 >= 5.0f)
+            {
+                for (int j = 0; j < 3; j++)
                 {
-                    xValue = this.gameObject.transform.position.x;
-                    //firstGroupHit = false;
+                    GameObject obj = Instantiate(barrelGroup2[j], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                    xValue -= 1.2f;
+                    obj.name = obj.name.Replace("(Clone)", "").Trim();
+                    obj.gameObject.GetComponent<BarrelController>().bMan = this;
+                    obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
+                    destroyList.Add(obj);
+
+                    if (j == 2)
+                    {
+                        xValue = this.gameObject.transform.position.x;
+                        firstGroupHit = false;
+                    }
                 }
             }
         }
 
         if (secondGroupHit == true)
         {
-            for (int k = 0; k < 3; k++)
-            {
-                GameObject obj = Instantiate(barrelGroup3[k], new Vector3(xValue, yValue, zValue), Quaternion.identity);
-                xValue -= 1.2f;
-                obj.name = obj.name.Replace("(Clone)", "").Trim();
-                obj.gameObject.GetComponent<BarrelController>().bMan = this;
-                obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
-                destroyList.Add(obj);
+            timer2 += Time.deltaTime;
 
-                if (k == 2)
+            if (timer2 >= 6.5f)
+            {
+                if (playSound == true)
                 {
-                    xValue = this.gameObject.transform.position.x;
-                    secondGroupHit = false;
-                }         
+                    this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[7]);
+                    playSound = false;
+                }
+
+                timer3 += Time.deltaTime;
+
+                if (timer3 >= 1.8f)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        GameObject obj = Instantiate(barrelGroup3[k], new Vector3(xValue, yValue, zValue), Quaternion.identity);
+                        xValue -= 1.2f;
+                        obj.name = obj.name.Replace("(Clone)", "").Trim();
+                        obj.gameObject.GetComponent<BarrelController>().bMan = this;
+                        obj.gameObject.GetComponent<BarrelController>().rcontrol = rabcontrol;
+                        destroyList.Add(obj);
+
+                        if (k == 2)
+                        {
+                            xValue = this.gameObject.transform.position.x;
+                            secondGroupHit = false;
+                        }
+                    }
+                }
             }
         }
 
         if (thirdGroupHit == true)
         {
-            ladder.gameObject.SetActive(true);
+            timer4 += Time.deltaTime;
+
+            if (timer4 >= 14.0f)
+            {
+                ladder.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -117,44 +151,51 @@ public class BarrelManager : MonoBehaviour
         }
     }
 
-    public IEnumerator StartGame(float waitTime)
+    public IEnumerator StartGame(float waitTime, int index)
     {
-        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[0]);
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
         yield return new WaitForSeconds(waitTime);
         startGame = true;
     }
 
-    public IEnumerator PlayQuestion1(int index, float waitTime)
+    public void PlaySound(int index)
     {
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
-        yield return new WaitForSeconds(waitTime);
-        firstGroupHit = true;
     }
 
-    public IEnumerator PlayQuestion2(int index, float waitTime)
-    {
-        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
-        yield return new WaitForSeconds(waitTime);
-        secondGroupHit = true;
-    }
+    //public IEnumerator PlayQuestion1(float waitTime, int index)
+    //{
+    //    this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+    //    Debug.Log(firstGroupHit);
+    //    firstGroupHit = true;
+    //    yield return new WaitForSecondsRealtime(waitTime);
+    //    Debug.Log(firstGroupHit);
+    //}
 
-    public IEnumerator PlayQuestion3(int index, float waitTime)
-    {
-        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
-        yield return new WaitForSeconds(waitTime);
-        thirdGroupHit = true;
-    }
+    //public IEnumerator PlayQuestion2(int index, float waitTime)
+    //{
+    //    this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+    //    yield return new WaitForSeconds(waitTime);
+    //    secondGroupHit = true;
+    //}
 
-    public IEnumerator PlayQuestionWithoutBool(int index, float waitTime)
-    {
-        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
-        yield return new WaitForSeconds(waitTime);
-    }
+    //public IEnumerator PlayQuestion3(int index, float waitTime)
+    //{
+    //    this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+    //    yield return new WaitForSeconds(waitTime);
+    //    thirdGroupHit = true;
+    //}
 
-    public IEnumerator QuestionNumerator(int index, float waitTime)
-    {
-        StartCoroutine(PlayQuestionWithoutBool(index, waitTime));
-        yield return new WaitForSeconds(7.0f);
-        StartCoroutine(PlayQuestion2(7, 1.868f));
-    }
+    //public IEnumerator PlayQuestionWithoutBool(int index, float waitTime)
+    //{
+    //    this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+    //    yield return new WaitForSeconds(waitTime);
+    //}
+
+    //public IEnumerator QuestionNumerator(int index, float waitTime)
+    //{
+    //    StartCoroutine(PlayQuestionWithoutBool(index, waitTime));
+    //    yield return new WaitForSeconds(7.0f);
+    //    StartCoroutine(PlayQuestion2(7, 1.868f));
+    //}
 }
