@@ -40,6 +40,8 @@ public class BarrelManager : MonoBehaviour
         xValue = this.gameObject.transform.position.x;
         yValue = this.gameObject.transform.position.y;
         zValue = this.gameObject.transform.position.z;
+
+        StartCoroutine(StartGame(9.652f));
     }
 
     void Update()
@@ -77,7 +79,7 @@ public class BarrelManager : MonoBehaviour
                 if (j == 2)
                 {
                     xValue = this.gameObject.transform.position.x;
-                    firstGroupHit = false;
+                    //firstGroupHit = false;
                 }
             }
         }
@@ -115,18 +117,32 @@ public class BarrelManager : MonoBehaviour
         }
     }
 
-    public IEnumerator StartGame()
+    public IEnumerator StartGame(float waitTime)
     {
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[0]);
-        yield return new WaitForSeconds(9.652f);
+        yield return new WaitForSeconds(waitTime);
         startGame = true;
     }
 
-    public IEnumerator PlayQuestion(int index, float waitTime, bool trigger)
+    public IEnumerator PlayQuestion1(int index, float waitTime)
     {
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
         yield return new WaitForSeconds(waitTime);
-        trigger = true;
+        firstGroupHit = true;
+    }
+
+    public IEnumerator PlayQuestion2(int index, float waitTime)
+    {
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+        yield return new WaitForSeconds(waitTime);
+        secondGroupHit = true;
+    }
+
+    public IEnumerator PlayQuestion3(int index, float waitTime)
+    {
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
+        yield return new WaitForSeconds(waitTime);
+        thirdGroupHit = true;
     }
 
     public IEnumerator PlayQuestionWithoutBool(int index, float waitTime)
@@ -139,6 +155,6 @@ public class BarrelManager : MonoBehaviour
     {
         StartCoroutine(PlayQuestionWithoutBool(index, waitTime));
         yield return new WaitForSeconds(7.0f);
-        PlayQuestion(7, 1.868f, secondGroupHit);
+        StartCoroutine(PlayQuestion2(7, 1.868f));
     }
 }

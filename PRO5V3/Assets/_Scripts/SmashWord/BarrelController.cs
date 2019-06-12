@@ -25,15 +25,16 @@ public class BarrelController : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("FIRST BARREL GROUP HIT");
-            bMan.RemoveBarrels();
             //SpawnParticle();
             if (this.gameObject.name == "SmashWordBarrel")
             {
-                bMan.PlayQuestion(1, 6.170f, bMan.firstGroupHit);
+                StartCoroutine(bMan.PlayQuestion1(1, 6.170f));
+                bMan.RemoveBarrels();
             }
-            else
+            else if (this.gameObject.name == "SmashWordBarrel 2")
             {
-                bMan.PlayQuestion(3, 4.6f, bMan.firstGroupHit);
+                StartCoroutine(bMan.PlayQuestion1(3, 4.6f));
+                bMan.RemoveBarrels();
             }
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "SmashWordBarrel 1")
@@ -49,15 +50,16 @@ public class BarrelController : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("SECOND BARREL GROUP HIT");
-            bMan.RemoveBarrels();
             //SpawnParticle();
             if (this.gameObject.name == "SmashWordBarrel 3")
             {
                 StartCoroutine(bMan.QuestionNumerator(4, 6.650f));
+                bMan.RemoveBarrels();
             }
-            else
+            else if (this.gameObject.name == "SmashWordBarrel 5")
             {
                 StartCoroutine(bMan.QuestionNumerator(6, 6.515f));
+                bMan.RemoveBarrels();
             }
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "SmashWordBarrel 4")
@@ -71,15 +73,16 @@ public class BarrelController : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("THIRD BARREL GROUP HIT");
-            bMan.RemoveBarrels();
             //SpawnParticle();
             if (this.gameObject.name == "SmashWordBarrel 6")
             {
-                bMan.PlayQuestion(8, 18.613f, bMan.thirdGroupHit);
+                StartCoroutine(bMan.PlayQuestion3(8, 18.613f));
+                bMan.RemoveBarrels();
             }
-            else
+            else if (this.gameObject.name == "SmashWordBarrel 8")
             {
-                bMan.PlayQuestion(10, 16.485f, bMan.thirdGroupHit);
+                StartCoroutine(bMan.PlayQuestion3(10, 16.485f));
+                bMan.RemoveBarrels();
             }
         }
         else if (other.gameObject.CompareTag("Hammer") && this.gameObject.name == "SmashWordBarrel 7")

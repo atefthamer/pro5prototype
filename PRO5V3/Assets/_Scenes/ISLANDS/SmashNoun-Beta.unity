@@ -6886,7 +6886,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+    - target: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString
       value: Interactable
       objectReference: {fileID: 0}
@@ -6934,7 +6934,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+    - target: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString
       value: Interactable
       objectReference: {fileID: 0}
@@ -7771,6 +7771,7 @@ MonoBehaviour:
   - {fileID: 6275423957589798581, guid: 6c4b8ceaac06c244a815fef66bbfbaff, type: 3}
   - {fileID: 6275423957589798581, guid: 06a29f6210da9974a95ad23a5c4d36c1, type: 3}
   ladder: {fileID: 1049687921}
+  particle: {fileID: 0}
   barrelHit: 0
   foxQuestions:
   - {fileID: 8300000, guid: b950262a81a778a4ab099b9939dae713, type: 3}
@@ -7784,6 +7785,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8a9b53119b361964fbaedc40ae284228, type: 3}
   - {fileID: 8300000, guid: 2e6faa2efd2407a4ba460bb6d21d27e6, type: 3}
   - {fileID: 8300000, guid: c4c218327ba5c9847ae4fc043a8b4ed0, type: 3}
+  startGame: 0
   firstGroupHit: 0
   secondGroupHit: 0
   thirdGroupHit: 0
@@ -7811,8 +7813,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b950262a81a778a4ab099b9939dae713, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
