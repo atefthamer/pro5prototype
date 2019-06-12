@@ -3033,7 +3033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rabbitClips:
-  - {fileID: 8300000, guid: 09b5f793df157da4a8a5002aa421a214, type: 3}
+  - {fileID: 8300000, guid: f5a5bc16e8701b04c9543cc93d9f37ee, type: 3}
 --- !u!65 &2101190031
 BoxCollider:
   m_ObjectHideFlags: 0
