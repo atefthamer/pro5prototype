@@ -68,8 +68,9 @@ public class LetterManager : MonoBehaviour
             ladder.gameObject.SetActive(true);
             leftHand.gameObject.GetComponent<SphereCollider>().enabled = true;
             rightHand.gameObject.GetComponent<SphereCollider>().enabled = true;
-            leftHand.gameObject.AddComponent<Rigidbody>();
-            rightHand.gameObject.AddComponent<Rigidbody>();
+            //leftHand.gameObject.AddComponent<Rigidbody>();
+            //rightHand.gameObject.AddComponent<Rigidbody>();
+            score--;
         }
     }
 

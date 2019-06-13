@@ -11,6 +11,5 @@ public class MinimapScript : MonoBehaviour
         Vector3 newPosition = player.position;
         newPosition.y += 6.0f;
         transform.position = newPosition;
-
     }
 }

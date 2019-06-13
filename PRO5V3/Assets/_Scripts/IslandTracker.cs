@@ -6,9 +6,12 @@ public class IslandTracker : MonoBehaviour
 {
     [HideInInspector]
     public string lastIsland;
+    [HideInInspector]
+    public bool zepTutDone;
 
     private void Start()
     {
+        zepTutDone = false;
         lastIsland = "Startingpoint";
     }
 

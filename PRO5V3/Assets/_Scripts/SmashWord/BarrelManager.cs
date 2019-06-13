@@ -55,7 +55,7 @@ public class BarrelManager : MonoBehaviour
     {
         if (startGame == true)
         {
-            fox.gameObject.GetComponent<Animator>().Play("Talking");
+            //fox.gameObject.GetComponent<Animator>().Play("Talking");
 
             for (int i = 0; i < 3; i++)
             {
@@ -155,7 +155,7 @@ public class BarrelManager : MonoBehaviour
     public IEnumerator StartGame(float waitTime, int index)
     {
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(foxQuestions[index]);
-        fox.gameObject.GetComponent<Animator>().Play("Talking");
+        //fox.gameObject.GetComponent<Animator>().Play("Talking");
         yield return new WaitForSeconds(waitTime);
         startGame = true;
     }

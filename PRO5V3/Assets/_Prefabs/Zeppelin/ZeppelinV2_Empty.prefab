@@ -1,0 +1,297 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3079086276606009349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3257469111542762015}
+  - component: {fileID: 2196680291671955284}
+  - component: {fileID: 4457790147545789843}
+  m_Layer: 0
+  m_Name: ZeppelinBalloon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3257469111542762015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3079086276606009349}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.110223e-18, y: 0.0060575586, z: 4.440892e-18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2198543796862599420}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2196680291671955284
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3079086276606009349}
+  m_Mesh: {fileID: 4300000, guid: ff9bc03b43efab649a70a15f39c7f741, type: 3}
+--- !u!23 &4457790147545789843
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3079086276606009349}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ff9bc03b43efab649a70a15f39c7f741, type: 3}
+  - {fileID: 2100002, guid: ff9bc03b43efab649a70a15f39c7f741, type: 3}
+  - {fileID: 2100004, guid: ff9bc03b43efab649a70a15f39c7f741, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &3231462950422907734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7477572570973655716}
+  - component: {fileID: 4941199408381003985}
+  - component: {fileID: 7350298260254223556}
+  m_Layer: 0
+  m_Name: ZeppelinCockpit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7477572570973655716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231462950422907734}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0001, y: -0.03299673, z: 0.019761615}
+  m_LocalScale: {x: 0.609904, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2198543796862599420}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4941199408381003985
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231462950422907734}
+  m_Mesh: {fileID: 4300002, guid: ff9bc03b43efab649a70a15f39c7f741, type: 3}
+--- !u!23 &7350298260254223556
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3231462950422907734}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100002, guid: ff9bc03b43efab649a70a15f39c7f741, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!1 &8831697449127359497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2198543796862599420}
+  m_Layer: 0
+  m_Name: ZeppelinV2_Empty
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2198543796862599420
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8831697449127359497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 16.61, z: -3.48}
+  m_LocalScale: {x: 182.59943, y: 182.59943, z: 182.59943}
+  m_Children:
+  - {fileID: 3257469111542762015}
+  - {fileID: 7477572570973655716}
+  - {fileID: 4757320255510840365}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1295623813
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2198543796862599420}
+    m_Modifications:
+    - target: {fileID: 4276598308739230249, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_Name
+      value: RopeLadder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276598308739230249, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0062979376
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.056517154
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.020755814
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.06134617
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.061346147
+      objectReference: {fileID: 0}
+    - target: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.06134617
+      objectReference: {fileID: 0}
+    - target: {fileID: 861598184883093471, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 861598184883093471, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.058
+      objectReference: {fileID: 0}
+    - target: {fileID: 861598184883093471, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.132
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627183771427830317, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627183771427830317, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: ladderTop
+      value: 
+      objectReference: {fileID: 8849849580277574334}
+    - target: {fileID: 8849849581436668987, guid: ca7865a89fdcc3947b7367b335fe32fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ca7865a89fdcc3947b7367b335fe32fa, type: 3}
+--- !u!4 &4757320255510840365 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4757320256530621096, guid: ca7865a89fdcc3947b7367b335fe32fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1295623813}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8849849580277574334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8849849581436668987, guid: ca7865a89fdcc3947b7367b335fe32fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 1295623813}
+  m_PrefabAsset: {fileID: 0}
