@@ -13,14 +13,14 @@ public class RabControllerForest : MonoBehaviour
         StartCoroutine(RabbitTalkSequence1());
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Interactable"))
-        {
-            this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
-            rab.Play("Talking");
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Interactable"))
+    //    {
+    //        this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
+    //        rab.Play("Talking");
+    //    }
+    //}
 
     public IEnumerator RabbitTalkSequence1()
     {

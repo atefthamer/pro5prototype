@@ -36,7 +36,7 @@ public class BarrelController : MonoBehaviour
             else if (this.gameObject.name == "SmashWordBarrel 2")
             {
                 //StartCoroutine(bMan.PlayQuestion1(4.6f, 3));
-                bMan.PlaySound(2);
+                bMan.PlaySound(3);
                 bMan.RemoveBarrels();
                 bMan.firstGroupHit = true;
             }

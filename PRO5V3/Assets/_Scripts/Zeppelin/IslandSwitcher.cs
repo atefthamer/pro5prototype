@@ -28,6 +28,7 @@ public class IslandSwitcher : MonoBehaviour
 
     private void SwitchScene()
     {
+        StartEngine.EngineRunning = false;
         Destroy(player);
         destroy = true;
 
