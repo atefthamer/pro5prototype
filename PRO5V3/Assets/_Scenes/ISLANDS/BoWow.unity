@@ -2280,7 +2280,7 @@ PrefabInstance:
     - target: {fileID: 2198543796862599420, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.65
+      value: 4.54
       objectReference: {fileID: 0}
     - target: {fileID: 2198543796862599420, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}
@@ -2290,7 +2290,7 @@ PrefabInstance:
     - target: {fileID: 2198543796862599420, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.55
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 2198543796862599420, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}
@@ -2315,7 +2315,7 @@ PrefabInstance:
     - target: {fileID: 2198543796862599420, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2198543796862599420, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}
@@ -3608,6 +3608,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 160596, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_TagString
       value: Interactable
@@ -3642,7 +3650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3655,10 +3663,6 @@ PrefabInstance:
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 144230, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
-      propertyPath: m_TagString
-      value: Interactable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}

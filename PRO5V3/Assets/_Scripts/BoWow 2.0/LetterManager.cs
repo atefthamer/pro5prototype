@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Valve.VR;
+using Valve.VR.InteractionSystem;
 
 public class LetterManager : MonoBehaviour
 {
     public GameObject[] letters;
+
+    public GameObject bowPickup;
 
     float radius = 4f;
 

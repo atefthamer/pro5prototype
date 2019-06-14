@@ -15,7 +15,7 @@ public class RabControllerForest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Interactable"));
+        if (other.gameObject.CompareTag("Interactable"))
         {
             this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
             rab.Play("Talking");
@@ -26,5 +26,12 @@ public class RabControllerForest : MonoBehaviour
     {
         yield return new WaitForSeconds(3.233f);
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
+    }
+
+    public IEnumerator RabbitToppertje()
+    {
+        StopCoroutine(RabbitTalkSequence1());
+        yield return new WaitForSeconds(0.0f);
+        this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[1]);
     }
 }

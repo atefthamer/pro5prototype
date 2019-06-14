@@ -8,10 +8,13 @@ public class IslandTracker : MonoBehaviour
     public string lastIsland;
     [HideInInspector]
     public bool zepTutDone;
+    [HideInInspector]
+    public bool zepTutDone2;
 
     private void Start()
     {
         zepTutDone = false;
+        zepTutDone2 = false;
         lastIsland = "Startingpoint";
     }
 

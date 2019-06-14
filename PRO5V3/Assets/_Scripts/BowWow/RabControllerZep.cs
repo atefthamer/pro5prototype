@@ -6,6 +6,7 @@ public class RabControllerZep : MonoBehaviour
 {
     public List<AudioClip> rabbitClips = new List<AudioClip>();
     private GameObject islandTracker;
+    private bool bol = false;
 
     void Start()
     {
@@ -17,13 +18,27 @@ public class RabControllerZep : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (StartEngine.EngineRunning == true && islandTracker.GetComponent<IslandTracker>().zepTutDone2 == false && bol == false)
+        {
+            StartCoroutine(RabbitTalkSequence2());
+            bol = true;
+        }
+    }
+
     public IEnumerator RabbitTalkSequence()
     {
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
         yield return new WaitForSeconds(8.392f);
+        islandTracker.GetComponent<IslandTracker>().zepTutDone = true;
+    }
+
+    public IEnumerator RabbitTalkSequence2()
+    {
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[1]);
         yield return new WaitForSeconds(20.942f);
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[2]);
-        islandTracker.GetComponent<IslandTracker>().zepTutDone = true;
+        islandTracker.GetComponent<IslandTracker>().zepTutDone2 = true;
     }
 }

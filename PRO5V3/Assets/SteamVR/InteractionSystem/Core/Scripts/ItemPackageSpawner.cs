@@ -182,7 +182,7 @@ namespace Valve.VR.InteractionSystem
 
 
 		//-------------------------------------------------
-		private void TakeBackItem( Hand hand )
+		public void TakeBackItem( Hand hand )
 		{
 			RemoveMatchingItemsFromHandStack( itemPackage, hand );
 
