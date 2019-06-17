@@ -10,10 +10,7 @@ public class LauncherManager : MonoBehaviour
 
     private void Start()
     {
-        index = Random.Range(0, launchers.Count);
-        currentLauncher = launchers[index];
-        launchers[index].SetActive(true);
-        print(currentLauncher.name);
+        StartCoroutine(StartMinigame());
     }
 
     public void NextLauncher()
@@ -23,6 +20,15 @@ public class LauncherManager : MonoBehaviour
             obj.SetActive(false);
         }
 
+        index = Random.Range(0, launchers.Count);
+        currentLauncher = launchers[index];
+        launchers[index].SetActive(true);
+        print(currentLauncher.name);
+    }
+
+    private IEnumerator StartMinigame()
+    {
+        yield return new WaitForSeconds(22.0f);
         index = Random.Range(0, launchers.Count);
         currentLauncher = launchers[index];
         launchers[index].SetActive(true);
