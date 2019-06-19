@@ -15,7 +15,7 @@ public class CheckBall : MonoBehaviour
             timer -= Time.deltaTime;
         }
 
-        if (timer <= 0.0f)
+        if (timer <= 0.0f || Input.GetKeyDown(KeyCode.Space))
         {
             //Debug.Log("Time's up");
             ball.RespawnBall();
