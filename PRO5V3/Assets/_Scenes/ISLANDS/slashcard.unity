@@ -301,11 +301,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZeppelinV2_Empty
       objectReference: {fileID: 0}
-    - target: {fileID: 4276598307444853932, guid: 6331cf316fb6887419992ee04b2dce54,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2198543796862599420, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -359,6 +354,11 @@ PrefabInstance:
     - target: {fileID: 2198543796862599420, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276598307444853932, guid: 6331cf316fb6887419992ee04b2dce54,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1627183770300177576, guid: 6331cf316fb6887419992ee04b2dce54,
@@ -2051,6 +2051,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 721ca5196735575409c0f92973ceb8d0, type: 2}
+    - target: {fileID: 9500000, guid: 87cc1a1fc1eb0f64eaaefbc585c15372, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: bfece1f1a5664a84488ccfaa7497607e, type: 3}
     - target: {fileID: 400010, guid: 87cc1a1fc1eb0f64eaaefbc585c15372, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -15.171783
