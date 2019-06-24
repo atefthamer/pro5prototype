@@ -25,7 +25,7 @@ public class BarrelController : MonoBehaviour
         {
             this.gameObject.GetComponent<MeshCollider>().enabled = false;
             Debug.Log("FIRST BARREL GROUP HIT");
-            //SpawnParticle();
+            this.gameObject.GetComponent<Animator>().Play("BarrelAnimation");
             if (this.gameObject.name == "SmashWordBarrel")
             {
                 //StartCoroutine(bMan.PlayQuestion1(6.17f, 1));
