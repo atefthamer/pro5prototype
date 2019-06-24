@@ -18,7 +18,7 @@ public class IslandSwitcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Zeppelin"))
+        if (other.gameObject.CompareTag("Zeppelin") && islandTracker.GetComponent<IslandTracker>().lastIsland != sceneName)
         {
             Debug.Log("Collision Detected");
             islandTracker.GetComponent<IslandTracker>().lastIsland = sceneName;
