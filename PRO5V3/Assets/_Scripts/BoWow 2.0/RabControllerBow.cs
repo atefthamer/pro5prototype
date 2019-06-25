@@ -27,4 +27,12 @@ public class RabControllerBow : MonoBehaviour
         yield return new WaitForSeconds(3.233f);
         this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("projectile"))
+        {
+            this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
+        }
+    }
 }

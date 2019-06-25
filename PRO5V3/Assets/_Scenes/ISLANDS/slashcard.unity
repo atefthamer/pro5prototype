@@ -2979,6 +2979,7 @@ GameObject:
   - component: {fileID: 2101190031}
   - component: {fileID: 2101190030}
   - component: {fileID: 2101190029}
+  - component: {fileID: 2101190032}
   m_Layer: 0
   m_Name: RabbitAniContainer
   m_TagString: Untagged
@@ -3143,6 +3144,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.68998486, y: 1.2778939, z: 0.59644353}
   m_Center: {x: 0.15500891, y: 0.596145, z: 0.0098264795}
+--- !u!54 &2101190032
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101190026}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2312680534831153802
 PrefabInstance:
   m_ObjectHideFlags: 0
