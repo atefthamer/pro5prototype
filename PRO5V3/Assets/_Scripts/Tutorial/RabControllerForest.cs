@@ -22,6 +22,15 @@ public class RabControllerForest : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            this.gameObject.GetComponent<AudioSource>().PlayOneShot(rabbitClips[0]);
+            rab.Play("Talking");
+        }
+    }
+
     public IEnumerator RabbitTalkSequence1()
     {
         yield return new WaitForSeconds(3.233f);
