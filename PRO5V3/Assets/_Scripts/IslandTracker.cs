@@ -11,6 +11,11 @@ public class IslandTracker : MonoBehaviour
     [HideInInspector]
     public bool zepTutDone2;
 
+    public int forestDone = 0;
+    public int desertDone = 0;
+    public int snowDone = 0;
+    public int tropicalDone = 0;
+
     private void Start()
     {
         zepTutDone = false;

@@ -33,9 +33,13 @@ public class LetterManager : MonoBehaviour
 
     public GameObject leftHand;
     public GameObject rightHand;
+    private GameObject tracker;
 
     void Start()
     {
+        tracker = GameObject.FindGameObjectWithTag("Tracker");
+        tracker.GetComponent<IslandTracker>().tropicalDone++;
+
         score = 0;
 
         List<GameObject> spawnList = new List<GameObject>(letters);

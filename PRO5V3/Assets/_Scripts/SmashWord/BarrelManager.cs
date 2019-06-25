@@ -13,6 +13,7 @@ public class BarrelManager : MonoBehaviour
     public GameObject ladder;
     public GameObject particle;
     public GameObject fox;
+    private GameObject tracker;
 
     private List<GameObject> destroyList = new List<GameObject>();
 
@@ -53,6 +54,9 @@ public class BarrelManager : MonoBehaviour
 
     void Update()
     {
+        tracker = GameObject.FindGameObjectWithTag("Tracker");
+        tracker.GetComponent<IslandTracker>().desertDone++;
+
         if (startGame == true)
         {
             //fox.gameObject.GetComponent<Animator>().Play("Talking");

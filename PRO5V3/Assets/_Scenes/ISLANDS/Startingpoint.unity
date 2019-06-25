@@ -3113,8 +3113,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.005162019, y: 0.041700345, z: 0.04204244}
-  m_Center: {x: 0.0027034776, y: -0.000019374453, z: 0.00022650778}
+  m_Size: {x: 0.0051620184, y: 0.038065612, z: 0.037583247}
+  m_Center: {x: 0.0027034772, y: 0.0003398109, z: 0.00017793669}
 --- !u!54 &288032594
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13979,6 +13979,10 @@ MonoBehaviour:
   lastIsland: 
   zepTutDone: 0
   zepTutDone2: 0
+  forestDone: 0
+  desertDone: 0
+  snowDone: 0
+  tropicalDone: 0
 --- !u!4 &1313447268
 Transform:
   m_ObjectHideFlags: 0
@@ -19492,16 +19496,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZeppelinV2_Empty
       objectReference: {fileID: 0}
-    - target: {fileID: 4276598307444853932, guid: 6331cf316fb6887419992ee04b2dce54,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4276598307444853932, guid: 6331cf316fb6887419992ee04b2dce54,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 2198543796862599420, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19556,6 +19550,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276598307444853932, guid: 6331cf316fb6887419992ee04b2dce54,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276598307444853932, guid: 6331cf316fb6887419992ee04b2dce54,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1627183770300177576, guid: 6331cf316fb6887419992ee04b2dce54,
         type: 3}

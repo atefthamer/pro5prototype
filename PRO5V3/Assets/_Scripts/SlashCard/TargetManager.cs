@@ -43,6 +43,7 @@ public class TargetManager : MonoBehaviour
     public SlashcardSFX SFX;
     public GameObject spawnPoint;
     public GameObject ladder;
+    private GameObject tracker;
 
     private float xValue;
     private float yValue;
@@ -50,6 +51,9 @@ public class TargetManager : MonoBehaviour
 
     private void Start()
     {
+        tracker = GameObject.FindGameObjectWithTag("Tracker");
+        tracker.GetComponent<IslandTracker>().snowDone++;
+
         correct = true;
         incorrect = true;
         score = 0;
