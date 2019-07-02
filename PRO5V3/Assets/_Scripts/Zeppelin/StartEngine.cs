@@ -16,29 +16,6 @@ public class StartEngine : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (EngineRunning == false)
-            {
-                EngineRunning = true;
-                Debug.Log("ENGINE RUNNING: " + EngineRunning);
-                StartCoroutine(PressButton());
-                gameObject.GetComponent<Renderer>().materials = engineOnMaterials;
-            }
-            else if (EngineRunning == true)
-            {
-                EngineRunning = false;
-                Debug.Log("ENGINE RUNNING: " + EngineRunning);
-                StartCoroutine(PressButton());
-                throttle.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-                steer.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-                gameObject.GetComponent<Renderer>().materials = engineOffMaterials;
-            }
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Interactable"))
